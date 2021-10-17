@@ -1,3 +1,3 @@
 # TBA
 
-echo "TBA"
+echo "TBA Setup"

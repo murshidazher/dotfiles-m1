@@ -1,0 +1,16 @@
+#!/bin/sh
+# $ wdate canad
+# Canada/Pacific                     Wed 2020-01-15 04:03:54
+# Canada/Central                     Wed 2020-01-15 06:03:54
+# ...
+
+# Show date and time in other time zones
+zoneinfo=/usr/share/zoneinfo/posix/
+format='%a %F %T'
+
+find -L $zoneinfo -type f |
+  grep -i "$1" |
+  while read z; do
+    d=$(TZ=$z date +"$format")
+    printf "%-34s %23s\n" ${z#$zoneinfo} "$d"
+  done

@@ -1,0 +1,19 @@
+{
+  "Markdown Blog Front-matter": {
+    "prefix": "~fm",
+    "body": [
+      "---",
+      "title: \"$0${1:${CLIPBOARD}}\"",
+      "date: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}+05:30",
+      "draft: ${6:false}",
+      "emoji: \"${2::call_me_hand:}\"",
+      "description: \"${3:Subheading or a short description.}\"",
+      "slug: \"${4:${CLIPBOARD/[' ']/-/gi}}\"",
+      "url: \"${4:${CLIPBOARD/[' ']/-/gi}}\"",
+      "tags: [\"${7:tag}\"]",
+      "syndicate: \"${8:false}\"",
+      "---"
+    ],
+    "description": "Generate Blog front-matter"
+  }
+}

@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+# Build, dedupe and then export PATH for Filesystem Hierarchy Standard (FHS).
+# https://superuser.com/questions/325194/what-are-the-meanings-of-usr-sbin-usr-local-sbin-and-usr-local-bin
+PATH="$HOME/bin"
+PATH="$PATH:$HOME/.local/bin"
+PATH="$PATH:/usr/local/bin"
+PATH="$PATH:/usr/bin"
+PATH="$PATH:/bin"
+PATH="$PATH:/usr/local/sbin"
+PATH="$PATH:/usr/sbin"
+PATH="$PATH:/sbin"
+PATH="$PATH:/usr/X11/b‌​in"
+
+# Node -- use project specific binaries before global ones.
+PATH="node_modules/.bin:vendor/bin:$HOME/.node-global-modules/bin:$PATH"
+
+# gnu-sed
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
+# vim/vi
+PATH="/usr/local/bin/vim:$PATH"
+
+# Go
+PATH="$GOPATH/bin:$PATH"
+PATH="$PATH:/usr/local/opt/go/libexec/bin"
+
+# rbenv
+PATH="$HOME/.rbenv/bin:$PATH"
+
+# mysql@5.7
+PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+# awscli
+PATH="/usr/local/aws/bin:$PATH"
+
+# Source local path config
+if [ -e "$HOME/.path.local" ]; then
+  source "$HOME/.path.local"
+fi
+
+# vscode
+PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# llvm
+PATH="/usr/local/opt/llvm/bin:$PATH"
+
+# miniconda
+PATH="$MINICONDA_PATH/bin:$PATH"
+
+# asdf
+PATH="$ASDF_PATH/shims:$PATH"
+
+# openjdk8
+PATH="/usr/local/opt/openjdk@8/bin:$PATH"
+
+# php
+PATH="$(brew --prefix bison)/bin:$PATH"
+
+# Dedupe using awk.
+if hash awk 2>/dev/null; then
+  PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++{if (NR > 1) printf ORS; printf $a[$1]}')
+fi
+
+export PATH

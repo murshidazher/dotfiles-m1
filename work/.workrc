@@ -1,0 +1,12 @@
+alias devdif="cd $HOME/Work/src/github"
+
+# :Different projects
+alias api="cd $HOME/Work/src/github/api"
+alias andi="cd $HOME/Work/src/github/andi"
+alias admin-portal="cd $HOME/Work/src/github/admin-portal-frontend"
+alias yakka="cd $HOME/Work/src/github/yakka"
+alias admin-backend="cd $HOME/Work/src/github/admin-portal-backend"
+alias owner-portal="cd $HOME/Work/src/github/owner-portal-frontend"
+alias owner-app="cd $HOME/Work/src/github/react-native-owner-app"
+alias tenant-app="cd $HOME/Work/src/github/react-native-tenant-app"
+alias dbs="cd $HOME/Work/db_backup"

@@ -16,8 +16,7 @@ bash -c "`curl -L https://git.io/dotfiles-m1`"
 
 ## TODO
 
-- Change folder name after clone to `dotfiles`
-- https://firebase.google.com/docs/app-distribution/ios/distribute-fastlane
+- [ ] https://firebase.google.com/docs/app-distribution/ios/distribute-fastlane
 
 ## License
 

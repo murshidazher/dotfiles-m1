@@ -4,7 +4,7 @@ TBA
 
 ## Installing / Getting started
 
-> ⚠️ Scripts in this project performs automated tasks. Review the code first and use at your own risk! ⚠️
+> ⚠️ Scripts in this project performs automated tasks. Review the code first and use at your own risk!
 
 ### Setup
 

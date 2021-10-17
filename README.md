@@ -2,6 +2,8 @@
 TBA
 
 ## TODO
+
+- Change folder name after clone to `dotfiles`
 - https://firebase.google.com/docs/app-distribution/ios/distribute-fastlane
 
 ## License

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "github",
+    "rootPath": "$home/dev/src/github",
+    "paths": [],
+    "group": ""
+  },
+  {
+    "name": "repos",
+    "rootPath": "$home/repos",
+    "paths": [],
+    "group": ""
+  }
+]

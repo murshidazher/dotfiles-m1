@@ -1,0 +1,2 @@
+export JAVA_HOME="$HOME/.asdf/installs/java/adoptopenjdk-8.0.282+8"
+export MAVEN_HOME="$HOME/.asdf/installs/maven/3.6.3"

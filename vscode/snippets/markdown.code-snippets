@@ -1,0 +1,16 @@
+{
+  "Markdown Blog Front-matter": {
+    "prefix": "~fmatter",
+    "body": [
+      "+++",
+      "title = \"$0${1:Blog Heading}\"",
+      "emoji = \"${2::call_me_hand:}\"",
+      "date = \"${3:$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATET $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECONDZ}\"",
+      "description = \"${4:Subheading or a short description.}\"",
+      "slug = \"${5:$TM_FILENAME}\"",
+      "url = \"${6:$TM_FILENAME}\"",
+      "+++"
+    ],
+    "description": "Generate Blog front-matter"
+  }
+}

@@ -1,0 +1,2 @@
+# Installs shouldn't waste time on documentation.
+gem: --no-document

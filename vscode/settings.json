@@ -1,0 +1,138 @@
+{
+  "editor.minimap.enabled": false,
+  "workbench.statusBar.visible": true,
+  "workbench.activityBar.visible": true,
+  "editor.fontSize": 12,
+  "window.titleBarStyle": "native",
+  "window.title": " ${activeEditorMedium}${separator}${rootName}${separator}${appName}",
+  "css.validate": false,
+  "scss.validate": false,
+  "less.validate": false,
+  "editor.wordWrap": "on",
+  "vetur.validation.template": false,
+  // Controls the font family.
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.colorTheme": "Default Dark+",
+  // "workbench.colorTheme": "Material Theme Palenight High Contrast",
+  // "workbench.colorTheme": "Nord",
+  "editor.tokenColorCustomizations": {
+    "[Nord]": {
+      "textMateRules": [
+        {
+          "name": "Comment",
+          "scope": "comment",
+          "settings": {
+            "foreground": "#4C566A"
+          }
+        }
+      ]
+    }
+  },
+  // Turn if off for js
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "editor.formatOnPaste": true,
+  "eslint.alwaysShowStatus": true,
+  "prettier.requireConfig": true,
+  "emmet.showSuggestionsAsSnippets": true,
+  "emmet.triggerExpansionOnTab": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": true
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": true
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": true
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.formatOnType": true,
+  "git.autofetch": true,
+  "window.zoomLevel": 0,
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": true,
+  "editor.formatOnSave": true,
+  "[vue]": {
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+  "emmet.includeLanguages": {
+    "vue": "html",
+    "javascript": "javascriptreact"
+  },
+  "vetur.completion.useScaffoldSnippets": false,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  "python.linting.enabled": true,
+  "htmltagwrap.tag": "div",
+  "cSpell.userWords": ["murshidazher"],
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    }
+  },
+  "yaml.trace.server": "off",
+  "yaml.format.enable": true,
+  "insertDateString.format": "iso",
+  "git.enabled": true,
+  "git.path": "/usr/bin/git",
+  "workbench.preferredDarkColorTheme": "Nord",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "dash.languageIdToDocsetMap": {
+    "ansible": ["ansible"],
+    "typescript": ["typescript", "javascript"],
+    "javascript": [
+      "javascript",
+      "react",
+      "nodejs",
+      "express",
+      "awsjs",
+      "sinon",
+      "jest"
+    ],
+    "terraform": ["terraform"],
+    "sass": ["sass", "css"]
+  },
+  "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace, 'Source Code Pro'",
+  "javascript.validate.enable": false,
+  "jsonnet.executablePath": "/usr/local/Cellar/jsonnet/0.17.0/bin",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "files.associations": {
+    "*int.js": "javascript"
+  },
+  "blockhighlight.background": ["255", "90", "97", ".03"]
+}

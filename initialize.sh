@@ -152,17 +152,19 @@ else
   exit -1
 fi
 
-#exit -1
-
 # Ask for the administrator password upfront.
 ask_for_sudo
 
 # Source directories and files to handle.
 source ./setup/files.sh
 
+# Download all available macos updates.
+action "Download Mac updates:\n"
+sudo softwareupdate -d -a
+
 # Install all available macos updates.
 action "Installing Mac updates:\n"
-sudo softwareupdate -ia
+sudo softwareupdate -iaR
 
 #-------------------------------------------
 # Prerequisite: Login to Github

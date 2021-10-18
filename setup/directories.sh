@@ -12,17 +12,17 @@ bot "Create required directories."
 # Declare array of directories.
 declare -a createdirarray=(
   "$HOME/Applications"
-  "$HOME/Work"
+  "$HOME/work"
   "$HOME/dev/src/github"
   "$HOME/Pictures/wallpapers"
   "$HOME/code"
   "$HOME/.tmp"
   "$HOME/.ssh"
   "$HOME/.ssh/control"
-  "$HOME/Work/db_backup/mysql"
-  "$HOME/Work/db_backup/mongodb"
-  "$HOME/Work/src"
-  "$HOME/Work/src/github"
+  "$HOME/work/db_backup/mysql"
+  "$HOME/work/db_backup/mongodb"
+  "$HOME/work/src"
+  "$HOME/work/src/github"
 )
 
 action "Creating directories"

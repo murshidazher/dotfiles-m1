@@ -68,7 +68,7 @@ cp -Rp "$HOME/Documents" "$migrationdir"
 cp -Rp "$HOME/Downloads" "$migrationdir"
 cp -Rp "$HOME/code" "$migrationdir"
 cp -Rp "$HOME/dev" "$migrationdir"
-cp -Rp "$HOME/Work" "$migrationdir"
+cp -Rp "$HOME/work" "$migrationdir"
 
 # Suggest to user other files to handle.
 warn "Consider how to migrate your Applications."

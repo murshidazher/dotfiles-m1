@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 debug=${1:-false}
 
 # some bash library helpers
@@ -64,22 +64,22 @@ function awesome_header() {
   echo -en "\n"
 }
 
-ask_for_confirmation() {
+function ask_for_confirmation() {
   echo -e "\e[1m$1\e[0m (y/N) "
   read -n 1
   echo -e "\n"
 }
 
-answer_is_yes() {
+function answer_is_yes() {
   [[ "$REPLY" =~ ^(y|Y) ]] && return 0 || return 1
 }
 
-print_result() {
+function print_result() {
   [ $1 -eq 0 ] && success "$2" || error "$2"
   [ "$3" == "true" ] && [ $1 -ne 0 ] && exit
 }
 
-execute() {
+function execute() {
   if $debug; then
     $1
   else
@@ -117,6 +117,22 @@ function require_brew() {
     fi
   fi
 
+  ok
+}
+
+# run architecture agnostic commands
+function agnostic() {
+  arch -arm64e "$@"
+
+  if [[ $? != 0 ]]; then
+    warn "failed to install using m1 $1!"
+    echo "Command not supported in M1 - $@" >>~/installation_setup.log
+    arch -x86_64 "$@"
+
+    if [[ $? != 0 ]]; then
+      error "failed to run $@"
+    fi
+  fi
   ok
 }
 

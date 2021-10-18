@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Setup vscode and packages
 debug=${1:-false}
@@ -6,6 +6,7 @@ debug=${1:-false}
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
   source ./lib.sh
+  source ../zsh.d/homebrew
 fi
 
 # Set defaultdotfilesdir var if not declared.

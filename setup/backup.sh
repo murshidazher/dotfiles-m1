@@ -1,16 +1,17 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 debug=${1:-false}
 
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
   source ./lib.sh
-fi;
+  source ../zsh.d/homebrew
+fi
 
 # Load dirs and files if not already loaded.
 if [ -z ${filesloaded+x} ]; then
   source ./files.sh
   echo -en "\n"
-fi;
+fi
 
 bot "Backup directories and files we'll be touching."
 
@@ -34,14 +35,14 @@ else
   error "Errors when creating backup directories, please check and resolve."
   cancelled "\e[1mCannot proceed. Exit.\e[0m"
   exit -1
-fi;
+fi
 
 action "Backup directories"
 # Loop array of directories that dotfiles handles, copy them to backup
 for i in "${dotfilesdirarray[@]}"; do
   cp -Rp ${i/$dotfilesdir/$HOME} "$dotfilesbackupdir"
   print_result $? "Copying ${i/$dotfilesdir/$HOME}"
-done;
+done
 
 action "Backup files"
 # Loop array of directories that dotfiles handles files for
@@ -51,7 +52,7 @@ for i in "${dotfilesfilearray[@]}"; do
   # Properly store the results of find on these directories in an array
   # https://stackoverflow.com/questions/23356779/how-can-i-store-find-command-result-as-arrays-in-bash
   # We want to handle .*, *.cfg, *.conf and NOT .DS_Store, .git, .osx, .macos and no *.sh files
-  while IFS=  read -r -d $'\0'; do
+  while IFS= read -r -d $'\0'; do
     tmparr+=("$REPLY")
   done < <(find "$i" -type f -maxdepth 1 \( -name ".*" -o -name "*.cfg" -o -name "*.conf" \) -a -not -name .DS_Store -not -name .git -not -name .osx -not -name .macos -not -name "*.sh" -print0)
 
@@ -59,8 +60,8 @@ for i in "${dotfilesfilearray[@]}"; do
   for j in "${tmparr[@]}"; do
     cp -Rp ${j/$i/$HOME} "$dotfilesbackupdir"
     print_result $? "Copying ${j/$i/$HOME}"
-  done;
-done;
+  done
+done
 
 action "Backup other local directories and files (just incase...)\n"
 # Copy other misc $HOME files
@@ -77,4 +78,3 @@ cp -Rp ~/.z "$dotfilesbackupdir"
 
 echo -en "\n"
 success "\e[1mBackup completed to $HOME/backup/dotfiles-backup\e[0m"
-

@@ -1,20 +1,22 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 debug=${1:-false}
 
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
   source ./lib.sh
-fi;
+  source ../zsh.d/homebrew
+fi
 
 bot "Install Xcode Command Line Tools."
 
 # Prompt user to install the XCode Command Line Tools
-if ! xcode-select --print-path &> /dev/null; then
+if ! xcode-select --print-path &>/dev/null; then
   action "Installing Xcode CLI"
-  xcode-select --install &> /dev/null
+  xcode-select --install &>/dev/null
+  # If you get an error, run `xcode-select -r` to reset `xcode-select`.
 
   # Wait until the XCode Command Line Tools are installed
-  until xcode-select --print-path &> /dev/null; do
+  until xcode-select --print-path &>/dev/null; do
     sleep 5
   done
 
@@ -31,4 +33,4 @@ if ! xcode-select --print-path &> /dev/null; then
   print_result $? 'Agree with the Xcode Command Line Tools licence.'
 else
   success "Xcode Command Line Tools already installed."
-fi;
+fi

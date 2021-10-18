@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # some bash library helpers
 # @author Adam Eivy https://github.com/atomantic/dotfiles
@@ -155,8 +155,20 @@ fi
 # Ask for the administrator password upfront.
 ask_for_sudo
 
-# Source directories and files to handle.
-source ./setup/files.sh
+# Create a file to log m1 agnostic binaries
+touch $HOME/installation_setup.log
+
+# Setup macbook name
+ask_for_confirmation "Do you need to change your macbook name?"
+if answer_is_yes; then
+  read -p 'Input your new macbook name: ' mbname
+  sudo scutil --set ComputerName "$mbname"
+  sudo scutil --set LocalHostName "$mbname"
+  sudo scutil --set HostName "$mbname"
+  dscacheutil -flushcache
+else
+  cancelled "Ok, let's continue".
+fi
 
 # Download all available macos updates.
 action "Download Mac updates:\n"

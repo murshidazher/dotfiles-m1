@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Build, dedupe and then export PATH for Filesystem Hierarchy Standard (FHS).
 # https://superuser.com/questions/325194/what-are-the-meanings-of-usr-sbin-usr-local-sbin-and-usr-local-bin
@@ -56,6 +56,9 @@ PATH="/usr/local/opt/openjdk@8/bin:$PATH"
 
 # php
 PATH="$(brew --prefix bison)/bin:$PATH"
+
+# homebrew
+PATH="/opt/homebrew/bin:$PATH"
 
 # Dedupe using awk.
 if hash awk 2>/dev/null; then

@@ -1,10 +1,11 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 debug=${1:-false}
 
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
   source ./lib.sh
-fi;
+  source ../zsh.d/homebrew
+fi
 
 action "Setting up .nanorc"
 # Install better nanorc config.

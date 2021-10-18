@@ -32,7 +32,7 @@ Exports list of installed applications from Homebrew, Homebrew Cask, npm and Yar
 - Copy `~/Downloads` to `~/migration/Downloads`
 - Copy `~/code` to `~/migration/code`
 - Copy `~/dev` to `~/migration/dev`
-- Copy `~/Work` to `~/migration/Work`
+- Copy `~/work` to `~/migration/work`
 
 Then remind the user to copy other data such as Applications, Games, Movies, Music, Photos and so on.
 

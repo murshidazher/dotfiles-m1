@@ -26,7 +26,7 @@ declare -a dotfilesfilearray=(
   "$dotfilesdir/ack"
   "$dotfilesdir/android"
   "$dotfilesdir/asdf"
-  "$dotfilesdir/bash"
+  "$dotfilesdir/zsh"
   "$dotfilesdir/cron"
   "$dotfilesdir/curl"
   "$dotfilesdir/editor"

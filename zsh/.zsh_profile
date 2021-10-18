@@ -9,7 +9,7 @@ done
 unset file
 
 # Prompt
-source "$HOME/.bash_prompt"
+source "$HOME/.zsh_prompt"
 
 # plugins
 source "$HOME/.plugins"
@@ -88,6 +88,7 @@ bind Space:magic-space
 
 # asdf
 source "$(brew --prefix asdf)/asdf.sh"
+source "$(brew --prefix asdf)/completions/asdf.bash"
 
 # pyevnv
 if hash pyenv 2>/dev/null; then

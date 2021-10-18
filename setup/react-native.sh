@@ -159,6 +159,7 @@ if hash asdf 2>/dev/null; then
   asdf local nodejs ${LATEST_NODEJS_14_VERSION}
   asdf reshim nodejs # to have all the globally install packages in PATH
   npm install -g react-native-cli
+  asdf reshim nodejs
 
   # to see connected android devices
   # adb devices

@@ -1,39 +1,41 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 # Show MacBook battery level formatted for tmux status bar.
 #
 # Adapted from: https://github.com/Goles/Battery
 
 battery_charge() {
-  ioreg -c AppleSmartBattery -w0 | \
-    grep -o '"[^"]*" = [^ ]*' | \
-    sed -e 's/= //g' -e 's/"//g' | \
-    sort | \
+  ioreg -c AppleSmartBattery -w0 |
+    grep -o '"[^"]*" = [^ ]*' |
+    sed -e 's/= //g' -e 's/"//g' |
+    sort |
     while read key value; do
       case $key in
-        "MaxCapacity")
-          export maxcap=$value;;
-        "CurrentCapacity")
-          export curcap=$value;;
+      "MaxCapacity")
+        export maxcap=$value
+        ;;
+      "CurrentCapacity")
+        export curcap=$value
+        ;;
       esac
       if [[ -n "$maxcap" && -n $curcap ]]; then
-        CAPACITY=$(( 100 * curcap / maxcap))
+        CAPACITY=$((100 * curcap / maxcap))
         printf "%d" $CAPACITY
         break
       fi
     done
 }
 
-BATTERY_STATUS=`battery_charge`
+BATTERY_STATUS=$(battery_charge)
 [ -z "$BATTERY_STATUS" ] && exit 1
 
 if [ $BATTERY_STATUS -lt 25 ]; then
   fg=colour210 # ff8787
-  bg=colour88 # 870000
+  bg=colour88  # 870000
 elif [ $BATTERY_STATUS -lt 75 ]; then
   fg=colour228 # ffff87
-  bg=colour94 # 875f00
+  bg=colour94  # 875f00
 else
-  fg=colour8 # 808080
+  fg=colour8   # 808080
   bg=colour234 # 1c1c1c
 fi
 

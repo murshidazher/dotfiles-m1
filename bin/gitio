@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 # Usage: gitio URL [CODE]
 #
 # Copies the git.io URL to your clipboard.
@@ -11,7 +11,7 @@ code="${2}"
 [[ -z $url ]] && abort=1 || abort=0
 
 if [[ $abort -gt 0 || $1 = "-h" || $1 = "--help" ]]; then
-  sed -ne '/^#/!q;s/.\{1,2\}//;1d;p' < "$0" >&$((abort+1))
+  sed -ne '/^#/!q;s/.\{1,2\}//;1d;p' <"$0" >&$((abort + 1))
   exit $abort
 fi
 

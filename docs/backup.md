@@ -18,7 +18,7 @@ From directories declared in `$dotfilesfilearray`
 - `~/.aliases`
 - `~/.bash_profile`
 - `~/.bash_prompt`
-- `~/.bashrc`
+- `~/.zshrc`
 - `~/.exports`
 - `~/.functions`
 - `~/.inputrc`

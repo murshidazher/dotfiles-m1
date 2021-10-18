@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Setup asdf and install global versions
 # Requires: asdf and asdf-nodejs
@@ -10,6 +10,7 @@ PYTHON_PIPS=(httpie)
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
   source ./lib.sh
+  source ../zsh.d/homebrew
 fi
 
 # Check if asdf is installed.

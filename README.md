@@ -11,7 +11,19 @@ TBA
 To setup simply open the terminal, then:
 
 ```sh
-bash -c "`curl -L https://git.io/dotfiles-m1`"
+zsh -c "`curl -L https://git.io/dotfiles-m1`"
+```
+
+### Homebrew
+
+- `/usr/local` on macOS intel
+- `/opt/homebrew` on macOS ARM
+- `/home/linuxbrew` on Linux
+
+```sh
+if [[ "$(uname -m)" == "arm64" ]]; then
+  export PATH="/opt/homebrew/bin:${PATH}"
+fi
 ```
 
 ## TODO

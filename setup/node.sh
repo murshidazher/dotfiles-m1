@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Setup Node install global packages
 # Requires: asdf and asdf-nodejs
@@ -7,6 +7,7 @@ debug=${1:-false}
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
   source ./lib.sh
+  source ../zsh.d/homebrew
 fi
 
 # Check if asdf is installed.

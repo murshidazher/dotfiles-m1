@@ -1,9 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 debug=${1:-false}
 
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
   source ./lib.sh
+  source ../zsh.d/homebrew
 fi
 
 # --------------------

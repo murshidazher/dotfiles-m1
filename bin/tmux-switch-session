@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 # Usage: tmux-switch-session [<name>]
 #
 # Switches to the tmux session that starts with the name given, or to the
@@ -7,7 +7,7 @@
 set -e
 
 if [[ $1 = "-h" || $1 = "--help" ]]; then
-  sed -ne '/^#/!q;s/.\{1,2\}//;1d;p' < "$0"
+  sed -ne '/^#/!q;s/.\{1,2\}//;1d;p' <"$0"
   exit
 fi
 

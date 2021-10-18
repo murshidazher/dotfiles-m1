@@ -1,9 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 debug=${1:-false}
 
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
   source ./lib.sh
+  source ../zsh.d/homebrew
 fi
 
 # Set install flag to false
@@ -36,6 +37,22 @@ if $brewinstall; then
     print_result $? 'Install Homebrew.'
   else
     success "Homebrew already installed."
+    source ../zsh.d/homebrew
+  fi
+
+  if ! hash /usr/local/homebrew/bin/brew 2>/dev/null; then
+    # note: if your /usr/local is locked down (like at Google), you can do this to place everything in ~/.homebrew
+    # mkdir "$HOME/.homebrew" && curl -L https://github.com/mxcl/homebrew/tarball/master | tar xz --strip 1 -C $HOME/.homebrew
+    # then add this to your path: export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$PATH
+    arch -x86_64 zsh
+    cd /usr/local && mkdir homebrew
+    curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+    arch -arm64 zsh
+
+    print_result $? 'Install Homebrew.'
+  else
+    success "Homebrew already installed."
+    source ../zsh.d/homebrew
   fi
 
   running "brew update + brew upgrade"
@@ -65,15 +82,38 @@ if $brewinstall; then
   brew install bash
   brew install bash-completion2
 
-  # Switch to using brew-installed bash as default shell
-  if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
-    echo '/usr/local/bin/bash' | sudo tee -a /etc/shells
-    chsh -s /usr/local/bin/bash
+  # zsh
+  if ! brew ls --versions zsh >/dev/null; then
+    running "Installing zsh.."
+    brew install zsh
   fi
 
-  # zsh
-  brew install zsh
+  if [[ -f "/usr/local/bin/zsh" ]]; then
+    if [[ ! "$(cat /etc/shells | grep /usr/local/bin/zsh)" ]]; then
+      action "Allowing non-standard zsh to be set as shell"
+      action /usr/local/bin/zsh | sudo tee -a /etc/shells
+    fi
+
+    # Use homebrew version if it exists
+    if [[ "$(default-user-shell)" != "/usr/local/bin/zsh" ]]; then
+      ok "Setting default shell to zsh (homebrew) from '$(default-user-shell)'"
+      chsh -s /usr/local/bin/zsh
+    fi
+  else
+    # Otherwise use system version
+    if [[ "$(default-user-shell)" != "/bin/zsh" ]]; then
+      ok "Setting default shell to zsh (system) from '$(default-user-shell)'"
+      chsh -s /bin/zsh
+    fi
+  fi
+
+  # zsh auto completion
   brew install zsh-completion
+  brew install zsh-autosuggestions
+  brew install zsh-syntax-highlighting
+
+  # add ohmyzsh
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
   # Install `wget` with IRI support.
   brew install wget
@@ -363,6 +403,7 @@ if $brewinstall; then
   # brew install asciinema
   brew install gmailctl
   brew install --cask krisp
+  # brew install --cask the-unarchiver
 
   # DRIVERS
   running "Installing drivers"

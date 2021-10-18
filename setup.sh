@@ -1,14 +1,15 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # 1. Backup
 # 2. Directories
 # 3. Xcode CLI
 # 4. Homebrew
-# 5. Symlinks
-# 6. Web development
-# 7. Mobile development
-# 8. Cron tasks
-# 9. Misc.
+# 5. Rosetta
+# 6. Symlinks
+# 7. Web development
+# 8. Mobile development
+# 9. Cron tasks
+# 10. Misc.
 
 debug=${1:-false}     # default debug param.
 source ./setup/lib.sh # load help lib.
@@ -19,12 +20,13 @@ bot "OK, what we're going to do:\n"
 actioninfo "1. Backup directories and files we'll be touching."
 actioninfo "2. Create required directories."
 actioninfo "3. Install Xcode Command Line Tools."
-actioninfo "4. Install Homebrew and all required apps."
-actioninfo "5. Create symlinks for directories and files."
-actioninfo "6. Environment Setup for web development."
-actioninfo "7. Environment Setup for mobile development."
-actioninfo "8. Cron Task setup."
-actioninfo "9. Final touches."
+actioninfo "4. Install Rosetta 2 for Intel based binaries."
+actioninfo "5. Install Homebrew and all required apps."
+actioninfo "6. Create symlinks for directories and files."
+actioninfo "7. Environment Setup for web development."
+actioninfo "8. Environment Setup for mobile development."
+actioninfo "9. Cron Task setup."
+actioninfo "10. Final touches."
 
 # ---------
 # 1. Backup
@@ -44,10 +46,16 @@ source ./setup/directories.sh
 botintro "\e[1mSTEP 3: XCODE CLI\e[0m"
 source ./setup/xcodecli.sh
 
+# ------------
+# 4. Rosetta
+# ------------
+botintro "\e[1mSTEP 4: Rosetta\e[0m"
+source ./setup/rosetta.sh
+
 # -----------
-# 4. Homebrew
+# 5. Homebrew
 # -----------
-botintro "\e[1mSTEP 4: HOMEBREW\e[0m"
+botintro "\e[1mSTEP 5: HOMEBREW\e[0m"
 source ./setup/brew.sh
 
 # brew is required to continue, exit out otherwise.
@@ -72,13 +80,13 @@ source ./setup/vim.sh
 source ./setup/miniconda.sh
 
 # -----------
-# 5. Symlinks
+# 6. Symlinks
 # -----------
 botintro "\e[1mSTEP 5: SYMLINKS\e[0m"
 source ./setup/symlinks.sh
 
 # ------------------
-# 6. Web Environment
+# 7. Web Environment
 # ------------------
 
 botintro "\e[1mSTEP 6: Environment Setup for web development.\e[0m"
@@ -90,20 +98,20 @@ source ./setup/vscode.sh
 source ./setup/chrome.sh
 
 # ---------------------
-# 7. Mobile Environment
+# 8. Mobile Environment
 # ---------------------
-botintro "\e[1mSTEP 7: Environment Setup for mobile development.\e[0m"
-source ./setup/react-native.sh
+# botintro "\e[1mSTEP 7: Environment Setup for mobile development.\e[0m"
+# source ./setup/react-native.sh
 
 # -------------
-# 8. CRON Tasks
+# 9. CRON Tasks
 # -------------
 
 botintro "\e[1mSTEP 8: Scheduling crontab tasks\e[0m"
 source crontab .scripts/cron.txt
 
 # --------
-# 9. Misc.
+# 10. Misc.
 # --------
 botintro "\e[1mSTEP 9: Final touches\e[0m"
 source ./setup/misc.sh

@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # TODO: Script under process
 # https://www.chrisjmendez.com/2021/05/12/how-to-install-flutter-on-mac-osx-using-homebrew/
 # https://reactnative.dev/docs/environment-setup
@@ -10,12 +12,12 @@
 # https://gist.github.com/badsyntax/ce848ab40b952d944c496575d40e5427 - run on azure pipelines (extract the config.ini) setup
 # TODO: Explore and add script to manage avd_skins to emulator programatically.
 
-#!/usr/bin/env bash
 debug=${1:-false}
 
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
   source ./lib.sh
+  source ../zsh.d/homebrew
 fi
 
 # Set defaultdotfilesdir var if not declared.

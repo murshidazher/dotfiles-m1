@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 # Usage: pair [<github-user>] [-t <tmux-session>]
 #
 # Copy the command to clipboard which grants another person access to the tmux
@@ -21,11 +21,11 @@ github_user=""
 
 while [ -n "$1" ]; do
   case "$1" in
-  '-h' | '--help' )
-    sed -ne '/^#/!q;s/.\{1,2\}//;1d;p' < "$0"
+  '-h' | '--help')
+    sed -ne '/^#/!q;s/.\{1,2\}//;1d;p' <"$0"
     exit 0
     ;;
-  '-t'* )
+  '-t'*)
     tmux_session="${1:2}"
     if [ -z "$tmux_session" ]; then
       tmux_session="$2"
@@ -34,9 +34,10 @@ while [ -n "$1" ]; do
       shift 1
     fi
     ;;
-  * )
+  *)
     github_user="$1"
     shift 1
+    ;;
   esac
 done
 

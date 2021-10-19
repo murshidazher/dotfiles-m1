@@ -22,8 +22,7 @@ function ok() {
 }
 
 function botintro() {
-  echo -en "\n"
-  echo -e "$COL_BLUE(っ◕‿◕)っ$COL_RESET - $1"
+  echo -e "\n$COL_BLUE(っ◕‿◕)っ$COL_RESET - $1"
 }
 function bot() {
   echo -e "$COL_BLUE(っ◕‿◕)っ$COL_RESET - $1"
@@ -38,8 +37,7 @@ function running() {
 }
 
 function action() {
-  echo -en "\n"
-  echo -e "$COL_YELLOW[action]:$COL_RESET ⇒ $1"
+  echo -e "\n$COL_YELLOW[action]:$COL_RESET ⇒ $1"
 }
 
 function warn() {

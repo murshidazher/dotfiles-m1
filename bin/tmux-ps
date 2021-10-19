@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Usage: tmux-ps <pattern>
 #
 # Switch to tmux window which hosts the tty that is controlling the process

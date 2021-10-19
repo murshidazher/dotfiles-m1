@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # Setup asdf and install global versions
 # Requires: asdf and asdf-nodejs

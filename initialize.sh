@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # some bash library helpers
 # @author Adam Eivy https://github.com/atomantic/dotfiles
@@ -71,7 +71,6 @@ function awesome_header() {
 
 ask_for_confirmation() {
   echo -e "$1 (y/N) "
-  echo -e "\n"
   read -n $REPLY
 }
 
@@ -161,7 +160,7 @@ touch $HOME/installation_setup.log
 # Setup macbook name
 ask_for_confirmation "Do you need to change your macbook name?"
 if answer_is_yes; then
-  read -p 'Input your new macbook name: ' mbname
+  read -r 'Input your new macbook name: ' mbname
   sudo scutil --set ComputerName "$mbname"
   sudo scutil --set LocalHostName "$mbname"
   sudo scutil --set HostName "$mbname"

@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # Build, dedupe and then export PATH for Filesystem Hierarchy Standard (FHS).
 # https://superuser.com/questions/325194/what-are-the-meanings-of-usr-sbin-usr-local-sbin-and-usr-local-bin

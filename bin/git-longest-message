@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Usage: git longest-message [<branch>]
 #
 # Displays 5 of your commits with most words per commit message body.

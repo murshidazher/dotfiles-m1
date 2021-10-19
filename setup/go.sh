@@ -35,7 +35,7 @@ function install_versions {
   local versions_list=$(read_file)
   for version in ${versions_list}; do
     running "asdf: installing ${version} for golang"
-    asdf install golang ${version} >/dev/null 2>&1
+    agnostic asdf install golang ${version} >/dev/null 2>&1
     local status=$?
     if [ ${status} -ne "0" ]; then
       error "Last exit code was ${status} for 'asdf install golang ${version}'. Please run manually. Aborting."
@@ -49,7 +49,7 @@ function install_versions {
 function set_global {
   local latest_version=${1}
   running "asdf golang: setting ${latest_version} as global"
-  asdf global golang ${latest_version} >/dev/null 2>&1
+  agnostic asdf global golang ${latest_version} >/dev/null 2>&1
 }
 
 action "asdf golang: installing versions"

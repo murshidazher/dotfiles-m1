@@ -260,7 +260,7 @@ alias sequel="LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN=y /Applications/Sequel\ Pro.app/C
 # Make Grunt print stack traces by default
 command -v grunt >/dev/null && alias grunt="grunt --stack"
 
-# brew m1 alias
+# homebrew alias
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
 alias mbrew='arch -arm64e /opt/homebrew/bin/brew'
 

@@ -18,7 +18,7 @@ fi
 
 action "asdf: setting up Maven"
 asdf plugin-add maven
-# asdf where maven
+# agnostic asdf where maven
 
 # Set the containing directory for later use
 versions_dir="$defaultdotfilesdir/versions/maven"
@@ -36,7 +36,7 @@ function install_versions {
   local versions_list=$(read_file)
   for version in ${versions_list}; do
     running "asdf: installing ${version} for maven"
-    asdf install maven ${version} >/dev/null 2>&1
+    agnostic asdf install maven ${version} >/dev/null 2>&1
     local status=$?
     if [ ${status} -ne "0" ]; then
       error "Last exit code was ${status} for 'asdf install maven ${version}'. Please run manually. Aborting."
@@ -50,7 +50,7 @@ function install_versions {
 function set_global {
   local latest_version=${1}
   running "asdf maven: setting ${latest_version} as global"
-  asdf global maven ${latest_version} >/dev/null 2>&1
+  agnostic asdf global maven ${latest_version} >/dev/null 2>&1
 }
 
 action "asdf maven: installing versions"

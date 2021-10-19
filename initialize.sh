@@ -48,7 +48,7 @@ function warn() {
 }
 
 function success() {
-  echo -e "$COL_GREEN🍺 $COL_RESET $1"
+  echo -e "$COL_GREEN[success]$COL_RESET $1"
 }
 
 function error() {

@@ -117,7 +117,7 @@ ask_for_sudo() {
 # ----
 # Prep
 # ----
-echo -e "📦 M1 Mac Setup by [Murshid Azher](https://github.com/murshidazher/dotfiles-m1)"
+echo -e "\n\n📦 M1 Mac Setup by [Murshid Azher](https://github.com/murshidazher/dotfiles-m1)"
 
 defaultdotfilesdir="$HOME/dev/src/github/dotfiles-m1"
 dotfilesdir=$(pwd)

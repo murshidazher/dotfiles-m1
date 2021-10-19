@@ -1,1 +1,33 @@
-plugins=(zsh-autosuggestions zsh-syntax-highlighting git-open)
+plugins=(
+  zsh-completions
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  brew
+  pip
+  mvn
+  python
+  tmux
+  osx
+  yarn
+  node
+  osx
+  sudo
+  git
+  docker
+)
+
+source $ZSH/oh-my-zsh.sh
+
+DISABLE_AUTO_UPDATE=false
+DISABLE_UPDATE_PROMPT=true
+
+# Reload the plugin to highlight the commands each time Iterm2 starts
+source $HBP/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HBP/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# if type brew &>/dev/null; then
+#   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+#   autoload -Uz compinit
+#   compinit
+# fi

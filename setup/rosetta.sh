@@ -3,6 +3,7 @@ debug=${1:-false}
 
 # Installs Rosetta as needed on Apple Silicon Macs.
 # https://raw.githubusercontent.com/rtrouton/rtrouton_scripts/main/rtrouton_scripts/install_rosetta_on_apple_silicon/install_rosetta_on_apple_silicon.sh
+# https://apple.stackexchange.com/questions/407640/rosetta-2-installation-on-m1-mbp-fails
 
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then

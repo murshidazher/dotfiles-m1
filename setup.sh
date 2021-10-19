@@ -31,41 +31,53 @@ actioninfo "10. Final touches."
 # ---------
 # 1. Backup
 # ---------
-botintro "\e[1mSTEP 1: BACKUP\e[0m"
-source ./setup/backup.sh
+# botintro "\e[1mSTEP 1: BACKUP\e[0m"
+# source ./setup/backup.sh
 
 # --------------
 # 2. Directories
 # --------------
-botintro "\e[1mSTEP 2: DIRECTORIES\e[0m"
-source ./setup/directories.sh
+# botintro "\e[1mSTEP 2: DIRECTORIES\e[0m"
+# source ./setup/directories.sh
 
 # ------------
 # 3. Xcode CLI
 # ------------
-botintro "\e[1mSTEP 3: XCODE CLI\e[0m"
-source ./setup/xcodecli.sh
+# botintro "\e[1mSTEP 3: XCODE CLI\e[0m"
+# source ./setup/xcodecli.sh
 
 # ------------
 # 4. Rosetta
 # ------------
-botintro "\e[1mSTEP 4: Rosetta\e[0m"
-source ./setup/rosetta.sh
+# botintro "\e[1mSTEP 4: Rosetta\e[0m"
+# source ./setup/rosetta.sh
 
 # -----------
 # 5. Homebrew
 # -----------
-botintro "\e[1mSTEP 5: HOMEBREW\e[0m"
-source ./setup/brew.sh
+# botintro "\e[1mSTEP 5: HOMEBREW\e[0m"
+# source ./setup/brew.sh
 
-# brew is required to continue, exit out otherwise.
-if ! $brewinstall; then
-  cancelled "\e[1mCannot proceed. Exit.\e[0m"
-  exit -1
-fi
+# # brew is required to continue, exit out otherwise.
+# if ! $brewinstall; then
+#   cancelled "\e[1mCannot proceed. Exit.\e[0m"
+#   exit -1
+# fi
 
-# # asdf setup
-# source ./setup/asdf.sh
+# # -----------
+# # 6. Symlinks
+# # -----------
+botintro "\e[1mSTEP 5: SYMLINKS\e[0m"
+source ./setup/symlinks.sh
+
+# # ------------------
+# # 7. Web Environment
+# # ------------------
+
+botintro "\e[1mSTEP 6: Environment Setup for web development.\e[0m"
+
+# asdf setup
+source ./setup/asdf.sh
 
 # ## asdf minimal setup
 # ## source ./setup/asdf-minimal.sh
@@ -78,18 +90,6 @@ fi
 
 # # miniconda setup
 # source ./setup/miniconda.sh
-
-# # -----------
-# # 6. Symlinks
-# # -----------
-# botintro "\e[1mSTEP 5: SYMLINKS\e[0m"
-# source ./setup/symlinks.sh
-
-# # ------------------
-# # 7. Web Environment
-# # ------------------
-
-# botintro "\e[1mSTEP 6: Environment Setup for web development.\e[0m"
 
 # # vscode setup
 # source ./setup/vscode.sh

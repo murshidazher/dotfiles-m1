@@ -44,21 +44,6 @@ if $brewinstall; then
     source ./zsh.d/homebrew
   fi
 
-  if ! hash /usr/local/homebrew/bin/brew 2>/dev/null; then
-    # note: if your /usr/local is locked down (like at Google), you can do this to place everything in ~/.homebrew
-    # mkdir "$HOME/.homebrew" && curl -L https://github.com/mxcl/homebrew/tarball/master | tar xz --strip 1 -C $HOME/.homebrew
-    # then add this to your path: export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$PATH
-    arch -x86_64 zsh
-    cd /usr/local && mkdir homebrew
-    curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
-    arch -arm64 zsh
-
-    print_result $? 'Install Homebrew.'
-  else
-    success "Homebrew already installed."
-    source ./zsh.d/homebrew
-  fi
-
   running "brew update + brew upgrade"
   # Make sure we’re using the latest Homebrew.
   agnostic brew update

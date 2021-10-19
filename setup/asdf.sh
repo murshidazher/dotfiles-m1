@@ -9,8 +9,12 @@ PYTHON_PIPS=(httpie)
 
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
-  source ./lib.sh
-  source ../zsh.d/homebrew
+  source ./setup/lib.sh
+fi
+
+# Load homebrew config if not already loaded.
+if [ -z ${hbwloaded+x} ]; then
+  source ./zsh.d/homebrew
 fi
 
 # Check if asdf is installed.

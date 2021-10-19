@@ -22,3 +22,6 @@ if [ -n "${BREWPATH}" ]; then
     . "${HB_CNF_HANDLER}"
   fi
 fi
+
+# Mark hbw as loaded
+hbwloaded=true

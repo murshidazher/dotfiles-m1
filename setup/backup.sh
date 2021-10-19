@@ -3,13 +3,17 @@ debug=${1:-false}
 
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
-  source ./lib.sh
-  source ../zsh.d/homebrew
+  source ./setup/lib.sh
+fi
+
+# Load homebrew config if not already loaded.
+if [ -z ${hbwloaded+x} ]; then
+  source ./zsh.d/homebrew
 fi
 
 # Load dirs and files if not already loaded.
 if [ -z ${filesloaded+x} ]; then
-  source ./files.sh
+  source ./setup/files.sh
   echo -en "\n"
 fi
 

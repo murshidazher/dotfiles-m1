@@ -125,10 +125,6 @@ echo -e "\n\n📦 M1 Mac Setup by [Murshid Azher](https://github.com/murshidazhe
 defaultdotfilesdir="$HOME/dev/src/github/dotfiles-m1"
 dotfilesdir=$(pwd)
 
-#if is_git_repository; then
-# git pull origin master # pull repo.
-#fi;
-
 warn "Ensure your mac system is fully up-to-date and only"
 warn "run this script in terminal.app (NOT in iTerm)"
 warn "run this script on ~ or ~/dev/src/github"
@@ -271,6 +267,7 @@ if (!($gh_clone)); then
 else
   success "m1 dotfiles cloned successfully..."
   cd dotfiles-m1
+  git pull origin main &>/dev/null
   running "Setting up...."
   # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
   ./setup.sh

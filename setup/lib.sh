@@ -5,6 +5,7 @@ debug=${1:-false}
 # @author Adam Eivy https://github.com/atomantic/dotfiles
 
 # Colors
+# @author Virgil Ratiu https://gist.github.com/vratiu/9780109
 ESC_SEQ="\x1b["
 COL_RESET=$ESC_SEQ"39;49;00m"
 COL_RED=$ESC_SEQ"31;01m"

@@ -76,7 +76,14 @@ ask_for_confirmation() {
 }
 
 answer_is_yes() {
-  [[ "$REPLY" =~ ^(y|Y) ]] && return 0 || return 1
+  if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+    echo "yeah, I'm down"
+    return 0
+  else
+    echo "no way"
+    return 1
+  fi
+  # [[ "$REPLY" =~ ^(y|Y) ]] && return 0 || return 1
 }
 
 print_result() {

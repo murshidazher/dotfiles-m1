@@ -66,7 +66,6 @@ done
 action "Backup other local directories and files (just incase...)\n"
 # Copy other misc $HOME files
 cp -Rp ~/.zsh_history "$dotfilesbackupdir"
-cp -Rp ~/.zsh_sessions "$dotfilesbackupdir"
 cp -Rp ~/.extra "$dotfilesbackupdir"
 cp -Rp ~/.extra.fish "$dotfilesbackupdir"
 cp -Rp ~/.gitconfig.local "$dotfilesbackupdir"

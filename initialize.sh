@@ -271,6 +271,7 @@ if (!($gh_clone)); then
 else
   success "Dotfile cloned successfully..."
   cd dotfiles-m1
+  bot pwd
   running "Setting up...."
 
   bot "OK, let's get started\n"

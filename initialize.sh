@@ -122,7 +122,7 @@ ask_for_sudo() {
 # ----
 echo -e "\n\n📦 M1 Mac Setup by [Murshid Azher](https://github.com/murshidazher/dotfiles-m1)"
 
-defaultdotfilesdir="$HOME/dev/src/github/dotfiles-m1"
+defaultdotfilesdir="$HOME/dotfiles"
 dotfilesdir=$(pwd)
 
 warn "Ensure your mac system is fully up-to-date and only"
@@ -253,10 +253,10 @@ else
   cancelled "~/dev directory exists..."
 fi
 
-running "Cloning the repo from https://github.com/murshidazher/dotfiles-m1 to ~/dev/src/github"
+running "Cloning the repo from https://github.com/murshidazher/dotfiles-m1 to ~"
 
 # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
-cd $HOME/dev/src/github
+cd $HOME
 gh_clone=$(git clone git@github.com:murshidazher/dotfiles-m1.git)
 
 if (!($gh_clone)); then
@@ -266,7 +266,8 @@ if (!($gh_clone)); then
   break
 else
   success "m1 dotfiles cloned successfully..."
-  cd dotfiles-m1
+  mv otfiles-m1 dotfiles
+  cd dotfiles
   running "Pulling new changes for dotfiles repository..."
   git pull --rebase &>/dev/null
   running "Setting up...."

@@ -24,10 +24,10 @@ fi
 
 # Set defaultdotfilesdir var if not declared.
 if [ -z ${defaultdotfilesdir+x} ]; then
-  defaultdotfilesdir="$HOME/dev/src/github/dotfiles-m1"
+  defaultdotfilesdir="$HOME/dotfiles"
 fi
 
-# Used later if we need to symlink to "$HOME/dev/src/github/dotfiles-m1"
+# Used later if we need to symlink to "$HOME/dotfiles"
 linkdotfilesdir=false
 linkdotfilesdirerror=false
 
@@ -122,12 +122,12 @@ if ! [[ "$defaultdotfilesdir" -ef "$pwd" ]]; then
   fi
 fi
 
-# Symlink to "$HOME/dev/src/github/dotfiles-m1" if required.
+# Symlink to "$HOME/dotfiles" if required.
 if $linkdotfilesdir; then
   ln -s "$dotfilesdir" "$defaultdotfilesdir"
 fi
 
-# Report error symlinking to "$HOME/dev/src/github/dotfiles-m1" if required.
+# Report error symlinking to "$HOME/dotfiles" if required.
 if $linkdotfilesdirerror; then
   error "Could not symlink to $defaultdotfilesdir -- this means the commands 'df', 'dotfiles' and export '\$DOTFILES_DIR' will not point to $dotfilesdir correctly."
 fi

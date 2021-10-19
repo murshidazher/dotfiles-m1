@@ -66,7 +66,6 @@ read -n 1
 cp -Rp "$HOME/Desktop" "$migrationdir"
 cp -Rp "$HOME/Documents" "$migrationdir"
 cp -Rp "$HOME/Downloads" "$migrationdir"
-cp -Rp "$HOME/code" "$migrationdir"
 cp -Rp "$HOME/dev" "$migrationdir"
 cp -Rp "$HOME/work" "$migrationdir"
 

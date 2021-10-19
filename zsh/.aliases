@@ -30,7 +30,6 @@ alias devr="cd $HOME/dev/r"
 alias devc="cd $HOME/dev/c"
 alias dwork="cd $HOME/Dropbox/work"
 alias drepos="cd $HOME/Dropbox/repos"
-alias dcode="cd $HOME/Dropbox/code"
 alias ddev="cd $HOME/Dropbox/dev"
 alias wallpapers="cd $HOME/Pictures/wallpapers"
 

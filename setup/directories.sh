@@ -15,7 +15,6 @@ declare -a createdirarray=(
   "$HOME/work"
   "$HOME/dev/src/github"
   "$HOME/Pictures/wallpapers"
-  "$HOME/code"
   "$HOME/.tmp"
   "$HOME/.ssh"
   "$HOME/.ssh/control"

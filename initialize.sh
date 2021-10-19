@@ -266,7 +266,7 @@ if (!($gh_clone)); then
   break
 else
   success "m1 dotfiles cloned successfully..."
-  mv otfiles-m1 dotfiles
+  mv dotfiles-m1 dotfiles
   cd dotfiles
   running "Pulling new changes for dotfiles repository..."
   git pull --rebase &>/dev/null

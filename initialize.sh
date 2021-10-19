@@ -256,7 +256,7 @@ fi
 running "Cloning the repo from https://github.com/murshidazher/dotfiles-m1 to ~"
 
 # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
-cd $HOME
+cd $HOME/dev/src/github
 gh_clone=$(git clone git@github.com:murshidazher/dotfiles-m1.git)
 
 if (!($gh_clone)); then
@@ -271,6 +271,7 @@ else
   running "Pulling new changes for dotfiles repository..."
   git pull --rebase &>/dev/null
   running "Setting up...."
+
   # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
   ./setup.sh
 fi

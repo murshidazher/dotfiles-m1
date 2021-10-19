@@ -52,73 +52,73 @@ source ./setup/xcodecli.sh
 botintro "\e[1mSTEP 4: Rosetta\e[0m"
 source ./setup/rosetta.sh
 
-# -----------
-# 5. Homebrew
-# -----------
-botintro "\e[1mSTEP 5: HOMEBREW\e[0m"
-source ./setup/brew.sh
+# # -----------
+# # 5. Homebrew
+# # -----------
+# botintro "\e[1mSTEP 5: HOMEBREW\e[0m"
+# source ./setup/brew.sh
 
-# brew is required to continue, exit out otherwise.
-if ! $brewinstall; then
-  cancelled "\e[1mCannot proceed. Exit.\e[0m"
-  exit -1
-fi
+# # brew is required to continue, exit out otherwise.
+# if ! $brewinstall; then
+#   cancelled "\e[1mCannot proceed. Exit.\e[0m"
+#   exit -1
+# fi
 
-# asdf setup
-source ./setup/asdf.sh
+# # asdf setup
+# source ./setup/asdf.sh
 
-# asdf minimal setup
-# source ./setup/asdf-minimal.sh
+# ## asdf minimal setup
+# ## source ./setup/asdf-minimal.sh
 
-# Node setup
-source ./setup/node.sh
+# # Node setup
+# source ./setup/node.sh
 
-# vim setup
-source ./setup/vim.sh
+# # vim setup
+# source ./setup/vim.sh
 
-# miniconda setup
-source ./setup/miniconda.sh
+# # miniconda setup
+# source ./setup/miniconda.sh
 
-# -----------
-# 6. Symlinks
-# -----------
-botintro "\e[1mSTEP 5: SYMLINKS\e[0m"
-source ./setup/symlinks.sh
+# # -----------
+# # 6. Symlinks
+# # -----------
+# botintro "\e[1mSTEP 5: SYMLINKS\e[0m"
+# source ./setup/symlinks.sh
 
-# ------------------
-# 7. Web Environment
-# ------------------
+# # ------------------
+# # 7. Web Environment
+# # ------------------
 
-botintro "\e[1mSTEP 6: Environment Setup for web development.\e[0m"
+# botintro "\e[1mSTEP 6: Environment Setup for web development.\e[0m"
 
-# vscode setup
-source ./setup/vscode.sh
+# # vscode setup
+# source ./setup/vscode.sh
 
-# chrome extensions setup
-source ./setup/chrome.sh
+# # chrome extensions setup
+# source ./setup/chrome.sh
 
-# ---------------------
-# 8. Mobile Environment
-# ---------------------
-# botintro "\e[1mSTEP 7: Environment Setup for mobile development.\e[0m"
-# source ./setup/react-native.sh
+# # ---------------------
+# # 8. Mobile Environment
+# # ---------------------
+# # botintro "\e[1mSTEP 7: Environment Setup for mobile development.\e[0m"
+# # source ./setup/react-native.sh
 
-# -------------
-# 9. CRON Tasks
-# -------------
+# # -------------
+# # 9. CRON Tasks
+# # -------------
 
-botintro "\e[1mSTEP 8: Scheduling crontab tasks\e[0m"
-source crontab .scripts/cron.txt
+# botintro "\e[1mSTEP 8: Scheduling crontab tasks\e[0m"
+# source crontab .scripts/cron.txt
 
-# --------
-# 10. Misc.
-# --------
-botintro "\e[1mSTEP 9: Final touches\e[0m"
-source ./setup/misc.sh
+# # --------
+# # 10. Misc.
+# # --------
+# botintro "\e[1mSTEP 9: Final touches\e[0m"
+# source ./setup/misc.sh
 
-# Wrap-up.
+# # Wrap-up.
 
-botintro "\e[1mFINISHED\e[0m -- That's it for the automated process."
+# botintro "\e[1mFINISHED\e[0m -- That's it for the automated process."
 
-echo -e "\np.s. don't forget to sync your dropbox and get mackup running.\n"
-# EOF
+# echo -e "\np.s. don't forget to sync your dropbox and get mackup running.\n"
+# # EOF

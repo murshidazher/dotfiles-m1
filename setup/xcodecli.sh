@@ -32,5 +32,5 @@ if ! xcode-select --print-path &>/dev/null; then
   sudo xcodebuild -license
   print_result $? 'Agree with the Xcode Command Line Tools licence.'
 else
-  success "Xcode Command Line Tools already installed."
+  ok "Xcode Command Line Tools already installed."
 fi

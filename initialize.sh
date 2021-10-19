@@ -71,19 +71,12 @@ function awesome_header() {
 
 ask_for_confirmation() {
   echo -e "$1 (y/N) "
-  read -n 1
   echo -e "\n"
+  read -n $REPLY
 }
 
 answer_is_yes() {
-  if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    echo "yeah, I'm down"
-    return 0
-  else
-    echo "no way"
-    return 1
-  fi
-  # [[ "$REPLY" =~ ^(y|Y) ]] && return 0 || return 1
+  [[ "$REPLY" =~ ^(y|Y) ]] && return 0 || return 1
 }
 
 print_result() {

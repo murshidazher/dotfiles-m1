@@ -64,12 +64,13 @@ function awesome_header() {
   echo -en "\n"
 }
 
-ask_for_confirmation() {
-  echo -e "$1 (y/N) "
-  read -r $REPLY
+function ask_for_confirmation() {
+  echo -e "\e[1m$1\e[0m (y/N) "
+  read -n 1
+  echo -e "\n"
 }
 
-answer_is_yes() {
+function answer_is_yes() {
   [[ "$REPLY" =~ ^(y|Y) ]] && return 0 || return 1
 }
 

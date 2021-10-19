@@ -3,8 +3,12 @@ debug=${1:-false}
 
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
-  source ./lib.sh
-  source ../zsh.d/homebrew
+  source ./setup/lib.sh
+fi
+
+# Load homebrew config if not already loaded.
+if [ -z ${hbwloaded+x} ]; then
+  source ./zsh.d/homebrew
 fi
 
 # Set install flag to false
@@ -37,7 +41,7 @@ if $brewinstall; then
     print_result $? 'Install Homebrew.'
   else
     success "Homebrew already installed."
-    source ../zsh.d/homebrew
+    source ./zsh.d/homebrew
   fi
 
   if ! hash /usr/local/homebrew/bin/brew 2>/dev/null; then
@@ -52,7 +56,7 @@ if $brewinstall; then
     print_result $? 'Install Homebrew.'
   else
     success "Homebrew already installed."
-    source ../zsh.d/homebrew
+    source ./zsh.d/homebrew
   fi
 
   running "brew update + brew upgrade"

@@ -11,7 +11,7 @@ TBA
 To setup simply open the terminal, then:
 
 ```sh
-zsh -c "`curl -L https://git.io/dotfiles-m1`"
+bash -c "`curl -L https://git.io/dotfiles-m1`"
 ```
 
 ### Homebrew

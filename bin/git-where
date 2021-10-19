@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Usage: git where <ref>
 #
 # Shows where a particular commit falls between releases.

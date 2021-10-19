@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Show MacBook battery level formatted for tmux status bar.
 #
 # Adapted from: https://github.com/Goles/Battery

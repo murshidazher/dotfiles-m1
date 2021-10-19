@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Usage: git autofixup
 #
 # Commits the staged change as a fixup for the last commit that touched the

@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Usage: gitio URL [CODE]
 #
 # Copies the git.io URL to your clipboard.

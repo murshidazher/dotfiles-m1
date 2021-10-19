@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 debug=${1:-false}
 
 # Load help lib if not already loaded.

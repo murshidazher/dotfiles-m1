@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # Setup Node install global packages
 # Requires: asdf and asdf-nodejs

@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Usage: tmux-switch-session [<name>]
 #
 # Switches to the tmux session that starts with the name given, or to the

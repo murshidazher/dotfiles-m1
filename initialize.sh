@@ -269,13 +269,9 @@ if (!($gh_clone)); then
   error $gh_clone
   break
 else
-  success "Dotfile cloned successfully..."
+  success "m1 dotfiles cloned successfully..."
   cd dotfiles-m1
-  bot pwd
   running "Setting up...."
-
-  bot "OK, let's get started\n"
-
   # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
   ./setup.sh
 fi

@@ -28,15 +28,15 @@ function botintro() {
   echo -e "\n$COL_BLUE(っ◕‿◕)っ$COL_RESET - $1"
 }
 function bot() {
-  echo -e "$COL_BLUE(っ◕‿◕)っ$COL_RESET - $1"
+  echo -e "\n$COL_BLUE(っ◕‿◕)っ$COL_RESET - $1"
 }
 
 function actioninfo() {
-  echo -e "$COL_YELLOW[action]:$COL_RESET ⇒ $1"
+  echo -e "\n$COL_YELLOW[action]:$COL_RESET ⇒ $1"
 }
 
 function running() {
-  echo -en "$COL_YELLOW ⇒ $COL_RESET $1: "
+  echo -en "$COL_YELLOW ⇒ $COL_RESET $1 \n"
 }
 
 function action() {
@@ -159,7 +159,7 @@ fi
 ask_for_sudo
 
 # Source directories and files to handle.
-source ./setup/files.sh
+# source ./setup/files.sh
 
 # Create a file to log m1 agnostic binaries
 touch $HOME/installation_setup.log
@@ -190,16 +190,17 @@ sudo softwareupdate -iaR
 # See: https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 #-------------------------------------------
 
-running "Generating ssh keys, adding to ssh-agent..."
+running "Generating ssh keys, adding to ssh-agent... \n"
 read -p 'Input email for ssh key: ' useremail
 
-running "Use default ssh file location, enter a passphrase: "
+running "Use default ssh file location, enter a passphrase: \n"
 ssh-keygen -t rsa -b 4096 -C "$useremail" # will prompt for password
 eval "$(ssh-agent -s)"
 
 # Now that sshconfig is synced add key to ssh-agent and
 # store passphrase in keychain
 ssh-add -K ~/.ssh/id_rsa
+success "ssh identity has been added."
 
 # If you're using macOS Sierra 10.12.2 or later, you will need to modify your ~/.ssh/config file to automatically load keys into the ssh-agent and store passphrases in your keychain.
 

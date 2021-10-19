@@ -155,6 +155,9 @@ fi
 # Ask for the administrator password upfront.
 ask_for_sudo
 
+# Source directories and files to handle.
+source ./setup/files.sh
+
 # Create a file to log m1 agnostic binaries
 touch $HOME/installation_setup.log
 

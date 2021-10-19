@@ -22,7 +22,8 @@ function ok() {
 }
 
 function botintro() {
-  echo -e "\n$COL_BLUE(っ◕‿◕)っ$COL_RESET - $1"
+  echo -en "\n"
+  echo -e "$COL_BLUE(っ◕‿◕)っ$COL_RESET - $1"
 }
 function bot() {
   echo -e "$COL_BLUE(っ◕‿◕)っ$COL_RESET - $1"
@@ -37,7 +38,8 @@ function running() {
 }
 
 function action() {
-  echo -e "\n$COL_YELLOW[action]:$COL_RESET ⇒ $1"
+  echo -en "\n"
+  echo -e "$COL_YELLOW[action]:$COL_RESET ⇒ $1"
 }
 
 function warn() {
@@ -57,24 +59,25 @@ function cancelled() {
 }
 
 function awesome_header() {
-  echo -en "\n$COL_BLUE          ██            ██     ████ ██  ██ $COL_RESET"
-  echo -en "\n$COL_BLUE         ░██           ░██    ░██░ ░░  ░██ $COL_RESET"
-  echo -en "\n$COL_BLUE         ░██  ██████  ██████ ██████ ██ ░██  █████   ██████ $COL_RESET"
-  echo -en "\n$COL_BLUE      ██████ ██░░░░██░░░██░ ░░░██░ ░██ ░██ ██░░░██ ██░░░░ $COL_RESET"
-  echo -en "\n$COL_BLUE     ██░░░██░██   ░██  ░██    ░██  ░██ ░██░███████░░█████ $COL_RESET"
-  echo -en "\n$COL_BLUE    ░██  ░██░██   ░██  ░██    ░██  ░██ ░██░██░░░░  ░░░░░██ $COL_RESET"
-  echo -en "\n$COL_BLUE    ░░██████░░██████   ░░██   ░██  ░██ ███░░██████ ██████ $COL_RESET"
-  echo -en "\n$COL_BLUE     ░░░░░░  ░░░░░░     ░░    ░░   ░░ ░░░  ░░░░░░ ░░░░░░ $COL_RESET"
+  echo -en "\n $COL_BLUE          ██            ██     ████ ██  ██ $COL_RESET"
+  echo -en "\n $COL_BLUE         ░██           ░██    ░██░ ░░  ░██ $COL_RESET"
+  echo -en "\n $COL_BLUE         ░██  ██████  ██████ ██████ ██ ░██  █████   ██████ $COL_RESET"
+  echo -en "\n $COL_BLUE      ██████ ██░░░░██░░░██░ ░░░██░ ░██ ░██ ██░░░██ ██░░░░ $COL_RESET"
+  echo -en "\n $COL_BLUE     ██░░░██░██   ░██  ░██    ░██  ░██ ░██░███████░░█████ $COL_RESET"
+  echo -en "\n $COL_BLUE    ░██  ░██░██   ░██  ░██    ░██  ░██ ░██░██░░░░  ░░░░░██ $COL_RESET"
+  echo -en "\n $COL_BLUE    ░░██████░░██████   ░░██   ░██  ░██ ███░░██████ ██████ $COL_RESET"
+  echo -en "\n $COL_BLUE     ░░░░░░  ░░░░░░     ░░    ░░   ░░ ░░░  ░░░░░░ ░░░░░░ $COL_RESET"
   echo -en "\n"
   echo -en "\n"
 }
 
-ask_for_confirmation() {
-  echo -e "$1 (y/N) "
-  read -n $REPLY
+function ask_for_confirmation() {
+  echo -e "\e[1m$1\e[0m (y/N) "
+  read -n 1
+  echo -e "\n"
 }
 
-answer_is_yes() {
+function answer_is_yes() {
   [[ "$REPLY" =~ ^(y|Y) ]] && return 0 || return 1
 }
 

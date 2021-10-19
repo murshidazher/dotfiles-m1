@@ -267,7 +267,7 @@ if (!($gh_clone)); then
 else
   success "m1 dotfiles cloned successfully..."
   cd dotfiles-m1
-  git pull origin main &>/dev/null
+  git pull --rebase &>/dev/null
   running "Setting up...."
   # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
   ./setup.sh

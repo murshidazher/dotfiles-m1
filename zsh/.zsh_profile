@@ -9,7 +9,7 @@ done
 unset file
 
 # Prompt
-source "$HOME/.zprompt"
+source "$HOME/.zsh_prompt"
 
 # plugins
 source "$HOME/.plugins"

@@ -1,1 +1,1 @@
-[ -n "$PS1" ] && source "$HOME/.zprofile"
+[ -n "$PS1" ] && source "$HOME/.zsh_profile"

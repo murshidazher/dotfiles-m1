@@ -300,7 +300,6 @@ if $brewinstall; then
   agnostic brew install --cask diskwave
   agnostic brew install --cask dropbox
   agnostic brew install google-drive
-  agnostic brew install --cask firefox-developer-edition
   agnostic brew install --cask g-desktop-suite
   agnostic brew install --cask google-chrome
   agnostic brew install --cask grammarly
@@ -342,12 +341,13 @@ if $brewinstall; then
   # agnostic brew install --cask iconjar
 
   # Cask outdated but versioned
-  agnostic brew install --cask sketch@3.x # use version 63.x
+  # agnostic brew install --cask sketch@3.x # use version 63.x
 
   # DEVELOPMENT
   # agnostic brew install --cask airtable
   # agnostic brew install --cask astah-uml
   agnostic brew install --cask brave-browser
+  agnostic brew install --cask firefox-developer-edition
   agnostic brew install --cask dash
   agnostic brew install --cask imagealpha
   agnostic brew install --cask imageoptim

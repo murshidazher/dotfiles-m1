@@ -24,7 +24,7 @@ fi
 
 # Set defaultdotfilesdir var if not declared.
 if [ -z ${defaultdotfilesdir+x} ]; then
-  defaultdotfilesdir="$HOME/dev/src/github/dotfiles-m1"
+  defaultdotfilesdir="$HOME/dotfiles"
 fi
 
 botintro "Unlink all symlinked directories and files"
@@ -60,14 +60,14 @@ unlink_symlinks "$dotfilesdir/bin/git-friendly/merge" "$dotfilesdir/bin/git-frie
 unlink_symlinks "$dotfilesdir/bin/git-friendly/pull" "$dotfilesdir/bin/git-friendly" "$dotfilesdir/bin"
 unlink_symlinks "$dotfilesdir/bin/git-friendly/push" "$dotfilesdir/bin/git-friendly" "$dotfilesdir/bin"
 
-# Unlink "$HOME/dev/src/github/dotfiles-m1" if required.
-# Check if "$HOME/dev/src/github/dotfiles-m1" exists
+# Unlink "$HOME/dotfiles" if required.
+# Check if "$HOME/dotfiles" exists
 if [ -e "$defaultdotfilesdir" ]; then
   # Check if this is where our files are stores
   if [[ "$dotfilesdir" -ef "$defaultdotfilesdir" ]]; then
     # Check if symlink in place
     if [ -L "$defaultdotfilesdir" ]; then
-      action "Unlinking '$HOME/dev/src/github/dotfiles-m1'"
+      action "Unlinking '$HOME/dotfiles'"
       unlink "$defaultdotfilesdir"
     fi
   fi

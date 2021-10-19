@@ -26,7 +26,7 @@ fi
 
 # Set defaultdotfilesdir var if not declared.
 if [ -z ${defaultdotfilesdir+x} ]; then
-  defaultdotfilesdir="$HOME/dev/src/github/dotfiles-m1"
+  defaultdotfilesdir="$HOME/dotfiles"
 fi
 
 bot "OK, what we're going to do:\n"

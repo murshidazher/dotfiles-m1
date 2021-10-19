@@ -15,7 +15,7 @@ export DEV_DIR="$HOME/dev"
 export LLVMBASE=$(brew --prefix llvm)
 
 # Dotfiles
-export DOTFILES_DIR="$HOME/dev/src/github/dotfiles-m1"
+export DOTFILES_DIR="$HOME/dotfiles"
 export DOTFILES_IDE="vs"
 
 # Make vim the default editor.

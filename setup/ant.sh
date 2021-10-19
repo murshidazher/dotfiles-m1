@@ -17,8 +17,8 @@ if [ -z ${defaultdotfilesdir+x} ]; then
 fi
 
 action "asdf: setting up Ant"
-asdf plugin-add ant
-# asdf where ant
+agnostic agnostic asdf plugin-add ant
+# agnostic asdf where ant
 
 # Set the containing directory for later use
 versions_dir="$defaultdotfilesdir/versions/ant"
@@ -36,7 +36,7 @@ function install_versions {
   local versions_list=$(read_file)
   for version in ${versions_list}; do
     running "asdf: installing ${version} for ant"
-    asdf install ant ${version} >/dev/null 2>&1
+    agnostic asdf install ant ${version} >/dev/null 2>&1
     local status=$?
     if [ ${status} -ne "0" ]; then
       error "Last exit code was ${status} for 'asdf install ant ${version}'. Please run manually. Aborting."
@@ -50,7 +50,7 @@ function install_versions {
 function set_global {
   local latest_version=${1}
   running "asdf ant: setting ${latest_version} as global"
-  asdf global ant ${latest_version} >/dev/null 2>&1
+  agnostic asdf global ant ${latest_version} >/dev/null 2>&1
 }
 
 action "asdf ant: installing versions"

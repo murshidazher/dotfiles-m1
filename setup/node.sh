@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Setup Node install global packages
-# Requires: asdf and asdf-nodejs
+# Requires: agnostic asdf and asdf-nodejs
 debug=${1:-false}
 
 # Load help lib if not already loaded.
@@ -14,8 +14,8 @@ if [ -z ${hbwloaded+x} ]; then
   source ./zsh.d/homebrew
 fi
 
-# Check if asdf is installed.
-if hash asdf 2>/dev/null; then
+# Check if agnostic asdf is installed.
+if hash agnostic asdf 2>/dev/null; then
   botintro "Installing Node global packages."
 
   # Create dirs and set current user as owner (prevent sudo issues)
@@ -25,7 +25,7 @@ if hash asdf 2>/dev/null; then
   sudo chown -R $(whoami) "/usr/local/lib/node_modules"
 
   # Update npm for LTS.
-  # note: node is installed by asdf from .tool-versions
+  # note: node is installed by agnostic asdf from .tool-versions
   action "Updating npm."
 
   npm install npm -g
@@ -76,5 +76,5 @@ if hash asdf 2>/dev/null; then
 
   # fin.
 else
-  echo "WARNING: asdf not found."
+  echo "WARNING: agnostic asdf not found."
 fi

@@ -13,25 +13,26 @@ PATH="$PATH:/usr/sbin"
 PATH="$PATH:/sbin"
 PATH="$PATH:/usr/X11/b‌​in"
 
-# homebrew
-PATH="$PATH:$HBP/bin"
-PATH="$PATH:$HBP/sbin"
-PATH="$PATH:$HBP/opt"
+# brew path
+# if [[ echo "$(arch)" == "arm64" ]]; then
+#   export PATH="/opt/homebrew/bin:${PATH}" # arm64
+# else
+#   export PATH="/usr/local/homebrew/bin:${PATH}" # x86_64
+# fi
+export PATH="/opt/homebrew/bin:${PATH}" # arm64
 
 # Node -- use project specific binaries before global ones.
 PATH="node_modules/.bin:vendor/bin:$HOME/.node-global-modules/bin:$PATH"
 
 # coreutils
-PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
 # findutils
-PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
+PATH="$(brew --prefix findutils)/libexec/gnubin:$PATH"
 
 # gnu-sed
-PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+PATH="$(brew --prefix gnu-sed)/libexec/gnubin:$PATH"
 
-# gnu-sed
-PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # vim/vi
 PATH="/usr/local/bin/vim:$PATH"
@@ -53,9 +54,6 @@ PATH="/usr/local/aws/bin:$PATH"
 if [ -e "$HOME/.path.local" ]; then
   source "$HOME/.path.local"
 fi
-
-# vscode
-PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # llvm
 PATH="/opt/homebrew/opt/llvm/bin:$PATH"
@@ -84,6 +82,11 @@ PATH="/opt/homebrew/opt/krb5/sbin:$PATH"
 
 # libiconv
 PATH="/opt/homebrew/opt/libiconv/bin:$PATH"
+
+# homebrew
+PATH="$PATH:$HBP/bin"
+PATH="$PATH:$HBP/sbin"
+PATH="$PATH:$HBP/opt"
 
 # libxml2
 PATH="/opt/homebrew/opt/libxml2/bin:$PATH"

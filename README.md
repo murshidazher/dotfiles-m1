@@ -29,6 +29,7 @@ fi
 ## TODO
 
 - [ ] https://firebase.google.com/docs/app-distribution/ios/distribute-fastlane
+- [ ] change zsh_prompt color profile
 
 ## License
 

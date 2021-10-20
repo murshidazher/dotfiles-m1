@@ -48,7 +48,7 @@ docker_code=$(docker ps &>/dev/null)
 docker_status=$?
 # echo "docker status: $docker_status"
 
-if [ "$docker_status" == "0" ]; then
+if [[ ${docker_status} == "0" ]]; then
   # docker has started
   alias d="docker"
   alias dps="docker ps -a"
@@ -304,8 +304,8 @@ alias reload="exec ${SHELL} -l"
 alias path="echo -e ${PATH//:/\\n}"
 
 # Visual Studio
-alias codexm="code --list-extensions > $HOME/dotfiles/vscode/extensions.list"
-alias codexup="code --list-extensions | comm -13 - $HOME/dotfiles/vscode/extensions.list | xargs -I {} code --install-extension {}"
+alias codexm="/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code --list-extensions > $HOME/dotfiles/vscode/extensions.list"
+alias codexup="/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code --list-extensions | comm -13 - $HOME/dotfiles/vscode/extensions.list | xargs -I {} code --install-extension {}"
 
 # R
 alias r="/Library/Frameworks/R.framework/Versions/Current/Resources/bin/R"

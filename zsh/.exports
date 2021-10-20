@@ -4,7 +4,7 @@
 export SHELL="/bin/zsh"
 
 # Homebrew
-export HBP=/opt/homebrew
+export HBP=/"opt/homebrew"
 
 # zsh
 export ZSH="/Users/$(whoami)/.oh-my-zsh"
@@ -36,7 +36,7 @@ export NODE_REPL_MODE='sloppy'
 export PYTHONIOENCODING='UTF-8'
 
 # Go path.
-export GOPATH="$CODE/go"
+export GOPATH="$DEV_DIR/go"
 
 # asdf
 export ASDF_PATH="$HOME/.asdf"
@@ -44,9 +44,9 @@ export ASDF_PATH="$HOME/.asdf"
 # miniconda path
 export MINICONDA_PATH="$DEV_DIR/miniconda"
 
-# Java path.
-# source ~/.asdf/plugins/java/set-java-home.bash
-export JAVA_HOME=". $HOME/.asdf/plugins/java/set-java-home.bash"
+# Java path
+source ~/.asdf/plugins/java/set-java-home.zsh
+# export JAVA_HOME="$(brew --prefix openjdk)/bin/java"
 export STUDIO_JDK="$(/usr/libexec/java_home -v1.8)"
 
 # Increase zsh history size. Allow 32³ entries; the default is 500.
@@ -171,12 +171,11 @@ export LDFLAGS="-L/opt/homebrew/opt/libxml2/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/libxml2/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/libxml2/lib/pkgconfig"
 
-# perl
-export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5" cpan local::lib
-eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
-
 # Ruby
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
+# zsh plugins
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$(brew --prefix)/share/zsh-syntax-highlighting/highlighters
 
 # Android
 [[ -f "$HOME/.androidrc" ]] && source "$HOME/.androidrc" 2>/dev/null

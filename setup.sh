@@ -12,7 +12,7 @@
 # 10. Misc.
 
 debug=${1:-false}     # default debug param.
-source ./setup/lib.sh # load help lib.
+source ./lib.sh # load help lib.
 
 # Help
 bot "OK, what we're going to do:\n"

@@ -108,24 +108,44 @@ else
   hostStyle="${yellow}"
 fi
 
-# Set the terminal title and prompt.
-PS1="\[\033]0;\W\007\]"   # working directory base name
-PS1+="\[${bold}\]\n"      # newline
-PS1+="\[${userStyle}\]\u" # username
-PS1+="\[${white}\] at "
-PS1+="\[${hostStyle}\]\h" # host
-PS1+="\[${white}\] in "
-PS1+="\[${green}\]\w"                                                   # working directory full path
-PS1+="\$(prompt_git \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\")" # Git repository details
-PS1+="\n"
-PS1+="\[${white}\]\$ \[${reset}\]" # `$` (and reset color)
-export PS1
+# # Set the terminal title and prompt.
+# PS1="\[\033]0;\W\007\]"   # working directory base name
+# PS1+="\[${bold}\]\n"      # newline
+# PS1+="\[${userStyle}\]\u" # username
+# PS1+="\[${white}\] at "
+# PS1+="\[${hostStyle}\]\h" # host
+# PS1+="\[${white}\] in "
+# PS1+="\[${green}\]\w"                                                   # working directory full path
+# PS1+="\$(prompt_git \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\")" # Git repository details
+# PS1+="\n"
+# PS1+="\[${white}\]\$ \[${reset}\]" # `$` (and reset color)
+# export PS1
 
-# Subshell prompt string.
-PS2="\[${yellow}\]→ \[${reset}\]"
-export PS2
+# # Subshell prompt string.
+# PS2="\[${yellow}\]→ \[${reset}\]"
+# export PS2
 
-# Debug prompt string (when using `set -x`).
-# The first character (+) is used and repeated for stack depth.
-# Then, we log the current time, filename and line number, followed by function name, followed by actual source line.
-export PS4='+ \011\e[1;30m\t\011\e[1;34m${BASH_SOURCE}\e[0m:\e[1;36m${LINENO}\e[0m \011 ${FUNCNAME[0]:+\e[0;35m${FUNCNAME[0]}\e[1;30m()\e[0m:\011\011 }'
+# # Debug prompt string (when using `set -x`).
+# # The first character (+) is used and repeated for stack depth.
+# # Then, we log the current time, filename and line number, followed by function name, followed by actual source line.
+# export PS4='+ \011\e[1;30m\t\011\e[1;34m${BASH_SOURCE}\e[0m:\e[1;36m${LINENO}\e[0m \011 ${FUNCNAME[0]:+\e[0;35m${FUNCNAME[0]}\e[1;30m()\e[0m:\011\011 }'
+
+function prompt_char {
+    git branch >/dev/null 2>/dev/null && echo '±' && return
+    hg root >/dev/null 2>/dev/null && echo 'Hg' && return
+    echo '$'
+}
+
+function virtualenv_info {
+    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
+}
+
+PROMPT='%{$bold%}
+%{$userStyle%}%n%{$reset_color%}%{$white%} at %{$hostStyle%}%m%{$reset_color%} in %{$fg_bold[green]%}%~%{$reset_color%}$(git_prompt_info)
+$(virtualenv_info)$(prompt_char) '
+
+# ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"
+# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+# # ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}!"
+# ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[green]%}?"
+# ZSH_THEME_GIT_PROMPT_CLEAN=""

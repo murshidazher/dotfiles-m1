@@ -9,12 +9,12 @@ PYTHON_PIPS=(httpie)
 
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
-  source ./setup/lib.sh
+  source ./lib.sh
 fi
 
 # Load homebrew config if not already loaded.
 if [ -z ${hbwloaded+x} ]; then
-  source ./zsh.d/homebrew
+  source ../zsh.d/homebrew
 fi
 
 # Check if agnostic asdf is installed.
@@ -24,8 +24,9 @@ if hash agnostic asdf 2>/dev/null; then
   # Install java, erlang and elixir
   source ./elixir.sh
 
-  # Install dart
-  source ./dart.sh
+  # # Install dart
+  # # Note: flutter SDK includes dart, hence if you intend to install flutter comment this.
+  # source ./dart.sh
 
   # Install flutter
   source ./flutter.sh
@@ -36,17 +37,17 @@ if hash agnostic asdf 2>/dev/null; then
   # Install nodejs
   source ./nodejs.sh
 
-  # Install php
-  source ./php.sh
+  # # Install php
+  # source ./php.sh
 
   # Install python
   source ./python.sh
 
-  # Install ruby
-  source ./ruby.sh
+  # # Install ruby
+  # source ./ruby.sh
 
-  # Install ant
-  source ./ant.sh
+  # # Install ant
+  # source ./ant.sh
 
   # Install maven
   source ./maven.sh

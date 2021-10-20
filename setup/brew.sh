@@ -3,12 +3,12 @@ debug=${1:-false}
 
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
-  source ./setup/lib.sh
+  source ./lib.sh
 fi
 
 # Load homebrew config if not already loaded.
 if [ -z ${hbwloaded+x} ]; then
-  source ./zsh.d/homebrew
+  source ../zsh.d/homebrew
 fi
 
 # Set install flag to false
@@ -32,17 +32,20 @@ if $brewinstall; then
 
   action "Installing Homebrew"
   # Check if brew installed, install if not.
-  if ! hash brew 2>/dev/null; then
-    # note: if your /usr/local is locked down (like at Google), you can do this to place everything in ~/.homebrew
-    # mkdir "$HOME/.homebrew" && curl -L https://github.com/mxcl/homebrew/tarball/master | tar xz --strip 1 -C $HOME/.homebrew
-    # then add this to your path: export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$PATH
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  # if ! hash brew 2>/dev/null; then
+  #   # note: if your /usr/local is locked down (like at Google), you can do this to place everything in ~/.homebrew
+  #   # mkdir "$HOME/.homebrew" && curl -L https://github.com/mxcl/homebrew/tarball/master | tar xz --strip 1 -C $HOME/.homebrew
+  #   # then add this to your path: export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$PATH
+  #   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    print_result $? 'Install Homebrew.'
-  else
-    success "Homebrew already installed."
-    source ./zsh.d/homebrew
-  fi
+  #   print_result $? 'Install Homebrew.'
+  # else
+  #   success "Homebrew already installed."
+  #   source ../zsh.d/homebrew
+  # fi
+
+  # install x86_64 supported version
+  arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
   running "brew update + brew upgrade"
   # Make sure we’re using the latest Homebrew.
@@ -149,7 +152,6 @@ if $brewinstall; then
   agnostic brew install hub
   agnostic brew install icdiff
   agnostic brew install jq
-  agnostic brew install m
   agnostic brew install mas
   agnostic brew install mtr
   agnostic brew install ngrep
@@ -222,7 +224,7 @@ if $brewinstall; then
   agnostic brew install rbenv-gemset
   agnostic brew install hugo
   agnostic brew install jsonnet
-  agnostic brew install watchman # watch file changes
+  # agnostic brew install watchman # watch file changes
 
   agnostic brew install mkcert
   agnostic brew install nss # if you use Firefox
@@ -300,7 +302,7 @@ if $brewinstall; then
   agnostic brew install --cask diskwave
   agnostic brew install --cask dropbox
   agnostic brew install google-drive
-  agnostic brew install --cask g-desktop-suite
+  # agnostic brew install --cask g-desktop-suite
   agnostic brew install --cask google-chrome
   agnostic brew install --cask grammarly
   agnostic brew install --cask iterm2
@@ -320,8 +322,6 @@ if $brewinstall; then
   agnostic brew install --cask aerial
   agnostic brew install --cask openinterminal
   agnostic brew install --cask dozer
-  agnostic brew install --cask itsycal
-  # agnostic brew install --cask meetingbar
   agnostic brew install --cask recordit
   agnostic brew install --cask keka
 
@@ -428,19 +428,19 @@ if $brewinstall; then
   if answer_is_yes; then
 
     ## Utilites
-    agnostic mas install 668208984  # GIPHY Capture. The GIF Maker (For recording my screen as gif)
-    agnostic mas install 1351639930 # Gifski, convert videos to gifs
+    mas install 668208984  # GIPHY Capture. The GIF Maker (For recording my screen as gif)
+    mas install 1351639930 # Gifski, convert videos to gifs
     # mas install 414030210  # Limechat, IRC app.
-    agnostic mas install 441258766  # Magnet
-    agnostic mas install 1474276998 # HP Smart for Desktop
-    agnostic mas install 490461369  # Bandwidth+
-    agnostic mas install 1056643111 # Clocker
-    agnostic mas install 692867256  # Simplenote
-    agnostic mas install 1284863847 # Unsplash Wallpapers
-    # agnostic mas install 1470584107 # Dato
+    mas install 441258766  # Magnet
+    # mas install 1474276998 # HP Smart for Desktop
+    mas install 490461369  # Bandwidth+
+    mas install 1056643111 # Clocker
+    mas install 692867256  # Simplenote
+    mas install 1284863847 # Unsplash Wallpapers
+    # mas install 1470584107 # Dato
 
     ## Password management
-    # agnostic mas install 1191757556 # Obsidian Authenticator App
+    # mas install 1191757556 # Obsidian Authenticator App
 
   else
     cancelled "App Store login not complete. Skipping installing App Store Apps"

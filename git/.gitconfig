@@ -123,10 +123,10 @@ fcm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen
 contributors = shortlog --summary --numbered
 
 # Recap
-recap = log --all --oneline --no-merges --author="murshidazher@yahoo.com"
+recap = log --all --oneline --no-merges --author="murshid@different.com.au"
 
 # Today
-today = log --since=00:00:00 --all --no-merges --oneline --author="murshidazher@yahoo.com"
+today = log --since=00:00:00 --all --no-merges --oneline --author="murshid@different.com.au"
 
 # Upstream
 upstream = "!f() { \
@@ -307,5 +307,5 @@ required = true
 [gpg]
 program = gpg
 [user]
-email = murshidazher@yahoo.com
-signingkey = ***REMOVED***
+***REMOVED***
+***REMOVED***

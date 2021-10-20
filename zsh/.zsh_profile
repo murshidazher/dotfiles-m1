@@ -25,25 +25,33 @@ if [ "$TERM" != dumb ] && [ -n "$GRC" ]; then
 fi
 
 # Case-insensitive globbing (used in pathname expansion).
-shopt -s nocaseglob
+setopt nocaseglob
 
 # Append to the Bash history file, rather than overwriting it.
-shopt -s histappend
+setopt histappend
 
 # Save multi-line commands as one command.
-shopt -s cmdhist
+setopt bang_hist
+setopt extended_history
+setopt hist_allow_clobber
+setopt hist_reduce_blanks
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
+
 
 # Autocorrect typos in path names when using `cd`.
-shopt -s cdspell
+unsetopt correct_all
+setopt short_loops
 
 # Autocorrect on directory names to match a glob.
-shopt -s dirspell 2>/dev/null
+setopt dirspell 2>/dev/null
 
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
 # * Recursive globbing, e.g. `echo **/*.txt`
 for option in autocd globstar; do
-  shopt -s "$option" 2>/dev/null
+  setopt "$option" 2>/dev/null
 done
 
 [[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
@@ -52,7 +60,6 @@ done
 source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
 source "$(brew --prefix)/etc/bash_completion.d/brew"
 source "$(brew --prefix)/etc/bash_completion.d/gibo-completion.bash"
-source "$(brew --prefix)/etc/bash_completion.d/git-completion.bash"
 
 # matches case insensitive for lowercase
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -82,13 +89,9 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTerm2 iTune
 zpath="$(brew --prefix)/etc/profile.d/z.sh"
 [ -s $zpath ] && source $zpath
 
-# Enable history expansion with space.
-# e.g. typing !!<space> will replace the !! with your last command
-bind Space:magic-space
-
 # asdf
 source "$(brew --prefix asdf)/asdf.sh"
-source "$(brew --prefix asdf)/completions/asdf.bash"
+source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
 
 # pyevnv
 if hash pyenv 2>/dev/null; then

@@ -224,7 +224,7 @@ if $brewinstall; then
   agnostic brew install rbenv-gemset
   agnostic brew install hugo
   agnostic brew install jsonnet
-  # agnostic brew install watchman # watch file changes
+  agnostic brew install watchman # watch file changes
 
   agnostic brew install mkcert
   agnostic brew install nss # if you use Firefox
@@ -323,6 +323,7 @@ if $brewinstall; then
   agnostic brew install --cask dozer
   agnostic brew install --cask recordit
   agnostic brew install --cask keka
+  agnostic brew install --cask kekaexternalhelper
 
   # SECURITY
   agnostic brew install --cask authy

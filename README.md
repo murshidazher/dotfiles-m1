@@ -34,6 +34,15 @@ fi
 
 - [ ] https://firebase.google.com/docs/app-distribution/ios/distribute-fastlane
 - [ ] change zsh_prompt color profile
+- [ ] setting up nodejs before v16 in m1. Build them from binaries. Refer [this](https://github.com/asdf-vm/asdf-nodejs/issues/78#issuecomment-842771319)
+
+```sh
+> NODEJS_CONFIGURE_OPTIONS='--with-intl=full-icu --download=all' NODEJS_CHECK_SIGNATURES="no" asdf install nodejs ref:v12.22.7
+> cd ~/.asdf/installs/nodejs
+> ln -s ref-v12.22.7 12.22.7
+> asdf reshim
+> asdf global nodejs 12.22.7
+```
 
 ## License
 

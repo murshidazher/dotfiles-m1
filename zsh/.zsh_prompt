@@ -11,7 +11,7 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
   export TERM='xterm-256color'
 fi
 
-prompt_git() {
+function prompt_git() {
   local s=''
   local branchName=''
 
@@ -131,21 +131,25 @@ fi
 # export PS4='+ \011\e[1;30m\t\011\e[1;34m${BASH_SOURCE}\e[0m:\e[1;36m${LINENO}\e[0m \011 ${FUNCNAME[0]:+\e[0;35m${FUNCNAME[0]}\e[1;30m()\e[0m:\011\011 }'
 
 function prompt_char {
-    git branch >/dev/null 2>/dev/null && echo '±' && return
-    hg root >/dev/null 2>/dev/null && echo 'Hg' && return
+    # git branch >/dev/null 2>/dev/null && echo '±' && return
+    # hg root >/dev/null 2>/dev/null && echo 'Hg' && return
     echo '$'
 }
 
 function virtualenv_info {
-    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
+    # return $(git_prompt_info \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\")
+    # [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
+    # [ $prompt_git ] && echo '('`basename $prompt_git`') '
+    # prompt_git
+
 }
 
 PROMPT='%{$bold%}
-%{$userStyle%}%n%{$reset_color%}%{$white%} at %{$hostStyle%}%m%{$reset_color%} in %{$fg_bold[green]%}%~%{$reset_color%}$(git_prompt_info)
+%{$userStyle%}%n%{$reset_color%}%{$white%} at %{$bold%}%{$hostStyle%}%m%{$reset_color%} in %{$bold%}%{$green%}%~%{$reset_color%} $(git_prompt_info)
 $(virtualenv_info)$(prompt_char) '
 
-# ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"
-# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-# # ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}!"
-# ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[green]%}?"
-# ZSH_THEME_GIT_PROMPT_CLEAN=""
+ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$userStyle%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$yellow%}!"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$green%}?"
+ZSH_THEME_GIT_PROMPT_CLEAN=""

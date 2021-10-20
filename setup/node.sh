@@ -72,7 +72,6 @@ if hash agnostic asdf 2>/dev/null; then
     viewport-list-cli
     vtop
     @vue/cli
-    @ayoisaiah/f2
   )
 
   for package in ${packages[@]}; do

@@ -298,7 +298,6 @@ if $brewinstall; then
   agnostic brew tap homebrew/cask-versions
 
   # GENERAL
-  agnostic brew install --cask caffeine
   agnostic brew install --cask diskwave
   agnostic brew install --cask dropbox
   agnostic brew install google-drive
@@ -437,6 +436,7 @@ if $brewinstall; then
     mas install 1056643111 # Clocker
     mas install 692867256  # Simplenote
     mas install 1284863847 # Unsplash Wallpapers
+    mas install 937984704 # Amphetamine
     # mas install 1470584107 # Dato
 
     ## Password management

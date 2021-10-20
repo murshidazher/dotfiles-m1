@@ -14,6 +14,10 @@ To setup simply open the terminal, then:
 bash -c "`curl -L https://git.io/dotfiles-m1`"
 ```
 
+#### GPG key with Keybase.io
+
+- Follow this gist to [setup gpgkey with keybase.io](https://github.com/pstadler/keybase-gpg-github).
+
 ### Homebrew
 
 - `/usr/local` on macOS intel

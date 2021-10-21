@@ -40,6 +40,7 @@ export GOPATH="$DEV_DIR/go"
 
 # asdf
 export ASDF_PATH="$HOME/.asdf"
+export ASDF_PYTHON_PATCH_URL="https://github.com/python/cpython/commit/8ea6353.patch?full_index=1" # patch for macOS 11
 
 # miniconda path
 export MINICONDA_PATH="$DEV_DIR/miniconda"

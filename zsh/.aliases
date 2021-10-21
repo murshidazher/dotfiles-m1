@@ -208,6 +208,9 @@ alias emptytrash=" \
 
 alias kaf="killall Finder"
 
+# thefuck
+alias aiyo="fuck"
+
 # Show/hide hidden files in Finder
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
@@ -326,6 +329,9 @@ f() {
   unset -f f;
 };
 f'
+
+# earthly
+alias earth="earthly"
 
 # Android
 alias aasdk="sdkmanager --list | sed -e '/Available Packages/q'" # get the list of installed sdk

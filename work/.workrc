@@ -19,6 +19,8 @@ export DIFFERENT_MYSQL_DUMP_PATH=$HOME/work/db_backup/mysql/mysql.prod.different
 export DIFFERENT_MONGO_DUMP_PATH=$HOME/work/db_backup/mongodb/mongodb-prod-different-20211008
 
 alias ddcdb="docker-compose -f=$HOME/work/src/github/api/docker-compose.yml up"
-alias ddmr="mongorestore --uri=mongodb://localhost:27017 -d=$1 ./"
+# mongorestore ./ -d different
+# alias ddmr="mongorestore --uri=mongodb://localhost:27017/$1 ./"
+alias ddmr="mongorestore ./ -d $1"
 alias msqld="mysql -h localhost -P 3306 --protocol=tcp -u root"
 alias msqls="mysql -h localhost -P 3306 --protocol=tcp -u root $1 < /Users/murshidazher/work/db_backup/mysql/scritps/mysql-prod-data-srub-script.sql"

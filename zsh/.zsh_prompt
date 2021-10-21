@@ -125,31 +125,95 @@ fi
 # PS2="\[${yellow}\]→ \[${reset}\]"
 # export PS2
 
-# # Debug prompt string (when using `set -x`).
-# # The first character (+) is used and repeated for stack depth.
-# # Then, we log the current time, filename and line number, followed by function name, followed by actual source line.
-# export PS4='+ \011\e[1;30m\t\011\e[1;34m${BASH_SOURCE}\e[0m:\e[1;36m${LINENO}\e[0m \011 ${FUNCNAME[0]:+\e[0;35m${FUNCNAME[0]}\e[1;30m()\e[0m:\011\011 }'
 
 function prompt_char {
-    # git branch >/dev/null 2>/dev/null && echo '±' && return
-    # hg root >/dev/null 2>/dev/null && echo 'Hg' && return
     echo '$'
 }
 
-function virtualenv_info {
-    # return $(git_prompt_info \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\")
-    # [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
-    # [ $prompt_git ] && echo '('`basename $prompt_git`') '
-    # prompt_git
+# extra
 
+#use extended color palette if available
+if [[ $TERM = (*256color|*rxvt*) ]]; then
+  turquoise="%{${(%):-"%F{81}"}%}"
+  orange="%{${(%):-"%F{166}"}%}"
+  purple="%{${(%):-"%F{135}"}%}"
+  hotpink="%{${(%):-"%F{161}"}%}"
+  limegreen="%{${(%):-"%F{118}"}%}"
+else
+  turquoise="%{${(%):-"%F{cyan}"}%}"
+  orange="%{${(%):-"%F{yellow}"}%}"
+  purple="%{${(%):-"%F{magenta}"}%}"
+  hotpink="%{${(%):-"%F{red}"}%}"
+  limegreen="%{${(%):-"%F{green}"}%}"
+fi
+
+autoload -Uz vcs_info
+# enable VCS systems you use
+zstyle ':vcs_info:*' enable git svn
+
+# check-for-changes can be really slow.
+# you should disable it, if you work with large repositories
+zstyle ':vcs_info:*:prompt:*' check-for-changes true
+
+# set formats
+# %b - branchname
+# %u - unstagedstr (see below)
+# %c - stagedstr (see below)
+# %a - action (e.g. rebase-i)
+# %R - repository path
+# %S - path in the repository
+PR_RST="%{${reset_color}%}"
+FMT_BRANCH=" on ${turquoise}%b%u%c${PR_RST}"
+FMT_ACTION="${blue}?"
+FMT_UNSTAGED="${blue}!"
+FMT_STAGED="${blue}+"
+
+zstyle ':vcs_info:*:prompt:*' unstagedstr   "${FMT_UNSTAGED}"
+zstyle ':vcs_info:*:prompt:*' stagedstr     "${FMT_STAGED}"
+zstyle ':vcs_info:*:prompt:*' actionformats "[${FMT_BRANCH}${FMT_ACTION}]"
+zstyle ':vcs_info:*:prompt:*' formats       "${FMT_BRANCH}"
+zstyle ':vcs_info:*:prompt:*' nvcsformats   ""
+
+
+function steeef_chpwd {
+  PR_GIT_UPDATE=1
 }
 
-PROMPT='%{$bold%}
-%{$userStyle%}%n%{$reset_color%}%{$white%} at %{$bold%}%{$hostStyle%}%m%{$reset_color%} in %{$bold%}%{$green%}%~%{$reset_color%} $(git_prompt_info)
-$(virtualenv_info)$(prompt_char) '
+function steeef_preexec {
+  case "$2" in
+  *git*|*svn*) PR_GIT_UPDATE=1 ;;
+  esac
+}
 
-ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$userStyle%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$yellow%}!"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$green%}?"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
+function steeef_precmd {
+  (( PR_GIT_UPDATE )) || return
+
+  # check for untracked files or updated submodules, since vcs_info doesn't
+  if [[ -n "$(git ls-files --other --exclude-standard 2>/dev/null)" ]]; then
+    PR_GIT_UPDATE=1
+    FMT_BRANCH="${PM_RST}${reset_color} on ${bold}${violet}%b ${blue}[%c%u%a]${PR_RST}"
+  else
+    FMT_BRANCH="${PM_RST}${reset_color} on ${bold}${violet}%b ${blue}[%c%u%a]${PR_RST}"
+  fi
+
+
+
+  zstyle ':vcs_info:*:prompt:*' formats       "${FMT_BRANCH}"
+
+  vcs_info 'prompt'
+  PR_GIT_UPDATE=
+}
+
+# vcs_info running hooks
+PR_GIT_UPDATE=1
+
+autoload -U add-zsh-hook
+add-zsh-hook chpwd steeef_chpwd
+add-zsh-hook precmd steeef_precmd
+add-zsh-hook preexec steeef_preexec
+
+setopt prompt_subst
+
+PROMPT='%{$bold%}
+%{$userStyle%}%n%{$reset_color%}%{$white%} at %{$bold%}%{$hostStyle%}%m%{$reset_color%} in %{$bold%}%{$green%}%~%{$reset_color%}%{$bold%}$vcs_info_msg_0_%{$reset_color%}%{$bold%}
+$(prompt_char)%{$reset_color%} '

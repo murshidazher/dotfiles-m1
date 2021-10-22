@@ -342,5 +342,8 @@ alias pod="arch -x86_64 pod"
 alias brew="arch -arm64 brew"
 alias gem="arch -x86_64 sudo gem"
 
+# Xcode
+alias iosemu="open -a Simulator"
+
 # Work aliases
 [[ -f "$HOME/.workrc" ]] && source "$HOME/.workrc" 2>/dev/null

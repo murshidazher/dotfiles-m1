@@ -337,5 +337,10 @@ alias earth="earthly"
 alias aasdk="sdkmanager --list | sed -e '/Available Packages/q'" # get the list of installed sdk
 alias asdku="sdkmanager --update"
 
+# M1 Support
+alias pod="arch -x86_64 pod"
+alias brew="arch -arm64 brew"
+alias gem="arch -x86_64 sudo gem"
+
 # Work aliases
 [[ -f "$HOME/.workrc" ]] && source "$HOME/.workrc" 2>/dev/null

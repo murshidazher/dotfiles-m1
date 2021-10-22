@@ -54,6 +54,33 @@ Open rosetta terminal,
 > asdf global nodejs 12.16.1
 ```
 
+
+### ASDF Ruby 
+
+```sh
+> asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+> asdf install ruby 2.7.4
+> asdf global ruby 2.7.4
+> gem install bundler:2.2.19 -n /usr/local/bin
+> gem install --user-install ffi -- --enable-libffi-alloc
+```
+
+### Projects
+
+```sh
+> npm rebuild node-sass
+```
+
+### Ant
+
+```sh
+$ asdf plugin add ant
+$ asdf list-all ant
+$ asdf install ant latest
+$ asdf global ant latest
+$ ant -version
+```
+
 ## License
 
 [MIT](https://github.com/murshidazher/dotfiles-m1/blob/main/LICENSE) &copy; 2021 Murshid Azher.

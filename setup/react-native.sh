@@ -63,8 +63,6 @@ brew install --cask android-platform-tools # for adb
 
 touch ~/.android/repositories.cfg
 
-# Hardware Acceleration
-brew install --cask intel-haxm
 
 # setup the env to java 1.8 for sdkmanager
 # bash -c 'JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
@@ -93,12 +91,9 @@ sdkmanager --update
 
 action "download system images for android emulator"
 # sdkmanager --list | grep "system-images.*playstore"
-# For Intel macbooks
-local SYSTEM_IMAGE_INTEL_VERSION="system-images;android-29;google_apis_playstore;x86_64"
-sdkmanager ${SYSTEM_IMAGE_INTEL_VERSION}
 
 # For m1 macbooks
-local SYSTEM_IMAGE_ARM_VERSION="system-images;android-29;google_apis_playstore;x86_64"
+local SYSTEM_IMAGE_ARM_VERSION="system-images;android-31;google_apis_playstore;arm64-v8a"
 sdkmanager ${SYSTEM_IMAGE_ARM_VERSION}
 
 action "create an AVD using Pixel 2"
@@ -137,6 +132,7 @@ flutter doctor --android-licenses
 runnning "Install XCode from MacStore"
 read -p "Press [Enter] key when done..."
 
+mas install 497799835 # xcode
 sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 sudo xcodebuild -runFirstLaunch
 sudo xcodebuild -license

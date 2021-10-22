@@ -1,14 +1,15 @@
-export ANT_HOME=/usr/local/opt/ant
-export MAVEN_HOME=/usr/local/opt/maven
-export GRADLE_HOME=/usr/local/opt/gradle
-export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+export ANT_HOME=$HOME/.asdf/shims/ant
+export MAVEN_HOME=$HOME/.asdf/shims/mvn
+export GRADLE_HOME=$HOME/.asdf/shims/gradle
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export ANDROID_HOME=$ANDROID_SDK_ROOT
-export ANDROID_NDK_HOME=/usr/local/opt/android-ndk
+export ANDROID_NDK_HOME=/opt/homebrew/share/android-ndk
 export ANDROID_SKINS_DIRECTORY=$ANDROID_SDK_ROOT/skins
-export PATH=$ANT_HOME/bin:$PATH
-export PATH=$MAVEN_HOME/bin:$PATH
-export PATH=$GRADLE_HOME/bin:$PATH
-export PATH=$ANDROID_HOME/emulator:$PATH
-export PATH=$ANDROID_HOME/tools/bin:$PATH
-export PATH=$ANDROID_HOME/platform-tools:$PATH
-export PATH=$ANDROID_HOME/build-tools/$(ls $ANDROID_HOME/build-tools | sort | tail -1):$PATH
+
+PATH="$ANDROID_HOME/emulator:$PATH"
+PATH="$ANDROID_HOME/tools:$PATH"
+PATH="$ANDROID_HOME/tools/bin:$PATH"
+PATH="$ANDROID_HOME/platform-tools:$PATH"
+PATH=$ANDROID_HOME/build-tools/$(ls $ANDROID_HOME/build-tools | sort | tail -1):$PATH
+
+export PATH

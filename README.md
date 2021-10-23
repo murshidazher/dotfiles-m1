@@ -1,5 +1,7 @@
 # [dotfiles-m1](https://github.com/murshidazher/dotfiles-m1)
 
+> ⚠️ Scripts in this project under development. Please review the code first and use at your own risk!
+
 TBA
 
 ## Installing / Getting started
@@ -79,6 +81,27 @@ $ asdf list-all ant
 $ asdf install ant latest
 $ asdf global ant latest
 $ ant -version
+```
+
+### Run React Native App
+
+```sh
+# install and link (to install native dependencies)
+npm i
+react-native link
+
+# create a .dev.env file inside
+npm run setupEnv
+npm run start # start the metro bundler
+npm run android:qa
+```
+
+#### ios setup
+
+```sh
+> 
+> cd react-native-owner-app/ios
+> pod install
 ```
 
 ## License

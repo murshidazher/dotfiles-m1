@@ -87,6 +87,7 @@ $ ant -version
 
 ```sh
 # install and link (to install native dependencies)
+asdf local nodejs 14.18.1
 npm i
 react-native link
 

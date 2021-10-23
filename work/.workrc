@@ -9,6 +9,8 @@ alias admin-backend="cd $HOME/work/src/github/admin-portal-backend"
 alias owner-portal="cd $HOME/work/src/github/owner-portal-frontend"
 alias owner-app="cd $HOME/work/src/github/react-native-owner-app"
 alias tenant-app="cd $HOME/work/src/github/react-native-tenant-app"
+alias ops="cd $HOME/work/src/github/ops"
+alias schedule-jobs="cd $HOME/work/src/github/scheduled-jobs"
 alias sshots="cd $HOME/work/screenshots"
 alias dbs="cd $HOME/work/db_backup"
 

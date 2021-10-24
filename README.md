@@ -1,12 +1,12 @@
 # [dotfiles-m1](https://github.com/murshidazher/dotfiles-m1)
 
-> ⚠️ Scripts in this project under development. Please review the code first and use at your own risk!
+> ⚠️ Scripts in this project under development. Please review the code first and use at your own risk! ⚠️ 
 
 TBA
 
 ## Installing / Getting started
 
-> ⚠️ Scripts in this project performs automated tasks. Review the code first and use at your own risk!
+> ⚠️ Scripts in this project performs automated tasks. Review the code first and use at your own risk! ⚠️ 
 
 ### Setup
 

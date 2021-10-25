@@ -11,6 +11,7 @@
 # https://www.py4u.net/discuss/626303
 # https://gist.github.com/badsyntax/ce848ab40b952d944c496575d40e5427 - run on azure pipelines (extract the config.ini) setup
 # TODO: Explore and add script to manage avd_skins to emulator programatically.
+# Needs for exploration on setting up ios development environment
 
 debug=${1:-false}
 

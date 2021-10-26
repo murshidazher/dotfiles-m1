@@ -352,7 +352,7 @@ if $brewinstall; then
   agnostic brew install --cask imagealpha
   agnostic brew install --cask imageoptim
   agnostic brew install --cask ngrok
-  agnostic brew install --cask sequel-pro # mysql management
+  # agnostic brew install --cask sequel-ace # mysql management
   agnostic brew install --cask mongodb-compass
   agnostic brew install --cask robo-3t
   agnostic brew install --cask tableplus

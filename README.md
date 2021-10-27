@@ -105,6 +105,16 @@ npm run android:qa
 > pod install
 ```
 
+### Compinit error
+
+- Refer to this [stackoverflow](https://stackoverflow.com/questions/65747286/zsh-problem-compinit503-no-such-file-or-directory-usr-local-share-zsh-site)
+
+```txt
+compinit:503: no such file or directory: /usr/local/share/zsh/site-functions/_asdf
+compinit:503: no such file or directory: /usr/local/share/zsh/site-functions/_brew
+compinit:shift:505: shift count must be <= $#
+```
+
 ## License
 
 [MIT](https://github.com/murshidazher/dotfiles-m1/blob/main/LICENSE) &copy; 2021 Murshid Azher.

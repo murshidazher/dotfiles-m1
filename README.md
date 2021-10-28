@@ -115,6 +115,12 @@ compinit:503: no such file or directory: /usr/local/share/zsh/site-functions/_br
 compinit:shift:505: shift count must be <= $#
 ```
 
+```sh
+$ ln -fsv /opt/homebrew/completions/zsh/_brew /usr/local/share/zsh/site-functions/_brew
+$ ln -fsv /opt/homebrew/opt/asdf/etc/bash_completion.d/asdf.bash /opt/homebrew/completions/zsh/_asdf
+$ ln -fsv /opt/homebrew/completions/zsh/_asdf /usr/local/share/zsh/site-functions/_asdf
+```
+
 ## License
 
 [MIT](https://github.com/murshidazher/dotfiles-m1/blob/main/LICENSE) &copy; 2021 Murshid Azher.

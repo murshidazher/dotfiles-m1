@@ -190,6 +190,9 @@ function steeef_precmd {
 
   local s=''
 
+  # Ensure the index is up to date.
+  git update-index --really-refresh -q &>/dev/null
+
   # check for untracked files or updated submodules, since vcs_info doesn't
   if [[ -n "$(git ls-files --other --exclude-standard 2>/dev/null)" ]]; then
     PR_GIT_UPDATE=1
@@ -200,11 +203,17 @@ function steeef_precmd {
     FMT_BRANCH="${PM_RST}${reset_color} on ${bold}${violet}%b"
   fi
 
-  if [[ -n "git diff --quiet --ignore-submodules --cached 2>/dev/null)" ]]; then
-    s=" [${s}]"
+  local ref dirty
+  if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
+    ZSH_THEME_GIT_PROMPT_DIRTY='±'
+    dirty=$(parse_git_dirty)
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
+    if [[ -n $dirty ]]; then
+      FMT_BRANCH+="${blue} [${s}]${PR_RST}"
+    else
+      FMT_BRANCH+="${blue}${s}${PR_RST}"
+    fi
   fi
-
-  FMT_BRANCH+="${blue}${s}${PR_RST}"
 
   zstyle ':vcs_info:*:prompt:*' formats       "${FMT_BRANCH}"
 

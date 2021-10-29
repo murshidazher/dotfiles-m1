@@ -104,6 +104,18 @@ npm run android:qa
 > pod install
 ```
 
+#### Clean pod
+
+```sh
+pod cache clean --all # will clean all pods
+rm -rf ~/Library/Caches/CocoaPods
+rm -rf Pods
+rm -rf ~/Library/Developer/Xcode/DerivedData/*
+pod deintegrate
+pod setup
+pod install
+```
+
 ### Compinit error
 
 - Refer to this [stackoverflow](https://stackoverflow.com/questions/65747286/zsh-problem-compinit503-no-such-file-or-directory-usr-local-share-zsh-site)

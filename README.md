@@ -121,6 +121,20 @@ $ ln -fsv /opt/homebrew/opt/asdf/etc/bash_completion.d/asdf.bash /opt/homebrew/c
 $ ln -fsv /opt/homebrew/completions/zsh/_asdf /usr/local/share/zsh/site-functions/_asdf
 ```
 
+## Vscode error
+
+When attempting to launch vscode using the `code .` command you might get the following error,
+
+```sh
+/usr/local/bin/code: line 10: ./MacOS/Electron: No such file or directory
+```
+
+This most likely occurs because of error in python path, symlink the python path manually,
+
+```sh
+sudo ln -s -f $(which python2) $(which python)
+```
+
 ## License
 
 [MIT](https://github.com/murshidazher/dotfiles-m1/blob/main/LICENSE) &copy; 2021 Murshid Azher.

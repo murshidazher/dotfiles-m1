@@ -345,12 +345,27 @@ function conda() {
   conda $@
 }
 
+# run architecture agnostic commands
+function agnostic() {
+  arch -arm64 "$@"
+
+  if [[ $? != 0 ]]; then
+    echo "Command not supported using M1 $1!"
+    arch -x86_64 "$@"
+
+    if [[ $? != 0 ]]; then
+      error "Failed to run using Intel $@"
+    fi
+  fi
+  ok
+}
+
 # brew cleanup after any uninstall for removing old caches and optimizing the taps
 function lemon() {
   echo '🍺 Cleanup Homebrew Cache...'
   brew cleanup -s
-  rm -rfv /Library/Caches/Homebrew/*
   # remove new installed files cache
+  rm -rfv $HOME/Library/Caches/Homebrew/*
   # rm -rf $(brew --cache)
   brew tap --repair
   echo '💎 Cleanup gems...'
@@ -390,19 +405,4 @@ function gitio() {
 
 function llvmc() {
   $LLVMBASE/bin/clang -fopenmp -L$LLVMBASE/lib $1 -o $2
-}
-
-# run architecture agnostic commands
-function agnostic() {
-  arch -arm64e "$@"
-
-  if [[ $? != 0 ]]; then
-    echo "Command not supported using M1 $1!"
-    arch -x86_64 "$@"
-
-    if [[ $? != 0 ]]; then
-      error "Failed to run using Intel $@"
-    fi
-  fi
-  ok
 }

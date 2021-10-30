@@ -371,7 +371,7 @@ function lemon() {
   echo '💎 Cleanup gems...'
   gem cleanup
   echo '🔄 Re-generating agnostic asdf shims...'
-  agnostic asdf reshim
+  asdf reshim
 }
 
 # brew update the cask files, mas, and many more

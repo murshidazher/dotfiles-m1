@@ -374,7 +374,6 @@ function beer() {
   # update app store downloaded files
   mas outdated
   mas upgrade
-  lemon
 }
 
 function restart() {

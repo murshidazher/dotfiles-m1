@@ -42,6 +42,7 @@ fi
 
 ## TODO
 
+- [ ] Add common configurations to docs directory
 - [ ] https://firebase.google.com/docs/app-distribution/ios/distribute-fastlane
 - [ ] change zsh_prompt color profile
 - [ ] setting up nodejs before v16 in m1. Build them from binaries. Refer [this](https://github.com/asdf-vm/asdf-nodejs/issues/78#issuecomment-842771319)
@@ -55,7 +56,6 @@ Open rosetta terminal,
 > asdf reshim
 > asdf global nodejs 12.16.1
 ```
-
 
 ### ASDF Ruby 
 
@@ -100,7 +100,6 @@ npm run android:qa
 #### ios setup
 
 ```sh
-> 
 > cd react-native-owner-app/ios
 > pod install
 ```

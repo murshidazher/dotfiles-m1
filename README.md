@@ -135,6 +135,14 @@ This most likely occurs because of error in python path, symlink the python path
 sudo ln -s -f $(which python2) $(which python)
 ```
 
+## Vscode Permission error when installing extensions
+
+Permission error encountered when updating vscode extensions,
+
+```sh
+sudo chown -R $(whoami):staff $HOME/Library/Application\ Support/CodeCachedExtensionVSIXs
+```
+
 ## License
 
 [MIT](https://github.com/murshidazher/dotfiles-m1/blob/main/LICENSE) &copy; 2021 Murshid Azher.

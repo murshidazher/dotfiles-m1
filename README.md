@@ -141,6 +141,7 @@ Permission error encountered when updating vscode extensions,
 
 ```sh
 sudo chown -R $(whoami):staff $HOME/Library/Application\ Support/CodeCachedExtensionVSIXs
+sudo chown -R $(whoami):staff $HOME/.vscode/extensions/*
 ```
 
 ## License

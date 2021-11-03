@@ -372,6 +372,8 @@ function lemon() {
   gem cleanup
   echo '🔄 Re-generating agnostic asdf shims...'
   asdf reshim
+  echo '🔄 Reset python path'
+  sudo ln -s -f $(which python2) $(which python)
 }
 
 # brew update the cask files, mas, and many more

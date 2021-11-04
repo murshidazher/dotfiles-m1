@@ -93,9 +93,9 @@ export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 
 # MySQL@5.7
 export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/opt/openssl@1.1/lib/
-export LDFLAGS="-L/opt/homebrew/opt/mysql@5.7/lib"
+# export LDFLAGS="-L/opt/homebrew/opt/mysql@5.7/lib"
 export LD_LIBRARY_PATH="/opt/homebrew/opt/mysql@5.7/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/mysql@5.7/include"
+# export CPPFLAGS="-I/opt/homebrew/opt/mysql@5.7/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql@5.7/lib/pkgconfig"
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
@@ -135,14 +135,13 @@ fi
 # eval "$(gdircolors -b ~/.dircolors)"
 
 # llvm
-export LDFLAGS="-L/opt/homebrew/opt/llvm/lib -Wl,-rpath,/opt/homebrew/opt/llvm/lib"
-# export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+# export LDFLAGS="-L/opt/homebrew/opt/llvm/lib -Wl,-rpath,/opt/homebrew/opt/llvm/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
-# Openjdk8
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk@8/include"
-export CFLAGS="-O2 -g -fno-stack-check"
-export KERL_CONFIGURE_OPTIONS="--disable-hipe --with-ssl=$(brew --prefix openssl)"
+# # Openjdk8
+# export CPPFLAGS="-I/opt/homebrew/opt/openjdk@8/include"
+# export CFLAGS="-O2 -g -fno-stack-check"
+# export KERL_CONFIGURE_OPTIONS="--disable-hipe --with-ssl=$(brew --prefix openssl)"
 
 # mkcert
 export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
@@ -150,27 +149,27 @@ export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
 # php dependencies
 export PKG_CONFIG_PATH="$(brew --prefix icu4c)/lib/pkgconfig:$(brew --prefix krb5)/lib/pkgconfig:$(brew --prefix libedit)/lib/pkgconfig:$(brew --prefix libxml2)/lib/pkgconfig:$(brew --prefix openssl)/lib/pkgconfig"
 
-# Bison
-export LDFLAGS="-L/opt/homebrew/opt/bison/lib"
+# # Bison
+# export LDFLAGS="-L/opt/homebrew/opt/bison/lib"
 
-# krb5
-export LDFLAGS="-L/opt/homebrew/opt/krb5/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/krb5/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/krb5/lib/pkgconfig"
+# # krb5
+# export LDFLAGS="-L/opt/homebrew/opt/krb5/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/krb5/include"
+# export PKG_CONFIG_PATH="/opt/homebrew/opt/krb5/lib/pkgconfig"
 
-# libedit
-export LDFLAGS="-L/opt/homebrew/opt/libedit/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/libedit/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/libedit/lib/pkgconfig"
+# # libedit
+# export LDFLAGS="-L/opt/homebrew/opt/libedit/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/libedit/include"
+# export PKG_CONFIG_PATH="/opt/homebrew/opt/libedit/lib/pkgconfig"
 
-# libiconv
-export LDFLAGS="-L/opt/homebrew/opt/libiconv/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/libiconv/include"
+# # libiconv
+# export LDFLAGS="-L/opt/homebrew/opt/libiconv/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/libiconv/include"
 
-# libxml2
-export LDFLAGS="-L/opt/homebrew/opt/libxml2/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/libxml2/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/libxml2/lib/pkgconfig"
+# # libxml2
+# export LDFLAGS="-L/opt/homebrew/opt/libxml2/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/libxml2/include"
+# export PKG_CONFIG_PATH="/opt/homebrew/opt/libxml2/lib/pkgconfig"
 
 # Ruby
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"

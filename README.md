@@ -13,7 +13,7 @@ TBA
 To setup simply open the terminal, then:
 
 ```sh
-bash -c "`curl -L https://git.io/dotfiles-m1`"
+> bash -c "`curl -L https://git.io/dotfiles-m1`"
 ```
 
 #### GPG key with Keybase.io
@@ -39,13 +39,6 @@ fi
 > which python
 /Users/murshidazher/.asdf/shims/python
 ```
-
-## TODO
-
-- [ ] Add common configurations to docs directory
-- [ ] https://firebase.google.com/docs/app-distribution/ios/distribute-fastlane
-- [ ] change zsh_prompt color profile
-- [ ] setting up nodejs before v16 in m1. Build them from binaries. Refer [this](https://github.com/asdf-vm/asdf-nodejs/issues/78#issuecomment-842771319)
 
 Open rosetta terminal,
 
@@ -76,25 +69,25 @@ Open rosetta terminal,
 ### Ant
 
 ```sh
-$ asdf plugin add ant
-$ asdf list-all ant
-$ asdf install ant latest
-$ asdf global ant latest
-$ ant -version
+> asdf plugin add ant
+> asdf list-all ant
+> asdf install ant latest
+> asdf global ant latest
+> ant -version
 ```
 
 ### Run React Native App
 
 ```sh
 # install and link (to install native dependencies)
-asdf local nodejs 14.18.1
-npm i
-react-native link
+> asdf local nodejs 14.18.1
+> npm i
+> react-native link
 
 # create a .dev.env file inside
-npm run setupEnv
-npm run start # start the metro bundler
-npm run android:qa
+> npm run setupEnv
+> npm run start # start the metro bundler
+> npm run android:qa
 ```
 
 #### ios setup
@@ -107,13 +100,13 @@ npm run android:qa
 #### Clean pod
 
 ```sh
-pod cache clean --all # will clean all pods
-rm -rf ~/Library/Caches/CocoaPods
-rm -rf Pods
-rm -rf ~/Library/Developer/Xcode/DerivedData/*
-pod deintegrate
-pod setup
-pod install
+> pod cache clean --all # will clean all pods
+> rm -rf ~/Library/Caches/CocoaPods
+> rm -rf Pods
+> rm -rf ~/Library/Developer/Xcode/DerivedData/*
+> pod deintegrate
+> pod setup
+> pod install
 ```
 
 ### Compinit error
@@ -127,9 +120,9 @@ compinit:shift:505: shift count must be <= $#
 ```
 
 ```sh
-$ ln -fsv /opt/homebrew/completions/zsh/_brew /usr/local/share/zsh/site-functions/_brew
-$ ln -fsv /opt/homebrew/opt/asdf/etc/bash_completion.d/asdf.bash /opt/homebrew/completions/zsh/_asdf
-$ ln -fsv /opt/homebrew/completions/zsh/_asdf /usr/local/share/zsh/site-functions/_asdf
+> ln -fsv /opt/homebrew/completions/zsh/_brew /usr/local/share/zsh/site-functions/_brew
+> ln -fsv /opt/homebrew/opt/asdf/etc/bash_completion.d/asdf.bash /opt/homebrew/completions/zsh/_asdf
+> ln -fsv /opt/homebrew/completions/zsh/_asdf /usr/local/share/zsh/site-functions/_asdf
 ```
 
 ## Vscode error
@@ -143,7 +136,7 @@ When attempting to launch vscode using the `code .` command you might get the fo
 This most likely occurs because of error in python path, symlink the python path manually,
 
 ```sh
-sudo ln -s -f $(which python2) $(which python)
+> sudo ln -s -f $(which python2) $(which python)
 ```
 
 ## Vscode Permission error when installing extensions
@@ -151,9 +144,16 @@ sudo ln -s -f $(which python2) $(which python)
 Permission error encountered when updating vscode extensions,
 
 ```sh
-sudo chown -R $(whoami):staff $HOME/Library/Application\ Support/CodeCachedExtensionVSIXs
-sudo chown -R $(whoami):staff $HOME/.vscode/extensions/*
+> sudo chown -R $(whoami):staff $HOME/Library/Application\ Support/CodeCachedExtensionVSIXs
+> sudo chown -R $(whoami):staff $HOME/.vscode/extensions/*
 ```
+
+## TODO
+
+- [ ] Add common configurations to docs directory
+- [ ] https://firebase.google.com/docs/app-distribution/ios/distribute-fastlane
+- [ ] change zsh_prompt color profile
+- [ ] setting up nodejs before v16 in m1. Build them from binaries. Refer [this](https://github.com/asdf-vm/asdf-nodejs/issues/78#issuecomment-842771319)
 
 ## License
 

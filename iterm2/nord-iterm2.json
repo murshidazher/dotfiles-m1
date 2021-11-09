@@ -56,7 +56,7 @@
     "slogin",
     "telnet"
   ],
-  "Scrollback Lines" : 1000,
+  "Scrollback Lines" : 0,
   "Status Bar Layout" : {
     "components" : [
       {
@@ -265,7 +265,7 @@
     "Green Component" : 0.92092084884643555
   },
   "Use Cursor Guide" : false,
-  "Unlimited Scrollback" : false,
+  "Unlimited Scrollback" : true,
   "Custom Command" : "Yes",
   "Title Components" : 66,
   "Keyboard Map" : {
@@ -465,7 +465,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.56080448627471924
   },
-  "Window Type" : 12,
+  "Window Type" : 0,
   "Use Bright Bold" : true,
   "Cursor Text Color" : {
     "Red Component" : 0.17621420323848724,
@@ -526,7 +526,7 @@
   },
   "Blur" : true,
   "Vertical Spacing" : 1,
-  "Normal Font" : "SourceCodePro-Regular 12",
+  "Normal Font" : "FiraCode-Regular 11.5",
   "Use Underline Color" : true,
   "Ansi 7 Color" : {
     "Red Component" : 0.87367779016494751,

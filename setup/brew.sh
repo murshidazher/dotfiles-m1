@@ -359,7 +359,7 @@ if $brewinstall; then
   agnostic brew install --cask visual-studio-code
   agnostic brew install --cask intellij-idea-ce
   # agnostic brew install --cask eclipse-jee
-  agnostic brew install --cask responsively
+  # agnostic brew install --cask responsively
   # agnostic brew install --cask fork
   agnostic brew install --cask lepton # gist
   # agnostic brew install --cask graphiql

@@ -32,20 +32,17 @@ if $brewinstall; then
 
   action "Installing Homebrew"
   # Check if brew installed, install if not.
-  # if ! hash brew 2>/dev/null; then
-  #   # note: if your /usr/local is locked down (like at Google), you can do this to place everything in ~/.homebrew
-  #   # mkdir "$HOME/.homebrew" && curl -L https://github.com/mxcl/homebrew/tarball/master | tar xz --strip 1 -C $HOME/.homebrew
-  #   # then add this to your path: export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$PATH
-  #   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  if ! hash brew 2>/dev/null; then
+    # note: if your /usr/local is locked down (like at Google), you can do this to place everything in ~/.homebrew
+    # mkdir "$HOME/.homebrew" && curl -L https://github.com/mxcl/homebrew/tarball/master | tar xz --strip 1 -C $HOME/.homebrew
+    # then add this to your path: export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$PATH
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-  #   print_result $? 'Install Homebrew.'
-  # else
-  #   success "Homebrew already installed."
-  #   source ../zsh.d/homebrew
-  # fi
-
-  # install x86_64 supported version
-  arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    print_result $? 'Install Homebrew.'
+  else
+    success "Homebrew already installed."
+    source ../zsh.d/homebrew
+  fi
 
   running "brew update + brew upgrade"
   # Make sure we’re using the latest Homebrew.

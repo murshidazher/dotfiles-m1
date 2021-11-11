@@ -301,7 +301,6 @@ if $brewinstall; then
   agnostic brew install --cask diskwave
   agnostic brew install --cask dropbox
   agnostic brew install google-drive
-  # agnostic brew install --cask g-desktop-suite
   agnostic brew install --cask google-chrome
   agnostic brew install --cask grammarly
   agnostic brew install --cask iterm2
@@ -352,7 +351,6 @@ if $brewinstall; then
   agnostic brew install --cask imagealpha
   agnostic brew install --cask imageoptim
   agnostic brew install --cask ngrok
-  # agnostic brew install --cask sequel-ace # mysql management
   agnostic brew install --cask mongodb-compass
   agnostic brew install --cask robo-3t
   agnostic brew install --cask tableplus

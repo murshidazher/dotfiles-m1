@@ -139,6 +139,19 @@ This most likely occurs because of error in python path, symlink the python path
 > sudo ln -s -f $(which python2) $(which python)
 ```
 
+## QuickLook Plugin
+
+> “QLStephen.qlgenerator” can’t be opened because Apple cannot check it for malicious software.
+
+Issue the following command to alleviate the issue, effectively marking the QLGenerator as safe:
+
+```sh
+> sudo xattr -cr ~/Library/QuickLook/*.qlgenerator
+# reset quicklookd
+> qlmanage -r
+> qlmanage -r cache
+```
+
 ## Vscode Permission error when installing extensions
 
 Permission error encountered when updating vscode extensions,

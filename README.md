@@ -1,8 +1,36 @@
+<img src="https://raw.githubusercontent.com/murshidazher/dotfiles-m1/main/docs/images/logo.jpg" width="90px">
+
 # [dotfiles-m1](https://github.com/murshidazher/dotfiles-m1)
 
-> ⚠️ Scripts in this project under development. Please review the code first and use at your own risk! ⚠️
+> My personal installation script to automate any new macOS system setup so I don't need to feel poor.
 
-TBA
+- A dogmatic script to set up my mac. Built for Mac OS X :fire: :fire:
+
+<img src="https://raw.githubusercontent.com/murshidazher/dotfiles-m1/main/docs/images/terminal.png" width="240px">
+
+<img src="https://raw.githubusercontent.com/murshidazher/dotfiles-m1/main/docs/images/vscode.png" width="240px">
+
+## Table of Contents
+
+- [dotfiles-m1](#dotfiles-m1)
+  - [Table of Contents](#table-of-contents)
+  - [Installing / Getting started](#installing--getting-started)
+    - [Setup](#setup)
+      - [GPG key with Keybase.io](#gpg-key-with-keybaseio)
+    - [Homebrew](#homebrew)
+    - [Python](#python)
+    - [ASDF Ruby](#asdf-ruby)
+    - [Projects](#projects)
+    - [Ant](#ant)
+    - [Run React Native App](#run-react-native-app)
+      - [ios setup](#ios-setup)
+      - [Clean pod](#clean-pod)
+    - [Compinit error](#compinit-error)
+  - [Vscode error](#vscode-error)
+  - [QuickLook Plugin](#quicklook-plugin)
+  - [Vscode Permission error when installing extensions](#vscode-permission-error-when-installing-extensions)
+  - [TODO](#todo)
+  - [License](#license)
 
 ## Installing / Getting started
 

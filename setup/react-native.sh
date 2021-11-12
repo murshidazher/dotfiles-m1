@@ -55,9 +55,9 @@ brew install watchman
 # ----------
 brew install ant maven gradle
 
-brew install --cask android-sdk
-brew install --cask android-ndk
-brew install --cask android-platform-tools # for adb
+# brew install --cask android-sdk
+# brew install --cask android-ndk
+# brew install --cask android-platform-tools # for adb
 
 # Android studio
 brew install --cask android-studio

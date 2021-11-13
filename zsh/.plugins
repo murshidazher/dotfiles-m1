@@ -6,7 +6,7 @@
 #   mvn
 #   python
 #   tmux
-#   osx
+#   macos
 #   yarn
 #   node
 #   sudo
@@ -17,7 +17,7 @@
 plugins=(
   brew
   tmux
-  osx
+  macos
   sudo
 )
 

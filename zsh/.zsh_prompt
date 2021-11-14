@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Shell prompt based on the Solarized Dark theme.
-# Screenshot: http://i.imgur.com/EkEtphC.png
+# Screenshot: https://raw.githubusercontent.com/murshidazher/dotfiles-m1/main/docs/images/terminal.png
 # Heavily inspired by @necolas’s prompt: https://github.com/necolas/dotfiles
 # iTerm → Profiles → Text → use 13pt Monaco with 1.1 vertical spacing.
 
@@ -64,6 +64,9 @@ fi
 #   fi
 # }
 
+# Load vcs_info for git changes
+autoload -Uz vcs_info
+
 if tput setaf 1 &>/dev/null; then
   tput sgr0 # reset colors
   bold=$(tput bold)
@@ -112,34 +115,6 @@ function prompt_char {
     echo '$'
 }
 
-autoload -Uz vcs_info
-# enable VCS systems you use
-zstyle ':vcs_info:*' enable git svn
-
-# check-for-changes can be really slow.
-# you should disable it, if you work with large repositories
-zstyle ':vcs_info:*:prompt:*' check-for-changes true
-
-# set formats
-# %b - branchname
-# %u - unstagedstr (see below)
-# %c - stagedstr (see below)
-# %a - action (e.g. rebase-i)
-# %R - repository path
-# %S - path in the repository
-PR_RST="%{${reset_color}%}"
-FMT_BRANCH=" on ${turquoise}%b%u%c${PR_RST}"
-FMT_ACTION="${blue}?"
-FMT_UNSTAGED="${blue}!"
-FMT_STAGED="${blue}+"
-
-zstyle ':vcs_info:*:prompt:*' unstagedstr   "${FMT_UNSTAGED}"
-zstyle ':vcs_info:*:prompt:*' stagedstr     "${FMT_STAGED}"
-zstyle ':vcs_info:*:prompt:*' actionformats "${FMT_BRANCH}${FMT_ACTION}"
-zstyle ':vcs_info:*:prompt:*' formats       "${FMT_BRANCH}"
-zstyle ':vcs_info:*:prompt:*' nvcsformats   ""
-
-
 function steeef_chpwd {
   PR_GIT_UPDATE=1
 }
@@ -155,19 +130,6 @@ function steeef_precmd {
 
   local s=''
   local c=''
-
-  # Ensure the index is up to date.
-  git update-index --really-refresh -q &>/dev/null
-
-  # check for untracked files or updated submodules, since vcs_info doesn't
-  if [[ -n "$(git ls-files --other --exclude-standard 2>/dev/null)" ]]; then
-    PR_GIT_UPDATE=1
-    s+='%c%u%a'
-    FMT_BRANCH="${PM_RST}${reset_color} on ${bold}${violet}%b"
-  else
-    s+='%c%u%a'
-    FMT_BRANCH="${PM_RST}${reset_color} on ${bold}${violet}%b"
-  fi
 
   local ref dirty
   if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
@@ -205,7 +167,7 @@ function steeef_precmd {
     fi
   fi
 
-  zstyle ':vcs_info:*:prompt:*' formats       "${FMT_BRANCH}"
+  zstyle ':vcs_info:*:prompt:*' formats "${FMT_BRANCH}"
 
   vcs_info 'prompt'
   PR_GIT_UPDATE=
@@ -215,6 +177,8 @@ function steeef_precmd {
 PR_GIT_UPDATE=1
 
 autoload -U add-zsh-hook
+
+# Setup git hooks
 add-zsh-hook chpwd steeef_chpwd
 add-zsh-hook precmd steeef_precmd
 add-zsh-hook preexec steeef_preexec

@@ -207,44 +207,22 @@ $ sudo chown -R $(whoami):staff $HOME/.vscode/extensions/*
 
 ## Custom bash prompt
 
-I use a custom bash prompt based on the Solarized color palette and influenced
-by @necolas's custom prompts. For best results, you should install
-iTerm2 and import [Solarized
-Dark.itermcolors](https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized).
+When your current working directory is a Git repository, the prompt will display the checked-out branch's name (and failing that, the commit SHA that HEAD is pointing to). The state of the working tree is reflected in the following way:
 
-When your current working directory is a Git repository, the prompt will
-display the checked-out branch's name (and failing that, the commit SHA that
-HEAD is pointing to). The state of the working tree is reflected in the
-following way:
-
-<table>
-    <tr>
-        <td><code>+</code></td>
-        <td>Uncommitted changes in the index</td>
-    </tr>
-    <tr>
-        <td><code>!</code></td>
-        <td>Unstaged changes</td>
-    </tr>
-    <tr>
-        <td><code>?</code></td>
-        <td>Untracked files</td>
-    </tr>
-    <tr>
-        <td><code>$</code></td>
-        <td>Stashed files</td>
-    </tr>
-</table>
+| Symbol |            Description           |
+|:------:|:--------------------------------:|
+| +      | Uncommitted changes in the index |
+| !      | Unstaged changes                 |
+| ?      | Untracked files                  |
+| $      | Stashed files                    |
 
 Further details are in the `.zsh_prompt` file.
-
-Screenshot:
 
 <img src="https://raw.githubusercontent.com/murshidazher/dotfiles-m1/main/docs/images/terminal.png" width="600px">
 
 ## TODO
 
-- [ ] Add common configurations to docs directory
+- [ ] Refactor: Add common configurations to docs directory
 - [ ] https://firebase.google.com/docs/app-distribution/ios/distribute-fastlane
 - [ ] change zsh_prompt color profile
 - [ ] setting up nodejs before v16 in m1. Build them from binaries. Refer [this](https://github.com/asdf-vm/asdf-nodejs/issues/78#issuecomment-842771319)

@@ -209,8 +209,8 @@ $ sudo chown -R $(whoami):staff $HOME/.vscode/extensions/*
 
 When your current working directory is a Git repository, the prompt will display the checked-out branch's name (and failing that, the commit SHA that HEAD is pointing to). The state of the working tree is reflected in the following way:
 
-| Symbol |            Description           |
-|:------:|:--------------------------------:|
+| Symbol | Description                      |
+|--------|----------------------------------|
 | +      | Uncommitted changes in the index |
 | !      | Unstaged changes                 |
 | ?      | Untracked files                  |

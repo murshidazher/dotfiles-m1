@@ -81,16 +81,11 @@ function steeef_precmd {
   # Reset branch prompt
   FMT_BRANCH="${PM_RST}${reset_color} on ${bold}${violet}"
 
-  local ref dirty
-
   # Check if the current directory is in a Git repository.
   if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
 
     # Ensure the index is up to date.
     git update-index --really-refresh -q &>/dev/null
-
-    dirty=$(parse_git_dirty)
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
 
     # Check for uncommitted changes in the index.
     if ! $(git diff --quiet --ignore-submodules --cached); then

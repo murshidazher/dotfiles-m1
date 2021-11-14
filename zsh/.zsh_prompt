@@ -122,12 +122,6 @@ function steeef_precmd {
     [ -n "${s}" ] && s=" [${s}]"
 
     FMT_BRANCH+="${branchName}${blue}${s}${PR_RST}"
-
-    # if [[ -n $dirty ]]; then
-    #   FMT_BRANCH+="${branchName}${blue} [${s}]${PR_RST}"
-    # else
-    #   FMT_BRANCH+="${branchName}${blue}${PR_RST}"
-    # fi
   fi
 
   zstyle ':vcs_info:*:prompt:*' formats "${FMT_BRANCH}"

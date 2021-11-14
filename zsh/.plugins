@@ -1,19 +1,5 @@
 #!/usr/bin/env bash
 
-# plugins=(
-#   brew
-#   pip
-#   mvn
-#   python
-#   tmux
-#   macos
-#   yarn
-#   node
-#   sudo
-#   git
-#   docker
-# )
-
 plugins=(
   brew
   tmux

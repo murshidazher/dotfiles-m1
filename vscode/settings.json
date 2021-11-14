@@ -14,8 +14,8 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.colorTheme": "Default Dark+",
-  // "workbench.colorTheme": "Material Theme Palenight High Contrast",
   // "workbench.colorTheme": "Nord",
+  // "workbench.colorTheme": "Material Theme Palenight High Contrast",
   "editor.tokenColorCustomizations": {
     "[Nord]": {
       "textMateRules": [
@@ -69,7 +69,6 @@
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.detectIndentation": true,
-  "editor.formatOnSave": true,
   "[vue]": {
     "editor.formatOnSave": true
   },
@@ -134,5 +133,7 @@
   "files.associations": {
     "*int.js": "javascript"
   },
-  "blockhighlight.background": ["255", "90", "97", ".03"]
+  "blockhighlight.background": ["211", "211", "211", ".03"],
+  "polacode.backgroundColor": "#ffffff",
+  "polacode.transparentBackground": true
 }

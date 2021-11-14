@@ -25,6 +25,7 @@
     - [Run React Native App](#run-react-native-app)
       - [ios setup](#ios-setup)
       - [Clean pod](#clean-pod)
+    - [Shell completion](#shell-completion)
     - [Compinit error](#compinit-error)
   - [Vscode error](#vscode-error)
   - [QuickLook Plugin](#quicklook-plugin)
@@ -136,6 +137,20 @@ $ pod deintegrate
 $ pod setup
 $ pod install
 ```
+
+### Shell completion
+
+You may also need to forcibly rebuild zcompdump:
+
+```sh
+$ rm -f ~/.zcompdump; compinit
+```
+
+Additionally, if you receive `zsh compinit: insecure directories` warnings when attempting to load these completions, you may need to run this:
+
+```sh
+$ chmod -R go-w "$(brew --prefix)/share"
+```  
 
 ### Compinit error
 

@@ -16,10 +16,11 @@ DISABLE_UPDATE_PROMPT=true
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# # Additional completion definition for zsh
-# if type brew &>/dev/null; then
-#   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+# Additional completion definition for zsh
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
-#   autoload -Uz compinit
-#   compinit
-# fi
+  autoload -Uz compinit
+  compinit
+fi

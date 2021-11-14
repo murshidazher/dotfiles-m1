@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Setup agnostic asdf and install global versions
-# Requires: agnostic asdf and asdf-nodejs
+# Setup asdf and install global versions
+# Requires: asdf and asdf-nodejs
 debug=${1:-false}
 
 # List of components to install
@@ -17,9 +17,9 @@ if [ -z ${hbwloaded+x} ]; then
   source ../zsh.d/homebrew
 fi
 
-# Check if agnostic asdf is installed.
-if hash agnostic asdf 2>/dev/null; then
-  botintro "Setup agnostic asdf and global versions"
+# Check if asdf is installed.
+if hash asdf 2>/dev/null; then
+  botintro "Setup asdf and global versions"
 
   # Install java, erlang and elixir
   source ./elixir.sh
@@ -57,5 +57,5 @@ if hash agnostic asdf 2>/dev/null; then
 
   # fin.
 else
-  echo "WARNING: agnostic asdf not found."
+  echo "WARNING: asdf not found."
 fi

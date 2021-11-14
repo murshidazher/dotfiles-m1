@@ -38,7 +38,7 @@ function install_versions {
   local versions_list=$(read_file)
   for version in ${versions_list}; do
     running "asdf ruby: installing ${version}"
-    agnostic asdf install ruby ${version} >/dev/null 2>&1
+    asdf install ruby ${version} >/dev/null 2>&1
     local status=$?
     if [ ${status} -ne "0" ]; then
       error "Last exit code was ${status} for 'asdf install ruby ${version}'. Please run manually. Aborting."
@@ -52,7 +52,7 @@ function install_versions {
 function set_global {
   local latest_version=${1}
   running "asdf ruby: setting ${latest_version} as global"
-  agnostic asdf global ruby ${latest_version} >/dev/null 2>&1
+  asdf global ruby ${latest_version} >/dev/null 2>&1
 }
 
 action "asdf ruby: installing versions"

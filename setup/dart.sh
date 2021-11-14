@@ -18,7 +18,7 @@ fi
 
 action "asdf: setting up Dart"
 asdf plugin-add dart https://github.com/patoconnor43/asdf-dart.git
-# agnostic asdf where dart
+# asdf where dart
 
 # Set the containing directory for later use
 versions_dir="$defaultdotfilesdir/versions/dart"
@@ -36,7 +36,7 @@ function install_versions {
   local versions_list=$(read_file)
   for version in ${versions_list}; do
     running "asdf: installing ${version} for dart"
-    agnostic asdf install dart ${version} >/dev/null 2>&1
+    asdf install dart ${version} >/dev/null 2>&1
     local status=$?
     if [ ${status} -ne "0" ]; then
       error "Last exit code was ${status} for 'asdf install dart ${version}'. Please run manually. Aborting."
@@ -50,7 +50,7 @@ function install_versions {
 function set_global {
   local latest_version=${1}
   running "asdf dart: setting ${latest_version} as global"
-  agnostic asdf global dart ${latest_version} >/dev/null 2>&1
+  asdf global dart ${latest_version} >/dev/null 2>&1
 }
 
 action "asdf dart: installing versions"

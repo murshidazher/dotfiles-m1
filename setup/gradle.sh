@@ -18,7 +18,7 @@ fi
 
 action "asdf: setting up Gradle"
 asdf plugin-add gradle
-# agnostic asdf where gradle
+# asdf where gradle
 
 # Set the containing directory for later use
 versions_dir="$defaultdotfilesdir/versions/gradle"
@@ -36,7 +36,7 @@ function install_versions {
   local versions_list=$(read_file)
   for version in ${versions_list}; do
     running "asdf: installing ${version} for gradle"
-    agnostic asdf install gradle ${version} >/dev/null 2>&1
+    asdf install gradle ${version} >/dev/null 2>&1
     local status=$?
     if [ ${status} -ne "0" ]; then
       error "Last exit code was ${status} for 'asdf install gradle ${version}'. Please run manually. Aborting."
@@ -50,7 +50,7 @@ function install_versions {
 function set_global {
   local latest_version=${1}
   running "asdf gradle: setting ${latest_version} as global"
-  agnostic asdf global gradle ${latest_version} >/dev/null 2>&1
+  asdf global gradle ${latest_version} >/dev/null 2>&1
 }
 
 action "asdf gradle: installing versions"

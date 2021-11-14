@@ -18,7 +18,7 @@ fi
 
 action "asdf: setting up Elixir"
 
-action "asdf: Setting up agnostic asdf plugins for Java, Erlang and Eixir"
+action "asdf: Setting up asdf plugins for Java, Erlang and Eixir"
 asdf plugin-add java https://github.com/halcyon/asdf-java.git >/dev/null 2>&1
 asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git >/dev/null 2>&1
 asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git >/dev/null 2>&1
@@ -40,7 +40,7 @@ function install_versions {
   local versions_list=$(read_file "${versions_dir}/${language}")
   for version in ${versions_list}; do
     running "asdf: installing ${version} for ${language}"
-    agnostic asdf install $language ${version} >/dev/null 2>&1
+    asdf install $language ${version} >/dev/null 2>&1
     local status=$?
     if [ ${status} -ne "0" ]; then
       error "Last exit code was ${status} for 'asdf install ${language} ${version}'. Please run manually. Aborting."
@@ -54,7 +54,7 @@ function set_global {
   local language=${1}
   local latest_version=${2}
   running "asdf ${language}: setting ${latest_version} as global"
-  agnostic asdf global ${language} ${latest_version} >/dev/null 2>&1
+  asdf global ${language} ${latest_version} >/dev/null 2>&1
 }
 
 action "asdf java: installing versions"

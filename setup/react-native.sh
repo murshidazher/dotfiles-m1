@@ -156,11 +156,11 @@ flutter doctor
 # 4. React native
 # ---------------
 
-if hash agnostic asdf 2>/dev/null; then
+if hash asdf 2>/dev/null; then
 
   local LATEST_NODEJS_14_VERSION=$(asdf list nodejs | grep '^  14\.' | tail -1 | sed 's: ::g')
-  agnostic asdf local nodejs ${LATEST_NODEJS_14_VERSION}
-  agnostic asdf reshim nodejs # to have all the globally install packages in PATH
+  asdf local nodejs ${LATEST_NODEJS_14_VERSION}
+  asdf reshim nodejs # to have all the globally install packages in PATH
   npm install -g react-native-cli
 
   # to see connected android devices
@@ -168,7 +168,7 @@ if hash agnostic asdf 2>/dev/null; then
 
   # fin.
 else
-  echo "WARNING: agnostic asdf not found."
+  echo "WARNING: asdf not found."
 fi
 
 # --------

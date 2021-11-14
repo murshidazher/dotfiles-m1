@@ -41,7 +41,7 @@ function install_versions {
   local versions_list=$(read_file "${versions_dir}/${language}")
   for version in ${versions_list}; do
     running "asdf python: installing ${version} for ${language}"
-    agnostic asdf install ${language} ${version} >/dev/null 2>&1
+    asdf install ${language} ${version} >/dev/null 2>&1
     if [[ ${version} == 2* ]]; then
       version_2=${version}
     fi
@@ -62,7 +62,7 @@ function set_global {
   local latest_version_3=${2}
   local latest_version_2=${3}
   running "asdf python: setting ${language} ${latest_version_3} and ${latest_version_2} as global"
-  agnostic asdf global ${language} ${latest_version_3} ${latest_version_2} >/dev/null 2>&1
+  asdf global ${language} ${latest_version_3} ${latest_version_2} >/dev/null 2>&1
 }
 
 action "asdf python: installing versions"

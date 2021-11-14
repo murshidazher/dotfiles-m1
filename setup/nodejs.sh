@@ -36,7 +36,7 @@ function install_versions {
   local versions_list=$(read_file)
   for version in ${versions_list}; do
     running "asdf: Installing ${version} for nodejs"
-    agnostic asdf install nodejs ${version} >/dev/null 2>&1
+    asdf install nodejs ${version} >/dev/null 2>&1
     local status=$?
     if [ ${status} -ne "0" ]; then
       error "Last exit code was ${status} for 'asdf install nodejs ${version}'. Please run manually. Aborting."
@@ -50,7 +50,7 @@ function install_versions {
 function set_global {
   local latest_version=${1}
   running "asdf nodejs: setting ${latest_version} as global"
-  agnostic asdf global nodejs ${latest_version} >/dev/null 2>&1
+  asdf global nodejs ${latest_version} >/dev/null 2>&1
 }
 
 action "asdf nodejs: installing versions"

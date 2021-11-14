@@ -44,6 +44,8 @@ To setup simply open the terminal, then:
 
 ```sh
 $ bash -c "`curl -L https://git.io/dotfiles-m1`"
+# after initial setup
+$ cd dotfiles && ./setup.sh
 ```
 
 #### GPG key with Keybase.io
@@ -222,6 +224,8 @@ Further details are in the `.zsh_prompt` file.
 
 ## TODO
 
+- [ ] Refactor: the initialize script
+- [ ] Add a way to setup install of < node v16 to install from binary 
 - [ ] Refactor: Add common configurations to docs directory
 - [ ] https://firebase.google.com/docs/app-distribution/ios/distribute-fastlane
 - [ ] change zsh_prompt color profile

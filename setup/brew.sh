@@ -387,6 +387,7 @@ if $brewinstall; then
   # agnostic brew install asciinema
   agnostic brew install gmailctl
   agnostic brew install --cask krisp
+  agnostic brew install --cask onyx
   # agnostic brew install --cask the-unarchiver
 
   # DRIVERS

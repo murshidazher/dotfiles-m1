@@ -212,8 +212,6 @@ if $brewinstall; then
   brew install adr-tools
   brew install asdf
   brew install yarn
-  # brew install go
-  # brew install homebrew/php/php56 --with-gmp
   brew install pyenv
   brew install pyenv-virtualenv
   brew install rbenv
@@ -334,8 +332,6 @@ if $brewinstall; then
   # brew install --cask sketch@3.x # use version 63.x
 
   # DEVELOPMENT
-  # brew install --cask airtable
-  # brew install --cask astah-uml
   brew install --cask brave-browser
   brew install --cask firefox-developer-edition
   brew install --cask dash
@@ -351,7 +347,6 @@ if $brewinstall; then
   # brew install --cask responsively
   # brew install --cask fork
   brew install --cask lepton # gist
-  # brew install --cask graphiql
   # brew install --cask proxyman
 
   # DEVOPS

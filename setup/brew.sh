@@ -246,12 +246,6 @@ if $brewinstall; then
   brew install cw # tail cloudwatch logs
 
   # docker
-  # brew install docker
-  # brew install docker-compose
-  # brew install docker-machine
-  # brew install xhyve
-  # brew install docker-machine-driver-xhyve
-  # brew install boot2docker
   brew install --cask docker
   brew install kubectl
 

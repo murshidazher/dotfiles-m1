@@ -343,7 +343,6 @@ if $brewinstall; then
   brew install --cask tableplus
   brew install --cask visual-studio-code
   brew install --cask intellij-idea-ce
-  # brew install --cask eclipse-jee
   # brew install --cask responsively
   # brew install --cask fork
   brew install --cask lepton # gist

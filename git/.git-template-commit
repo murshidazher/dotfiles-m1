@@ -1,6 +1,7 @@
 # 50-character subject line
 #
 # 72-character wrapped longer description body.
+# More: https://chris.beams.io/posts/git-commit/
 #
 # This should answer:
 #
@@ -10,7 +11,11 @@
 #
 # Include a link to the ticket, if any.
 #
+# Resolves: #123
+# See also: #456, #789
+#
 # Add co-authors if you worked on this code with others:
 #
 # Co-authored-by: Full Name <email@example.com>
 # Co-authored-by: Full Name <email@example.com>
+

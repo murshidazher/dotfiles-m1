@@ -24,3 +24,6 @@ code --list-extensions | comm -13 - $defaultdotfilesdir/vscode/extensions.list |
 
 # add vscode as default commit editor
 git config --global core.editor "code --wait"
+
+# to remove the editor
+# git config --unset core.editor

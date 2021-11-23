@@ -151,7 +151,7 @@ Available types: `chore`, `docs`, `feat`, `fix`, `localize`, `refactor`, `style`
 
 Examples:
 
-```
+```txt
 chore: add build script
 docs: explain how feature works
 feat: add new component
@@ -205,6 +205,29 @@ Settings from [`.tmux.conf`](../tmux/.tmux.conf), see comments.
 - [`reattach-to-user-namespace`](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard) for macOS clipboard access
 - Local config using `~/.tmux.conf.local`
 
+## SetDiff Editor for Git
+
+### `vscode` as default commit editor
+
+```sh
+$ git config --global core.editor "code --wait"
+```
+
+To enable support for using VS Code as diff tool,
+
+```bash
+# ~/.gitconfig
+...
+[diff]
+tool = vscode-diff
+```
+
+### `vim` as default the editor
+
+```sh
+$ git config --unset core.editor
+$ git config --global core.editor "vim"
+```
 ## Other
 
 - [`vtop`](https://github.com/MrRio/vtop) — activity monitor for the command line

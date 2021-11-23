@@ -22,8 +22,3 @@ botintro "Manage VSCode Extensions"
 code --list-extensions | comm -23 - $defaultdotfilesdir/vscode/extensions.list | xargs -I {} code --uninstall-extension {} # Removes old extensions
 code --list-extensions | comm -13 - $defaultdotfilesdir/vscode/extensions.list | xargs -I {} code --install-extension {}   # Adds new extensions
 
-# add vscode as default commit editor
-git config --global core.editor "code --wait"
-
-# set vim as default the editor
-# git config --global core.editor "vim"

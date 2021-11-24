@@ -205,7 +205,7 @@ Settings from [`.tmux.conf`](../tmux/.tmux.conf), see comments.
 - [`reattach-to-user-namespace`](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard) for macOS clipboard access
 - Local config using `~/.tmux.conf.local`
 
-## SetDiff Editor for Git
+## Editor for Git
 
 ### `vscode` as default commit editor
 

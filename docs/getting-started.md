@@ -12,7 +12,7 @@ There's a huge amount of features and tools to cover in any sort of usage guide,
 
 ## Bash
 
-Use iTerm2 as installed (or Terminal if you really prefer). 
+Use iTerm2 as installed (or Terminal if you really prefer).
 
 Consult the [`.aliases`](../bash/.aliases) and [`.functions`](../bash/.functions) files, everything is commented. Local config via `~/.extra`.
 
@@ -33,13 +33,13 @@ Some of my favourites:
 
 Auto-completion that doesn't suck. Case insensitivity. No more "Display all 1745 possibilities? (y or n)". Type `cat <uparrow>` to see your previous cats — thanks [`.bash_prompt`](../bash/.bash_prompt) and [`.inputrc`](../bash/.inputrc)!
 
-### `z` is awesome.
+### `z` is awesome
 
 The `z` command helps you move around quickly between your frequently used folders:
 
 ```bash
-$ z dotfiles
-$ z blog
+z dotfiles
+z blog
 ```
 
 It learns once installed and you'll have to cd around for a while to "train" it, but it's worth the effort. Also, you can use `open .` to open a Finder window of the directory you land in.
@@ -53,13 +53,13 @@ Use `trash` as a better alternative to `rm`. Files actually go to Trash and can 
 Git is aliased to `g` on the command line and also has a number of useful aliases mapped within it — please consult the [`.gitconfig`](../git/.gitconfig) file, everything is commented. Some examples (you can run these all as just `g [alias]` too):
 
 ```bash
-$ git l # view abbreviated log of the last 20 commits
-$ git s # view "short" status
-$ git c # clone a repo and all submodules
+git l # view abbreviated log of the last 20 commits
+git s # view "short" status
+git c # clone a repo and all submodules
 
-$ git ca # commit all changes (verbose)
+git ca # commit all changes (verbose)
 
-$ git aliases # list all available aliases
+git aliases # list all available aliases
 ```
 
 Local config is available using `~/.gitconfig.local`
@@ -69,7 +69,7 @@ Local config is available using `~/.gitconfig.local`
 To use `gh` cli commands :fire:,
 
 ```bash
-$ gh auth login
+gh auth login
 ```
 
 Usage
@@ -85,19 +85,19 @@ gh <command> <subcommand> [flags]
 Create gist
 
 ```bash
-$ gh gist create --public hello.py
+gh gist create --public hello.py
 ```
 
 Create Pull Request
 
 ```bash
-$ gh pr create --base develop --head monalisa:feature
+gh pr create --base develop --head monalisa:feature
 ```
 
 Create a Repo
 
 ```bash
-$ gh repo create my-project
+gh repo create my-project
 ```
 
 ### Shorthands
@@ -210,7 +210,7 @@ Settings from [`.tmux.conf`](../tmux/.tmux.conf), see comments.
 ### `vscode` as default commit editor
 
 ```sh
-$ git config --global core.editor "code --wait"
+> git config --global core.editor "code --wait"
 ```
 
 To enable support for using VS Code as diff tool,
@@ -225,9 +225,10 @@ tool = vscode-diff
 ### `vim` as default the editor
 
 ```sh
-$ git config --unset core.editor
-$ git config --global core.editor "vim"
+> git config --unset core.editor
+> git config --global core.editor "vim"
 ```
+
 ## Other
 
 - [`vtop`](https://github.com/MrRio/vtop) — activity monitor for the command line

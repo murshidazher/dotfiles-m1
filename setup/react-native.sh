@@ -139,6 +139,7 @@ sudo xcodebuild -runFirstLaunch
 sudo xcodebuild -license
 open -a Simulator
 sudo gem install cocoapods
+sudo gem install ffi
 pod setup
 
 # skia

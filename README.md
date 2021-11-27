@@ -124,7 +124,14 @@ $ npm run android:qa
 
 #### ios setup
 
+Known issues;
+- https://github.com/facebook/react-native/pull/32486/files
+- https://github.com/facebook/react-native/tree/0.68-stable
+
 ```sh
+$ brew install cocoapods
+$ sudo arch -x86_64 gem install ffi
+$ arch -x86_64 pod install
 $ cd react-native-owner-app/ios
 $ pod install
 ```

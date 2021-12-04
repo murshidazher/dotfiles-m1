@@ -20,6 +20,7 @@
     - [ASDF Ruby](#asdf-ruby)
     - [Projects](#projects)
     - [Ant](#ant)
+    - [Ndk Setup](#ndk-setup)
     - [Run React Native App](#run-react-native-app)
       - [ios setup](#ios-setup)
       - [Clean pod](#clean-pod)
@@ -104,6 +105,31 @@ $ asdf list-all ant
 $ asdf install ant latest
 $ asdf global ant latest
 $ ant -version
+```
+
+### Ndk Setup
+
+> 💡 Install an older NDK version `(20.*.* or lower)` from android studio.
+
+<img src="https://raw.githubusercontent.com/murshidazher/dotfiles-m1/main/docs/images/ndk-tools.png" width="600px">
+
+Installing an older NDK version `(20.*.* or lower)` will prevent the following flutter and react-native build errors,
+
+```sh
+FAILURE: Build failed with an exception.
+
+*   What went wrong:
+    Execution failed for task ':app:stripDebugDebugSymbols'.
+
+> No toolchains found in the NDK toolchains folder for ABI with prefix: arm-linux-androideabi
+
+*   Try:
+    Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+*   Get more help at [https://help.gradle.org](https://help.gradle.org)
+
+BUILD FAILED in 1m 4s
+Exception: Gradle task assembleDebug failed with exit code 1
 ```
 
 ### Run React Native App

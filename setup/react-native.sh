@@ -53,10 +53,6 @@ brew install watchman
 # ----------
 # 2. Android
 # ----------
-brew install ant maven gradle
-
-# brew install --cask android-sdk
-# brew install --cask android-ndk
 # brew install --cask android-platform-tools # for adb
 
 # Android studio

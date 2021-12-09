@@ -21,6 +21,7 @@
     - [Projects](#projects)
     - [Ant](#ant)
     - [Ndk Setup](#ndk-setup)
+    - [Fixing xcode path issue](#fixing-xcode-path-issue)
     - [Run React Native App](#run-react-native-app)
       - [ios setup](#ios-setup)
       - [Clean pod](#clean-pod)
@@ -130,6 +131,14 @@ FAILURE: Build failed with an exception.
 
 BUILD FAILED in 1m 4s
 Exception: Gradle task assembleDebug failed with exit code 1
+```
+
+### Fixing xcode path issue
+
+```sh
+$ sudo xcode-select --print-path
+# if it something like /Library/Developer/..
+$ sudo xcode-select --switch /Applications/Xcode.app
 ```
 
 ### Run React Native App

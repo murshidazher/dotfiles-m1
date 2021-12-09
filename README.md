@@ -163,9 +163,8 @@ Known issues;
 - https://github.com/facebook/react-native/tree/0.68-stable
 
 ```sh
-$ brew install cocoapods
 $ sudo arch -x86_64 gem install ffi
-$ arch -x86_64 pod install
+$ sudo arch -x86_64 gem cocoapods
 $ cd react-native-owner-app/ios
 $ pod install
 ```

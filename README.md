@@ -25,6 +25,7 @@
     - [Run React Native App](#run-react-native-app)
       - [ios setup](#ios-setup)
       - [Clean pod](#clean-pod)
+      - [Uninstall cocoapods](#uninstall-cocoapods)
     - [Shell completion](#shell-completion)
     - [Compinit error](#compinit-error)
   - [Vscode error](#vscode-error)
@@ -179,6 +180,17 @@ $ rm -rf ~/Library/Developer/Xcode/DerivedData/*
 $ pod deintegrate
 $ pod setup
 $ pod install
+```
+
+#### Uninstall cocoapods
+
+```sh
+gem list --local | grep cocoapods | awk '{print $1}' | xargs sudo gem uninstall
+sudo gem uninstall ffi
+rm -rf ~/.cocoapods/
+
+sudo arch -x86_64 gem install ffi
+sudo arch -x86_64 gem install cocoapods
 ```
 
 ### Shell completion

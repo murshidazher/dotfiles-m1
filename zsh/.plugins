@@ -12,6 +12,9 @@ source "$ZSH/oh-my-zsh.sh"
 DISABLE_AUTO_UPDATE=false
 DISABLE_UPDATE_PROMPT=true
 
+# Link asdf completion to site-functions
+ln -fsv $(brew --prefix)/completions/zsh/_asdf /usr/local/share/zsh/site-functions/_asdf &>/dev/null
+
 # Reload the plugin to highlight the commands each time Iterm2 starts
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh

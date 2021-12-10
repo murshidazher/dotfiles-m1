@@ -2,6 +2,8 @@
 
 ## Build Error Flipper-Glog (0.3.6)
 
+> 🔗 Link to the [issue](https://github.com/facebook/react-native/pull/32486/files) and fixed stable [v68.0.0](https://github.com/facebook/react-native/tree/0.68-stable)
+
 If you run into the following error just follow the instructions,
 
 ```sh
@@ -48,6 +50,8 @@ wget -O config.sub 'https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_pla
 ```
 
 ### `pod install` incompatible architecture (have 'x86_64', need 'arm64e')
+
+> 🔗 Link to the [issue](https://github.com/CocoaPods/CocoaPods/issues/10220)
 
 If you run into the following error just follow the instructions,
 

@@ -341,9 +341,9 @@ alias aasdk="sdkmanager --list | sed -e '/Available Packages/q'" # get the list 
 alias asdku="sdkmanager --update"
 
 # M1 Support
-alias pod="arch -arm64 pod"
+# alias pod="arch -arm64 pod"
 alias brew="arch -arm64 brew"
-alias gem="arch -x86_64 sudo gem"
+# alias gem="arch -x86_64 sudo gem"
 
 # Xcode
 alias iosemu="open -a Simulator"

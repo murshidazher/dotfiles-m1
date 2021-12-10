@@ -17,6 +17,7 @@
       - [GPG key with Keybase.io](#gpg-key-with-keybaseio)
     - [Homebrew](#homebrew)
     - [Python](#python)
+    - [NodeJS](#nodejs)
     - [ASDF Ruby](#asdf-ruby)
     - [Projects](#projects)
     - [Ant](#ant)
@@ -72,9 +73,14 @@ $ which python
 /Users/murshidazher/.asdf/shims/python
 ```
 
+### NodeJS
+
+> 💡 Support for Apple silicon is `15.x` and above.
+
 Open rosetta terminal,
 
 ```sh
+# to install older binaries of nodejs
 $ NODEJS_CONFIGURE_OPTIONS='--with-intl=full-icu --download=all' NODEJS_CHECK_SIGNATURES="no" asdf install nodejs ref:v12.16.1
 $ cd ~/.asdf/installs/nodejs
 $ ln -s ref-v12.16.1 12.16.1
@@ -82,7 +88,7 @@ $ asdf reshim
 $ asdf global nodejs 12.16.1
 ```
 
-### ASDF Ruby 
+### ASDF Ruby
 
 ```sh
 $ asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git

@@ -91,6 +91,17 @@ PATH="$PATH:$HBP/opt"
 # libxml2
 PATH="/opt/homebrew/opt/libxml2/bin:$PATH"
 
+
+# add Andorid tools to commandline
+if [ -e "$HOME/Library/Android" ]; then
+  PATH="$PATH:$ANDROID_HOME/tools/bin"
+  PATH="$PATH:$ANDROID_HOME/emulator"
+  PATH="$PATH:$ANDROID_HOME/tools"
+  PATH="$PATH:$ANDROID_HOME/tools/bin"
+  PATH="$PATH:$ANDROID_HOME/platform-tools"
+  PATH="$PATH:$ANDROID_HOME/build-tools/$(ls $ANDROID_HOME/build-tools | sort | tail -1)"
+fi
+
 # Dedupe using awk.
 if hash awk 2>/dev/null; then
   PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++{if (NR > 1) printf ORS; printf $a[$1]}')

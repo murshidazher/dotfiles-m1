@@ -67,6 +67,8 @@ touch ~/.android/repositories.cfg
 
 # If you have install android studio
 # https://stackoverflow.com/questions/17963508/how-to-install-android-sdk-build-tools-on-the-command-line#answer-22862021
+# Add this to path if you need sdkmanager and avdmanager, if you installed Android Studio
+# /Users/murshidazher/Library/Android/sdk/tools/bin
 # ./tools/android list sdk --all
 # ./tools/android list avd
 

@@ -76,7 +76,7 @@ sdkmanager --update
 sdkmanager "platform-tools" "platforms;android-31"
 sdkmanager "build-tools;31.0.0"
 sdkmanager "sources;android-31"
-sdkmanager "extras;android;m2repository" # what is this
+sdkmanager "extras;android;m2repository"
 sdkmanager "extras;google;m2repository"
 
 sdkmanager --licenses
@@ -92,8 +92,10 @@ action "download system images for android emulator"
 # sdkmanager --list | grep "system-images.*playstore"
 
 # For m1 macbooks
-local SYSTEM_IMAGE_ARM_VERSION="system-images;android-31;google_apis_playstore;arm64-v8a"
+local SYSTEM_IMAGE_ARM_VERSION="system-images;android-31;google_apis;arm64-v8a"
+local SYSTEM_IMAGE_ARM_PLAY_VERSION="system-images;android-31;google_apis_playstore;arm64-v8a"
 sdkmanager ${SYSTEM_IMAGE_ARM_VERSION}
+sdkmanager ${SYSTEM_IMAGE_ARM_PLAY_VERSION}
 
 action "create an AVD using Pixel 2"
 
@@ -101,7 +103,7 @@ action "create an AVD using Pixel 2"
 # https://developer.android.com/studio/command-line/avdmanager
 # https://developer.android.com/studio/run/emulator-commandline
 # Note: use 'avdmanager list device' to get the device id
-avdmanager --verbose create avd --force --name "avd-samsung-10.10.2021" --device "pixel" --package ${SYSTEM_IMAGE_ARM_VERSION} -c 2048M --tag "google_apis_playstore"
+avdmanager --verbose create avd --force --name "avd-samsung-10.10.2021" --device "pixel" --package ${SYSTEM_IMAGE_ARM_PLAY_VERSION} -c 2048M --tag "google_apis_playstore"
 
 # Note: If you've installed Android Studio,
 # Android Studio -> More actions -> AVD Manager -> Select Pixel 2 Image

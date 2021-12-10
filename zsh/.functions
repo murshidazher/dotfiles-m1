@@ -335,6 +335,14 @@ function randompwd() {
 # exclude results from bash history (for obvious reasons...)
 export HISTIGNORE="randompwd $HISTIGNORE"
 
+# llama interactive long list
+function lli {
+  llama "$@" 2> /tmp/path
+  if [[ -d `cat /tmp/path` ]]; then
+    cd `cat /tmp/path`
+  fi
+}
+
 # miniconda
 function conda() {
   if [ -d "$MINICONDA_PATH/bin" ]; then

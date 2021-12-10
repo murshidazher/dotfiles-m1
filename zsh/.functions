@@ -400,6 +400,26 @@ function restart() {
   fi
 }
 
+# clean install Pods
+function cleanpod() {
+  if [ -f "Pods" ]; then
+    echo '🍺 Cleanup Pod Cache...'
+    pod cache clean --all # will clean all pods
+    # remove cache
+    rm -rf ~/Library/Caches/CocoaPods
+    rm -rf Pods
+    rm -rf ~/Library/Developer/Xcode/DerivedData/*
+    echo '💎 Pod deintegrate...'
+    pod deintegrate
+    echo '🔄 Setting up Pod...'
+    pod setup
+    echo '🔄 Installing Pods...'
+    pod install
+  else
+    echo "🚫 Pods directory not found."
+  fi
+}
+
 # generate git.io shorthand url
 function gitio() {
   curl -i https://git.io -F "url=$1" -F "code=$2"

@@ -24,7 +24,7 @@
     - [Fixing xcode path issue](#fixing-xcode-path-issue)
     - [Run React Native App](#run-react-native-app)
       - [iOS setup](#ios-setup)
-      - [Clean pod](#clean-pod)
+      - [Clean install pods](#clean-install-pods)
     - [Shell completion](#shell-completion)
     - [Compinit error](#compinit-error)
   - [Vscode error](#vscode-error)
@@ -176,16 +176,10 @@ $ cd react-native-owner-app/ios
 $ pod install
 ```
 
-#### Clean pod
+#### Clean install pods
 
 ```sh
-$ pod cache clean --all # will clean all pods
-$ rm -rf ~/Library/Caches/CocoaPods
-$ rm -rf Pods
-$ rm -rf ~/Library/Developer/Xcode/DerivedData/*
-$ pod deintegrate
-$ pod setup
-$ pod install
+$ cleanpod # will clean install pods
 ```
 
 ### Shell completion

@@ -67,8 +67,11 @@ touch ~/.android/repositories.cfg
 
 # If you have install android studio
 # https://stackoverflow.com/questions/17963508/how-to-install-android-sdk-build-tools-on-the-command-line#answer-22862021
+# The avdmanager command is present in both
 # Add this to path if you need sdkmanager and avdmanager, if you installed Android Studio
-# /Users/murshidazher/Library/Android/sdk/tools/bin
+# ~/Library/Android/sdk/tools/bin
+# ~/Library/Android/sdk/cmdline-tools/latest/bin
+# Note: To create devices with the latest devices configuration including Pixel 4 XL, you have to use the avdmanager tool present in cmdline-tools/bin folder
 # ./tools/android list sdk --all
 # ./tools/android list avd
 
@@ -78,6 +81,7 @@ sdkmanager "build-tools;31.0.0"
 sdkmanager "sources;android-31"
 sdkmanager "extras;android;m2repository"
 sdkmanager "extras;google;m2repository"
+sdkmanager --install "ndk;20.1.5948994"
 
 sdkmanager --licenses
 
@@ -103,15 +107,15 @@ action "create an AVD using Pixel 2"
 # https://developer.android.com/studio/command-line/avdmanager
 # https://developer.android.com/studio/run/emulator-commandline
 # Note: use 'avdmanager list device' to get the device id
-avdmanager --verbose create avd --force --name "avd-samsung-10.10.2021" --device "pixel" --package ${SYSTEM_IMAGE_ARM_PLAY_VERSION} -c 2048M --tag "google_apis_playstore"
+avdmanager --verbose create avd --force --name "Pixel_4_API_31_Play" --device "pixel_4" --package ${SYSTEM_IMAGE_ARM_PLAY_VERSION} -c 2048M --tag "google_apis_playstore"
 
-# Note: If you've installed Android Studio,
+# Note: If you've installed Android Studio, and need to create avd manually
 # Android Studio -> More actions -> AVD Manager -> Select Pixel 2 Image
 # Create Virtual Device -> Select x86 Images Tab -> Q 29 (would be already downloaded) -> Next -> Finish
 
 # Starting the emulator manually
-# emulator @avd-samsung-10.10.2021 -wipe-data -verbose -logcat '*:e *:w' -netfast -no-boot-anim -no-audio -no-window -skin 480x800
-# alias avd-samsung='emulator @avd-samsung-10.10.2021 -no-boot-anim -netfast -no-snapshot -wipe-data -skin 768x1280 -memory 2048 &'
+# emulator @Pixel_4_API_31_Play -wipe-data -verbose -logcat '*:e *:w' -netfast -no-boot-anim -no-audio -no-window -skin 480x800
+# alias avd-samsung='emulator @Pixel_4_API_31_Play -no-boot-anim -netfast -no-snapshot -wipe-data -skin 768x1280 -memory 2048 &'
 
 # Add keyboard forwarding, to enable keyboard keypress to be sent to emulator.
 for file in ~/.android/avd/*avd; do

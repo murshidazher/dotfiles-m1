@@ -75,11 +75,9 @@ asciidoctor.asciidoctor-vscode
 d-koppenhagen.file-tree-to-text-generator
 ms-vscode.js-debug-nightly
 obenjiro.arrr
-wix.glean
 maxvanderschee.web-accessibility
 louiswt.regexp-preview
 knisterpeter.vscode-commitizen
-amatiasq.sort-imports
 ms-vsliveshare.vsliveshare
 mikestead.dotenv
 pnp.polacode

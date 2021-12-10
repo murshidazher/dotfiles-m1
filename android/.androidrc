@@ -6,10 +6,5 @@ export ANDROID_HOME=$ANDROID_SDK_ROOT
 export ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk/$(ls $ANDROID_SDK_ROOT/ndk | sort | tail -1)
 export ANDROID_SKINS_DIRECTORY=$ANDROID_SDK_ROOT/skins
 
-PATH="$ANDROID_HOME/emulator:$PATH"
-PATH="$ANDROID_HOME/tools:$PATH"
-PATH="$ANDROID_HOME/tools/bin:$PATH"
-PATH="$ANDROID_HOME/platform-tools:$PATH"
-PATH=$ANDROID_HOME/build-tools/$(ls $ANDROID_HOME/build-tools | sort | tail -1):$PATH
-
-export PATH
+# Android path changes can be found here
+# $HOME/dotfiles/zsh/.path

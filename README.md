@@ -272,11 +272,8 @@ Further details are in the `.zsh_prompt` file.
 ## TODO
 
 - [ ] Refactor: the initialize script
-- [ ] Add a way to setup install of < node v16 to install from binary 
 - [ ] Refactor: Add common configurations to docs directory
 - [ ] https://firebase.google.com/docs/app-distribution/ios/distribute-fastlane
-- [ ] change zsh_prompt color profile
-- [ ] setting up nodejs before v16 in m1. Build them from binaries. Refer [this](https://github.com/asdf-vm/asdf-nodejs/issues/78#issuecomment-842771319)
 
 ## License
 

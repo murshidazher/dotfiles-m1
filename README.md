@@ -23,9 +23,8 @@
     - [Ndk Setup](#ndk-setup)
     - [Fixing xcode path issue](#fixing-xcode-path-issue)
     - [Run React Native App](#run-react-native-app)
-      - [ios setup](#ios-setup)
+      - [iOS setup](#ios-setup)
       - [Clean pod](#clean-pod)
-      - [Uninstall cocoapods](#uninstall-cocoapods)
     - [Shell completion](#shell-completion)
     - [Compinit error](#compinit-error)
   - [Vscode error](#vscode-error)
@@ -156,15 +155,23 @@ $ npm run start # start the metro bundler
 $ npm run android:qa
 ```
 
-#### ios setup
+#### iOS setup
 
 Known issues;
 - https://github.com/facebook/react-native/pull/32486/files
 - https://github.com/facebook/react-native/tree/0.68-stable
 
 ```sh
+# clean previous installs of ffi and cocoapods
+$ gem list --local | grep cocoapods | awk '{print $1}' | xargs sudo gem uninstall
+$ sudo gem uninstall ffi
+$ rm -rf ~/.cocoapods/
+
+# install ffi and cocoapods
 $ sudo arch -x86_64 gem install ffi
-$ sudo arch -x86_64 gem cocoapods
+$ sudo arch -x86_64 gem install cocoapods
+
+# pod install inside the react-native project folder
 $ cd react-native-owner-app/ios
 $ pod install
 ```
@@ -179,17 +186,6 @@ $ rm -rf ~/Library/Developer/Xcode/DerivedData/*
 $ pod deintegrate
 $ pod setup
 $ pod install
-```
-
-#### Uninstall cocoapods
-
-```sh
-gem list --local | grep cocoapods | awk '{print $1}' | xargs sudo gem uninstall
-sudo gem uninstall ffi
-rm -rf ~/.cocoapods/
-
-sudo arch -x86_64 gem install ffi
-sudo arch -x86_64 gem install cocoapods
 ```
 
 ### Shell completion

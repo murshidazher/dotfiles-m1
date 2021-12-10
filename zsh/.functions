@@ -416,6 +416,26 @@ function cleanpod() {
   pod install
 }
 
+# pod install without load errors
+# more info: https://github.com/murshidazher/dotfiles-m1/blob/main/docs/react-native.md#pod-install-incompatible-architecture-have-x86_64-need-arm64e
+function podinstall() {
+  local error_message="LoadError - dlopen"
+
+  # if error
+  if [[ ! -z `pod install | grep "$error_message" | cut -c7-` ]]; then
+    echo '💎 Uninstall cocoapods and ffi...'
+    # clean gem installs
+    gem list --local | grep cocoapods | awk '{print $1}' | xargs sudo gem uninstall
+    sudo gem uninstall ffi
+    echo '🔄 Set xcode path...'
+    sudo xcode-select --switch /Applications/Xcode.app
+    echo '🔄 Installing Pods...'
+    pod install
+  else
+    echo 'Successfully installed Pods'
+  fi
+}
+
 # generate git.io shorthand url
 function gitio() {
   curl -i https://git.io -F "url=$1" -F "code=$2"

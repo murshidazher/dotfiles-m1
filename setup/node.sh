@@ -39,6 +39,7 @@ if hash asdf 2>/dev/null; then
   action "Installing Node global packages."
 
   packages=(
+    appcenter-cli # for codepush
     create-react-app
     caniuse-cmd
     dependency-cruiser

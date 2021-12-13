@@ -181,6 +181,11 @@ fi
 # --------
 
 # https://gist.github.com/ThePredators/a1d105b0794198cade4ef2b0e0836541
+# gem install bundler
 # brew install fastlane
+
+# bundle init
+# bundle update
+
 
 

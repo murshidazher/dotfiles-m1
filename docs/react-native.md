@@ -78,3 +78,20 @@ $ rm -rf ~/.cocoapods/
 $ sudo xcode-select --switch /Applications/Xcode.app
 $ pod install
 ```
+
+## Can't find `node` in Xcode build
+
+If you run into the following error just follow the instructions,
+
+```sh
+...
+++ echo 'error: Can'\''t find the '\''node'\'' binary to build the React Native bundle. ' 'If you have a non-standard Node.js installation, select your project in Xcode, find ' ''\''Build Phases'\'' - '\''Bundle React Native code and images'\'' and change NODE_BINARY to an ' 'absolute path to your node executable. You can find it by invoking '\''which node'\'' in the terminal.'
+error: Can't find the 'node' binary to build the React Native bundle.  If you have a non-standard Node.js installation, select your project in Xcode, find  'Build Phases' - 'Bundle React Native code and images' and change NODE_BINARY to an  absolute path to your node executable. You can find it by invoking 'which node' in the terminal.
+++ exit 2
+```
+
+Make a symlink,
+
+```sh
+$ ln -s $(which node) /usr/local/bin/node
+```

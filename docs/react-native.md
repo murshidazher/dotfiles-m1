@@ -95,3 +95,43 @@ Make a symlink,
 ```sh
 $ ln -s $(which node) /usr/local/bin/node
 ```
+
+## iOS: Undefined symbols for architecture x86_64/arm64
+
+> 🔗 Link to the [issue](https://github.com/DataDog/dd-sdk-reactnative/issues/41)
+
+If you run into the following error just follow the instructions,
+
+```sh
+Undefined symbols for architecture x86_64:
+  "static Foundation.JSONEncoder.OutputFormatting.withoutEscapingSlashes.getter : Foundation.JSONEncoder.OutputFormatting", referenced from:
+      static (extension in Datadog):Foundation.JSONEncoder.default() -> Foundation.JSONEncoder in libDatadogSDK.a(JSONEncoder.o)
+  "Network.NWPath.isConstrained.getter : Swift.Bool", referenced from:
+      closure #2 () -> Swift.Bool? in closure #1 (Network.NWPath) -> () in Datadog.NWPathNetworkConnectionInfoProvider.init(monitor: Network.NWPathMonitor) -> Datadog.NWPathNetworkConnectionInfoProvider in libDatadogSDK.a(NetworkConnectionInfoProvider.o)
+  "(extension in Foundation):__C.NSFileHandle.readToEnd() throws -> Foundation.Data?", referenced from:
+      Datadog.File.read() throws -> Foundation.Data in libDatadogSDK.a(File.o)
+  "(extension in Foundation):__C.NSFileHandle.seekToEnd() throws -> Swift.UInt64", referenced from:
+      Datadog.File.append(data: Foundation.Data) throws -> () in libDatadogSDK.a(File.o)
+  "(extension in Foundation):__C.NSFileHandle.write<A where A: Foundation.DataProtocol>(contentsOf: A) throws -> ()", referenced from:
+      Datadog.File.append(data: Foundation.Data) throws -> () in libDatadogSDK.a(File.o)
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+```
+
+Search for `LIBRARY_SEARCH_PATHS` and replace,
+
+```sh
+# from
+LIBRARY_SEARCH_PATHS = (
+  "\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+  "\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
+  "\"$(inherited)\"",
+);
+
+# to
+LIBRARY_SEARCH_PATHS = (
+  "\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+  "\"/usr/lib/swift\"",
+  "\"$(inherited)\"",
+);
+```

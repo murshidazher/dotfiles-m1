@@ -176,7 +176,6 @@ $ rm -rf ~/.cocoapods/
 # install ffi and cocoapods
 $ sudo arch -x86_64 gem install ffi
 $ sudo arch -x86_64 gem install cocoapods
-$ gem install ethon
 
 # pod install inside the react-native project folder
 $ cd react-native-owner-app/ios

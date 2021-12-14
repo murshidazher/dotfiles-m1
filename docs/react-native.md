@@ -27,49 +27,6 @@ Invalid configuration `arm64-apple-darwin20.6.0': machine `arm64-apple' not reco
 configure: error: /bin/sh ./config.sub arm64-apple-darwin20.6.0 failed
 ```
 
-### Solution 1
-
-Check your ruby version,
-
-```sh
-$ ruby -v
-# ruby 3.0.2p107 (2021-07-07 revision 0db68f0233) [arm64-darwin21]
-```
-
-If your architecture is `arm64-darwin<version>`, then you might need to uninstall ruby and depend on the native installed ruby version
-
-```sh
-$ asdf uninstall ruby 3.0.2
-$ sudo rm -rf ~/.gem/ruby/ # remove leftover gems
-$ sudo gem pristine msgpack --version 1.4.2 # update gems to pristine condition
-$ ruby -v
-# ruby 2.6.8p205 (2021-07-07 revision 67951) [universal.arm64e-darwin21]
-```
-
-Install all react-native dependencies,
-
-```sh
-# clean previous installs of ffi and cocoapods
-$ rm -rf ~/.cocoapods/
-
-# install ffi and cocoapods
-$ sudo arch -x86_64 gem install ffi
-$ sudo arch -x86_64 gem install cocoapods
-$ sudo gem install ethon
-```
-
-Now, do a clean install,
-
-```sh
-$ cd <react-native-app>
-$ cd ios
-$ cleanpod # a function alias found in zsh/.functions
-```
-
-### Solution 2
-
-> 💡 Use this solution only if you don't want to use the universal ruby build but need to use the latest `arm64` based build.
-
 Upgrade Flipper-Glog to `0.3.9` from `0.3.6`,
 
 ```sh
@@ -92,7 +49,7 @@ wget -O config.sub 'https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_pla
 ...
 ```
 
-### `pod install` incompatible architecture (have 'x86_64', need 'arm64e')
+## `pod install` incompatible architecture (have 'x86_64', need 'arm64e')
 
 > 🔗 Link to the [issue](https://github.com/CocoaPods/CocoaPods/issues/10220)
 

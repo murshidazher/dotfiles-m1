@@ -347,6 +347,7 @@ if $brewinstall; then
   # brew install --cask fork
   brew install --cask lepton # gist
   # brew install --cask proxyman
+  brew install --cask flipper # react-native debugger
 
   # DEVOPS
   brew install --cask aws-vault

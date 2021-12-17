@@ -29,3 +29,18 @@ These are the steps I like to take on a fresh Mac install to prep it before [ins
 5. Set a Firmware password from `macOS Recovery` (⌘-R)
 
 At this point you should be good to go.
+
+## Architecture Setup
+
+> For detailed step by step instruction look into [this](https://cpufun.substack.com/p/setting-up-the-apple-m1-for-native)
+
+You can also set a default machine preference for the arch command using the ARCHPREFERENCE envirable. If an invocation of arch which is being used to invoke another command and there is no architecture being explicitly requested, then the one in $ARCHPREFERENCE will be used.
+
+```sh
+$ arch
+arm64
+$ ARCHPREFERENCE=x86_64 arch   
+arm64
+$ ARCHPREFERENCE=x86_64 arch machine
+i386
+```

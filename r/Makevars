@@ -11,25 +11,3 @@
 # https://thecoatlessprofessor.com/programming/openmp-in-r-on-os-x/
 # https://bit.ly/3d16TuW
 # https://www.kthohr.com/r-mac-source.html
-
-XCBASE:=$(shell xcrun --show-sdk-path)
-LLVMBASE:=$(shell brew --prefix llvm)
-GCCBASE:=$(shell brew --prefix gcc)
-GETTEXT:=$(shell brew --prefix gettext)
-
-CC=$(LLVMBASE)/bin/clang -fopenmp
-CXX=$(LLVMBASE)/bin/clang++ -fopenmp
-CXX11=$(LLVMBASE)/bin/clang++
-CXX14=$(LLVMBASE)/bin/clang++
-CXX17=$(LLVMBASE)/bin/clang++
-CXX1X=$(LLVMBASE)/bin/clang++
-
-CFLAGS=-g -O3 -Wall -pedantic -std=gnu99 -mtune=native -pipe
-CXXFLAGS=-g -O3 -Wall -pedantic -std=c++11 -mtune=native -pipe
-
-CPPFLAGS=-isystem "$(LLVMBASE)/include" -isysroot "$(XCBASE)"
-LDFLAGS=-L"$(LLVMBASE)/lib" -L"$(GETTEXT)/lib" --sysroot="$(XCBASE)"
-
-FC=$(GCCBASE)/bin/gfortran
-F77=$(GCCBASE)/bin/gfortran
-FLIBS=-L$(GCCBASE)/lib/gcc/9/ -lm

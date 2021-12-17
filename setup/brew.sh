@@ -240,8 +240,6 @@ if $brewinstall; then
   brew install k6
 
   # brew install awslogs
-  brew tap lucagrulla/tap
-  brew install cw # tail cloudwatch logs
 
   # docker
   brew install --cask docker

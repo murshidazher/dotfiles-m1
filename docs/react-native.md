@@ -135,3 +135,19 @@ LIBRARY_SEARCH_PATHS = (
   "\"$(inherited)\"",
 );
 ```
+
+## Android Error
+
+If you run into the following error just follow the instructions,
+
+```sh
+...
+Installation error: INSTALL_FAILED_VERSION_DOWNGRADE Please check logcat output for more details. Launch canceled!
+```
+
+Uninstall the previous application and rebuild it,
+
+```sh
+$ adb uninstall com.different.owner.qa
+$ npm run android:qa
+```

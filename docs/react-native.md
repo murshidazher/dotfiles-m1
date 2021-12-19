@@ -151,3 +151,32 @@ Uninstall the previous application and rebuild it,
 $ adb uninstall com.different.owner.qa
 $ npm run android:qa
 ```
+
+## AMSupportURL* Errors
+
+> 🔗 Link to the [issue](https://www.reddit.com/r/MacOS/comments/nqgvwg/class_amsupporturlconnectiondelegate_is/hoqz9bb/)
+
+If you run into the following error just follow the instructions,
+
+```sh
+$ xcodebuild -list
+...
+Class AMSupportURLConnectionDelegate is implemented in both /usr/lib/libauthinstall.dylib (0x209986c10) and /System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x1187bc2b8)
+...
+```
+
+Uninstall the command line tools and reinstall it,
+
+```sh
+$ sudo rm -rf /Library/Developer/CommandLineTools
+$ sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+```
+
+If you need to uninstall the xcode completely,
+
+```sh
+$ xcode-select --install
+$ sudo xcode-select --reset
+# or
+$ xcode-select -s /Library/Developer/CommandLineTools
+```

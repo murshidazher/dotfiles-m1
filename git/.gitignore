@@ -20,9 +20,9 @@ node_modules
 .sass-cache
 
 # Tool version management
-.node-version
-.nvmrc
-.tool-versions
+# .node-version
+# .nvmrc
+# .tool-versions
 
 # Files that contain credentials or personal info
 .extra

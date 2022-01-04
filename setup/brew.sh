@@ -314,7 +314,8 @@ if $brewinstall; then
   # SECURITY
   brew install --cask authy
   brew install --cask bitwarden
-  brew install --cask keybase
+  # brew install --cask keybase
+  brew install --cask keybase@5.8.x # TODO: revert it to normal cask, when the cask 5.9.x notarization error is resolved. :link: https://github.com/keybase/client/issues/24741
   brew install --cask gpgtools
   brew install --cask tunnelblick
   # brew install --cask openvpn-connect

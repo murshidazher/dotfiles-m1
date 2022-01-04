@@ -399,6 +399,11 @@ function beer() {
   # update app store downloaded files
   mas outdated
   mas upgrade
+  # update omyzsh
+  echo '🦄 Update Oh my Zsh...'
+  omz update
+  echo '🔄 Reset bash complete path'
+  sudo ln -fsv /opt/homebrew/opt/asdf/etc/bash_completion.d/asdf.bash /opt/homebrew/completions/zsh/_asdf
 }
 
 function restart() {

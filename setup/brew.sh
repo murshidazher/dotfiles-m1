@@ -351,6 +351,7 @@ if $brewinstall; then
   # DEVOPS
   brew install --cask aws-vault
   brew install terraform
+  brew install pulumi
   brew install earthly/earthly/earthly
 
   # VM

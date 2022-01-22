@@ -390,6 +390,8 @@ if $brewinstall; then
 
   # OTHERS
   brew install --cask cakebrew
+  brew tap heroku/brew
+  brew install heroku
 
   # Install Mac App Store Applications.
   # requires: brew install mas

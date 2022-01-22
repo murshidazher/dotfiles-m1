@@ -22,7 +22,7 @@ node_modules
 # Tool version management
 # .node-version
 # .nvmrc
-# .tool-versions
+.tool-versions
 
 # Files that contain credentials or personal info
 .extra

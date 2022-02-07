@@ -274,6 +274,7 @@ Further details are in the `.zsh_prompt` file.
 - [ ] Refactor: the initialize script
 - [ ] Refactor: Add common configurations to docs directory
 - [ ] https://firebase.google.com/docs/app-distribution/ios/distribute-fastlane
+- [ ] [Example multiple macOS github workflow](https://github.com/IronCoreLabs/recrypt-node-binding/blob/main/.github/workflows/publish.yaml)
 
 ## License
 

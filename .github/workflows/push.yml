@@ -1,3 +1,5 @@
+# .github/workflows/push.yml
+
 on: [push]
 
 name: CI
@@ -14,20 +16,35 @@ jobs:
         system:
           - os: macos-10.15
             target: x86_64-apple-darwin
+            shell: zsh {0}
         include:
           - system:
               os: [self-hosted, macOS, ARM64]
               target: aarch64-apple-darwin
+              shell: zsh {0}
             node_version: 16
+    env:
+      REPO: ${{github.workspace}}
+      DOTFILES_REF: ${{github.sha}}
+      SKIP_SLOW_DEPENDENCIES: "1"
+      HOMEBREW_BUNDLE_BREW_SKIP: "node"
+
     steps:
       - uses: actions/checkout@master
-      - name: Run bootstrap
+
+      - name: Display the shell path
+        run: |
+          echo $ZSH_NAME $ZSH_VERSION
+
+      - name: Display the architecture
+        run: |
+          echo arch
+
+      - name: Display the environment variables and their values
+        run: |
+          print %ENV
+
+      - name: Check the CI environment variable
         shell: bash
         run: |
-          echo $(ENV.has_key?('CI'))
-          echo $([[ -z $(ENV.has_key?('CI')) ]] && echo "has" || echo "no")
-        env:
-          REPO: ${{github.workspace}}
-          DOTFILES_REF: ${{github.sha}}
-          SKIP_SLOW_DEPENDENCIES: "1"
-          HOMEBREW_BUNDLE_BREW_SKIP: "node"
+          echo $([[ -z $(ENV.has_key?('CI')) ]] && echo "Running on CI" || echo "Not running on CI")

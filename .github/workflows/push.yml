@@ -1,0 +1,33 @@
+on: [push]
+
+name: CI
+
+jobs:
+  build_and_test:
+    name: Test
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node_version:
+          - 16
+        system:
+          - os: macos-10.15
+            target: x86_64-apple-darwin
+        include:
+          - system:
+              os: [self-hosted, macOS, ARM64]
+              target: aarch64-apple-darwin
+            node_version: 16
+    steps:
+      - uses: actions/checkout@master
+      - name: Run bootstrap
+        shell: bash
+        run: |
+          echo $(ENV.has_key?('CI'))
+          echo $([[ -z "${ENV.has_key?('CI')}" ]] && echo "has" || echo "no")
+        env:
+          REPO: ${{github.workspace}}
+          DOTFILES_REF: ${{github.sha}}
+          SKIP_SLOW_DEPENDENCIES: "1"
+          HOMEBREW_BUNDLE_BREW_SKIP: "node"

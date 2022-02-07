@@ -42,3 +42,8 @@ jobs:
         shell: bash
         run: |
           echo $([[ -z $(ENV.has_key?('CI')) ]] && echo "Running on CI" || echo "Not running on CI")
+
+      - name: Bootstrap
+        shell: bash
+        run: |
+          ./setup.sh

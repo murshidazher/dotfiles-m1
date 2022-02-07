@@ -1,8 +1,11 @@
 # .github/workflows/push.yml
 
-on: [push]
-
 name: CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
 
 jobs:
   build_and_test:
@@ -16,16 +19,14 @@ jobs:
         system:
           - os: macos-10.15
             target: x86_64-apple-darwin
-            shell: zsh {0}
         include:
           - system:
               os: [self-hosted, macOS, ARM64]
               target: aarch64-apple-darwin
-              shell: zsh {0}
             node_version: 16
 
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
         env:
           REPO: ${{github.workspace}}
           DOTFILES_REF: ${{github.sha}}
@@ -33,18 +34,9 @@ jobs:
           HOMEBREW_BUNDLE_BREW_SKIP: "node"
 
       - name: Display the architecture
+        shell: bash
         run: |
-          echo arch
-
-      - name: Display the shell path and version
-        run: |
-          echo $ZSH_NAME $ZSH_VERSION
-
-
-
-      - name: Display the environment variables and their values
-        run: |
-          print %ENV
+          arch
 
       - name: Check the CI environment variable
         shell: bash

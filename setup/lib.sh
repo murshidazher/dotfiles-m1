@@ -78,6 +78,10 @@ function answer_is_yes() {
   [[ "$REPLY" =~ ^(y|Y) ]] && return 0 || return 1
 }
 
+function is_ci() {
+  [[ -z "${ENV.has_key?('CI')}" ]] && return 0 || return 1
+}
+
 function print_result() {
   [ $1 -eq 0 ] && success "$2" || error "$2"
   [ "$3" == "true" ] && [ $1 -ne 0 ] && exit

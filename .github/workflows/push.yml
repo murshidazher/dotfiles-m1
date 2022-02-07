@@ -23,22 +23,24 @@ jobs:
               target: aarch64-apple-darwin
               shell: zsh {0}
             node_version: 16
-    env:
-      REPO: ${{github.workspace}}
-      DOTFILES_REF: ${{github.sha}}
-      SKIP_SLOW_DEPENDENCIES: "1"
-      HOMEBREW_BUNDLE_BREW_SKIP: "node"
 
     steps:
       - uses: actions/checkout@master
-
-      - name: Display the shell path
-        run: |
-          echo $ZSH_NAME $ZSH_VERSION
+        env:
+          REPO: ${{github.workspace}}
+          DOTFILES_REF: ${{github.sha}}
+          SKIP_SLOW_DEPENDENCIES: "1"
+          HOMEBREW_BUNDLE_BREW_SKIP: "node"
 
       - name: Display the architecture
         run: |
           echo arch
+
+      - name: Display the shell path and version
+        run: |
+          echo $ZSH_NAME $ZSH_VERSION
+
+
 
       - name: Display the environment variables and their values
         run: |

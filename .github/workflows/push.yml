@@ -25,7 +25,7 @@ jobs:
         shell: bash
         run: |
           echo $(ENV.has_key?('CI'))
-          echo $([[ -z "${ENV.has_key?('CI')}" ]] && echo "has" || echo "no")
+          echo $([[ -z $(ENV.has_key?('CI')) ]] && echo "has" || echo "no")
         env:
           REPO: ${{github.workspace}}
           DOTFILES_REF: ${{github.sha}}

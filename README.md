@@ -277,6 +277,7 @@ Further details are in the `.zsh_prompt` file.
 - [ ] [Example multiple macOS github workflow](https://github.com/IronCoreLabs/recrypt-node-binding/blob/main/.github/workflows/publish.yaml)
 - [ ] Make `lib.sh` as a curl file to include in initialize.sh
 - [ ] Uncomment the `initialize.sh` setup
+- [ ] Update github workflow to check the initialize script.
 
 ## License
 

@@ -19,7 +19,7 @@ bot "Install Homebrew and all required apps."
 ask_for_confirmation "\nReady to install apps? (get a coffee, this takes a while)"
 
 # Flag install to go if user approves
-if answer_is_yes; then
+if answer_is_yes || is_ci; then
   ok
   brewinstall=true
 else

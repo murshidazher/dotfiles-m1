@@ -350,3 +350,6 @@ alias iosemu="open -a Simulator"
 
 # Work aliases
 [[ -f "$HOME/.workrc" ]] && source "$HOME/.workrc" 2>/dev/null
+
+
+alias piranhajs='node $HOME/dev/src/github/piranha/javascript/src/piranha.js'

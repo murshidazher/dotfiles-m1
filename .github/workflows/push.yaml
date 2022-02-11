@@ -8,8 +8,23 @@ on:
     branches: [main]
 
 jobs:
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout with submodules
+        uses: actions/checkout@v2
+
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        env:
+          SHELLCHECK_OPTS: -e SC2059 -e SC2034 -e SC1090
+
   macos_build:
-    name: Test
+    name: Build test
     runs-on: macos-latest
     defaults:
       run:
@@ -68,8 +83,6 @@ jobs:
             /usr/local/lib/python3.8
           key: macos-build-cache-${{ hashFiles('./scripts/builder_setup.sh') }}
 
-
       - name: Set up builder
-        shell: bash
         run: |
           ./setup.sh

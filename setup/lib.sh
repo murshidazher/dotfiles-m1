@@ -79,7 +79,7 @@ function answer_is_yes() {
 }
 
 function is_ci() {
-  [[ -z $(ENV.has_key?('CI')) ]] && return 0 || return 1
+  [[ -z ENV.has_key?('CI') ]] && return 0 || return 1
 }
 
 function print_result() {

@@ -1,5 +1,4 @@
 # .github/workflows/push.yaml
-
 name: MacOS Agent build
 
 on:

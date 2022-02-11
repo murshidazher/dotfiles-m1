@@ -449,6 +449,7 @@ function podinstall() {
   fi
 }
 
+# As on Jan 11, 2022 git.io doesnt accept new requests
 # generate git.io shorthand url
 function gitio() {
   curl -i https://git.io -F "url=$1" -F "code=$2"

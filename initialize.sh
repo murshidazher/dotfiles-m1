@@ -1,121 +1,8 @@
 #!/usr/bin/env bash
-
-# some bash library helpers
-# @author Adam Eivy https://github.com/atomantic/dotfiles
-
 debug=${1:-false} # default debug param.
 
-# --------------------
-# Console Print Styles
-# --------------------
-
-# Colors
-ESC_SEQ="\x1b["
-COL_RESET=$ESC_SEQ"39;49;00m"
-COL_RED=$ESC_SEQ"31;01m"
-COL_GREEN=$ESC_SEQ"32;01m"
-COL_YELLOW=$ESC_SEQ"33;01m"
-COL_BLUE=$ESC_SEQ"34;01m"
-COL_PURPLE=$ESC_SEQ"35;01m"
-COL_CYAN=$ESC_SEQ"36;01m"
-COL_WHITE=$ESC_SEQ"37;01m"
-
-function ok() {
-  echo -e "$COL_GREEN[ok]$COL_RESET $1"
-}
-
-function botintro() {
-  echo -e "\n$COL_BLUE(っ◕‿◕)っ$COL_RESET - $1"
-}
-function bot() {
-  echo -e "\n$COL_BLUE(っ◕‿◕)っ$COL_RESET - $1"
-}
-
-function actioninfo() {
-  echo -e "\n$COL_YELLOW[action]:$COL_RESET ⇒ $1"
-}
-
-function running() {
-  echo -en "$COL_YELLOW ⇒ $COL_RESET $1 \n"
-}
-
-function action() {
-  echo -e "\n$COL_YELLOW[action]:$COL_RESET ⇒ $1"
-}
-
-function warn() {
-  echo -e "$COL_YELLOW[warning]$COL_RESET $1"
-}
-
-function success() {
-  echo -e "$COL_GREEN[success]$COL_RESET $1"
-}
-
-function error() {
-  echo -e "$COL_RED[error]$COL_RESET $1"
-}
-
-function cancelled() {
-  echo -e "$COL_RED[cancelled]$COL_RESET $1"
-}
-
-function awesome_header() {
-  echo -en "\n $COL_BLUE          ██            ██     ████ ██  ██ $COL_RESET"
-  echo -en "\n $COL_BLUE         ░██           ░██    ░██░ ░░  ░██ $COL_RESET"
-  echo -en "\n $COL_BLUE         ░██  ██████  ██████ ██████ ██ ░██  █████   ██████ $COL_RESET"
-  echo -en "\n $COL_BLUE      ██████ ██░░░░██░░░██░ ░░░██░ ░██ ░██ ██░░░██ ██░░░░ $COL_RESET"
-  echo -en "\n $COL_BLUE     ██░░░██░██   ░██  ░██    ░██  ░██ ░██░███████░░█████ $COL_RESET"
-  echo -en "\n $COL_BLUE    ░██  ░██░██   ░██  ░██    ░██  ░██ ░██░██░░░░  ░░░░░██ $COL_RESET"
-  echo -en "\n $COL_BLUE    ░░██████░░██████   ░░██   ░██  ░██ ███░░██████ ██████ $COL_RESET"
-  echo -en "\n $COL_BLUE     ░░░░░░  ░░░░░░     ░░    ░░   ░░ ░░░  ░░░░░░ ░░░░░░ $COL_RESET"
-  echo -en "\n"
-  echo -en "\n"
-}
-
-function ask_for_confirmation() {
-  echo -e "$COL_PURPLE[confirmation]$COL_RESET $1 (y/N) "
-  read -n 1
-  echo -e "\n"
-}
-
-function answer_is_yes() {
-  [[ "$REPLY" =~ ^(y|Y) ]] && return 0 || return 1
-}
-
-print_result() {
-  [ $1 -eq 0 ] && success "$2" || error "$2"
-  [ "$3" == "true" ] && [ $1 -ne 0 ] && exit
-}
-
-execute() {
-  if $debug; then
-    $1
-  else
-    $1 &>/dev/null
-  fi
-  print_result $? "${2:-$1}"
-}
-
-# Check if folder is a git repo.
-is_git_repository() {
-  [ "$(
-    git rev-parse &>/dev/null
-    printf $?
-  )" -eq 0 ] && return 0 || return 1
-}
-
-ask_for_sudo() {
-  # Ask for the administrator password upfront
-  sudo -v
-
-  # Update existing `sudo` time stamp until this script has finished
-  # https://gist.github.com/cowboy/3118588
-  while true; do
-    sudo -n true
-    sleep 60
-    kill -0 "$$" || exit
-  done &>/dev/null &
-}
+# load help lib.
+source < $(curl -s https://raw.githubusercontent.com/murshidazher/dotfiles-m1/main/setup/lib.sh)
 
 # ----
 # Prep
@@ -153,9 +40,6 @@ fi
 
 # Ask for the administrator password upfront.
 ask_for_sudo
-
-# Source directories and files to handle.
-source ./setup/files.sh
 
 # Create a file to log m1 agnostic binaries
 touch $HOME/installation_setup.log
@@ -246,6 +130,9 @@ done
 # Install dotfiles repo, run link script
 #-------------------------------------------
 
+# Source directories and files to handle.
+# source ./setup/files.sh
+
 if [ ! -d "$HOME/dev/src/github" ]; then
   mkdir -p $HOME/dev/src/github
   success "Create a dev directory on root"
@@ -273,7 +160,6 @@ else
   running "Setting up...."
 
   # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
-  ./setup.sh
+  if is_ci; then echo "calling setup.sh"; else ./setup.sh fi
 fi
-
 # EOF

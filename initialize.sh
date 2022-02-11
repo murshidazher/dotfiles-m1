@@ -29,9 +29,9 @@ read -n 1
 
 bot "To start we'll need your password.\n"
 
-tput bel
+!is_ci && tput bel
 
-ask_for_confirmation "Ready?"
+is_ci && ask_for_confirmation "Ready?"
 if answer_is_yes; then
   ok "Let's go."
 else

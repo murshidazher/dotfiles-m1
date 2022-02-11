@@ -407,13 +407,13 @@ if $brewinstall; then
   bot "Opening App Store. Please login."
   open "/Applications/App Store.app"
 
-  ask_for_confirmation "\nIs app store login complete. (y/n)?"
+  !is_ci && ask_for_confirmation "\nIs app store login complete. (y/n)?"
 
   # Flag install to go if user approves
   # Make sure you have installed these app atleast once manually using your current account
   # else app store wouldn't let you download them
   # mas search <AppName>
-  if answer_is_yes; then
+  if answer_is_yes && !is_ci; then
 
     ## Utilites
     mas install 668208984  # GIPHY Capture. The GIF Maker (For recording my screen as gif)

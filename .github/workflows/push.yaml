@@ -9,7 +9,7 @@ on:
 jobs:
   shellcheck:
     name: Shellcheck
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
@@ -17,15 +17,11 @@ jobs:
       - name: Checkout with submodules
         uses: actions/checkout@v2
 
-      - name: Install ShellCheck
-        run: |
-          brew install shellcheck
-
       - name: Run ShellCheck
+        # brew install shellcheck
+        uses: ludeeus/action-shellcheck@master
         env:
           SHELLCHECK_OPTS: -e SC2059 -e SC2034 -e SC1090
-        run: |
-          spellcheck .
 
   initialize_build:
     name: Initialize test

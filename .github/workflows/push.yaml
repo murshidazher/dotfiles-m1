@@ -23,6 +23,34 @@ jobs:
         env:
           SHELLCHECK_OPTS: -e SC2059 -e SC2034 -e SC1090
 
+  initialize_build:
+    name: Initialize test
+    runs-on: macos-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout with submodules
+        uses: actions/checkout@v2
+
+      - name: Set up script test
+        run: |
+          ./initialize.sh
+
+  curl_build:
+    name: Curl test
+    runs-on: macos-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout with submodules
+        uses: actions/checkout@v2
+
+      - name: Set up script test
+        run: |
+          bash -c "`curl -L https://git.io/dotfiles-m1`"
+
   macos_build:
     name: Build test
     runs-on: macos-latest

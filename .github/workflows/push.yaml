@@ -82,7 +82,8 @@ jobs:
             /usr/local/bin
             /usr/local/opt
             /usr/local/lib/python3.8
-          key: macos-build-cache-${{ hashFiles('./scripts/builder_setup.sh') }}
+            /opt/homebrew/
+          key: macos-build-cache-${{ hashFiles('./setup.sh') }}
 
       - name: Set up builder
         run: |

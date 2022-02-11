@@ -2,7 +2,7 @@
 debug=${1:-false} # default debug param.
 
 # load help lib.
-source < $(curl -s https://raw.githubusercontent.com/murshidazher/dotfiles-m1/main/setup/lib.sh)
+source <(curl -s https://raw.githubusercontent.com/murshidazher/dotfiles-m1/main/setup/lib.sh)
 
 # ----
 # Prep

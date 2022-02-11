@@ -2,6 +2,8 @@
 
 # [dotfiles-m1](https://github.com/murshidazher/dotfiles-m1)
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/murshidazher/dotfiles-m1/MacOS%20Agent%20build?style=flat-square)
+
 > My personal installation script to automate any new macOS system setup so I don't need to feel poor.
 
 - A dogmatic script to set up my mac. Built for Mac OS X :fire: :fire:

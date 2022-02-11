@@ -19,6 +19,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run ShellCheck
+        # brew install shellcheck
         uses: ludeeus/action-shellcheck@master
         env:
           SHELLCHECK_OPTS: -e SC2059 -e SC2034 -e SC1090

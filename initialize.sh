@@ -29,9 +29,9 @@ read -n 1
 
 bot "To start we'll need your password.\n"
 
-!is_ci && tput bel
+! is_ci && tput bel
 
-!is_ci && ask_for_confirmation "Ready?"
+! is_ci && ask_for_confirmation "Ready?"
 if answer_is_yes || is_ci; then
   ok "Let's go."
 else
@@ -40,14 +40,14 @@ else
 fi
 
 # Ask for the administrator password upfront.
-!is_ci && ask_for_sudo
+! is_ci && ask_for_sudo
 
 # Create a file to log m1 agnostic binaries
 touch $HOME/installation_setup.log
 
 # Setup macbook name
-!is_ci && ask_for_confirmation "Do you need to change your macbook name?"
-if answer_is_yes && !is_ci; then
+! is_ci && ask_for_confirmation "Do you need to change your macbook name?"
+if answer_is_yes && ! is_ci; then
   read -p 'Input your new macbook name: ' mbname
   sudo scutil --set ComputerName "$mbname"
   sudo scutil --set LocalHostName "$mbname"
@@ -72,20 +72,20 @@ sudo softwareupdate -iaR
 #-------------------------------------------
 
 running "Generating ssh keys, adding to ssh-agent... \n"
-!is_ci && read -p 'Input email for ssh key: ' useremail
+! is_ci && read -p 'Input email for ssh key: ' useremail
 
 running "Use default ssh file location, enter a passphrase: \n"
-!is_ci && ssh-keygen -t rsa -b 4096 -C "$useremail" # will prompt for password
-!is_ci && eval "$(ssh-agent -s)"
+! is_ci && ssh-keygen -t rsa -b 4096 -C "$useremail" # will prompt for password
+! is_ci && eval "$(ssh-agent -s)"
 
 # Now that sshconfig is synced add key to ssh-agent and
 # store passphrase in keychain
-!is_ci && ssh-add -K ~/.ssh/id_rsa
-!is_ci && success "ssh identity has been added."
+! is_ci && ssh-add -K ~/.ssh/id_rsa
+! is_ci && success "ssh identity has been added."
 
 # If you're using macOS Sierra 10.12.2 or later, you will need to modify your ~/.ssh/config file to automatically load keys into the ssh-agent and store passphrases in your keychain.
 
-if [ -e ~/.ssh/config && !is_ci ]; then
+if [ -e ~/.ssh/config && ! is_ci ]; then
   cancelled "ssh config already exists. Skipping adding osx specific settings... "
 else
   success "Writing osx specific settings to ssh config... "
@@ -101,7 +101,7 @@ fi
 # Add ssh-key to GitHub via api
 #-------------------------------------------
 
-if !is_ci; then
+if ! is_ci; then
   action "Adding ssh-key to GitHub (via api)..."
   warn "Important! For this step, use a github personal token with the admin:public_key permission."
   actioninfo "If you don't have one, create it here: https://github.com/settings/tokens/new"

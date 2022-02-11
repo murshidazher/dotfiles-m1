@@ -162,5 +162,9 @@ else
 
   # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
   if is_ci; then echo "calling setup.sh"; else ./setup.sh fi
+
+  # cleanup remove lib helper file
+  cd ..
+  rm -rf ./libsh
 fi
 # EOF

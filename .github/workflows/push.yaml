@@ -112,6 +112,6 @@ jobs:
             /opt/homebrew/
           key: macos-build-cache-${{ hashFiles('./setup.sh') }}
 
-      - name: Set up builder
-        run: |
-          ./setup.sh
+      # - name: Set up builder
+      #   run: |
+      #     ./setup.sh

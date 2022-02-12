@@ -42,7 +42,7 @@ jobs:
           label: 'size'
           message: ${{ steps.size.outputs.data }}
           color: green
-          cacheSeconds: 310
+          # cacheSeconds: 310
 
   initialize_build:
     name: Local initialize test

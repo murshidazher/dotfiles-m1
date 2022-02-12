@@ -282,6 +282,7 @@ Further details are in the `.zsh_prompt` file.
 - [x] Make `lib.sh` as a curl file to include in initialize.sh
 - [x] Uncomment the `initialize.sh` setup
 - [x] Update github workflow to check the initialize script.
+- [ ] Add bat test files to check the scripts and replace the ci checks in the script files
 
 ## License
 

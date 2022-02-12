@@ -83,7 +83,7 @@ function is_ci() {
 }
 
 function is_not_ci() {
-  [[ -z ENV.has_key?('CI') ]] && return 1 || return 0
+  [[ -v CI ]] && [[ -z "${CI}" ]] && return 1 || return 0
 }
 
 function print_result() {

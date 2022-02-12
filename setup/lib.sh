@@ -79,11 +79,11 @@ function answer_is_yes() {
 }
 
 function is_ci() {
-  [[ -z "$CI" ]] && return 0 || return 1
+  [[ -z ENV.has_key?('CI') &>/dev/null ]] && return 0 || return 1
 }
 
 function is_not_ci() {
-  [[ -z "$CI" ]] && return 1 || return 0
+  [[ -z ENV.has_key?('CI') &>/dev/null ]] && return 1 || return 0
 }
 
 function print_result() {

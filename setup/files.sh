@@ -21,14 +21,14 @@ fi
 botintro "Sourcing directories and files to handle."
 
 # Declare array of directories we want to symlink.
-declare -a dotfilesdirarray=(
+export declare -r -a dotfilesdirarray=(
   "$dotfilesdir/bin"
   "$dotfilesdir/.mackup"
   "$dotfilesdir/tasks"
 )
 
 # Declare array of directories we want to symlink files from.
-declare -a dotfilesfilearray=(
+export declare -r -a dotfilesfilearray=(
   "$dotfilesdir/ack"
   "$dotfilesdir/android"
   "$dotfilesdir/asdf"
@@ -52,4 +52,4 @@ declare -a dotfilesfilearray=(
 success "Directories and files sourced."
 
 # Flag files as loaded
-filesloaded=true
+export readonly filesloaded=true

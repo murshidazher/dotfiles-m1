@@ -47,4 +47,4 @@ install_chrome_ext() {
 export -f install_chrome_ext
 
 action "Installing chrome extensions"
-cat $defaultdotfilesdir/chrome/extensions.list | xargs -I {} -P2 install_chrome_ext {}
+cat "$defaultdotfilesdir"/chrome/extensions.list | xargs -I {} -P2 install_chrome_ext {}

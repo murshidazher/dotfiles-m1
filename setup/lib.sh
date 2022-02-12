@@ -6,56 +6,68 @@ debug=${1:-false}
 
 # Colors
 # @author Virgil Ratiu https://gist.github.com/vratiu/9780109
-ESC_SEQ="\x1b["
-COL_RESET=$ESC_SEQ"39;49;00m"
-COL_RED=$ESC_SEQ"31;01m"
-COL_GREEN=$ESC_SEQ"32;01m"
-COL_YELLOW=$ESC_SEQ"33;01m"
-COL_BLUE=$ESC_SEQ"34;01m"
-COL_PURPLE=$ESC_SEQ"35;01m"
-COL_CYAN=$ESC_SEQ"36;01m"
-COL_WHITE=$ESC_SEQ"37;01m"
+export readonly ESC_SEQ="\x1b["
+export readonly COL_RESET=$ESC_SEQ"39;49;00m"
+export readonly COL_RED=$ESC_SEQ"31;01m"
+export readonly COL_GREEN=$ESC_SEQ"32;01m"
+export readonly COL_YELLOW=$ESC_SEQ"33;01m"
+export readonly COL_BLUE=$ESC_SEQ"34;01m"
+export readonly COL_PURPLE=$ESC_SEQ"35;01m"
+export readonly COL_CYAN=$ESC_SEQ"36;01m"
+export readonly COL_WHITE=$ESC_SEQ"37;01m"
 
 function ok() {
+  # shellcheck disable=SC1087
   echo -e "$COL_GREEN[ok]$COL_RESET $1"
 }
 
 function botintro() {
+  # shellcheck disable=SC1087
   echo -e "\n$COL_BLUE(っ◕‿◕)っ$COL_RESET - $1"
 }
+
 function bot() {
+  # shellcheck disable=SC1087
   echo -e "$COL_BLUE(っ◕‿◕)っ$COL_RESET - $1"
 }
 
 function actioninfo() {
+  # shellcheck disable=SC1087
   echo -e "$COL_YELLOW[action]:$COL_RESET ⇒ $1"
 }
 
 function running() {
+  # shellcheck disable=SC1087
   echo -en "$COL_YELLOW ⇒ $COL_RESET $1"
 }
 
 function action() {
+  # shellcheck disable=SC1087
   echo -e "\n$COL_YELLOW[action]:$COL_RESET ⇒ $1"
 }
 
 function warn() {
+  # shellcheck disable=SC1087
   echo -e "$COL_YELLOW[warning]$COL_RESET $1"
 }
 
 function success() {
+  # shellcheck disable=SC1087
   echo -e "$COL_GREEN[success]$COL_RESET $1"
 }
 
 function error() {
+  # shellcheck disable=SC1087
   echo -e "$COL_RED[error]$COL_RESET $1"
 }
 
 function cancelled() {
+  # shellcheck disable=SC1087
   echo -e "$COL_RED[cancelled]$COL_RESET $1"
 }
 
 function awesome_header() {
+  # shellcheck disable=SC1087
   echo -en "\n$COL_BLUE          ██            ██     ████ ██  ██ $COL_RESET"
   echo -en "\n$COL_BLUE         ░██           ░██    ░██░ ░░  ░██ $COL_RESET"
   echo -en "\n$COL_BLUE         ░██  ██████  ██████ ██████ ██ ░██  █████   ██████ $COL_RESET"
@@ -69,6 +81,7 @@ function awesome_header() {
 }
 
 function ask_for_confirmation() {
+  # shellcheck disable=SC1087
   echo -e "$COL_PURPLE[confirmation]$COL_RESET $1 (y/N) "
   read -n 1
   echo -e "\n"
@@ -87,8 +100,8 @@ function is_not_ci() {
 }
 
 function print_result() {
-  [ $1 -eq 0 ] && success "$2" || error "$2"
-  [ "$3" == "true" ] && [ $1 -ne 0 ] && exit
+  [ "$1" -eq 0 ] && success "$2" || error "$2"
+  [ "$3" == "true" ] && [ "$1" -ne 0 ] && exit
 }
 
 function execute() {
@@ -171,7 +184,7 @@ ask_for_sudo() {
 
 # Takes an array of dir locations and then handles mkdir etc.
 make_directories() {
-  dirsuccess=true
+  export dirsuccess=true
   local arr=("$@")
 
   for i in "${arr[@]}"; do
@@ -185,7 +198,7 @@ make_directories() {
       # test if link
       if [ -L "$i" ]; then
         error "Exists as symlink: $i"
-        dirsuccess=false
+        export dirsuccess=false
       elif $debug; then
         echo -e "Directory exists: $i"
       fi
@@ -234,8 +247,10 @@ process_symlinks() {
 
 # Unlink symlinks, checks for existence etc.
 unlink_symlinks() {
-  local linksource="$1"
-  local linktarget="${1/$2/$3}"
+  local linksource
+  local linktarget
+  linksource="$1"
+  linktarget="${1/$2/$3}"
 
   # check if target exists
   if [ -e "$linktarget" ]; then
@@ -251,4 +266,4 @@ unlink_symlinks() {
 }
 
 # Mark lib as loaded
-libloaded=true
+export readonly libloaded=true

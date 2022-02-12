@@ -42,7 +42,7 @@ if answer_is_yes; then
   ok "Let's go."
 else
   cancelled "Exit."
-  exit -1
+  exit 1
 fi
 
 # --------

@@ -43,7 +43,6 @@ if $brewinstall; then
     print_result $? 'Install Homebrew.'
   else
     success "Homebrew already installed."
-    source ../zsh.d/homebrew
   fi
 
   running "brew update + brew upgrade"

@@ -32,12 +32,12 @@ declare -a createdirarray=(
 
 action "Creating directories"
 # Send array to make_directories function.
-make_directories ${createdirarray[@]}
+make_directories "${createdirarray[@]}"
 
 if $dirsuccess; then
   success "Directories created."
 else
   error "Errors when creating directories, please check and resolve."
   cancelled "\e[1mCannot proceed. Exit.\e[0m"
-  exit -1
+  exit 1
 fi

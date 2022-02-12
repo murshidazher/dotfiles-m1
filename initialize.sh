@@ -145,13 +145,13 @@ fi
 
 # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
 if is_not_ci; then
-  running "Cloning the repo from git@github.com:murshidazher/dotfiles-m1.git to ~"
   cd ~
+  running "Cloning the repo from git@github.com:murshidazher/dotfiles-m1.git to ~\n"
   gh_clone=$(git clone git@github.com:murshidazher/dotfiles-m1.git)
 else
   cd ..
   if [ -d "dotfiles-m1" ]; then
-    running "Cloning the repo from https://github.com/murshidazher/dotfiles-m1.git"
+    running "Cloning the repo from https://github.com/murshidazher/dotfiles-m1.git\n"
     gh_clone=$(git clone https://github.com/murshidazher/dotfiles-m1.git)
   else
     running "Already checkout the repo in CI\n"

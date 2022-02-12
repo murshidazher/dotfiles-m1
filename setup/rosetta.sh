@@ -14,7 +14,7 @@ fi
 # Load homebrew config if not already loaded.
 if [ -z ${hbwloaded+x} ]; then
   # shellcheck source=zsh.d/homebrew
-  source ../zsh.d/homebrew
+  source ./zsh.d/homebrew
 fi
 
 # Determine OS version

@@ -11,7 +11,7 @@ fi
 
 if [ -z ${hbwloaded+x} ]; then
   # shellcheck source=zsh.d/homebrew
-  source ../zsh.d/homebrew
+  source ./zsh.d/homebrew
 fi
 
 # Set dotfilesdir var if it doesn't exist.

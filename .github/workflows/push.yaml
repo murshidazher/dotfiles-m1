@@ -79,6 +79,7 @@ jobs:
           DOTFILES_REF: ${{github.sha}}
           SKIP_SLOW_DEPENDENCIES: "1"
           HOMEBREW_BUNDLE_BREW_SKIP: "node"
+          CI: "true"
 
       - name: Display the architecture
         shell: bash
@@ -88,7 +89,7 @@ jobs:
       - name: Check the CI environment variable
         shell: bash
         run: |
-          echo $([[ -z "${CI}" ]] && echo "Running on CI" || echo "Not running on CI")
+          echo $([[ -z ${CI} ]] && echo "Running on CI" || echo "Not running on CI")
 
       - name: Remove preinstalled brew packages
         run: |

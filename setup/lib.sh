@@ -79,11 +79,11 @@ function answer_is_yes() {
 }
 
 function is_ci() {
-  [[ -z "${CI}" ]] && return 0 || return 1
+  [[ -z "$CI" ]] && return 0 || return 1
 }
 
 function is_not_ci() {
-  [[ -v CI ]] && [[ -z "${CI}" ]] && return 1 || return 0
+  [[ -z "$CI" ]] && return 1 || return 0
 }
 
 function print_result() {

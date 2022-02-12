@@ -172,14 +172,14 @@ else
 
   # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
   if is_ci; then
-    running "skipping calling setup.sh in CI"
+    running "Skipping calling setup.sh in CI"
     # rename the dotfiles back for repo cleanup
-    running "cleanup for post checkout submodules\n"
+    running "Cleanup for post checkout submodules\n"
     cd ..
-    running "before repo change..."
+    running "Before repo name change → "
     ls
     mv dotfiles dotfiles-m1
-    running "after repo change..."
+    running "After repo name change → "
     ls
     cd dotfiles-m1 || exit
   else

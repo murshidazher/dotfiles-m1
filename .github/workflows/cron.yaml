@@ -2,50 +2,21 @@
 name: Daily midnight cron job
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '0 0/12 * * *' # https://crontab.cronhub.io/
+    - cron: '0 0 * * *' # https://crontab.cronhub.io/
 
 jobs:
-  shellcheck:
-    name: Check lint errors on scripts
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-    steps:
-      - name: Checkout with submodules
-        uses: actions/checkout@v2
-
-      - name: Run ShellCheck
-        # brew install shellcheck
-        uses: ludeeus/action-shellcheck@master
-        env:
-          SHELLCHECK_OPTS: -e SC2059 -e SC2034 -e SC1090
-
-  initialize_build:
-    name: Local initialize test
-    runs-on: macos-latest
-    defaults:
-      run:
-        shell: bash
-    steps:
-      - name: Checkout with submodules
-        uses: actions/checkout@v2
-
-      - name: Set up script test
-        run: |
-          ./initialize.sh
-
-  curl_build:
-    name: Remote curl initialize test without repo download
-    runs-on: macos-latest
-    defaults:
-      run:
-        shell: bash
-    steps:
-      - name: Set up script test
-        run: |
-          bash -c "`curl -L https://git.io/dotfiles-m1`"
+  # curl_build:
+  #   name: Remote curl initialize test without repo download
+  #   runs-on: macos-latest
+  #   defaults:
+  #     run:
+  #       shell: bash
+  #   steps:
+  #     - name: Set up script test
+  #       run: |
+  #         bash -c "`curl -L https://git.io/dotfiles-m1`"
 
   macos_build:
     name: Build test
@@ -112,6 +83,8 @@ jobs:
             /opt/homebrew/
           key: macos-build-cache-${{ hashFiles('./setup.sh') }}
 
-      - name: Set up builder
+      - name: Run the script
+        env:
+          RUN_SETUP: true
         run: |
-          ./setup.sh
+          ./initialize.sh

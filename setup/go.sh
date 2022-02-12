@@ -42,8 +42,7 @@ function install_versions {
   for version in ${versions_list}; do
     running "asdf: installing ${version} for golang"
     asdf install golang "${version}" >/dev/null 2>&1
-    local status
-    status=$?
+    local status=$?
     if [ ${status} -ne "0" ]; then
       error "Last exit code was ${status} for 'asdf install golang ${version}'. Please run manually. Aborting."
       exit 1

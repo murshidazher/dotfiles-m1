@@ -41,8 +41,7 @@ function install_versions {
   for version in ${versions_list}; do
     running "asdf: installing ${version} for gradle"
     asdf install gradle "${version}" >/dev/null 2>&1
-    local status
-    status=$?
+    local status=$?
     if [ ${status} -ne "0" ]; then
       error "Last exit code was ${status} for 'asdf install gradle ${version}'. Please run manually. Aborting."
       exit 1

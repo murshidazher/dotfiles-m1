@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-debug=${1:-false} # default debug param.
 
 # load help lib.
 curl https://raw.githubusercontent.com/murshidazher/dotfiles-m1/main/setup/lib.sh --output ./lib.sh
@@ -163,11 +162,10 @@ if (!($gh_clone)); then
   error "Something went wrong. When cloning the repo..."
   error -n "Status code returned: "
   error $gh_clone
-  break
 else
   success "m1 dotfiles cloned successfully..."
   mv dotfiles-m1 dotfiles
-  cd dotfiles
+  cd dotfiles || exit
   running "Pulling new changes for dotfiles repository...\n"
   git pull --rebase &>/dev/null
   running "Setting up....\n"
@@ -179,11 +177,11 @@ else
     running "cleanup for post checkout submodules\n"
     cd ..
     running "before repo change..."
-    echo $(ls)
+    ls
     mv dotfiles dotfiles-m1
     running "after repo change..."
-    echo $(ls)
-    cd dotfiles-m1
+    ls
+    cd dotfiles-m1 || exit
   else
     ./setup.sh
   fi

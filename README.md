@@ -43,6 +43,8 @@
 
 ### Setup
 
+> The script creates a centrally managed `dotfiles` directory on the `~` of the file system.
+
 To setup simply open the terminal, then:
 
 ```sh

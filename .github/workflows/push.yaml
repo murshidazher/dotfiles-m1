@@ -92,7 +92,7 @@ jobs:
       - name: Check the CI environment variable
         shell: bash
         run: |
-          echo $([[ -z $(ENV.has_key?('CI')) ]] && echo "Running on CI" || echo "Not running on CI")
+          echo $([[ -z "${CI}" ]] && echo "Running on CI" || echo "Not running on CI")
 
       - name: Cache brew deps
         uses: actions/cache@v2

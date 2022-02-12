@@ -85,7 +85,7 @@ is_not_ci && success "ssh identity has been added."
 
 # If you're using macOS Sierra 10.12.2 or later, you will need to modify your ~/.ssh/config file to automatically load keys into the ssh-agent and store passphrases in your keychain.
 
-if [ -e ~/.ssh/config || is_ci ]; then
+if [[ -e ~/.ssh/config || is_ci ]]; then
   cancelled "ssh config already exists. Skipping adding osx specific settings... "
 else
   success "Writing osx specific settings to ssh config... "
@@ -149,7 +149,7 @@ if is_not_ci; then
   cd ~
   gh_clone=$(git clone git@github.com:murshidazher/dotfiles-m1.git)
 else
-  running "Already checkout the repo in CI"
+  running "Already checkout the repo in CI\n"
   gh_clone=""
   cd ..
 fi
@@ -163,13 +163,19 @@ else
   success "m1 dotfiles cloned successfully..."
   mv dotfiles-m1 dotfiles
   cd dotfiles
-  running "Pulling new changes for dotfiles repository..."
+  running "Pulling new changes for dotfiles repository...\n"
   git pull --rebase &>/dev/null
-  running "Setting up...."
+  running "Setting up....\n"
 
   # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
   if is_ci; then
-    echo "calling setup.sh"
+    echo "skipping calling setup.sh in CI"
+    ll
+    # rename the dotfiles back for repo cleanup
+    running "cleanup for post checkout submodules\n"
+    cd ..
+    mv dotfiles dotfiles-m1
+    cd dotfiles-m1
   else
     ./setup.sh
   fi

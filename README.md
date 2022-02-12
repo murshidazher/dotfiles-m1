@@ -286,6 +286,7 @@ Further details are in the `.zsh_prompt` file.
 - [ ] Add [bats](https://github.com/sstephenson/bats) test files to check the scripts and replace the ci checks in the script files
 - [ ] Autoformat shell files using `brew install shellcheck && brew install shfmt && shfmt -l -w script.sh`
 - [ ] Check precommit hook for <https://github.com/jumanjihouse/pre-commit-hooks#configure-pre-commit>
+- [ ] Dynamically add inputs to the buffer and check the initialize script
 
 ### Precommit Linting
 

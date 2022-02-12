@@ -10,7 +10,7 @@ fi
 # Load homebrew config if not already loaded.
 if [ -z ${hbwloaded+x} ]; then
   # shellcheck source=zsh.d/homebrew
-  source ../zsh.d/homebrew
+  source ./zsh.d/homebrew
 fi
 
 # Set install flag to false
@@ -113,7 +113,7 @@ if $brewinstall; then
 
   # Install more recent versions of some native macOS tools.
   brew install perl
-  brew install vim --with-override-system-vi
+  brew install vim -- --with-override-system-vi
   brew install grep
   brew install nano
   brew install openssh

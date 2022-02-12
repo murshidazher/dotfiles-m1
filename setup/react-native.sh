@@ -24,7 +24,7 @@ fi
 # Load homebrew config if not already loaded.
 if [ -z ${hbwloaded+x} ]; then
   # shellcheck source=zsh.d/homebrew
-  source ../zsh.d/homebrew
+  source ./zsh.d/homebrew
 fi
 
 # Set defaultdotfilesdir var if not declared.

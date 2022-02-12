@@ -3,7 +3,7 @@
 # [dotfiles-m1](https://github.com/murshidazher/dotfiles-m1)
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/murshidazher/dotfiles-m1/MacOS%20Agent%20build?style=flat-square)
-![Github Repository Size](https://byob.yarr.is/murshidazher/dotfiles-m1/size)
+![Github Repository Size](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/murshidazher/549abdf9bf6da79a63605fd3ab9574fc/raw/size-badge.json)
 
 > My personal installation script to automate any new macOS system setup so I don't need to feel poor.
 

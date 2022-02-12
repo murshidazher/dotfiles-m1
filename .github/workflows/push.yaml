@@ -7,22 +7,6 @@ on:
     branches: [main]
 
 jobs:
-  shellcheck:
-    name: Shellcheck
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-    steps:
-      - name: Checkout with submodules
-        uses: actions/checkout@v2
-
-      - name: Run ShellCheck
-        # brew install shellcheck
-        uses: ludeeus/action-shellcheck@master
-        env:
-          SHELLCHECK_OPTS: -e SC2059 -e SC2034 -e SC1090
-
   initialize_build:
     name: Initialize test
     runs-on: macos-latest
@@ -93,12 +77,10 @@ jobs:
         shell: bash
         run: |
           echo $CI
-          [[ -v $CI ]] && echo "CI" || echo "No CI"
-          [[ -z $CI ]] && echo "Running on CI" || echo "Not running on CI"
-          [[ -v $CID ]] && echo "CID" || echo "No CID"
-          [[ -z $CID ]] && echo "CID" || echo "No CID"
-
-
+          [[ -v "${CI}" ]] && echo "CI" || echo "No CI"
+          [[ -z "${CI}" ]] && echo "Running on CI" || echo "Not running on CI"
+          [[ -v "${CID}" ]] && echo "CID" || echo "No CID"
+          [[ -z "${CID}" ]] && echo "CID" || echo "No CID"
 
 
       # - name: Remove preinstalled brew packages

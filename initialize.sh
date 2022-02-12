@@ -17,15 +17,15 @@ warn "Ensure your mac system is fully up-to-date and only"
 warn "run this script in terminal.app (NOT in iTerm)"
 warn "run this script on ~ or ~/dev/src/github"
 warn "=> CTRL+C now to abort or ENTER to continue."
-tput bel
-read -n 1
+is_not_ci && tput bel
+is_not_ci && read -n 1
 
 # Introduction
 awesome_header
 
 botintro "This script sets up new machines, *use with caution*. Please go read the script, it only takes a few minutes, [https://github.com/murshidazher/dotfiles-m1]."
 echo -e "\nPress ENTER to continue."
-read -n 1
+is_not_ci && read -n 1
 
 bot "To start we'll need your password.\n"
 

@@ -8,10 +8,6 @@ source ./lib.sh
 # Prep
 # ----
 echo -e "\n\n📦 M1 Mac Setup by [Murshid Azher](https://github.com/murshidazher/dotfiles-m1)"
-
-defaultdotfilesdir="$HOME/dotfiles"
-dotfilesdir=$(pwd)
-
 warn "Ensure your mac system is fully up-to-date and only"
 warn "run this script in terminal.app (NOT in iTerm)"
 warn "run this script on ~"
@@ -121,7 +117,7 @@ if is_not_ci; then
     else
       error "Something went wrong. Enter your credentials and try again..."
       error -n "Status code returned: "
-      error $gh_status_code
+      error "$gh_status_code"
     fi
   done
 
@@ -136,15 +132,15 @@ fi
 # source ./setup/files.sh
 
 if [ ! -d "$HOME/dev/src/github" ]; then
-  mkdir -p $HOME/dev/src/github
+  mkdir -p "$HOME/dev/src/github"
   success "Create a dev directory on root"
 else
-  cancelled "~/dev directory exists..."
+  cancelled "$HOME/dev directory exists..."
 fi
 
 # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
 if is_not_ci; then
-  cd ~
+  cd ~ || exit
   running "Cloning the repo from git@github.com:murshidazher/dotfiles-m1.git to ~\n"
   gh_clone=$(git clone git@github.com:murshidazher/dotfiles-m1.git)
 else
@@ -158,10 +154,10 @@ else
   fi
 fi
 
-if (!($gh_clone)); then
+if (! $gh_clone); then
   error "Something went wrong. When cloning the repo..."
   error -n "Status code returned: "
-  error $gh_clone
+  error "$gh_clone"
 else
   success "m1 dotfiles cloned successfully..."
   mv dotfiles-m1 dotfiles

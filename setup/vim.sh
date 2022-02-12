@@ -5,7 +5,12 @@ debug=${1:-false}
 
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
+  # shellcheck source=setup/lib.sh
   source ./lib.sh
+fi
+
+if [ -z ${hbwloaded+x} ]; then
+  # shellcheck source=zsh.d/homebrew
   source ../zsh.d/homebrew
 fi
 

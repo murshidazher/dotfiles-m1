@@ -17,7 +17,7 @@ warn "Ensure your mac system is fully up-to-date and only"
 warn "run this script in terminal.app (NOT in iTerm)"
 warn "run this script on ~ or ~/dev/src/github"
 warn "=> CTRL+C now to abort or ENTER to continue."
-if is_not_ci; then tput bel fi
+is_not_ci && tput bel
 if is_not_ci; then read -n 1 fi
 
 # Introduction

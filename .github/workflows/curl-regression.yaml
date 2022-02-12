@@ -1,5 +1,6 @@
-# .github/workflows/cron.yaml
-name: Daily midnight cron job
+# Git clone based workflow regression where the command executed is ./initialize.sh
+# .github/workflows/curl-regression.yaml
+name: Curl Regression
 
 on:
   workflow_dispatch:
@@ -7,17 +8,6 @@ on:
     - cron: '0 0 * * *' # https://crontab.cronhub.io/
 
 jobs:
-  # curl_build:
-  #   name: Remote curl initialize test without repo download
-  #   runs-on: macos-latest
-  #   defaults:
-  #     run:
-  #       shell: bash
-  #   steps:
-  #     - name: Set up script test
-  #       run: |
-  #         bash -c "`curl -L https://git.io/dotfiles-m1`"
-
   macos_build:
     name: Build test
     runs-on: macos-latest
@@ -39,14 +29,6 @@ jobs:
             node_version: 16
 
     steps:
-      - name: Checkout with submodules
-        uses: actions/checkout@v2
-        env:
-          REPO: ${{github.workspace}}
-          DOTFILES_REF: ${{github.sha}}
-          SKIP_SLOW_DEPENDENCIES: "1"
-          HOMEBREW_BUNDLE_BREW_SKIP: "node"
-
       - name: Set env
         id: set-env
         run: echo "CI=true" >> $GITHUB_ENV
@@ -87,4 +69,4 @@ jobs:
         env:
           RUN_SETUP: true
         run: |
-          ./initialize.sh
+          bash -c "`curl -L https://git.io/dotfiles-m1`"

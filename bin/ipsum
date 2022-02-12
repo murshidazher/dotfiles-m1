@@ -16,18 +16,17 @@ CODE=0
 ALLCAPS=0
 PRUDE=0
 
-
 # Gets the command name without path
-cmd(){ echo `basename $0`; }
+cmd() { echo $(basename $0); }
 
 # Help command output
-usage(){
-echo "\
-`cmd` [OPTION...]
+usage() {
+  echo "\
+$(cmd) [OPTION...]
 
 Grab some placeholder copy from http://loripsum.net/
 
-Example: `cmd` --headings --long --plain
+Example: $(cmd) --headings --long --plain
 
 --headings; Add headings
 --short; Use short paragraph length
@@ -49,50 +48,63 @@ Example: `cmd` --headings --long --plain
 }
 
 # Error message
-error(){
-    echo "`cmd`: invalid option -- '$1'";
-    echo "Try '`cmd` -h' for more information.";
-    exit 1;
+error() {
+  echo "$(cmd): invalid option -- '$1'"
+  echo "Try '$(cmd) -h' for more information."
+  exit 1
 }
 
 # getopt string
 opts="hd:"
 
 for pass in 1 2; do
-    while [ -n "$1" ]; do
-        case $1 in
-            --) shift; break;;
-            -*) case $1 in
-                -h|--help)             usage; exit 1;;
-                -d|--debug)            DEBUG=1;;
-                --headings)            HEADINGS=1;;
-                --short)               LENGTH="short";;
-                --medium)              LENGTH="medium";;
-                --long)                LENGTH="long";;
-                --verylong)            LENGTH="verylong";;
-                --decorate)            DECORATE=1;;
-                --links)               LINKS=1;;
-                --ol)                  OL=1;;
-                --ul)                  UL=1;;
-                --dl)                  DL=1;;
-                --bq|--blockquote)     BLOCKQUOTE=1;;
-                --code)                CODE=1;;
-                --caps)                ALLCAPS=1;;
-                --prude)               PRUDE=1;;
-                --plain|--no-html)     PLAIN=1;;
-                --no-plain|--html)     PLAIN=0;;
-                --*)                 error $1;;
-                -*)                  if [ $pass -eq 1 ]; then ARGS="$ARGS $1";
-                                     else error $1; fi;;
-                esac;;
-            *)  if [ $pass -eq 1 ]; then ARGS="$ARGS $1";
-                else error $1; fi;;
-        esac
-        shift
-    done
-    if [ $pass -eq 1 ]; then ARGS=`getopt $opts $ARGS`
-        if [ $? != 0 ]; then usage; exit 2; fi; set -- $ARGS
+  while [ -n "$1" ]; do
+    case $1 in
+    --)
+      shift
+      break
+      ;;
+    -*) case $1 in
+      -h | --help)
+        usage
+        exit 1
+        ;;
+      -d | --debug) DEBUG=1 ;;
+      --headings) HEADINGS=1 ;;
+      --short) LENGTH="short" ;;
+      --medium) LENGTH="medium" ;;
+      --long) LENGTH="long" ;;
+      --verylong) LENGTH="verylong" ;;
+      --decorate) DECORATE=1 ;;
+      --links) LINKS=1 ;;
+      --ol) OL=1 ;;
+      --ul) UL=1 ;;
+      --dl) DL=1 ;;
+      --bq | --blockquote) BLOCKQUOTE=1 ;;
+      --code) CODE=1 ;;
+      --caps) ALLCAPS=1 ;;
+      --prude) PRUDE=1 ;;
+      --plain | --no-html) PLAIN=1 ;;
+      --no-plain | --html) PLAIN=0 ;;
+      --*) error $1 ;;
+      -*) if [ $pass -eq 1 ]; then
+        ARGS="$ARGS $1"
+      else error $1; fi ;;
+      esac ;;
+    *) if [ $pass -eq 1 ]; then
+      ARGS="$ARGS $1"
+    else error $1; fi ;;
+    esac
+    shift
+  done
+  if [ $pass -eq 1 ]; then
+    ARGS=$(getopt $opts $ARGS)
+    if [ $? != 0 ]; then
+      usage
+      exit 2
     fi
+    set -- $ARGS
+  fi
 done
 
 if [[ $PLAIN -eq 1 ]]; then
@@ -142,7 +154,6 @@ fi
 if [[ $PRUDE -eq 1 ]]; then
   URL+="/prude"
 fi
-
 
 if [[ $DEBUG -eq 1 ]]; then
   echo "URL:"

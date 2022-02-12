@@ -35,6 +35,7 @@
   - [Vscode Permission error when installing extensions](#vscode-permission-error-when-installing-extensions)
   - [Custom bash prompt](#custom-bash-prompt)
   - [TODO](#todo)
+    - [Precommit Linting](#precommit-linting)
   - [License](#license)
 
 ## Installing / Getting started
@@ -283,7 +284,16 @@ Further details are in the `.zsh_prompt` file.
 - [x] Uncomment the `initialize.sh` setup
 - [x] Update github workflow to check the initialize script.
 - [ ] Add [bats](https://github.com/sstephenson/bats) test files to check the scripts and replace the ci checks in the script files
-- [ ] Autoformat shell files using `brew install shfmt && shfmt -l -w script.sh`
+- [ ] Autoformat shell files using `brew install shellcheck && brew install shfmt && shfmt -l -w script.sh`
+
+### Precommit Linting
+
+```sh
+brew install shellcheck
+brew install shfmt
+shellcheck ./svn_file_history.sh
+shfmt -l -w . # style linting
+```
 
 ## License
 

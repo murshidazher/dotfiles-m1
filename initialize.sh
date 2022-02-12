@@ -2,6 +2,7 @@
 
 # load help lib.
 if [[ -f "./setup/lib.sh" ]]; then
+  # shellcheck source=setup/lib.sh
   source "./setup/lib.sh"
 else
   curl https://raw.githubusercontent.com/murshidazher/dotfiles-m1/main/setup/lib.sh --output lib.sh

@@ -3,11 +3,13 @@ debug=${1:-false}
 
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
+  # shellcheck source=setup/lib.sh
   source ./lib.sh
 fi
 
 # Load dirs and files if not already loaded.
 if [ -z ${filesloaded+x} ]; then
+  # shellcheck source=setup/files.sh
   source ./files.sh
   echo -en "\n"
 fi
@@ -74,7 +76,7 @@ process_symlinks "extensions.json" "$dotfilesdir/vscode" "$defaultdotfilesdir/vs
 # If files are not stored in ~/dotfiles then symlink to that folder
 # note: if ~/dotfiles does exist or links elsewhere it only breaks
 # the alias `dotfiles` and export $DOTFILES.
-if ! [[ "$defaultdotfilesdir" -ef "$pwd" ]]; then
+if ! [[ $defaultdotfilesdir -ef "$(pwd)" ]]; then
   action "Symlinking dotfiles dir to $defaultdotfilesdir"
 
   if [ -e "$defaultdotfilesdir" ]; then

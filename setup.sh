@@ -61,7 +61,7 @@ source ./setup/brew.sh
 # brew is required to continue, exit out otherwise.
 if ! $brewinstall; then
   cancelled "\e[1mCannot proceed. Exit.\e[0m"
-  exit -1
+  exit 1
 fi
 
 # -----------
@@ -108,7 +108,7 @@ source ./setup/react-native.sh
 # -------------
 
 botintro "\e[1mSTEP 8: Scheduling crontab tasks\e[0m"
-source crontab .scripts/cron.txt
+source ./setup/cron.sh
 
 # --------
 # 10. Misc.

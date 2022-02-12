@@ -74,6 +74,7 @@ jobs:
           key: macos-build-cache-${{ hashFiles('./setup.sh') }}
 
       - name: Run the script
+        id: run-script
         env:
           RUN_SETUP: true
         run: |

@@ -108,9 +108,15 @@ jobs:
           arch
 
       - name: Check the CI environment variable
+        id: check-ci-env
         shell: bash
         run: |
           [[ -z "${CI}" ]] && echo "Not running on CI" || echo "Running on CI"
+
+      - name: Check the step variables
+        shell: bash
+        run: |
+          echo "${{join(steps.check-ci-env.outputs.*, '\n')}}"
 
 
       # - name: Remove preinstalled brew packages

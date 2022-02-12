@@ -67,19 +67,19 @@ fi
 # -----------
 # 6. Symlinks
 # -----------
-botintro "\e[1mSTEP 5: SYMLINKS\e[0m"
+botintro "\e[1mSTEP 6: SYMLINKS\e[0m"
 source ./setup/symlinks.sh
 
 # ------------------
 # 7. Web Environment
 # ------------------
 
-botintro "\e[1mSTEP 6: Environment Setup for web development.\e[0m"
+botintro "\e[1mSTEP 7: Environment Setup for web development.\e[0m"
 
 # asdf setup
 source ./setup/asdf.sh
 
-# asdf minimal setup
+# Note: asdf minimal setup (alternative for the asdf full setup)
 # source ./setup/asdf-minimal.sh
 
 # Node setup
@@ -100,20 +100,20 @@ source ./setup/chrome.sh
 # ---------------------
 # 8. Mobile Environment
 # ---------------------
-botintro "\e[1mSTEP 7: Environment Setup for mobile development.\e[0m"
+botintro "\e[1mSTEP 8: Environment Setup for mobile development.\e[0m"
 source ./setup/react-native.sh
 
 # -------------
 # 9. CRON Tasks
 # -------------
 
-botintro "\e[1mSTEP 8: Scheduling crontab tasks\e[0m"
+botintro "\e[1mSTEP 9: Scheduling crontab tasks\e[0m"
 source ./setup/cron.sh
 
 # --------
 # 10. Misc.
 # --------
-botintro "\e[1mSTEP 9: Final touches\e[0m"
+botintro "\e[1mSTEP 10: Final touches\e[0m"
 source ./setup/misc.sh
 
 # Wrap-up.

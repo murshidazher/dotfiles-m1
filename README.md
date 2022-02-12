@@ -311,6 +311,8 @@ Further details are in the `.zsh_prompt` file.
 - [ ] Check precommit hook for <https://github.com/jumanjihouse/pre-commit-hooks#configure-pre-commit>
 - [ ] Dynamically add inputs to the buffer and check the initialize script
 - [ ] Add [custom workflow badges](https://github.com/Schneegans/dynamic-badges-action) for displaying the total runtime for the script execution.
+- [ ] Check dotfiles symlink error from the execution logs.
+- [ ] Run react-native setup as separate workflow.
 
 ## License
 

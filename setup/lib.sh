@@ -79,7 +79,7 @@ function answer_is_yes() {
 }
 
 function is_ci() {
-  [[ -z ENV.has_key?('CI') ]] && return 0 || return 1
+  [[ -z "${CI}" ]] && return 0 || return 1
 }
 
 function is_not_ci() {

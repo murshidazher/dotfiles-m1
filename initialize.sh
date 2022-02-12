@@ -152,15 +152,14 @@ else
   cd ..
   if [ -d "dotfiles-m1" ]; then
     running "Cloning the repo from https://github.com/murshidazher/dotfiles-m1.git"
-    git clone https://github.com/murshidazher/dotfiles-m1.git
-    gh_clone=""
+    gh_clone=$(git clone https://github.com/murshidazher/dotfiles-m1.git)
   else
     running "Already checkout the repo in CI\n"
     gh_clone=""
   fi
 fi
 
-if (is_not_ci && !($gh_clone)); then
+if (!($gh_clone)); then
   error "Something went wrong. When cloning the repo..."
   error -n "Status code returned: "
   error $gh_clone

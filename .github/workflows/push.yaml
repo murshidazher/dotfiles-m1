@@ -76,7 +76,7 @@ jobs:
       - name: Check the CI environment variable
         shell: bash
         run: |
-          [[ -z "${CI}" ]] && echo "Running on CI" || echo "Not running on CI"
+          [[ -z "${CI}" ]] && echo "Not running on CI" || echo "Running on CI"
 
       - name: Check the CI environment variable 2
         shell: bash

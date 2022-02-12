@@ -85,7 +85,7 @@ is_not_ci && success "ssh identity has been added."
 
 # If you're using macOS Sierra 10.12.2 or later, you will need to modify your ~/.ssh/config file to automatically load keys into the ssh-agent and store passphrases in your keychain.
 
-if [ -e ~/.ssh/config && is_not_ci ]; then
+if [ -e ~/.ssh/config || is_ci ]; then
   cancelled "ssh config already exists. Skipping adding osx specific settings... "
 else
   success "Writing osx specific settings to ssh config... "
@@ -143,11 +143,15 @@ else
   cancelled "~/dev directory exists..."
 fi
 
-running "Cloning the repo from https://github.com/murshidazher/dotfiles-m1 to ~"
-
 # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
-cd $HOME/dev/src/github
-gh_clone=$(git clone git@github.com:murshidazher/dotfiles-m1.git)
+if is_not_ci; then
+  running "Cloning the repo from git@github.com:murshidazher/dotfiles-m1.git to ~"
+  cd ~
+  gh_clone=$(git clone git@github.com:murshidazher/dotfiles-m1.git)
+else
+  running "Cloning the repo from https://github.com/murshidazher/dotfiles-m1 to ~"
+  gh_clone=$(git clone https://github.com/murshidazher/dotfiles-m1)
+fi
 
 if (!($gh_clone)); then
   error "Something went wrong. When cloning the repo..."
@@ -167,6 +171,6 @@ else
 
   # cleanup remove lib helper file
   cd ..
-  rm -rf ./libsh
+  rm -rf ./lib.sh
 fi
 # EOF

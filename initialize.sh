@@ -149,11 +149,12 @@ if is_not_ci; then
   cd ~
   gh_clone=$(git clone git@github.com:murshidazher/dotfiles-m1.git)
 else
-  running "Cloning the repo from https://github.com/murshidazher/dotfiles-m1 to ~"
-  gh_clone=$(git clone https://github.com/murshidazher/dotfiles-m1)
+  running "Already checkout the repo in CI"
+  gh_clone=""
+  cd ..
 fi
 
-if (!($gh_clone)); then
+if (is_not_ci && !($gh_clone)); then
   error "Something went wrong. When cloning the repo..."
   error -n "Status code returned: "
   error $gh_clone
@@ -167,10 +168,10 @@ else
   running "Setting up...."
 
   # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
-  if is_ci; then echo "calling setup.sh"; else ./setup.sh fi
-
-  # cleanup remove lib helper file
-  cd ..
-  rm -rf ./lib.sh
+  if is_ci; then
+    echo "calling setup.sh"
+  else
+    ./setup.sh
+  fi
 fi
 # EOF

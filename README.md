@@ -4,6 +4,7 @@
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/murshidazher/dotfiles-m1/MacOS%20Agent%20build?style=flat-square)
 ![Github Repository Size](https://img.shields.io/endpoint?style=flat-square&url=https://gist.githubusercontent.com/murshidazher/549abdf9bf6da79a63605fd3ab9574fc/raw/size-badge.json)
+![Github Repository Runtime](https://img.shields.io/endpoint?style=flat-square&url=https://gist.githubusercontent.com/murshidazher/549abdf9bf6da79a63605fd3ab9574fc/raw/elapsed-clone-badge.json)
 
 > My personal installation script to automate any new macOS system setup so I don't need to feel poor.
 

@@ -173,7 +173,13 @@ else
 
   # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
   if is_ci; then
-    running "Skipping calling setup.sh in CI"
+    if [[ -z "${RUN_SETUP}" ]]; then
+      running "Skipping calling setup.sh in CI"
+    else
+      running "Running setup.sh in CI"
+      ./setup.sh
+    fi
+
     # rename the dotfiles back for repo cleanup
     running "Cleanup for post checkout submodules\n"
     cd ..

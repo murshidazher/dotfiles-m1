@@ -92,7 +92,14 @@ jobs:
       - name: Check the CI environment variable
         shell: bash
         run: |
-          echo $([[ -z $CI ]] && echo "Running on CI" || echo "Not running on CI")
+          echo $CI
+          [[ -v $CI ]] && echo "CI" || echo "No CI"
+          [[ -z $CI ]] && echo "Running on CI" || echo "Not running on CI"
+          [[ -v $CID ]] && echo "CID" || echo "No CID"
+          [[ -z $CID ]] && echo "CID" || echo "No CID"
+
+
+
 
       # - name: Remove preinstalled brew packages
       #   run: |

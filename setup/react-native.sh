@@ -38,7 +38,7 @@ actioninfo "2. Install android studio and setup the Andorid SDK v31."
 actioninfo "3. Configure xcode and cocoapods to work with flutter."
 
 ask_for_confirmation "Ready?"
-if answer_is_yes; then
+if answer_is_yes || is_ci; then
   ok "Let's go."
 else
   cancelled "Exit."

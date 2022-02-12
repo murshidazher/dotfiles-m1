@@ -239,11 +239,9 @@ if $brewinstall; then
 
   # DEVOPS
   brew install awscli
-  brew install nginx
+  # brew install nginx
   brew install puma/puma/puma-dev
-  brew install k6
-
-  # brew install awslogs
+  # brew install k6
 
   # docker
   brew install --cask docker
@@ -266,8 +264,6 @@ if $brewinstall; then
   brew install svn
 
   brew install --cask font-domine
-  brew install --cask font-droid-sans
-  brew install --cask font-droid-sans-mono
   brew install --cask font-fira-code
   brew install --cask font-fira-sans
   brew install --cask font-fontawesome
@@ -279,7 +275,6 @@ if $brewinstall; then
   brew install --cask font-source-code-pro
   brew install --cask font-source-sans-pro
   brew install --cask font-ubuntu
-  brew install --cask font-sanfrancisco
   brew install --cask font-jetbrains-mono
 
   running "Installing cask apps"
@@ -320,7 +315,6 @@ if $brewinstall; then
   brew install --cask bitwarden
   # brew install --cask keybase
   brew install --cask keybase@5.8.x # TODO: revert it to normal cask, when the cask 5.9.x notarization error is resolved. :link: https://github.com/keybase/client/issues/24741
-  brew install --cask gpgtools
   brew install --cask tunnelblick
   # brew install --cask openvpn-connect
 
@@ -346,16 +340,12 @@ if $brewinstall; then
   brew install --cask tableplus
   brew install --cask visual-studio-code
   brew install --cask intellij-idea-ce
-  # brew install --cask responsively
-  # brew install --cask fork
-  brew install --cask lepton # gist
+  brew install --cask fork
   # brew install --cask proxyman
-  brew install --cask flipper # react-native debugger
 
   # DEVOPS
   brew install --cask aws-vault
   brew install terraform
-  brew install pulumi
   brew install earthly/earthly/earthly
 
   # VM
@@ -369,15 +359,11 @@ if $brewinstall; then
   brew install --cask quicklook-json
   brew install --cask qlprettypatch
   brew install --cask quicklook-csv
-  # brew install --cask betterzipql
-  # brew install --cask qlimagesize
   brew install --cask webpquicklook
-  # brew install --cask suspicious-package
   brew install --cask quicklookase
   brew install --cask qlvideo
 
   # PRODUCTIVITY
-  # brew install asciinema
   brew install gmailctl
   brew install --cask krisp
   brew install --cask onyx
@@ -436,7 +422,7 @@ if $brewinstall; then
     cancelled "App Store login not complete. Skipping installing App Store Apps"
   fi
 
-  running "brew cleanup"
+  running "brew cleanup\n"
   # Remove outdated versions from the cellar.
   brew cleanup
 

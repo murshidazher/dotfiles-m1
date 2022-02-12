@@ -8,7 +8,7 @@ on:
 
 jobs:
   # shellcheck:
-  #   name: Shellcheck
+  #   name: Check lint errors on scripts
   #   runs-on: ubuntu-latest
   #   defaults:
   #     run:

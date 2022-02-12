@@ -13,6 +13,11 @@ if [ -z ${hbwloaded+x} ]; then
   source ../zsh.d/homebrew
 fi
 
+# Set dotfilesdir var if not declared.
+if [ -z ${dotfilesdir+x} ]; then
+  dotfilesdir="$(dirname "$(pwd)")"
+fi
+
 action "Setting up .nanorc"
 # Install better nanorc config.
 # https://github.com/scopatz/nanorc

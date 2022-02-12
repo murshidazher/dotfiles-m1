@@ -29,7 +29,7 @@ if hash asdf 2>/dev/null; then
   action "Creating Node directories"
 
   sudo mkdir "/usr/local/lib/node_modules"
-  sudo chown -R $(whoami) "/usr/local/lib/node_modules"
+  sudo chown -R "$(whoami)" "/usr/local/lib/node_modules"
 
   # Update npm for LTS.
   # note: node is installed by asdf from .tool-versions
@@ -77,8 +77,8 @@ if hash asdf 2>/dev/null; then
     @vue/cli
   )
 
-  for package in ${packages[@]}; do
-    npm install --global $package
+  for package in "${packages[@]}"; do
+    npm install --global "$package"
   done
 
   # fin.

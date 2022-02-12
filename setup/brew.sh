@@ -225,6 +225,9 @@ if $brewinstall; then
   brew install nss # if you use Firefox
   mkcert -install
 
+  brew install shellcheck # shell script linter
+  brew install shfmt      # for formatting shell scripts
+
   # DATABASES
   brew install postgresql
   brew install mysql@5.7

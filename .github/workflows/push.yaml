@@ -27,6 +27,9 @@ jobs:
     name: Create Size Badge
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout with submodules
+        uses: actions/checkout@v2
+
       - id: size
         run: echo "##[set-output name=data;]$(du -sh . | sed 's/[^0-9a-zA-Z]//g')"
 
@@ -36,7 +39,7 @@ jobs:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: ${{ secrets.GIST_ID }}
           filename: size-badge.json
-          label: 'Repo Size'
+          label: 'size'
           message: ${{ steps.size.outputs.data }}
           color: green
 
@@ -49,15 +52,6 @@ jobs:
     steps:
       - name: Checkout with submodules
         uses: actions/checkout@v2
-
-      - name: Size Badge
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: size
-          LABEL: 'Repo Size'
-          STATUS: ${{ steps.size.outputs.data }}
-          COLOR: red
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up script test
         run: |

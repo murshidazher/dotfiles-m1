@@ -89,29 +89,29 @@ jobs:
       - name: Check the CI environment variable
         shell: bash
         run: |
-          echo $([[ -z ${CI} ]] && echo "Running on CI" || echo "Not running on CI")
+          echo $([[ ENV.has_key?('CI') &>/dev/null ]] && echo "Running on CI" || echo "Not running on CI")
 
-      - name: Remove preinstalled brew packages
-        run: |
-          brew remove --force --ignore-dependencies $(brew list --formula)
+      # - name: Remove preinstalled brew packages
+      #   run: |
+      #     brew remove --force --ignore-dependencies $(brew list --formula)
 
-      - name: Cache brew deps
-        uses: actions/cache@v2
-        with:
-          # Paths to cache:
-          # /usr/local/Homebrew - installation folder of Homebrew
-          # /usr/local/Cellar - installation folder of Homebrew formulae
-          # /usr/local/Frameworks, /usr/local/bin, /usr/local/opt - contain (links to) binaries installed by Homebrew formulae
-          # /usr/local/lib/python3.8 - Python3 packages installation
-          path: |
-            /usr/local/Homebrew
-            /usr/local/Cellar
-            /usr/local/Frameworks
-            /usr/local/bin
-            /usr/local/opt
-            /usr/local/lib/python3.8
-            /opt/homebrew/
-          key: macos-build-cache-${{ hashFiles('./setup.sh') }}
+      # - name: Cache brew deps
+      #   uses: actions/cache@v2
+      #   with:
+      #     # Paths to cache:
+      #     # /usr/local/Homebrew - installation folder of Homebrew
+      #     # /usr/local/Cellar - installation folder of Homebrew formulae
+      #     # /usr/local/Frameworks, /usr/local/bin, /usr/local/opt - contain (links to) binaries installed by Homebrew formulae
+      #     # /usr/local/lib/python3.8 - Python3 packages installation
+      #     path: |
+      #       /usr/local/Homebrew
+      #       /usr/local/Cellar
+      #       /usr/local/Frameworks
+      #       /usr/local/bin
+      #       /usr/local/opt
+      #       /usr/local/lib/python3.8
+      #       /opt/homebrew/
+      #     key: macos-build-cache-${{ hashFiles('./setup.sh') }}
 
       # - name: Set up builder
       #   run: |

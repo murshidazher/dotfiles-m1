@@ -33,6 +33,15 @@ jobs:
       - name: Checkout with submodules
         uses: actions/checkout@v2
 
+      - name: Size Badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        with:
+          NAME: size
+          LABEL: 'Repo Size'
+          STATUS: ${{ steps.size.outputs.data }}
+          COLOR: red
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Set up script test
         run: |
           ./initialize.sh

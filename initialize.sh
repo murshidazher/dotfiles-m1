@@ -15,7 +15,7 @@ dotfilesdir=$(pwd)
 
 warn "Ensure your mac system is fully up-to-date and only"
 warn "run this script in terminal.app (NOT in iTerm)"
-warn "run this script on ~ or ~/dev/src/github"
+warn "run this script on ~"
 warn "=> CTRL+C now to abort or ENTER to continue."
 is_not_ci && tput bel
 is_not_ci && read -n 1
@@ -174,14 +174,14 @@ else
 
   # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
   if is_ci; then
-    echo "skipping calling setup.sh in CI"
+    running "skipping calling setup.sh in CI"
     # rename the dotfiles back for repo cleanup
     running "cleanup for post checkout submodules\n"
     cd ..
-    bot "before repo change..."
+    running "before repo change..."
     echo $(ls)
     mv dotfiles dotfiles-m1
-    bot "after repo change..."
+    running "after repo change..."
     echo $(ls)
     cd dotfiles-m1
   else

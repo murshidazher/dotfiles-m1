@@ -16,6 +16,8 @@
   - [Table of Contents](#table-of-contents)
   - [Installing / Getting started](#installing--getting-started)
     - [Setup](#setup)
+    - [Developing](#developing)
+      - [Linting](#linting)
       - [GPG key with Keybase.io](#gpg-key-with-keybaseio)
     - [Homebrew](#homebrew)
     - [Python](#python)
@@ -35,7 +37,6 @@
   - [Vscode Permission error when installing extensions](#vscode-permission-error-when-installing-extensions)
   - [Custom bash prompt](#custom-bash-prompt)
   - [TODO](#todo)
-    - [Precommit Linting](#precommit-linting)
   - [License](#license)
 
 ## Installing / Getting started
@@ -52,6 +53,28 @@ To setup simply open the terminal, then:
 $ bash -c "`curl -L https://git.io/dotfiles-m1`"
 # after initial setup
 $ cd dotfiles && ./setup.sh
+```
+
+### Developing
+
+- Make sure to lint the files prior to committing it.
+
+#### Linting
+
+> 💡 We make use of `shellcheck` and `shfmt` to lint the shell scripts,
+
+Install the linters,
+
+```sh
+brew install shellcheck
+brew install shfmt
+```
+
+Lint the files before making a PR,
+
+```sh
+shellcheck <file>.sh
+shfmt -l -w -s <file>.sh # style linting
 ```
 
 #### GPG key with Keybase.io
@@ -283,18 +306,10 @@ Further details are in the `.zsh_prompt` file.
 - [x] Make `lib.sh` as a curl file to include in initialize.sh
 - [x] Uncomment the `initialize.sh` setup
 - [x] Update github workflow to check the initialize script.
-- [ ] Autoformat shell files using `brew install shellcheck && brew install shfmt && shfmt -l -w script.sh`
+- [ ] Auto-format shell files using `brew install shellcheck && brew install shfmt && shfmt -l -w script.sh`
 - [ ] Check precommit hook for <https://github.com/jumanjihouse/pre-commit-hooks#configure-pre-commit>
 - [ ] Dynamically add inputs to the buffer and check the initialize script
-
-### Precommit Linting
-
-```sh
-brew install shellcheck
-brew install shfmt
-shellcheck ./svn_file_history.sh
-shfmt -l -w . # style linting
-```
+- [ ] Add custom workflow badges for displaying the total runtime for the script execution.
 
 ## License
 

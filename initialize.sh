@@ -17,21 +17,21 @@ warn "Ensure your mac system is fully up-to-date and only"
 warn "run this script in terminal.app (NOT in iTerm)"
 warn "run this script on ~ or ~/dev/src/github"
 warn "=> CTRL+C now to abort or ENTER to continue."
-is_not_ci && tput bel
-is_not_ci && read -n 1
+[[ is_not_ci -eq 0 ]] && tput bel
+[[ is_not_ci -eq 0 ]] && read -n 1
 
 # Introduction
 awesome_header
 
 botintro "This script sets up new machines, *use with caution*. Please go read the script, it only takes a few minutes, [https://github.com/murshidazher/dotfiles-m1]."
 echo -e "\nPress ENTER to continue."
-is_not_ci && read -n 1
+[[ is_not_ci -eq 0 ]] && read -n 1
 
 bot "To start we'll need your password.\n"
 
-is_not_ci && tput bel
+[[ is_not_ci -eq 0 ]] && tput bel
 
-is_not_ci && ask_for_confirmation "Ready?"
+[[ is_not_ci -eq 0 ]] && ask_for_confirmation "Ready?"
 if answer_is_yes || is_ci; then
   ok "Let's go."
 else
@@ -40,14 +40,14 @@ else
 fi
 
 # Ask for the administrator password upfront.
-is_not_ci && ask_for_sudo
+[[ is_not_ci -eq 0 ]] && ask_for_sudo
 
 # Create a file to log m1 agnostic binaries
 touch $HOME/installation_setup.log
 
 # Setup macbook name
-is_not_ci && ask_for_confirmation "Do you need to change your macbook name?"
-if answer_is_yes && is_not_ci; then
+[[ is_not_ci -eq 0 ]] && ask_for_confirmation "Do you need to change your macbook name?"
+if answer_is_yes && is_not_ci -eq 0; then
   read -p 'Input your new macbook name: ' mbname
   sudo scutil --set ComputerName "$mbname"
   sudo scutil --set LocalHostName "$mbname"
@@ -72,16 +72,16 @@ sudo softwareupdate -iaR
 #-------------------------------------------
 
 running "Generating ssh keys, adding to ssh-agent... \n"
-is_not_ci && read -p 'Input email for ssh key: ' useremail
+[[ is_not_ci -eq 0 ]] && read -p 'Input email for ssh key: ' useremail
 
 running "Use default ssh file location, enter a passphrase: \n"
-is_not_ci && ssh-keygen -t rsa -b 4096 -C "$useremail" # will prompt for password
-is_not_ci && eval "$(ssh-agent -s)"
+[[ is_not_ci -eq 0 ]] && ssh-keygen -t rsa -b 4096 -C "$useremail" # will prompt for password
+[[ is_not_ci -eq 0 ]] && eval "$(ssh-agent -s)"
 
 # Now that sshconfig is synced add key to ssh-agent and
 # store passphrase in keychain
-is_not_ci && ssh-add -K ~/.ssh/id_rsa
-is_not_ci && success "ssh identity has been added."
+[[ is_not_ci -eq 0 ]] && ssh-add -K ~/.ssh/id_rsa
+[[ is_not_ci -eq 0 ]] && success "ssh identity has been added."
 
 # If you're using macOS Sierra 10.12.2 or later, you will need to modify your ~/.ssh/config file to automatically load keys into the ssh-agent and store passphrases in your keychain.
 

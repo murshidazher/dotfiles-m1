@@ -91,13 +91,6 @@ jobs:
         run: |
           [[ -z "${CI}" ]] && echo "Not running on CI" || echo "Running on CI"
 
-      - name: Check the CI environment variable
-        shell: bash
-        env:
-          RUN_SETUP: true
-        run: |
-          [[ -z "${RUN_SETUP}" ]] && echo "Not running setup on CI" || echo "Running setup on CI"
-
 
       # - name: Remove preinstalled brew packages
       #   run: |

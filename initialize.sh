@@ -149,9 +149,15 @@ if is_not_ci; then
   cd ~
   gh_clone=$(git clone git@github.com:murshidazher/dotfiles-m1.git)
 else
-  running "Already checkout the repo in CI\n"
-  gh_clone=""
   cd ..
+  if [ -d "dotfiles-m1" ]; then
+    running "Cloning the repo from https://github.com/murshidazher/dotfiles-m1.git"
+    git clone https://github.com/murshidazher/dotfiles-m1.git
+    gh_clone=""
+  else
+    running "Already checkout the repo in CI\n"
+    gh_clone=""
+  fi
 fi
 
 if (is_not_ci && !($gh_clone)); then
@@ -173,10 +179,10 @@ else
     # rename the dotfiles back for repo cleanup
     running "cleanup for post checkout submodules\n"
     cd ..
-    bot "before repo change\n"
+    bot "before repo change..."
     echo $(ls)
     mv dotfiles dotfiles-m1
-    bot "after repo change\n"
+    bot "after repo change..."
     echo $(ls)
     cd dotfiles-m1
   else

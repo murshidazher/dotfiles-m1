@@ -8,7 +8,7 @@ on:
 
 jobs:
   initialize_build:
-    name: Initialize test
+    name: Local initialize test
     runs-on: macos-latest
     defaults:
       run:
@@ -22,15 +22,12 @@ jobs:
           ./initialize.sh
 
   curl_build:
-    name: Curl test
+    name: Remote curl initialize test without repo download
     runs-on: macos-latest
     defaults:
       run:
         shell: bash
     steps:
-      - name: Checkout with submodules
-        uses: actions/checkout@v2
-
       - name: Set up script test
         run: |
           bash -c "`curl -L https://git.io/dotfiles-m1`"

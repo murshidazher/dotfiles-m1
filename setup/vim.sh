@@ -43,7 +43,7 @@ if vim n 2>/dev/null; then
   else
     error "Errors when creating vim directories, please check and resolve."
     cancelled "\e[1mCannot proceed. Exit.\e[0m"
-    exit -1
+    exit 1
   fi
 
   # Install pathogen: https://github.com/tpope/vim-pathogen

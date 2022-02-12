@@ -31,32 +31,38 @@ versions_dir="$defaultdotfilesdir/versions"
 # Read given file line by line
 function read_file {
   versions_dir=${1}
-  local file_path="${versions_dir}"
+  local file_path
+  file_path="${versions_dir}"
   while read -r line; do
     action "${line}"
   done <"${file_path}"
 }
 
 function install_versions {
-  local language="${1}"
-  local versions_list=$(read_file "${versions_dir}/${language}")
+  local language
+  local versions_list
+  language="${1}"
+  versions_list=$(read_file "${versions_dir}/${language}")
   for version in ${versions_list}; do
     running "asdf: installing ${version} for ${language}"
-    asdf install $language ${version} >/dev/null 2>&1
-    local status=$?
+    asdf install "${language}" "${version}" >/dev/null 2>&1
+    local status
+    status=$?
     if [ ${status} -ne "0" ]; then
       error "Last exit code was ${status} for 'asdf install ${language} ${version}'. Please run manually. Aborting."
       exit 1
     fi
   done
-  set_global ${language} ${version}
+  set_global "${language}" "${version}"
 }
 
 function set_global {
-  local language=${1}
-  local latest_version=${2}
+  local language
+  language=${1}
+  local latest_version
+  latest_version=${2}
   running "asdf ${language}: setting ${latest_version} as global"
-  asdf global ${language} ${latest_version} >/dev/null 2>&1
+  asdf global "${language}" "${latest_version}" >/dev/null 2>&1
 }
 
 action "asdf java: installing versions"

@@ -15,6 +15,7 @@ fi
 
 # Load dirs and files if not already loaded.
 if [ -z ${filesloaded+x} ]; then
+  # shellcheck source=setup/files.sh
   source ./setup/files.sh
   echo -en "\n"
 fi
@@ -33,14 +34,14 @@ declare -a backupdirarray=(
 )
 
 # Send array to make_directories function.
-make_directories ${backupdirarray[@]}
+make_directories "${backupdirarray[@]}"
 
 if $dirsuccess; then
   success "Backup directories created."
 else
   error "Errors when creating backup directories, please check and resolve."
   cancelled "Cannot proceed. Exit."
-  exit -1
+  exit 1
 fi
 
 # Backup everything
@@ -49,7 +50,7 @@ if answer_is_yes; then
   action "Backup directories"
   # Loop array of directories that dotfiles handles, copy them to backup
   for i in "${dotfilesdirarray[@]}"; do
-    cp -Rp ${i/$dotfilesdir/$HOME} "$dotfilesbackupdir"
+    cp -Rp "${i/$dotfilesdir/$HOME}" "$dotfilesbackupdir"
     print_result $? "Copying ${i/$dotfilesdir/$HOME}"
   done
 
@@ -67,7 +68,7 @@ if answer_is_yes; then
 
     # For each match file in each directory, copy that to backup
     for j in "${tmparr[@]}"; do
-      cp -Rp ${j/$i/$HOME} "$dotfilesbackupdir"
+      cp -Rp "${j/$i/$HOME}" "$dotfilesbackupdir"
       print_result $? "Copying ${j/$i/$HOME}"
     done
   done

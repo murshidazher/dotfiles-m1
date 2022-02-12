@@ -27,7 +27,8 @@ versions_dir="$defaultdotfilesdir/versions/gradle"
 
 # Read given file line by line
 function read_file {
-  local file_path="${versions_dir}"
+  local file_path
+  file_path="${versions_dir}"
   while read -r line; do
     action "${line}"
   done <"${file_path}"
@@ -35,24 +36,27 @@ function read_file {
 
 # Install list of versions one by one
 function install_versions {
-  local versions_list=$(read_file)
+  local versions_list
+  versions_list=$(read_file)
   for version in ${versions_list}; do
     running "asdf: installing ${version} for gradle"
-    asdf install gradle ${version} >/dev/null 2>&1
-    local status=$?
+    asdf install gradle "${version}" >/dev/null 2>&1
+    local status
+    status=$?
     if [ ${status} -ne "0" ]; then
       error "Last exit code was ${status} for 'asdf install gradle ${version}'. Please run manually. Aborting."
       exit 1
     fi
   done
   # Set the latest version as global
-  set_global ${version}
+  set_global "${version}"
 }
 
 function set_global {
-  local latest_version=${1}
+  local latest_version
+  latest_version=${1}
   running "asdf gradle: setting ${latest_version} as global"
-  asdf global gradle ${latest_version} >/dev/null 2>&1
+  asdf global gradle "${latest_version}" >/dev/null 2>&1
 }
 
 action "asdf gradle: installing versions"

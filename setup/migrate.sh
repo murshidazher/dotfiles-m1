@@ -35,7 +35,7 @@ fi
 
 if ! $migrationapproved; then
   cancelled "\e[1mMigration not approved. Exiting.\e[0m"
-  exit -1
+  exit 1
 fi
 
 botintro "Running migration tasks."

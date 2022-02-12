@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
 # load help lib.
-curl https://raw.githubusercontent.com/murshidazher/dotfiles-m1/main/setup/lib.sh --output ./lib.sh
-source ./lib.sh
+if [[ -f "./setup/lib.sh" ]]; then
+  source "./setup/lib.sh"
+else
+  curl https://raw.githubusercontent.com/murshidazher/dotfiles-m1/main/setup/lib.sh --output lib.sh
+  source "./lib.sh" 2>/dev/null
+fi
 
 # ----
 # Prep
@@ -13,14 +17,14 @@ warn "run this script in terminal.app (NOT in iTerm)"
 warn "run this script on ~"
 warn "=> CTRL+C now to abort or ENTER to continue."
 is_not_ci && tput bel
-is_not_ci && read -n 1
+is_not_ci && read -r -n 1
 
 # Introduction
 awesome_header
 
 botintro "This script sets up new machines, *use with caution*. Please go read the script, it only takes a few minutes, [https://github.com/murshidazher/dotfiles-m1]."
 echo -e "\nPress ENTER to continue."
-is_not_ci && read -n 1
+is_not_ci && read -r -n 1
 
 bot "To start we'll need your password.\n"
 
@@ -31,19 +35,19 @@ if answer_is_yes || is_ci; then
   ok "Let's go."
 else
   cancelled "Exit."
-  exit -1
+  exit 1
 fi
 
 # Ask for the administrator password upfront.
 is_not_ci && ask_for_sudo
 
 # Create a file to log m1 agnostic binaries
-touch $HOME/installation_setup.log
+touch "$HOME/installation_setup.log"
 
 # Setup macbook name
 is_not_ci && ask_for_confirmation "Do you need to change your macbook name?"
 if answer_is_yes && is_not_ci; then
-  read -p 'Input your new macbook name: ' mbname
+  read -r -p 'Input your new macbook name: ' mbname
   sudo scutil --set ComputerName "$mbname"
   sudo scutil --set LocalHostName "$mbname"
   sudo scutil --set HostName "$mbname"
@@ -67,7 +71,7 @@ sudo softwareupdate -iaR
 #-------------------------------------------
 
 running "Generating ssh keys, adding to ssh-agent... \n"
-is_not_ci && read -p 'Input email for ssh key: ' useremail
+is_not_ci && read -r -p 'Input email for ssh key: ' useremail
 
 running "Use default ssh file location, enter a passphrase: \n"
 is_not_ci && ssh-keygen -t rsa -b 4096 -C "$useremail" # will prompt for password
@@ -80,7 +84,7 @@ is_not_ci && success "ssh identity has been added."
 
 # If you're using macOS Sierra 10.12.2 or later, you will need to modify your ~/.ssh/config file to automatically load keys into the ssh-agent and store passphrases in your keychain.
 
-if [[ -e ~/.ssh/config || is_ci ]]; then
+if [[ -e ~/.ssh/config ]] || is_ci; then
   cancelled "ssh config already exists. Skipping adding osx specific settings... "
 else
   success "Writing osx specific settings to ssh config... "
@@ -105,13 +109,13 @@ if is_not_ci; then
   SSH_KEY=$(cat ~/.ssh/id_rsa.pub)
 
   for ((i = 0; i < retries; i++)); do
-    read -p 'GitHub username: ' ghusername
-    read -p 'Machine name: ' ghtitle
-    read -sp 'GitHub personal token: ' ghtoken
+    read -r -p 'GitHub username: ' ghusername
+    read -r -p 'Machine name: ' ghtitle
+    read -r -sp 'GitHub personal token: ' ghtoken
 
-    gh_status_code=$(curl -o /dev/null -s -w "%{http_code}\n" -u "$ghusername:$ghtoken" -d '{"title":"'$ghtitle'","key":"'"$SSH_KEY"'"}' 'https://api.github.com/user/keys')
+    gh_status_code=$(curl -o /dev/null -s -w "%{http_code}\n" -u "$ghusername:$ghtoken" -d '{"title":"'"$ghtitle"'","key":"'"$SSH_KEY"'"}' 'https://api.github.com/user/keys')
 
-    if (($gh_status_code - eq == 201)); then
+    if [[ $gh_status_code -eq 201 ]]; then
       success "GitHub ssh key added successfully!"
       break
     else

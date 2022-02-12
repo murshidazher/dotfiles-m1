@@ -4,16 +4,17 @@
 # Requires: asdf and asdf-nodejs
 # Note: Use this script when you need to have a minimal setup with latest version
 
-debug=${1:-false}
 # List of components to install
 PYTHON_PIPS=(httpie)
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
+  # shellcheck source=setup/lib.sh
   source ./lib.sh
 fi
 
 # Load homebrew config if not already loaded.
 if [ -z ${hbwloaded+x} ]; then
+  # shellcheck source=zsh.d/homebrew
   source ../zsh.d/homebrew
 fi
 
@@ -31,7 +32,7 @@ if hash asdf 2>/dev/null; then
   asdf install
 
   # install specific nodejs version :Different
-  local NODE_VERSION_12=12.22.6
+  NODE_VERSION_12=12.22.6
   action "asdf: installing node v${NODE_VERSION_12}"
   asdf install nodejs "${NODE_VERSION_12}"
   asdf global nodejs "${NODE_VERSION_12}"
@@ -42,9 +43,9 @@ if hash asdf 2>/dev/null; then
 
   asdf plugin-add java
   # adoptium openjdk 8 with JVM hotspot [difference between compilers](shorturl.at/fizN9)
-  local LATEST_JAVA8_LTS_VERSION=$(asdf list-all java | grep '^adoptopenjdk-8.0.' | grep -v '\.openj9\|rc' | tail -1)
+  LATEST_JAVA8_LTS_VERSION=$(asdf list-all java | grep '^adoptopenjdk-8.0.' | grep -v '\.openj9\|rc' | tail -1)
   # if you need a amazon corretto vendor latest version
-  local LATEST_JAVA_CORRETTO_VERSION=$(asdf list-all java | grep '^corretto-' | tail -1)
+  LATEST_JAVA_CORRETTO_VERSION=$(asdf list-all java | grep '^corretto-' | tail -1)
   # install
   action "asdf: installing global versions $LATEST_JAVA8_LTS_VERSION"
   asdf install java "${LATEST_JAVA8_LTS_VERSION}"
@@ -53,7 +54,7 @@ if hash asdf 2>/dev/null; then
   # maven
   action "asdf: setting up Maven"
   asdf plugin-add maven
-  local LATEST_MAVEN_VERSION=$(asdf list-all maven | grep '^3\.' | grep -v '\-dev\|rc' | grep -v 'b\d\+' | tail -1)
+  LATEST_MAVEN_VERSION=$(asdf list-all maven | grep '^3\.' | grep -v '\-dev\|rc' | grep -v 'b\d\+' | tail -1)
   # install
   action "asdf: installing global versions of maven $LATEST_MAVEN_VERSION"
   asdf install maven "${LATEST_MAVEN_VERSION}"
@@ -61,8 +62,8 @@ if hash asdf 2>/dev/null; then
   # python
   asdf plugin-add python
   action "asdf: setting up Python"
-  local LATEST_PYTHON2_VERSION=$(asdf list-all python | grep '^2\.' | grep -v '\-dev\|rc' | tail -1)
-  local LATEST_PYTHON3_VERSION=$(asdf list-all python | grep '^3\.' | grep -v '\-dev\|rc' | grep -v 'b\d\+' | tail -1)
+  LATEST_PYTHON2_VERSION=$(asdf list-all python | grep '^2\.' | grep -v '\-dev\|rc' | tail -1)
+  LATEST_PYTHON3_VERSION=$(asdf list-all python | grep '^3\.' | grep -v '\-dev\|rc' | grep -v 'b\d\+' | tail -1)
   # install
   action "asdf: installing global versions of python"
   asdf install python "${LATEST_PYTHON2_VERSION}"
@@ -74,7 +75,7 @@ if hash asdf 2>/dev/null; then
   pip install "${PYTHON_PIPS[@]}"
 
   # install specific nodejs version :Different
-  local NODE_VERSION_12=12.22.6
+  NODE_VERSION_12=12.22.6
   action "asdf: installing node v${NODE_VERSION_12}"
   asdf install nodejs "${NODE_VERSION_12}"
   asdf global nodejs "${NODE_VERSION_12}"
@@ -83,12 +84,12 @@ if hash asdf 2>/dev/null; then
   asdf plugin-add golang
 
   action "asdf: setting up golang"
-  local LATEST_GOLANG_VERSION=$(asdf list-all golang | grep '^1\.' | grep -v '\-dev\|rc|beta' | tail -1)
+  LATEST_GOLANG_VERSION=$(asdf list-all golang | grep '^1\.' | grep -v '\-dev\|rc|beta' | tail -1)
 
   action "asdf: installing global versions of golang $LATEST_GOLANG_VERSION"
   asdf install golang "${LATEST_GOLANG_VERSION}"
   asdf global golang "${LATEST_GOLANG_VERSION}"
-  go get -u $PACKAGE
+  go get -u "$PACKAGE"
   asdf reshim golang
 
   # fin.

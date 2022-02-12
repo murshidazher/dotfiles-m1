@@ -3,11 +3,13 @@ debug=${1:-false}
 
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
+  # shellcheck source=setup/lib.sh
   source ./lib.sh
 fi
 
 # Load homebrew config if not already loaded.
 if [ -z ${hbwloaded+x} ]; then
+  # shellcheck source=zsh.d/homebrew
   source ../zsh.d/homebrew
 fi
 
@@ -33,10 +35,12 @@ function read_file {
 
 # Install list of versions one by one
 function install_versions {
-  local versions_list=$(read_file)
+  local versions_list
+  versions_list=$(read_file)
+
   for version in ${versions_list}; do
     running "asdf: installing ${version} for ant"
-    asdf install ant ${version} >/dev/null 2>&1
+    asdf install ant "${version}" >/dev/null 2>&1
     local status=$?
     if [ ${status} -ne "0" ]; then
       error "Last exit code was ${status} for 'asdf install ant ${version}'. Please run manually. Aborting."
@@ -44,13 +48,13 @@ function install_versions {
     fi
   done
   # Set the latest version as global
-  set_global ${version}
+  set_global "${version}"
 }
 
 function set_global {
   local latest_version=${1}
   running "asdf ant: setting ${latest_version} as global"
-  asdf global ant ${latest_version} >/dev/null 2>&1
+  asdf global ant "${latest_version}" >/dev/null 2>&1
 }
 
 action "asdf ant: installing versions"

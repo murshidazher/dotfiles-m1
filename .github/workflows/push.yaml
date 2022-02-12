@@ -76,10 +76,11 @@ jobs:
       - name: Check the CI environment variable
         shell: bash
         run: |
-          echo $CI
-          [[ -v "${CI}" ]] && echo "CI" || echo "No CI"
           [[ -z "${CI}" ]] && echo "Running on CI" || echo "Not running on CI"
-          [[ -v "${CID}" ]] && echo "CID" || echo "No CID"
+
+      - name: Check the CI environment variable 2
+        shell: bash
+        run: |
           [[ -z "${CID}" ]] && echo "CID" || echo "No CID"
 
 

@@ -18,18 +18,18 @@ warn "run this script in terminal.app (NOT in iTerm)"
 warn "run this script on ~ or ~/dev/src/github"
 warn "=> CTRL+C now to abort or ENTER to continue."
 is_not_ci && tput bel
-if is_not_ci; then read -n 1 fi
+is_not_ci && read -n 1
 
 # Introduction
 awesome_header
 
 botintro "This script sets up new machines, *use with caution*. Please go read the script, it only takes a few minutes, [https://github.com/murshidazher/dotfiles-m1]."
 echo -e "\nPress ENTER to continue."
-if is_not_ci; then read -n 1 fi
+is_not_ci && read -n 1
 
 bot "To start we'll need your password.\n"
 
-if is_not_ci; then tput bel fi
+is_not_ci && tput bel
 
 is_not_ci && ask_for_confirmation "Ready?"
 if answer_is_yes || is_ci; then

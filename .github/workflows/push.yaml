@@ -23,6 +23,23 @@ jobs:
   #       env:
   #         SHELLCHECK_OPTS: -e SC2059 -e SC2034 -e SC1090
 
+  size-badge:
+    name: Create Size Badge
+    runs-on: ubuntu-latest
+    steps:
+      - id: size
+        run: echo "##[set-output name=data;]$(du -sh . | sed 's/[^0-9a-zA-Z]//g')"
+
+      - name: Create the Badge
+        uses: schneegans/dynamic-badges-action@master
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: ${{ secrets.GIST_ID }}
+          filename: size-badge.json
+          label: 'Repo Size'
+          message: ${{ steps.size.outputs.data }}
+          color: green
+
   initialize_build:
     name: Local initialize test
     runs-on: macos-latest
@@ -34,7 +51,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Size Badge
-        uses: RubbaBoy/BYOB@v1.3.0
+        uses: RubbaBoy/BYOB@v1.2.1
         with:
           NAME: size
           LABEL: 'Repo Size'

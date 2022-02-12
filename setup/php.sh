@@ -38,10 +38,11 @@ function read_file {
 
 # Install list of versions one by one
 function install_versions {
-  local versions_list=$(read_file)
+  local versions_list
+  versions_list=$(read_file)
   for version in ${versions_list}; do
     running "asdf: installing ${version} for php"
-    asdf install php ${version} >/dev/null 2>&1
+    asdf install php "${version}" >/dev/null 2>&1
     local status=$?
     if [ ${status} -ne "0" ]; then
       error "Last exit code was ${status} for 'asdf install php ${version}'. Please run manually. Aborting."
@@ -49,13 +50,13 @@ function install_versions {
     fi
   done
   # Set the latest version as global
-  set_global ${version}
+  set_global "${version}"
 }
 
 function set_global {
   local latest_version=${1}
   running "asdf php: setting ${latest_version} as global"
-  asdf global php ${latest_version} >/dev/null 2>&1
+  asdf global php "${latest_version}" >/dev/null 2>&1
 }
 
 action "asdf php: installing versions"

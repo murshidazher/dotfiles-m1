@@ -20,14 +20,14 @@ fi
 botintro "Manage VSCode Extensions"
 
 # install vscode extensions
-code --list-extensions | comm -23 - $defaultdotfilesdir/vscode/extensions.list | xargs -I {} code --uninstall-extension {} # Removes old extensions
-code --list-extensions | comm -13 - $defaultdotfilesdir/vscode/extensions.list | xargs -I {} code --install-extension {}   # Adds new extensions
+code --list-extensions | comm -23 - "$defaultdotfilesdir"/vscode/extensions.list | xargs -I {} code --uninstall-extension {} # Removes old extensions
+code --list-extensions | comm -13 - "$defaultdotfilesdir"/vscode/extensions.list | xargs -I {} code --install-extension {}   # Adds new extensions
 
 # if ci check if all the extensions were installed
 if is_ci; then
   botintro "Checking if all VSCode Extensions were installed"
   code --list-extensions >curr-ext.list
-  tr A-Z a-z <curr-ext.list | sponge curr-ext.list # convert to lowercase
-  comm -23 <(sort ./curr-ext.list) <(sort $defaultdotfilesdir/vscode/extensions.list) >ext-diff.list
+  tr '[:upper:]' '[:lower:]' <curr-ext.list | sponge curr-ext.list # convert to lowercase
+  comm -23 <(sort ./curr-ext.list) <(sort "$defaultdotfilesdir"/vscode/extensions.list) >ext-diff.list
   cat ext-diff.list # print the difference
 fi

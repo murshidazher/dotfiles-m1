@@ -97,8 +97,8 @@ action "download system images for android emulator"
 # sdkmanager --list | grep "system-images.*playstore"
 
 # For m1 macbooks
-local SYSTEM_IMAGE_ARM_VERSION="system-images;android-31;google_apis;arm64-v8a"
-local SYSTEM_IMAGE_ARM_PLAY_VERSION="system-images;android-31;google_apis_playstore;arm64-v8a"
+SYSTEM_IMAGE_ARM_VERSION="system-images;android-31;google_apis;arm64-v8a"
+SYSTEM_IMAGE_ARM_PLAY_VERSION="system-images;android-31;google_apis_playstore;arm64-v8a"
 sdkmanager ${SYSTEM_IMAGE_ARM_VERSION}
 sdkmanager ${SYSTEM_IMAGE_ARM_PLAY_VERSION}
 
@@ -120,11 +120,11 @@ avdmanager --verbose create avd --force --name "Pixel_4_API_31_Play" --device "p
 
 # Add keyboard forwarding, to enable keyboard keypress to be sent to emulator.
 for file in ~/.android/avd/*avd; do
-  if cat $file/config.ini | grep "hw.keyboard=yes" >/dev/null; then
-    success "✔ hw.keyboard is already added to $(basename $file)"
+  if cat "$file"/config.ini | grep "hw.keyboard=yes" >/dev/null; then
+    success "✔ hw.keyboard is already added to $(basename "$file")"
   else
-    echo "hw.keyboard=yes" >>$file/config.ini
-    success "✔ hw.keyboard=yes is added to $(basename $file)"
+    echo "hw.keyboard=yes" >>"$file"/config.ini
+    success "✔ hw.keyboard=yes is added to $(basename "$file")"
   fi
 done
 
@@ -136,7 +136,7 @@ flutter precache
 flutter doctor --android-licenses
 
 runnning "Install XCode from MacStore"
-read -p "Press [Enter] key when done..."
+read -r -p "Press [Enter] key when done..."
 
 mas install 497799835 # xcode
 sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
@@ -151,7 +151,7 @@ pod setup
 # https://developer.android.com/studio/run/emulator-acceleration
 # Note: ARM based chipset (M1) can't use hardware acceleration
 
-su
+sudo
 setprop debug.hwui.renderer skiagl
 stop
 start
@@ -164,8 +164,8 @@ flutter doctor
 
 if hash asdf 2>/dev/null; then
 
-  local LATEST_NODEJS_14_VERSION=$(asdf list nodejs | grep '^  14\.' | tail -1 | sed 's: ::g')
-  asdf local nodejs ${LATEST_NODEJS_14_VERSION}
+  LATEST_NODEJS_14_VERSION=$(asdf list nodejs | grep '^  14\.' | tail -1 | sed 's: ::g')
+  asdf local nodejs "${LATEST_NODEJS_14_VERSION}"
   asdf reshim nodejs # to have all the globally install packages in PATH
   npm install -g react-native-cli
 

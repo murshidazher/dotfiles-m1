@@ -285,4 +285,4 @@ Further details are in the `.zsh_prompt` file.
 
 ## License
 
-[MIT](https://github.com/murshidazher/dotfiles-m1/blob/main/LICENSE) &copy; 2021 Murshid Azher.
+[MIT](https://github.com/murshidazher/dotfiles-m1/blob/main/LICENSE) &copy; 2021-2022 Murshid Azher.

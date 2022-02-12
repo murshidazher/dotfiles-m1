@@ -36,7 +36,7 @@ if vim n 2>/dev/null; then
 
   action "Creating vim directories"
   # Send array to make_directories function.
-  make_directories ${createvimdirarray[@]}
+  make_directories "${createvimdirarray[@]}"
 
   if $dirsuccess; then
     success "vim directories created."
@@ -51,12 +51,12 @@ if vim n 2>/dev/null; then
   curl -LSso "$HOME/.vim/autoload/pathogen.vim" "https://tpo.pe/pathogen.vim"
 
   # Install bundle plugins (using pathogen)
-  cd "$HOME/.vim/bundle"
+  cd "$HOME/.vim/bundle" || exit
   git clone git://github.com/altercation/vim-colors-solarized.git # solarized
   git clone git://github.com/tpope/vim-sensible.git               # vim sensible
   git clone git://github.com/scrooloose/nerdtree.git              # nerdtree
   git clone git://github.com/ctrlpvim/ctrlp.vim.git               # ctrlp
-  cd "$dotfilesdir"
+  cd "$dotfilesdir" || exit
 
   # fin.
 else

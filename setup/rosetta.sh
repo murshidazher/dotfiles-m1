@@ -20,7 +20,7 @@ fi
 # Determine OS version
 # Save current IFS state
 OLDIFS=$IFS
-IFS='.' read osvers_major osvers_minor osvers_dot_version <<<"$(/usr/bin/sw_vers -productVersion)"
+IFS='.' read -r osvers_major osvers_minor osvers_dot_version <<<"$(/usr/bin/sw_vers -productVersion)"
 
 # restore IFS to previous state
 IFS=$OLDIFS
@@ -46,7 +46,6 @@ if [[ ${osvers_major} -ge 11 ]]; then
         ok "Rosetta 2 has been successfully installed."
       else
         error "Rosetta 2 installation failed!"
-        exitcode=1
       fi
     fi
   fi

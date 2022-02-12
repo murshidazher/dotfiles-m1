@@ -20,7 +20,7 @@ fi
 
 if [ -z "$range" ]; then
   previous_tag=""
-  for sha in `git rev-list -n 100 --first-parent "$head"^`; do
+  for sha in $(git rev-list -n 100 --first-parent "$head"^); do
     previous_tag="$(git tag -l --points-at "$sha" 'v*' 2>/dev/null || true)"
     [ -z "$previous_tag" ] || break
   done

@@ -14,11 +14,11 @@ set -e
 
 while [ $# -gt 0 ]; do
   case "$1" in
-  -h | --help )
-    sed -ne '/^#/!q;s/.\{1,2\}//;1d;p' < "$0"
+  -h | --help)
+    sed -ne '/^#/!q;s/.\{1,2\}//;1d;p' <"$0"
     exit 0
     ;;
-  * )
+  *)
     "$0" --help >&2
     exit 1
     ;;
@@ -83,7 +83,7 @@ git fetch "$ORIGIN" --prune --quiet --progress
 MASTER="$(main_branch "$ORIGIN")" || MASTER="master"
 CURRENT_BRANCH="$(git symbolic-ref --short --quiet HEAD || true)"
 
-git branch --list | \
+git branch --list |
   while read -r local_branch; do
     local_branch="${local_branch#* }"
     remote_branch="refs/remotes/${ORIGIN}/${local_branch}"
@@ -96,7 +96,7 @@ git branch --list | \
     fi
 
     if [ -n "$remote_branch" ]; then
-      shas=( `git rev-parse "$local_branch" "$remote_branch"` )
+      shas=($(git rev-parse "$local_branch" "$remote_branch"))
       local_sha="${shas[0]}"
       remote_sha="${shas[1]}"
 

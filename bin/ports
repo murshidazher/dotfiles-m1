@@ -5,8 +5,8 @@
 set -e
 
 test "$1" = "--help" && {
-    grep ^#/ <"$0"| cut -c4-
-    exit 2
+  grep ^#/ <"$0" | cut -c4-
+  exit 2
 }
 
 exec lsof -iTCP -sTCP:LISTEN -P "$@"

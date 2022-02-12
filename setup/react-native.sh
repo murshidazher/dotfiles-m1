@@ -60,7 +60,6 @@ brew install --cask android-studio
 
 touch ~/.android/repositories.cfg
 
-
 # setup the env to java 1.8 for sdkmanager
 # bash -c 'JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
 # bash -c 'INTEL_HAXM_HOME=/usr/local/Caskroom/intel-haxm'
@@ -186,6 +185,3 @@ fi
 
 # bundle init
 # bundle update
-
-
-

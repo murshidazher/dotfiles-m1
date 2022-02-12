@@ -78,11 +78,6 @@ jobs:
         run: |
           [[ -z "${CI}" ]] && echo "Not running on CI" || echo "Running on CI"
 
-      - name: Check the CI environment variable 2
-        shell: bash
-        run: |
-          [[ -z "${CID}" ]] && echo "CID" || echo "No CID"
-
 
       # - name: Remove preinstalled brew packages
       #   run: |

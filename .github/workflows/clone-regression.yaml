@@ -4,8 +4,8 @@ name: Clone Regression
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * *' # https://crontab.cronhub.io/
+  # schedule:
+  #   - cron: '0 0 * * *' # https://crontab.cronhub.io/
 
 jobs:
   macos_build:

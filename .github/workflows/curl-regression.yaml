@@ -24,13 +24,8 @@ jobs:
         node_version:
           - 16
         system:
-          - os: macos-10.15
-            target: x86_64-apple-darwin
-        include:
-          - system:
-              os: [self-hosted, macOS, ARM64]
-              target: aarch64-apple-darwin
-            node_version: 16
+          - os: [self-hosted, macOS, ARM64]
+            target: aarch64-apple-darwin
 
     steps:
       - name: Checkout with submodules

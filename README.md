@@ -14,7 +14,7 @@
 
 - A dogmatic script to set up my mac. Built for Mac OS X :fire: :fire:
 
-<img src="https://raw.githubusercontent.com/murshidazher/dotfiles-m1/main/docs/images/vscode.png" width="600px">
+<img src="https://raw.githubusercontent.com/murshidazher/dotfiles-m1/main/docs/images/vscode-removebg.png" width="600px">
 
 ## Table of Contents
 

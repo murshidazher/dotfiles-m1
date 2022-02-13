@@ -29,3 +29,5 @@ alias ddcdb="docker-compose -f=$HOME/work/src/github/api/docker-compose.yml up"
 alias ddmr="mongorestore ./ -d $1"
 alias msqld="mysql -h localhost -P 3306 --protocol=tcp -u root"
 alias msqls="mysql -h localhost -P 3306 --protocol=tcp -u root $1 < /Users/murshidazher/work/db_backup/mysql/scritps/mysql-prod-data-srub-script.sql"
+
+alias piranhajs='node $HOME/dev/src/github/piranha/javascript/src/piranha.js'

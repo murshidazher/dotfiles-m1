@@ -6,7 +6,7 @@
 ![Github Repository Size](https://img.shields.io/endpoint?style=flat-square&url=https://gist.githubusercontent.com/murshidazher/549abdf9bf6da79a63605fd3ab9574fc/raw/size-badge.json)
 ![Github Repository Cloned Runtime](https://img.shields.io/endpoint?style=flat-square&url=https://gist.githubusercontent.com/murshidazher/549abdf9bf6da79a63605fd3ab9574fc/raw/elapsed-clone-badge.json)
 ![Github Repository Curled Runtime](https://img.shields.io/endpoint?style=flat-square&url=https://gist.githubusercontent.com/murshidazher/549abdf9bf6da79a63605fd3ab9574fc/raw/elapsed-curl-badge.json)
-
+![Last Regression Date](https://img.shields.io/endpoint?style=flat-square&url=https://gist.githubusercontent.com/murshidazher/549abdf9bf6da79a63605fd3ab9574fc/raw/regression-date-badge.json)
 
 > My personal installation script to automate any new macOS system setup so I don't need to feel poor.
 

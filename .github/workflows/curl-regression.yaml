@@ -15,6 +15,7 @@ jobs:
       run:
         shell: bash
     outputs:
+      script_regression_date: ${{ steps.run-script.outputs.reg_date }}
       script_start_time: ${{ steps.run-script.outputs.start_time }}
       script_end_time: ${{ steps.run-script.outputs.end_time }}
     strategy:
@@ -81,11 +82,12 @@ jobs:
         env:
           RUN_SETUP: true
         run: |
+          echo "::set-output name=reg_date::$(date)"
           echo "::set-output name=start_time::$(date -u +%s)"
           bash -c "`curl -L https://git.io/dotfiles-m1`"
           echo "::set-output name=end_time::$(date -u +%s)"
 
-  elapsed-badge:
+  create-badge:
     name: Create elapsed Badge
     runs-on: ubuntu-latest
     needs: macos_build
@@ -106,5 +108,16 @@ jobs:
           filename: elapsed-curl-badge.json
           label: 'runtime curl'
           message: ${{ steps.elapsed.outputs.data }}
+          color: orange
+          # cacheSeconds: 310
+
+      - name: Create the regression date Badge
+        uses: schneegans/dynamic-badges-action@master
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: ${{ secrets.GIST_ID }}
+          filename: regression-date-badge.json
+          label: 'last regression'
+          message: ${{needs.macos_build.outputs.script_regression_date}}
           color: orange
           # cacheSeconds: 310

@@ -116,7 +116,7 @@ jobs:
       - name: Check the step variables
         shell: bash
         run: |
-          echo "${{join(steps.check-ci-env.outputs.*, '\n')}}"
+          diskutil info -all
 
 
       # - name: Remove preinstalled brew packages

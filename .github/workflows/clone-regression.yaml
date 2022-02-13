@@ -77,6 +77,12 @@ jobs:
             /opt/homebrew/
           key: macos-build-cache-${{ hashFiles('./setup.sh') }}
 
+      - name: Check disk stats before running the script
+        id: disk-stats-before-script
+        shell: bash
+        run: |
+          diskutil info -all
+
       - name: Run the script
         id: run-script
         env:
@@ -86,6 +92,12 @@ jobs:
           echo "::set-output name=start_time::$(date -u +%s)"
           ./initialize.sh
           echo "::set-output name=end_time::$(date -u +%s)"
+
+      - name: Check disk stats after running the script
+        id: disk-stats-after-script
+        shell: bash
+        run: |
+          diskutil info -all
 
   create-badge:
     name: Create elapsed Badge

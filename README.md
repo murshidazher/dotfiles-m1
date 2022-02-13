@@ -24,6 +24,7 @@
     - [Setup](#setup)
     - [Developing](#developing)
       - [Linting](#linting)
+    - [Sensible macOS defaults](#sensible-macos-defaults)
       - [GPG key with Keybase.io](#gpg-key-with-keybaseio)
     - [Homebrew](#homebrew)
     - [Python](#python)
@@ -81,6 +82,14 @@ Lint the files before making a PR,
 ```sh
 shellcheck <file>.sh
 shfmt -l -w -s <file>.sh # style linting
+```
+
+### Sensible macOS defaults
+
+When setting up a new Mac, you may want to set some sensible macOS defaults:
+
+```sh
+./macos/.macos
 ```
 
 #### GPG key with Keybase.io

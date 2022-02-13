@@ -8,7 +8,7 @@
 ![Github Repository Curled Runtime](https://img.shields.io/endpoint?style=flat-square&url=https://gist.githubusercontent.com/murshidazher/549abdf9bf6da79a63605fd3ab9574fc/raw/elapsed-curl-badge.json)
 ![Last Regression Date](https://img.shields.io/endpoint?style=flat-square&url=https://gist.githubusercontent.com/murshidazher/549abdf9bf6da79a63605fd3ab9574fc/raw/regression-date-badge.json)
 ![Code Linter](https://img.shields.io/static/v1?label=lint&message=shellcheck&color=yellowgreen&style=flat-square)
-![Code Style](https://img.shields.io/static/v1?label=style&message=shfmt&color=ff69b4&style=flat-square)
+![Code Style](https://img.shields.io/static/v1?label=style&message=shfmt&color=blueviolet&style=flat-square)
 
 > My personal installation script to automate any new macOS system setup so I don't need to feel poor.
 

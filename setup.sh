@@ -103,7 +103,7 @@ source ./setup/chrome.sh
 # ---------------------
 # 8. Mobile Environment
 # ---------------------
-if !is_ci || [[ ! -z "${RUN_SETUP_RN}" ]]; then
+if is_not_ci || [[ ! -z "${RUN_SETUP_RN}" ]]; then
   botintro "\e[1mSTEP 8: Environment Setup for mobile development.\e[0m"
   source ./setup/react-native.sh
 fi

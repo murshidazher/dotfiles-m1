@@ -46,5 +46,11 @@ install_chrome_ext() {
 
 export -f install_chrome_ext
 
+if is_ci; then
+  running "Checking the directory structure → "
+  ls -a ~
+  ls -a "$HOME"
+fi
+
 action "Installing chrome extensions"
 cat "$defaultdotfilesdir"/chrome/extensions.list | xargs -I {} -P2 install_chrome_ext {}

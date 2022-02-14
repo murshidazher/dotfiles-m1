@@ -66,7 +66,7 @@ ok "See $migrationdir for exported apps .txt files."
 
 action "Copying files to $migrationdir"
 echo -e "\nPress \e[1mENTER\e[0m to continue."
-read -n 1
+read -r -n 1
 
 # Copy files from major directories.
 cp -Rp "$HOME/Desktop" "$migrationdir"
@@ -87,7 +87,7 @@ warn "Consider how to migrate your Pictures."
 success "Files copied."
 
 echo -e "\nPress \e[1mENTER\e[0m to continue."
-read -n 1
+read -r -n 1
 
 # Copy key settings.
 action "Copying settings."

@@ -150,7 +150,7 @@ if is_not_ci; then
   gh_clone=$(git clone git@github.com:murshidazher/dotfiles-m1.git dotfiles)
 else
   cd ..
-  if [ -d "dotfiles-m1" ]; then
+  if [ -d "dotfiles" ]; then
     running "Cloning the repo from https://github.com/murshidazher/dotfiles-m1.git"
     gh_clone=$(git clone https://github.com/murshidazher/dotfiles-m1.git dotfiles)
   else

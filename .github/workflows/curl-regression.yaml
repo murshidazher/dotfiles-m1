@@ -15,6 +15,8 @@ jobs:
       script_regression_date: ${{ steps.pre-script.outputs.reg_date }}
       script_start_time: ${{ steps.pre-script.outputs.start_time }}
       script_end_time: ${{ steps.post-script.outputs.end_time }}
+      disk_before: ${{ steps.disk-stats-before-script.outputs.before_disk_space }}
+      disk_after: ${{ steps.disk-stats-after-script.outputs.after_disk_space }}
     strategy:
       fail-fast: false
       matrix:
@@ -95,10 +97,9 @@ jobs:
         shell: bash
         run: |
           diskutil info /dev/disk1s1
-          diskutil info /dev/disk1s1 | awk '/Free Space:.* GB/ {print $3}'
-          diskutil info /dev/disk1s1 | awk '/Free Space:.* GB/ {print $3,$4}'
-          diskutil info /dev/disk1s1 | awk '/Container Free Space:.* GB/ {print $3}'
-          diskutil info /dev/disk1s1 | awk '/Container Free Space:.* GB/ {print $3,$4}'
+          BEFORE_DISK_SPACE=$(diskutil info /dev/disk1s1 | awk '/Container Free Space:.* GB/ {print $4}')
+          echo "$BEFORE_DISK_SPACE GB"
+          echo "##[set-output name=before_disk_space;]$BEFORE_DISK_SPACE"
 
       - name: Check the script start time
         id: pre-script
@@ -126,10 +127,8 @@ jobs:
         shell: bash
         run: |
           diskutil info /dev/disk1s1
-          diskutil info /dev/disk1s1 | awk '/Free Space:.* GB/ {print $3}'
-          diskutil info /dev/disk1s1 | awk '/Free Space:.* GB/ {print $3,$4}'
-          diskutil info /dev/disk1s1 | awk '/Container Free Space:.* GB/ {print $3}'
-          diskutil info /dev/disk1s1 | awk '/Container Free Space:.* GB/ {print $3,$4}'
+          AFTER_DISK_SPACE=$(diskutil info /dev/disk1s1 | awk '/Container Free Space:.* GB/ {print $4}')
+          echo "##[set-output name=after_disk_space;]$AFTER_DISK_SPACE"
 
   create-badge:
     name: Create elapsed Badge
@@ -147,6 +146,13 @@ jobs:
           echo $END_TIME
           ELAPSE=$(( $END_TIME - $START_TIME ))
           echo "##[set-output name=data;]$(($ELAPSE/60))m $(($ELAPSE%60))s"
+
+      - id: disk_occupied
+        run: |
+          BEFORE=${{needs.macos_build.outputs.disk_before}}
+          AFTER=${{needs.macos_build.outputs.disk_after}}
+          OCCUPIED=$(( $BEFORE - $AFTER ))
+          echo "##[set-output name=data;]~ $(OCCUPIED)GB"
 
       - name: Create the Badge
         uses: schneegans/dynamic-badges-action@master
@@ -166,4 +172,14 @@ jobs:
           filename: regression-date-badge.json
           label: 'last regression'
           message: ${{needs.macos_build.outputs.script_regression_date}}
+          color: orange
+
+      - name: Create the disk space occupied Badge
+        uses: schneegans/dynamic-badges-action@master
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: ${{ secrets.GIST_ID }}
+          filename: minimum-disk-space-occupied-badge.json
+          label: 'minimum disk space occupied'
+          message: ${{ steps.disk_occupied.outputs.data }}
           color: orange

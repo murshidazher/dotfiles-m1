@@ -150,7 +150,6 @@ if is_not_ci; then
   gh_clone=$(git clone git@github.com:murshidazher/dotfiles-m1.git dotfiles)
 else
   cd ..
-  ls
   if [ -d "dotfiles" ]; then
     running "Already checkout the repo in CI"
     gh_clone=""
@@ -166,6 +165,8 @@ if (! $gh_clone); then
   error "$gh_clone"
 else
   success "m1 dotfiles cloned successfully..."
+  running "Checking the directory structure → "
+  ls
   cd dotfiles || exit
   running "Pulling new changes for dotfiles repository..."
   git pull --rebase &>/dev/null

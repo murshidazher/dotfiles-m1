@@ -25,13 +25,13 @@ jobs:
             target: aarch64-apple-darwin
 
     steps:
-      - name: Checkout with submodules
-        uses: actions/checkout@v2
-        env:
-          REPO: ${{github.workspace}}
-          DOTFILES_REF: ${{github.sha}}
-          SKIP_SLOW_DEPENDENCIES: "1"
-          HOMEBREW_BUNDLE_BREW_SKIP: "node"
+      # - name: Checkout with submodules
+      #   uses: actions/checkout@v2
+      #   env:
+      #     REPO: ${{github.workspace}}
+      #     DOTFILES_REF: ${{github.sha}}
+      #     SKIP_SLOW_DEPENDENCIES: "1"
+      #     HOMEBREW_BUNDLE_BREW_SKIP: "node"
 
       - name: Install Bash 4, asdf and GNU sed on Mac
         run: |

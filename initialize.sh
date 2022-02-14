@@ -147,12 +147,12 @@ fi
 if is_not_ci; then
   cd ~ || exit
   running "Cloning the repo from git@github.com:murshidazher/dotfiles-m1.git to ~"
-  gh_clone=$(git clone git@github.com:murshidazher/dotfiles-m1.git)
+  gh_clone=$(git clone git@github.com:murshidazher/dotfiles-m1.git dotfiles)
 else
   cd ..
   if [ -d "dotfiles-m1" ]; then
     running "Cloning the repo from https://github.com/murshidazher/dotfiles-m1.git"
-    gh_clone=$(git clone https://github.com/murshidazher/dotfiles-m1.git)
+    gh_clone=$(git clone https://github.com/murshidazher/dotfiles-m1.git dotfiles)
   else
     running "Already checkout the repo in CI"
     gh_clone=""
@@ -165,7 +165,6 @@ if (! $gh_clone); then
   error "$gh_clone"
 else
   success "m1 dotfiles cloned successfully..."
-  mv dotfiles-m1 dotfiles
   cd dotfiles || exit
   running "Pulling new changes for dotfiles repository..."
   git pull --rebase &>/dev/null

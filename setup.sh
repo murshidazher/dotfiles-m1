@@ -56,7 +56,7 @@ source ./setup/rosetta.sh
 # 5. Homebrew
 # -----------
 
-if !is_ci || [[ -n ${RUN_SETUP_HOMEBREW} ]]; then
+if is_not_ci || [[ -n ${RUN_SETUP_HOMEBREW} ]]; then
   botintro "\e[1mSTEP 5: HOMEBREW\e[0m"
   source ./setup/brew.sh
 

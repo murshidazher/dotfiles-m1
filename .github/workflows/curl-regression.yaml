@@ -123,8 +123,8 @@ jobs:
       - name: Check the script end time
         id: post-script
         run: |
-          END_DATE_TIMESTAMP=$(date -u +%s)
-          echo "##[set-output name=end_time;]$END_DATE_TIMESTAMP"
+          DATE_TIMESTAMP=$(date -u +%s)
+          echo "##[set-output name=end_time;]$DATE_TIMESTAMP"
 
       - name: Check disk stats after running the script
         id: disk-stats-after-script
@@ -146,8 +146,8 @@ jobs:
         run: |
           START_TIME=${{needs.macos_build.outputs.script_start_time}}
           END_TIME=${{needs.macos_build.outputs.script_end_time}}
-          echo $START_TIME
-          echo $END_TIME
+          echo "starttime $START_TIME"
+          echo "endtime $END_TIME"
           ELAPSE=$(expr $END_TIME - $START_TIME)
           echo "##[set-output name=data;]$(expr $ELAPSE / 60)m $(expr $ELAPSE % 60)s"
 

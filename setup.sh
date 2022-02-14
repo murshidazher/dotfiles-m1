@@ -56,7 +56,7 @@ source ./setup/rosetta.sh
 # 5. Homebrew
 # -----------
 
-if !is_ci || [[ ! -z "${RUN_SETUP_HOMEBREW}" ]]; then
+if !is_ci || [[ -n ${RUN_SETUP_HOMEBREW} ]]; then
   botintro "\e[1mSTEP 5: HOMEBREW\e[0m"
   source ./setup/brew.sh
 
@@ -103,7 +103,7 @@ source ./setup/chrome.sh
 # ---------------------
 # 8. Mobile Environment
 # ---------------------
-if is_not_ci || [[ ! -z "${RUN_SETUP_RN}" ]]; then
+if is_not_ci || [[ -n ${RUN_SETUP_RN} ]]; then
   botintro "\e[1mSTEP 8: Environment Setup for mobile development.\e[0m"
   source ./setup/react-native.sh
 fi

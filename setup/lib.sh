@@ -83,7 +83,7 @@ function awesome_header() {
 function ask_for_confirmation() {
   # shellcheck disable=SC1087
   echo -e "$COL_PURPLE[confirmation]$COL_RESET $1 (y/N) "
-  read -n 1
+  read -r -n 1
   echo -e "\n"
 }
 

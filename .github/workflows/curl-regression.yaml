@@ -47,11 +47,12 @@ jobs:
 
       - name: Install chrome and vscode
         run: |
+          brew install vim
+
           brew tap homebrew/cask
           brew tap homebrew/cask-versions
           brew install --cask google-chrome
           brew install --cask visual-studio-code
-          brew install vim -- --with-override-system-vi
 
       - name: Set env
         id: set-env

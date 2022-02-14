@@ -65,7 +65,7 @@ jobs:
       - name: Check the regression date
         id: regression-date
         run:
-          DATE_TIMESTAMP=$(date)
+          DATE_TIMESTAMP=$(date +'%Y-%m-%dT%H:%M:%S')
           echo "##[set-output name=reg_date;]$DATE_TIMESTAMP"
 
       # - name: Remove preinstalled brew packages
@@ -150,8 +150,7 @@ jobs:
 
       - id: last_reg_date
         run: |
-          # DATE="${{needs.macos_build.outputs.script_regression_date}}"
-          DATE=$(date)
+          DATE="${{needs.macos_build.outputs.script_regression_date}}"
           echo "##[set-output name=data;]$DATE"
 
       - name: Create the Badge

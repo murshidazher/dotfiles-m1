@@ -87,6 +87,7 @@ jobs:
         id: run-script
         env:
           RUN_SETUP: true
+          # RUN_SETUP_HOMEBREW: true
         run: |
           echo "::set-output name=reg_date::$(date)"
           echo "::set-output name=start_time::$(date -u +%s)"

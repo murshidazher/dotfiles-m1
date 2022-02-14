@@ -45,6 +45,13 @@ jobs:
           echo "/usr/local/bin" >> $GITHUB_PATH
           echo "$(brew --prefix)/opt/gnu-sed/libexec/gnubin" >> $GITHUB_PATH
 
+      - name: Install chrome and vscode
+        run: |
+          brew tap homebrew/cask
+          brew tap homebrew/cask-versions
+          brew install --cask google-chrome
+          brew install --cask visual-studio-code
+
       - name: Set env
         id: set-env
         run: echo "CI=true" >> $GITHUB_ENV

@@ -5,7 +5,7 @@ name: Curl Regression
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0/6 * * *' # https://crontab.cronhub.io/
+    - cron: '0 0/24 * * *' # https://crontab.cronhub.io/
 
 jobs:
   macos_build:

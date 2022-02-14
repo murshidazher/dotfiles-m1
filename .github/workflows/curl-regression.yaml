@@ -172,7 +172,7 @@ jobs:
           filename: regression-date-badge.json
           label: 'last regression'
           message: ${{ steps.last_reg_date.outputs.data }}
-          color: C7B198
+          color: F3C5C5
 
       - name: Create the disk space occupied Badge
         uses: schneegans/dynamic-badges-action@master
@@ -182,4 +182,4 @@ jobs:
           filename: minimum-disk-space-occupied-badge.json
           label: 'min. disk space'
           message: ${{ steps.disk_occupied.outputs.data }}
-          color: FF5677
+          color: DD4A48

@@ -38,7 +38,7 @@ function actioninfo() {
 
 function running() {
   # shellcheck disable=SC1087
-  echo -en "$COL_YELLOW ⇒ $COL_RESET $1"
+  echo -e "$COL_YELLOW ⇒ $COL_RESET $1\n"
 }
 
 function action() {

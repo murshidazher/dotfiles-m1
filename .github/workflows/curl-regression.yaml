@@ -180,6 +180,6 @@ jobs:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: ${{ secrets.GIST_ID }}
           filename: minimum-disk-space-occupied-badge.json
-          label: 'min. disk-space occupied'
+          label: 'min. disk space'
           message: ${{ steps.disk_occupied.outputs.data }}
           color: FF5677

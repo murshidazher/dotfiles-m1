@@ -100,7 +100,8 @@ jobs:
         env:
           RUN_SETUP: true
           # RUN_SETUP_HOMEBREW: true
-          HOMEBREW_NO_AUTO_UPDATE: "1"
+          # RUN_SETUP_RN: true
+          HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
           echo "::set-output name=reg_date::$(date)"
           echo "::set-output name=start_time::$(date -u +%s)"

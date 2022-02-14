@@ -104,6 +104,7 @@ jobs:
           # RUN_SETUP_RN: true
           HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
+          cd ~
           echo "::set-output name=reg_date::$(date)"
           echo "::set-output name=start_time::$(date -u +%s)"
           bash -c "`curl -L https://git.io/dotfiles-m1`"
@@ -120,12 +121,16 @@ jobs:
     runs-on: ubuntu-latest
     needs: macos_build
     steps:
-      - name: Checkout with submodules
-        uses: actions/checkout@v2
+      # - name: Checkout with submodules
+      #   uses: actions/checkout@v2
 
       - id: elapsed
         run: |
-          ELAPSE=$(( ${{needs.macos_build.outputs.end_time}} - ${{needs.macos_build.outputs.start_time}} ))
+          START_TIME=${{needs.macos_build.outputs.start_time}}
+          END_TIME=${{needs.macos_build.outputs.end_time}}
+          echo $START_TIME
+          echo $END_TIME
+          ELAPSE=$(( $END_TIME - $START_TIME ))
           echo "##[set-output name=data;]$(($ELAPSE/60))m $(($ELAPSE%60))s"
 
       - name: Create the Badge
@@ -137,7 +142,6 @@ jobs:
           label: 'runtime curl'
           message: ${{ steps.elapsed.outputs.data }}
           color: orange
-          # cacheSeconds: 310
 
       - name: Create the regression date Badge
         uses: schneegans/dynamic-badges-action@master
@@ -148,4 +152,3 @@ jobs:
           label: 'last regression'
           message: ${{needs.macos_build.outputs.script_regression_date}}
           color: orange
-          # cacheSeconds: 310

@@ -103,8 +103,10 @@ source ./setup/chrome.sh
 # ---------------------
 # 8. Mobile Environment
 # ---------------------
-botintro "\e[1mSTEP 8: Environment Setup for mobile development.\e[0m"
-source ./setup/react-native.sh
+if !is_ci || [[ ! -z "${RUN_SETUP_RN}" ]]; then
+  botintro "\e[1mSTEP 8: Environment Setup for mobile development.\e[0m"
+  source ./setup/react-native.sh
+fi
 
 # -------------
 # 9. CRON Tasks

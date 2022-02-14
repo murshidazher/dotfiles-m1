@@ -22,47 +22,47 @@ if hash asdf 2>/dev/null; then
 
   # Install java, erlang and elixir
   # shellcheck source=setup/elixir.sh
-  source ./elixir.sh
+  source ./setup/elixir.sh
 
   # # Install dart
   # # Note: flutter SDK includes dart, hence if you intend to install flutter comment this.
-  # source ./dart.sh
+  # source ./setup/dart.sh
 
   # Install flutter
   # shellcheck source=setup/flutter.sh
-  source ./flutter.sh
+  source ./setup/flutter.sh
 
   # Install go
   # shellcheck source=setup/go.sh
-  source ./go.sh
+  source ./setup/go.sh
 
   # Install nodejs
   # shellcheck source=setup/nodejs.sh
-  source ./nodejs.sh
+  source ./setup/nodejs.sh
 
   # # Install php
   # # shellcheck source=setup/php.sh
-  # source ./php.sh
+  # source ./setup/php.sh
 
   # Install python
   # shellcheck source=setup/python.sh
-  source ./python.sh
+  source ./setup/python.sh
 
   # # Install ruby
   # # shellcheck source=setup/ruby.sh
-  # source ./ruby.sh
+  # source ./setup/ruby.sh
 
   # # Install ant
   # # shellcheck source=setup/ant.sh
-  # source ./ant.sh
+  # source ./setup/ant.sh
 
   # Install maven
   # shellcheck source=setup/maven.sh
-  source ./maven.sh
+  source ./setup/maven.sh
 
   # Install gradle
   # shellcheck source=setup/gradle.sh
-  source ./gradle.sh
+  source ./setup/gradle.sh
 
   # fin.
 else

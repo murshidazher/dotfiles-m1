@@ -155,10 +155,11 @@ jobs:
 
       - id: disk_occupied
         run: |
+          sub() { n="$@"; bc <<< "${n// /-}"; }
           BEFORE=${{needs.macos_build.outputs.disk_before}}
           AFTER=${{needs.macos_build.outputs.disk_after}}
-          OCCUPIED=$(expr $BEFORE - $AFTER)
-          echo "##[set-output name=data;]~ $(OCCUPIED)GB"
+          OCCUPIED="$(sub $BEFORE $AFTER)"
+          echo "##[set-output name=data;]~$OCCUPIED GB"
 
       - name: Create the Badge
         uses: schneegans/dynamic-badges-action@master

@@ -27,7 +27,7 @@ botintro "This script sets up new machines, *use with caution*. Please go read t
 echo -e "\nPress ENTER to continue."
 is_not_ci && read -r -n 1
 
-bot "To start we'll need your password.\n"
+bot "To start we'll need your password."
 
 is_not_ci && tput bel
 
@@ -58,11 +58,11 @@ else
 fi
 
 # Download all available macos updates.
-action "Download Mac updates:\n"
+action "Download Mac updates:"
 sudo softwareupdate -d -a
 
 # Install all available macos updates.
-action "Installing Mac updates:\n"
+action "Installing Mac updates:"
 sudo softwareupdate -iaR
 
 #-------------------------------------------
@@ -71,10 +71,10 @@ sudo softwareupdate -iaR
 # See: https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 #-------------------------------------------
 
-running "Generating ssh keys, adding to ssh-agent... \n"
+running "Generating ssh keys, adding to ssh-agent... "
 is_not_ci && read -r -p 'Input email for ssh key: ' useremail
 
-running "Use default ssh file location, enter a passphrase: \n"
+running "Use default ssh file location, enter a passphrase: "
 is_not_ci && ssh-keygen -t rsa -b 4096 -C "$useremail" # will prompt for password
 is_not_ci && eval "$(ssh-agent -s)"
 
@@ -114,7 +114,7 @@ if is_not_ci; then
     read -r -p 'Machine name: ' ghtitle
     read -r -sp 'GitHub personal token: ' ghtoken
 
-    gh_status_code=$(curl -o /dev/null -s -w "%{http_code}\n" -u "$ghusername:$ghtoken" -d '{"title":"'"$ghtitle"'","key":"'"$SSH_KEY"'"}' 'https://api.github.com/user/keys')
+    gh_status_code=$(curl -o /dev/null -s -w "%{http_code}" -u "$ghusername:$ghtoken" -d '{"title":"'"$ghtitle"'","key":"'"$SSH_KEY"'"}' 'https://api.github.com/user/keys')
 
     if [[ $gh_status_code -eq 201 ]]; then
       success "GitHub ssh key added successfully!"
@@ -146,15 +146,15 @@ fi
 # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
 if is_not_ci; then
   cd ~ || exit
-  running "Cloning the repo from git@github.com:murshidazher/dotfiles-m1.git to ~\n"
+  running "Cloning the repo from git@github.com:murshidazher/dotfiles-m1.git to ~"
   gh_clone=$(git clone git@github.com:murshidazher/dotfiles-m1.git)
 else
   cd ..
   if [ -d "dotfiles-m1" ]; then
-    running "Cloning the repo from https://github.com/murshidazher/dotfiles-m1.git\n"
+    running "Cloning the repo from https://github.com/murshidazher/dotfiles-m1.git"
     gh_clone=$(git clone https://github.com/murshidazher/dotfiles-m1.git)
   else
-    running "Already checkout the repo in CI\n"
+    running "Already checkout the repo in CI"
     gh_clone=""
   fi
 fi
@@ -167,9 +167,9 @@ else
   success "m1 dotfiles cloned successfully..."
   mv dotfiles-m1 dotfiles
   cd dotfiles || exit
-  running "Pulling new changes for dotfiles repository...\n"
+  running "Pulling new changes for dotfiles repository..."
   git pull --rebase &>/dev/null
-  running "Setting up....\n"
+  running "Setting up...."
 
   # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
   if is_ci; then
@@ -181,7 +181,7 @@ else
     fi
 
     # rename the dotfiles back for repo cleanup
-    running "Cleanup for post checkout submodules\n"
+    running "Cleanup for post checkout submodules"
     cd ..
     running "Before repo name change → "
     ls

@@ -422,7 +422,7 @@ if $brewinstall; then
     cancelled "App Store login not complete. Skipping installing App Store Apps"
   fi
 
-  running "brew cleanup\n"
+  running "brew cleanup"
   # Remove outdated versions from the cellar.
   brew cleanup
 

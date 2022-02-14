@@ -24,4 +24,4 @@ if [ -n "${BREWPATH}" ]; then
 fi
 
 # Mark hbw as loaded
-hbwloaded=true
+export hbwloaded=true

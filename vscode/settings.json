@@ -136,7 +136,8 @@
   "blockhighlight.background": ["211", "211", "211", ".03"],
   "polacode.backgroundColor": "#ffffff",
   "polacode.transparentBackground": true,
-  "polacode.shadow": "box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;",
+  "polacode.shadow": "none",
+  "markdown-preview-github-styles.colorTheme": "system",
   "json.schemas": [],
   "yaml.customTags": [
     "!And",

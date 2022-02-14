@@ -98,6 +98,7 @@ jobs:
         id: run-script
         env:
           RUN_SETUP: true
+          # RUN_SETUP_HOMEBREW: true
           HOMEBREW_NO_AUTO_UPDATE: "1"
         run: |
           echo "::set-output name=reg_date::$(date)"

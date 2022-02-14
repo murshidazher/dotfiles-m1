@@ -55,14 +55,17 @@ source ./setup/rosetta.sh
 # -----------
 # 5. Homebrew
 # -----------
-# botintro "\e[1mSTEP 5: HOMEBREW\e[0m"
-# source ./setup/brew.sh
 
-# # brew is required to continue, exit out otherwise.
-# if ! $brewinstall; then
-#   cancelled "\e[1mCannot proceed. Exit.\e[0m"
-#   exit 1
-# fi
+if !is_ci || [[ ! -z "${RUN_SETUP_HOMEBREW}" ]]; then
+  botintro "\e[1mSTEP 5: HOMEBREW\e[0m"
+  source ./setup/brew.sh
+
+  # brew is required to continue, exit out otherwise.
+  if ! $brewinstall; then
+    cancelled "\e[1mCannot proceed. Exit.\e[0m"
+    exit 1
+  fi
+fi
 
 # -----------
 # 6. Symlinks

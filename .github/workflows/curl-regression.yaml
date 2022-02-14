@@ -4,8 +4,8 @@ name: Curl Regression
 
 on:
   workflow_dispatch:
-  # schedule:
-  #   - cron: '0 0 * * *' # https://crontab.cronhub.io/
+  schedule:
+    - cron: '0 0/12 * * *' # https://crontab.cronhub.io/
 
 jobs:
   macos_build:
@@ -66,6 +66,7 @@ jobs:
         id: regression-date
         run:
           DATE_NOW=$(date)
+          echo "$DATE_NOW"
           echo "##[set-output name=reg_date;]$DATE_NOW"
 
       # - name: Remove preinstalled brew packages
@@ -148,6 +149,11 @@ jobs:
           OCCUPIED="$(sub $BEFORE $AFTER)"
           echo "##[set-output name=data;]~$OCCUPIED GB"
 
+      - id: last_reg_date
+        run: |
+          DATE="${{needs.macos_build.outputs.script_regression_date}}"
+          echo "##[set-output name=data;]$DATE"
+
       - name: Create the Badge
         uses: schneegans/dynamic-badges-action@master
         with:
@@ -165,8 +171,8 @@ jobs:
           gistID: ${{ secrets.GIST_ID }}
           filename: regression-date-badge.json
           label: 'last regression'
-          message: "${{needs.macos_build.outputs.script_regression_date}}"
-          color: orange
+          message: ${{ steps.last_reg_date.outputs.data }}
+          color: C7B198
 
       - name: Create the disk space occupied Badge
         uses: schneegans/dynamic-badges-action@master
@@ -176,4 +182,4 @@ jobs:
           filename: minimum-disk-space-occupied-badge.json
           label: 'min. disk-space occupied'
           message: ${{ steps.disk_occupied.outputs.data }}
-          color: orange
+          color: FF5677

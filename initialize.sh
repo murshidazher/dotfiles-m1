@@ -165,9 +165,9 @@ if (! $gh_clone); then
   error "$gh_clone"
 else
   success "m1 dotfiles cloned successfully..."
+  cd dotfiles || exit
   running "Checking the directory structure → "
   ls
-  cd dotfiles || exit
   running "Pulling new changes for dotfiles repository..."
   git pull --rebase &>/dev/null
   running "Setting up...."

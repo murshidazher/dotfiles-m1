@@ -31,6 +31,7 @@ linkdotfilesdirerror=false
 bot "Create symlinks for directories and files."
 
 action "Creating directory symlinks."
+echo "dotfilesdir $dotfilesdir defaultdotfilesdir $defaultdotfilesdir"
 # Symlink directories
 for i in "${dotfilesdirarray[@]}"; do
   # symlink, targetting from $dotfilesdir to $HOME

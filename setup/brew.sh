@@ -336,7 +336,6 @@ if $brewinstall; then
   brew install --cask imageoptim
   brew install --cask ngrok
   brew install --cask mongodb-compass
-  brew install --cask robo-3t
   brew install --cask tableplus
   brew install --cask visual-studio-code
   brew install --cask intellij-idea-ce

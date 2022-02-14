@@ -149,7 +149,7 @@ if is_not_ci; then
   running "Cloning the repo from git@github.com:murshidazher/dotfiles-m1.git to ~"
   gh_clone=$(git clone git@github.com:murshidazher/dotfiles-m1.git dotfiles)
 else
-  cd ..
+  cd ~
   if [ -d "dotfiles" ]; then
     running "Already checkout the repo in CI"
     gh_clone=""

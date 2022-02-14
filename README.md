@@ -4,8 +4,7 @@
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/murshidazher/dotfiles-m1/MacOS%20Agent%20build?style=flat-square)
 ![Github Repository Size](https://img.shields.io/endpoint?style=flat-square&url=https://gist.githubusercontent.com/murshidazher/549abdf9bf6da79a63605fd3ab9574fc/raw/size-badge.json)
-![Github Repository Cloned Runtime](https://img.shields.io/endpoint?style=flat-square&url=https://gist.githubusercontent.com/murshidazher/549abdf9bf6da79a63605fd3ab9574fc/raw/elapsed-clone-badge.json)
-![Github Repository Curled Runtime](https://img.shields.io/endpoint?style=flat-square&url=https://gist.githubusercontent.com/murshidazher/549abdf9bf6da79a63605fd3ab9574fc/raw/elapsed-curl-badge.json)
+![Github Repository Regression Runtime](https://img.shields.io/endpoint?style=flat-square&url=https://gist.githubusercontent.com/murshidazher/549abdf9bf6da79a63605fd3ab9574fc/raw/elapsed-curl-badge.json)
 ![Last Regression Date](https://img.shields.io/endpoint?style=flat-square&url=https://gist.githubusercontent.com/murshidazher/549abdf9bf6da79a63605fd3ab9574fc/raw/regression-date-badge.json)
 ![Min. Disk Space Occupied](https://img.shields.io/endpoint?style=flat-square&url=https://gist.githubusercontent.com/murshidazher/549abdf9bf6da79a63605fd3ab9574fc/raw/minimum-disk-space-occupied-badge.json)
 ![Code Linter](https://img.shields.io/static/v1?label=lint&message=shellcheck&color=yellowgreen&style=flat-square)

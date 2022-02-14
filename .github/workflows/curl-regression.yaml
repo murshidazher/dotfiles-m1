@@ -27,14 +27,6 @@ jobs:
             target: aarch64-apple-darwin
 
     steps:
-      # - name: Checkout with submodules
-      #   uses: actions/checkout@v2
-      #   env:
-      #     REPO: ${{github.workspace}}
-      #     DOTFILES_REF: ${{github.sha}}
-      #     SKIP_SLOW_DEPENDENCIES: "1"
-      #     HOMEBREW_BUNDLE_BREW_SKIP: "node"
-
       - name: Install Bash 4, asdf and GNU sed on Mac
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -141,15 +133,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: macos_build
     steps:
-      # - name: Checkout with submodules
-      #   uses: actions/checkout@v2
-
       - id: elapsed
         run: |
           START_TIME=${{needs.macos_build.outputs.script_start_time}}
           END_TIME=${{needs.macos_build.outputs.script_end_time}}
-          echo "starttime $START_TIME"
-          echo "endtime $END_TIME"
           ELAPSE=$(expr $END_TIME - $START_TIME)
           echo "##[set-output name=data;]$(expr $ELAPSE / 60)m $(expr $ELAPSE % 60)s"
 
@@ -178,7 +165,7 @@ jobs:
           gistID: ${{ secrets.GIST_ID }}
           filename: regression-date-badge.json
           label: 'last regression'
-          message: ${{needs.macos_build.outputs.script_regression_date}}
+          message: "${{needs.macos_build.outputs.script_regression_date}}"
           color: orange
 
       - name: Create the disk space occupied Badge
@@ -187,6 +174,6 @@ jobs:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: ${{ secrets.GIST_ID }}
           filename: minimum-disk-space-occupied-badge.json
-          label: 'minimum disk space occupied'
+          label: 'min. disk-space occupied'
           message: ${{ steps.disk_occupied.outputs.data }}
           color: orange

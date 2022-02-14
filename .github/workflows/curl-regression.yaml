@@ -12,7 +12,7 @@ jobs:
     name: Build test
     runs-on: macos-latest
     outputs:
-      script_regression_date: ${{ steps.pre-script.outputs.reg_date }}
+      script_regression_date: ${{ steps.regression-date.outputs.reg_date }}
       script_start_time: ${{ steps.pre-script.outputs.start_time }}
       script_end_time: ${{ steps.post-script.outputs.end_time }}
       disk_before: ${{ steps.disk-stats-before-script.outputs.before_disk_space }}
@@ -70,6 +70,12 @@ jobs:
         run: |
           [[ -z "${CI}" ]] && echo "Not running on CI" || echo "Running on CI"
 
+      - name: Check the regression date
+        id: regression-date
+        run:
+          DATE_NOW=$(date)
+          echo "##[set-output name=reg_date;]$DATE_NOW"
+
       # - name: Remove preinstalled brew packages
       #   run: |
       #     brew remove --force --ignore-dependencies $(brew list --formula)
@@ -102,13 +108,9 @@ jobs:
 
       - name: Check the script start time
         id: pre-script
-        run:
-          DATE_NOW=$(date)
+        run: |
           DATE_TIMESTAMP=$(date -u +%s)
-          echo "##[set-output name=reg_date;]$DATE_NOW"
           echo "##[set-output name=start_time;]$DATE_TIMESTAMP"
-          echo $DATE_NOW
-          echo $DATE_TIMESTAMP
 
       - name: Run the script
         id: run-script

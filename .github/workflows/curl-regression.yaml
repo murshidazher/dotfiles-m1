@@ -11,9 +11,6 @@ jobs:
   macos_build:
     name: Build test
     runs-on: macos-latest
-    defaults:
-      run:
-        shell: bash
     outputs:
       script_regression_date: ${{ steps.run-script.outputs.reg_date }}
       script_start_time: ${{ steps.run-script.outputs.start_time }}
@@ -36,6 +33,17 @@ jobs:
           SKIP_SLOW_DEPENDENCIES: "1"
           HOMEBREW_BUNDLE_BREW_SKIP: "node"
 
+      - name: Install Bash 4 and GNU sed on Mac
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          brew update
+
+          brew install bash
+          brew install gnu-sed
+
+          echo "/usr/local/bin" >> $GITHUB_PATH
+          echo "$(brew --prefix)/opt/gnu-sed/libexec/gnubin" >> $GITHUB_PATH
+
       - name: Set env
         id: set-env
         run: echo "CI=true" >> $GITHUB_ENV
@@ -50,9 +58,9 @@ jobs:
         run: |
           [[ -z "${CI}" ]] && echo "Not running on CI" || echo "Running on CI"
 
-      - name: Remove preinstalled brew packages
-        run: |
-          brew remove --force --ignore-dependencies $(brew list --formula)
+      # - name: Remove preinstalled brew packages
+      #   run: |
+      #     brew remove --force --ignore-dependencies $(brew list --formula)
 
       - name: Cache brew deps
         uses: actions/cache@v2

@@ -103,7 +103,7 @@ Bash 4 and auto-completion
 - `findutils`
 - `gnu-sed --with default names`
 - `bash`
-- `bash-completion2`
+- `bash-completion@2`
 - `zsh`
 - `zsh-completion`
 - `wget --with-iri`

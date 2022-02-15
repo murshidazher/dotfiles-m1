@@ -107,12 +107,14 @@ jobs:
       - name: Run the script
         id: run-script
         env:
-          RUN_SETUP: true
+          # RUN_SETUP: true
           # RUN_SETUP_HOMEBREW: true
           # RUN_SETUP_RN: true
           HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
           bash -c "`curl -L https://git.io/dotfiles-m1`"
+          cd $HOME/dotfiles
+          bash ./setup.sh
 
       - name: Check the script end time
         id: post-script

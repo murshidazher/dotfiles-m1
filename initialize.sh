@@ -180,16 +180,6 @@ else
       running "Running setup.sh in CI"
       ./setup.sh
     fi
-
-    # # rename the dotfiles back for repo cleanup
-    # running "Cleanup for post checkout submodules"
-    # cd ..
-    # running "Before repo name change → "
-    # ls
-    # mv dotfiles dotfiles-m1
-    # running "After repo name change → "
-    # ls
-    # cd dotfiles-m1 || exit
   else
     ./setup.sh
   fi

@@ -57,13 +57,17 @@ else
   cancelled "Ok, let's continue".
 fi
 
-# Download all available macos updates.
-action "Download Mac updates:"
-sudo softwareupdate -d -a
+if is_not_ci || [[ -z ${RUN_MAC_UPDATES} ]]; then
+  # Download all available macos updates.
+  action "Download Mac updates:"
+  sudo softwareupdate -d -a
 
-# Install all available macos updates.
-action "Installing Mac updates:"
-sudo softwareupdate -iaR
+  # Install all available macos updates.
+  action "Installing Mac updates:"
+  sudo softwareupdate -iaR
+else
+  running "Skipping Mac updates on CI ..."
+fi
 
 #-------------------------------------------
 # Prerequisite: Login to Github

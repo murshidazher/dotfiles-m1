@@ -16,7 +16,7 @@ fi
 
 # Set dotfilesdir var if it doesn't exist.
 if [ -z ${dotfilesdir+x} ]; then
-  dotfilesdir="$(dirname "$(pwd)")"
+  dotfilesdir="$(pwd)"
 fi
 
 # Check if vim is installed.

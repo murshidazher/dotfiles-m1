@@ -16,7 +16,7 @@ fi
 
 # Set dotfilesdir var if not declared.
 if [ -z ${dotfilesdir+x} ]; then
-  dotfilesdir="$(dirname "$(pwd)")"
+  dotfilesdir="$(pwd)"
 fi
 
 # Set defaultdotfilesdir var if not declared.

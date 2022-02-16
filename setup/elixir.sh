@@ -33,6 +33,7 @@ function read_file {
   versions_dir=${1}
   local file_path
   file_path="${versions_dir}"
+  echo "read_file ${versions_dir} ${file_path}"
   while read -r line; do
     action "${line}"
   done <"${file_path}"

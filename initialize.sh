@@ -66,7 +66,7 @@ if is_not_ci || [[ ! -z ${RUN_MAC_UPDATES} ]]; then
   action "Installing Mac updates:"
   sudo softwareupdate -iaR
 else
-  running "Skipping Mac updates on CI ..."
+  cancelled "Skipping Mac updates on CI ..."
 fi
 
 #-------------------------------------------

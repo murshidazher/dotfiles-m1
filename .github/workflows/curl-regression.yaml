@@ -161,7 +161,7 @@ jobs:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: ${{ secrets.GIST_ID }}
           filename: elapsed-curl-badge.json
-          label: 'runtime curl'
+          label: 'runtime'
           message: ${{ steps.elapsed.outputs.data }}
           color: orange
 

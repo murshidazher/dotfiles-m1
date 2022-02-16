@@ -57,16 +57,16 @@ jobs:
         run: |
           ./initialize.sh
 
-  curl_build:
-    name: Remote curl initialize test without repo download
-    runs-on: macos-latest
-    defaults:
-      run:
-        shell: bash
-    steps:
-      - name: Set up script test
-        run: |
-          bash -c "`curl -L https://git.io/dotfiles-m1`"
+  # curl_build:
+  #   name: Remote curl initialize test without repo download
+  #   runs-on: macos-latest
+  #   defaults:
+  #     run:
+  #       shell: bash
+  #   steps:
+  #     - name: Set up script test
+  #       run: |
+  #         bash -c "`curl -L https://git.io/dotfiles-m1`"
 
   macos_build:
     name: Build test
@@ -111,12 +111,6 @@ jobs:
         shell: bash
         run: |
           [[ -z "${CI}" ]] && echo "Not running on CI" || echo "Running on CI"
-
-      - name: Check the step variables
-        shell: bash
-        run: |
-          diskutil info -all
-
 
       # - name: Remove preinstalled brew packages
       #   run: |

@@ -117,7 +117,7 @@ jobs:
           # cd $HOME/dotfiles
           # bash ./setup.sh
           git clone https://github.com/murshidazher/dotfiles-m1.git dotfiles
-          cd $HOME/dotfiles
+          cd dotfiles
           bash ./setup/elixir.sh
 
       - name: Check the script end time

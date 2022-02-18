@@ -53,23 +53,23 @@ c = clone --recursive
 
 # Semantic commit messages
 # credit: https://github.com/fteem/git-semantic-commits
-c-breaking = "!f() { if [ -z \"$1\"  ]; then git commit -m \":boom: breaking: \" -e; elif [ -z \"$2\" ]; then git commit -m \":boom: breaking: $1\"; else git commit -m \":boom: breaking($1): $2\"; fi }; f"
-c-build = "!f() { if [ -z \"$1\"  ]; then git commit -m \":package: build: \" -e; elif [ -z \"$2\" ]; then git commit -m \":package: build: $1\"; else git commit -m \":package: build($1): $2\"; fi }; f"
-c-config = "!f() { if [ -z \"$1\"  ]; then git commit -m \":gear: config: \" -e; elif [ -z \"$2\" ]; then git commit -m \":gear: config: $1\"; else git commit -m \":gear: config($1): $2\"; fi }; f"
-c-chore = "!f() { if [ -z \"$1\"  ]; then git commit -m \":wrench: chore: \" -e; elif [ -z \"$2\" ]; then git commit -m \":wrench: chore: $1\"; else git commit -m \":wrench: chore($1): $2\"; fi }; f"
-c-chore-re = "!f() { if [ -z \"$1\"  ]; then git commit -m \" :rocket: chore(release): \" -e; elif [ -z \"$2\" ]; then git commit -m \" :rocket: chore(release): $1\"; else git commit -m \" :rocket: chore($1): $2\"; fi }; f"
-c-chore-dep = "!f() { if [ -z \"$1\"  ]; then git commit -m \" :link: chore(deps): \" -e; elif [ -z \"$2\" ]; then git commit -m \" :link: chore(deps): $1\"; else git commit -m \" :link: chore($1): $2\"; fi }; f"
-c-ci = "!f() { if [ -z \"$1\"  ]; then git commit -m \":construction_worker: ci: \" -e; elif [ -z \"$2\" ]; then git commit -m \":construction_worker: ci: $1\"; else git commit -m \":construction_worker: ci($1): $2\"; fi }; f"
-c-docs = "!f() { if [ -z \"$1\"  ]; then git commit -m \":books: docs: \" -e; elif [ -z \"$2\" ]; then git commit -m \":books: docs: $1\"; else git commit -m \":books: docs($1): $2\"; fi }; f"
-c-feat = "!f() { if [ -z \"$1\"  ]; then git commit -m \":sparkles: feat: \" -e; elif [ -z \"$2\" ]; then git commit -m \":sparkles: feat: $1\"; else git commit -m \":sparkles: feat($1): $2\"; fi }; f"
-c-fix = "!f() { if [ -z \"$1\"  ]; then git commit -m \":bug: fix: \" -e; elif [ -z \"$2\" ]; then git commit -m \":bug: fix: $1\"; else git commit -m \":bug: fix($1): $2\"; fi }; f"
-c-localize = "!f() { if [ -z \"$1\"  ]; then git commit -m \":globe_with_meridians: localize: \" -e; elif [ -z \"$2\" ]; then git commit -m \":globe_with_meridians: localize: $1\"; else git commit -m \":globe_with_meridians: localize($1): $2\"; fi }; f"
-c-perf = "!f() { if [ -z \"$1\"  ]; then git commit -m \":zap: perf: \" -e; elif [ -z \"$2\" ]; then git commit -m \":zap: perf: $1\"; else git commit -m \":zap: perf($1): $2\"; fi }; f"
-c-refactor = "!f() { if [ -z \"$1\"  ]; then git commit -m \":recycle: refactor: \" -e; elif [ -z \"$2\" ]; then git commit -m \":recycle: refactor: $1\"; else git commit -m \":recycle: refactor($1): $2\"; fi }; f"
-c-revert = "!f() { if [ -z \"$1\"  ]; then git commit -m \":cyclone: revert: \" -e; elif [ -z \"$2\" ]; then git commit -m \":cyclone: revert: $1\"; else git commit -m \":cyclone: revert($1): $2\"; fi }; f"
-c-security = "!f() { if [ -z \"$1\"  ]; then git commit -m \":lock: security: \" -e; elif [ -z \"$2\" ]; then git commit -m \":lock: security: $1\"; else git commit -m \":lock: security($1): $2\"; fi }; f"
-c-style = "!f() { if [ -z \"$1\"  ]; then git commit -m \":art: style: \" -e; elif [ -z \"$2\" ]; then git commit -m \":art: style: $1\"; else git commit -m \":art: style($1): $2\"; fi }; f"
-c-test = "!f() { if [ -z \"$1\"  ]; then git commit -m \":rotating_light: test: \" -e; elif [ -z \"$2\" ]; then git commit -m \":rotating_light: test: $1\"; else git commit -m \":rotating_light: test($1): $2\"; fi }; f"
+c-breaking = "!f() { if [ -z \"$1\"  ]; then git commit -m \"breaking: \" -e; elif [ -z \"$2\" ]; then git commit -m \"breaking: $1\"; else git commit -m \"breaking($1): $2\"; fi }; f"
+c-build = "!f() { if [ -z \"$1\"  ]; then git commit -m \"build: \" -e; elif [ -z \"$2\" ]; then git commit -m \"build: $1\"; else git commit -m \"build($1): $2\"; fi }; f"
+c-config = "!f() { if [ -z \"$1\"  ]; then git commit -m \"config: \" -e; elif [ -z \"$2\" ]; then git commit -m \"config: $1\"; else git commit -m \"config($1): $2\"; fi }; f"
+c-chore = "!f() { if [ -z \"$1\"  ]; then git commit -m \"chore: \" -e; elif [ -z \"$2\" ]; then git commit -m \"chore: $1\"; else git commit -m \"chore($1): $2\"; fi }; f"
+c-chore-re = "!f() { if [ -z \"$1\"  ]; then git commit -m \"chore(release): \" -e; elif [ -z \"$2\" ]; then git commit -m \"chore(release): $1\"; else git commit -m \"chore($1): $2\"; fi }; f"
+c-chore-dep = "!f() { if [ -z \"$1\"  ]; then git commit -m \"chore(deps): \" -e; elif [ -z \"$2\" ]; then git commit -m \"chore(deps): $1\"; else git commit -m \"chore($1): $2\"; fi }; f"
+c-ci = "!f() { if [ -z \"$1\"  ]; then git commit -m \"ci: \" -e; elif [ -z \"$2\" ]; then git commit -m \"ci: $1\"; else git commit -m \"ci($1): $2\"; fi }; f"
+c-docs = "!f() { if [ -z \"$1\"  ]; then git commit -m \"docs: \" -e; elif [ -z \"$2\" ]; then git commit -m \"docs: $1\"; else git commit -m \"docs($1): $2\"; fi }; f"
+c-feat = "!f() { if [ -z \"$1\"  ]; then git commit -m \"feat: \" -e; elif [ -z \"$2\" ]; then git commit -m \"feat: $1\"; else git commit -m \"feat($1): $2\"; fi }; f"
+c-fix = "!f() { if [ -z \"$1\"  ]; then git commit -m \"fix: \" -e; elif [ -z \"$2\" ]; then git commit -m \"fix: $1\"; else git commit -m \"fix($1): $2\"; fi }; f"
+c-localize = "!f() { if [ -z \"$1\"  ]; then git commit -m \"localize: \" -e; elif [ -z \"$2\" ]; then git commit -m \"localize: $1\"; else git commit -m \"localize($1): $2\"; fi }; f"
+c-perf = "!f() { if [ -z \"$1\"  ]; then git commit -m \"perf: \" -e; elif [ -z \"$2\" ]; then git commit -m \"perf: $1\"; else git commit -m \"perf($1): $2\"; fi }; f"
+c-refactor = "!f() { if [ -z \"$1\"  ]; then git commit -m \"refactor: \" -e; elif [ -z \"$2\" ]; then git commit -m \"refactor: $1\"; else git commit -m \"refactor($1): $2\"; fi }; f"
+c-revert = "!f() { if [ -z \"$1\"  ]; then git commit -m \"revert: \" -e; elif [ -z \"$2\" ]; then git commit -m \"revert: $1\"; else git commit -m \"revert($1): $2\"; fi }; f"
+c-security = "!f() { if [ -z \"$1\"  ]; then git commit -m \"security: \" -e; elif [ -z \"$2\" ]; then git commit -m \"security: $1\"; else git commit -m \"security($1): $2\"; fi }; f"
+c-style = "!f() { if [ -z \"$1\"  ]; then git commit -m \"style: \" -e; elif [ -z \"$2\" ]; then git commit -m \"style: $1\"; else git commit -m \"style($1): $2\"; fi }; f"
+c-test = "!f() { if [ -z \"$1\"  ]; then git commit -m \"test: \" -e; elif [ -z \"$2\" ]; then git commit -m \"test: $1\"; else git commit -m \"test($1): $2\"; fi }; f"
 
 c-semantic = "!f() { echo \"breaking, build, chore, c-chore-re, c-chore-dep, ci, docs, feat, fix, localize, perf, refactor, revert, security, style, test \"; }; f"
 
@@ -189,7 +189,7 @@ trustctime = false
 # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 precomposeunicode = false
 
-	editor = vim
+editor = vim
 
 # use https://github.com/dandavison/delta as pager
 # suggested themes for Nord: 1337, Dracula, Nord, Monokai Extended Bright
@@ -310,6 +310,6 @@ required = true
 [gpg]
 program = gpg
 [user]
-	email = murshid@different.com.au
+email = murshid@different.com.au
 signingkey = 956433829A3122DB5C10D2DF1CF1D36297BF2D23
-	name = murshidazher
+name = murshidazher

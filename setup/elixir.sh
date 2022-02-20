@@ -32,7 +32,7 @@ versions_dir="$defaultdotfilesdir/versions"
 function read_file {
   local file_path
   file_path="${1}"
-  echo "read_file ${file_path}"
+  echo "read_file ${1} ${2} ${file_path}"
   while read -r line; do
     action "${line}"
   done <"${file_path}"

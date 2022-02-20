@@ -7,7 +7,7 @@ debug=${1:-false}
 # Load help lib if not already loaded.
 if [ -z ${libloaded+x} ]; then
   # shellcheck source=setup/lib.sh
-  source ./lib.sh
+  source ./setup/lib.sh
 fi
 
 # Load homebrew config if not already loaded.

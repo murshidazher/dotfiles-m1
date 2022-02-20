@@ -114,11 +114,8 @@ jobs:
           HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
           # bash -c "`curl -L https://git.io/dotfiles-m1`"
-          # cd $HOME/dotfiles
-          # bash ./setup.sh
-          git clone https://github.com/murshidazher/dotfiles-m1.git dotfiles
-          cd dotfiles
-          bash ./setup/elixir.sh
+          cd $HOME/dotfiles
+          bash ./setup.sh
 
       - name: Check the script end time
         id: post-script

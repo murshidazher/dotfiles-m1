@@ -40,32 +40,32 @@ source ./setup/backup.sh
 botintro "\e[1mSTEP 2: DIRECTORIES\e[0m"
 source ./setup/directories.sh
 
-# ------------
-# 3. Xcode CLI
-# ------------
-botintro "\e[1mSTEP 3: XCODE CLI\e[0m"
-source ./setup/xcodecli.sh
+# # ------------
+# # 3. Xcode CLI
+# # ------------
+# botintro "\e[1mSTEP 3: XCODE CLI\e[0m"
+# source ./setup/xcodecli.sh
 
-# ------------
-# 4. Rosetta
-# ------------
-botintro "\e[1mSTEP 4: Rosetta\e[0m"
-source ./setup/rosetta.sh
+# # ------------
+# # 4. Rosetta
+# # ------------
+# botintro "\e[1mSTEP 4: Rosetta\e[0m"
+# source ./setup/rosetta.sh
 
-# -----------
-# 5. Homebrew
-# -----------
+# # -----------
+# # 5. Homebrew
+# # -----------
 
-if is_not_ci || [[ -n ${RUN_SETUP_HOMEBREW} ]]; then
-  botintro "\e[1mSTEP 5: HOMEBREW\e[0m"
-  source ./setup/brew.sh
+# if is_not_ci || [[ -n ${RUN_SETUP_HOMEBREW} ]]; then
+#   botintro "\e[1mSTEP 5: HOMEBREW\e[0m"
+#   source ./setup/brew.sh
 
-  # brew is required to continue, exit out otherwise.
-  if ! $brewinstall; then
-    cancelled "\e[1mCannot proceed. Exit.\e[0m"
-    exit 1
-  fi
-fi
+#   # brew is required to continue, exit out otherwise.
+#   if ! $brewinstall; then
+#     cancelled "\e[1mCannot proceed. Exit.\e[0m"
+#     exit 1
+#   fi
+# fi
 
 # -----------
 # 6. Symlinks
@@ -98,32 +98,32 @@ source ./setup/miniconda.sh
 source ./setup/vscode.sh
 
 # chrome extensions setup
-source ./setup/chrome.sh
+# source ./setup/chrome.sh
 
-# ---------------------
-# 8. Mobile Environment
-# ---------------------
-if is_not_ci || [[ -n ${RUN_SETUP_RN} ]]; then
-  botintro "\e[1mSTEP 8: Environment Setup for mobile development.\e[0m"
-  source ./setup/react-native.sh
-fi
+# # ---------------------
+# # 8. Mobile Environment
+# # ---------------------
+# if is_not_ci || [[ -n ${RUN_SETUP_RN} ]]; then
+#   botintro "\e[1mSTEP 8: Environment Setup for mobile development.\e[0m"
+#   source ./setup/react-native.sh
+# fi
 
-# -------------
-# 9. CRON Tasks
-# -------------
+# # -------------
+# # 9. CRON Tasks
+# # -------------
 
-botintro "\e[1mSTEP 9: Scheduling crontab tasks\e[0m"
-source ./setup/cron.sh
+# botintro "\e[1mSTEP 9: Scheduling crontab tasks\e[0m"
+# source ./setup/cron.sh
 
-# --------
-# 10. Misc.
-# --------
-botintro "\e[1mSTEP 10: Final touches\e[0m"
-source ./setup/misc.sh
+# # --------
+# # 10. Misc.
+# # --------
+# botintro "\e[1mSTEP 10: Final touches\e[0m"
+# source ./setup/misc.sh
 
-# Wrap-up.
+# # Wrap-up.
 
-botintro "\e[1mFINISHED\e[0m -- That's it for the automated process."
+# botintro "\e[1mFINISHED\e[0m -- That's it for the automated process."
 
-echo -e "\np.s. don't forget to sync your dropbox and get mackup running.\n"
-# EOF
+# echo -e "\np.s. don't forget to sync your dropbox and get mackup running.\n"
+# # EOF

@@ -107,10 +107,10 @@ jobs:
       - name: Run the script
         id: run-script
         env:
-          # RUN_SETUP: true
+          RUN_SETUP: true
           # RUN_SETUP_HOMEBREW: true
           # RUN_SETUP_RN: true
-          RUN_MAC_UPDATES: true
+          # RUN_MAC_UPDATES: true
           HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
           bash -c "`curl -L https://git.io/dotfiles-m1`"

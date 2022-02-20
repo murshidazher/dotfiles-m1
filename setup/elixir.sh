@@ -30,10 +30,9 @@ versions_dir="$defaultdotfilesdir/versions"
 
 # Read given file line by line
 function read_file {
-  versions_dir=${1}
   local file_path
-  file_path="${versions_dir}"
-  echo "read_file ${versions_dir} ${file_path}"
+  file_path="${1}"
+  echo "read_file ${file_path}"
   while read -r line; do
     action "${line}"
   done <"${file_path}"

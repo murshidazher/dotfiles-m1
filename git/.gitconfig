@@ -193,7 +193,7 @@ editor = vim
 
 # use https://github.com/dandavison/delta as pager
 # suggested themes for Nord: 1337, Dracula, Nord, Monokai Extended Bright
-pager = delta --dark --keep-plus-minus-markers --theme 1337
+pager = delta --dark --keep-plus-minus-markers
 
 [interactive]
 diffFilter = delta --color-only

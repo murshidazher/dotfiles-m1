@@ -29,7 +29,7 @@ asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git >/dev/null 2>&
 versions_dir="$defaultdotfilesdir/versions"
 
 # Read given file line by line
-function read_file {
+function read_file() {
   local file_path
   file_path="${1}"
   echo "read_file ${1} ${2} ${file_path}"
@@ -38,7 +38,7 @@ function read_file {
   done <"${file_path}"
 }
 
-function install_versions {
+function install_versions() {
   local language
   local versions_list
   language="${1}"
@@ -55,7 +55,7 @@ function install_versions {
   set_global "${language}" "${version}"
 }
 
-function set_global {
+function set_global() {
   local language
   language=${1}
   local latest_version

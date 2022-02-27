@@ -31,7 +31,7 @@ if [[ ${osvers_major} -ge 11 ]]; then
   # Check to see if the Mac needs Rosetta 2 installed by testing the processor
   processor=$(/usr/sbin/sysctl -n machdep.cpu.brand_string | grep -o "Intel")
 
-  if [[ -n "$processor" ]]; then
+  if [[ -n $processor ]]; then
     ok "$processor processor installed. No need to install Rosetta 2."
   else
 

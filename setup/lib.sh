@@ -88,15 +88,15 @@ function ask_for_confirmation() {
 }
 
 function answer_is_yes() {
-  [[ "$REPLY" =~ ^(y|Y) ]] && return 0 || return 1
+  [[ $REPLY =~ ^(y|Y) ]] && return 0 || return 1
 }
 
 function is_ci() {
-  [[ -z "${CI}" ]] && return 1 || return 0
+  [[ -z ${CI} ]] && return 1 || return 0
 }
 
 function is_not_ci() {
-  [[ -z "${CI}" ]] && return 0 || return 1
+  [[ -z ${CI} ]] && return 0 || return 1
 }
 
 function print_result() {

@@ -27,9 +27,14 @@ versions_dir="$defaultdotfilesdir/versions/nodejs"
 
 # Read given file line by line
 function read_file {
-  local file_path="${versions_dir}"
+  local file_path
+  local -n version_arr
+  file_path="${versions_dir}"
+  version_arr="${1}"
+
   while read -r line; do
     running "${line}"
+    version_arr+=("${line}")
   done <"${file_path}"
 }
 
@@ -37,7 +42,7 @@ function read_file {
 function install_versions {
   local silicon_support_version
   local versions_list
-  versions_list=$(read_file)
+  read_file versions_list
   # if nodejs version is greater than or equal to v15.x (supported by Apple Silicon)
   silicon_support_version=15
   for version in ${versions_list}; do

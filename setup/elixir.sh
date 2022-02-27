@@ -20,9 +20,8 @@ fi
 
 action "asdf: setting up Elixir"
 
-action "asdf: Setting up asdf plugins for Java, Erlang and Eixir"
+action "asdf: Setting up asdf plugins for Java and Eixir"
 asdf plugin-add java https://github.com/halcyon/asdf-java.git >/dev/null 2>&1
-asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git >/dev/null 2>&1
 asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git >/dev/null 2>&1
 
 # Set the containing directory for later use
@@ -34,7 +33,6 @@ function read_file() {
   local -n version_arr
   file_path="${1}"
   version_arr="${2}"
-  echo "read_file ${1} ${2} ${file_path}"
   while read -r line; do
     action "${line}"
     version_arr+=("${line}")
@@ -74,9 +72,6 @@ install_versions "java"
 bash -c 'source ~/.asdf/plugins/java/set-java-home.bash'
 # source ~/.asdf/plugins/java/set-java-home.bash
 # grep -q "source ~/.asdf/plugins/java/set-java-home.bash" ~/.zshrc || echo "source ~/.asdf/plugins/java/set-java-home.bash" >>~/.zshrc
-
-action "asdf erlang: installing versions"
-install_versions "erlang"
 
 action "asdf elixir: installing versions"
 install_versions "elixir"

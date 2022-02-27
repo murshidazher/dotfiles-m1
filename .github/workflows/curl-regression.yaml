@@ -12,7 +12,6 @@ jobs:
     name: Build test
     runs-on: macos-latest
     outputs:
-      script_regression_date: ${{ steps.regression-date.outputs.reg_date }}
       script_start_time: ${{ steps.pre-script.outputs.start_time }}
       script_end_time: ${{ steps.post-script.outputs.end_time }}
       disk_before: ${{ steps.disk-stats-before-script.outputs.before_disk_space }}
@@ -61,12 +60,6 @@ jobs:
         shell: bash
         run: |
           [[ -z "${CI}" ]] && echo "Not running on CI" || echo "Running on CI"
-
-      - name: Check the regression date
-        id: regression-date
-        run:
-          DATE_TIMESTAMP=$(date +'%Y-%m-%dT%H:%M:%S')
-          echo "##[set-output name=reg_date;]$DATE_TIMESTAMP"
 
       # - name: Remove preinstalled brew packages
       #   run: |
@@ -151,8 +144,7 @@ jobs:
 
       - id: last_reg_date
         run: |
-          DATE="${{needs.macos_build.outputs.script_regression_date}}"
-          echo "##[set-output name=data;]$DATE"
+          echo "##[set-output name=data;]$(date +'%Y-%m-%dT%H:%M:%S')"
 
       - name: Create the Badge
         uses: schneegans/dynamic-badges-action@master

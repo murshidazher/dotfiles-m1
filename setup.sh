@@ -40,17 +40,17 @@ source ./setup/backup.sh
 botintro "\e[1mSTEP 2: DIRECTORIES\e[0m"
 source ./setup/directories.sh
 
-# # ------------
-# # 3. Xcode CLI
-# # ------------
-# botintro "\e[1mSTEP 3: XCODE CLI\e[0m"
-# source ./setup/xcodecli.sh
+# ------------
+# 3. Xcode CLI
+# ------------
+botintro "\e[1mSTEP 3: XCODE CLI\e[0m"
+source ./setup/xcodecli.sh
 
-# # ------------
-# # 4. Rosetta
-# # ------------
-# botintro "\e[1mSTEP 4: Rosetta\e[0m"
-# source ./setup/rosetta.sh
+# ------------
+# 4. Rosetta
+# ------------
+botintro "\e[1mSTEP 4: Rosetta\e[0m"
+source ./setup/rosetta.sh
 
 # # -----------
 # # 5. Homebrew

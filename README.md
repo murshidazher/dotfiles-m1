@@ -13,6 +13,8 @@
 > My personal installation script to automate any new macOS system setup so I don't need to feel poor.
 
 - A dogmatic script to set up my mac. Built for Mac OS X :fire: :fire:
+- The minimum storage space and runtime are only estimates; they may vary from machine to machine.
+- ⚠️ Still on experimental stage hence run at your own risk. ⚠️
 
 <img src="https://raw.githubusercontent.com/murshidazher/dotfiles-m1/main/docs/images/vscode.png" width="600px">
 

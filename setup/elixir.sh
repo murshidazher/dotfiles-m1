@@ -68,9 +68,8 @@ function set_global() {
 action "asdf java: installing versions"
 install_versions "java"
 
+# Set JAVA_HOME path
 bash -c 'source ~/.asdf/plugins/java/set-java-home.bash'
-# source ~/.asdf/plugins/java/set-java-home.bash
-# grep -q "source ~/.asdf/plugins/java/set-java-home.bash" ~/.zshrc || echo "source ~/.asdf/plugins/java/set-java-home.bash" >>~/.zshrc
 
 action "asdf elixir: installing versions"
 install_versions "elixir"

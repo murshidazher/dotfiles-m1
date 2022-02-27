@@ -66,7 +66,7 @@ unlink_symlinks "$dotfilesdir/bin/git-friendly/push" "$dotfilesdir/bin/git-frien
 # Check if "$HOME/dotfiles" exists
 if [ -e "$defaultdotfilesdir" ]; then
   # Check if this is where our files are stores
-  if [[ "$dotfilesdir" -ef "$defaultdotfilesdir" ]]; then
+  if [[ $dotfilesdir -ef $defaultdotfilesdir ]]; then
     # Check if symlink in place
     if [ -L "$defaultdotfilesdir" ]; then
       action "Unlinking '$HOME/dotfiles'"

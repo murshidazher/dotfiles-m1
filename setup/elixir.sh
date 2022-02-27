@@ -42,7 +42,6 @@ function read_file() {
 function install_versions() {
   local language
   local versions_list
-  local file_path
   language="${1}"
   read_file "${versions_dir}/${language}" versions_list
   for version in ${versions_list}; do

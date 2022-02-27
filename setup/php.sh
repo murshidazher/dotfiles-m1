@@ -30,16 +30,22 @@ versions_dir="$defaultdotfilesdir/versions/php"
 
 # Read given file line by line
 function read_file {
-  local file_path="${versions_dir}"
+  local file_path
+  local -n version_arr
+  file_path="${versions_dir}"
+  version_arr="${1}"
+
   while read -r line; do
     running "${line}"
+    version_arr+=("${line}")
   done <"${file_path}"
 }
 
 # Install list of versions one by one
 function install_versions {
   local versions_list
-  versions_list=$(read_file)
+  read_file versions_list
+
   for version in ${versions_list}; do
     running "asdf: installing ${version} for php"
     asdf install php "${version}" >/dev/null 2>&1

@@ -137,9 +137,6 @@ fi
 # Install dotfiles repo, run link script
 #-------------------------------------------
 
-# Source directories and files to handle.
-# source ./setup/files.sh
-
 if [ ! -d "$HOME/dev/src/github" ]; then
   mkdir -p "$HOME/dev/src/github"
   success "Create a dev directory on root"

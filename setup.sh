@@ -98,7 +98,7 @@ source ./setup/miniconda.sh
 source ./setup/vscode.sh
 
 # chrome extensions setup
-# source ./setup/chrome.sh
+source ./setup/chrome.sh
 
 # # ---------------------
 # # 8. Mobile Environment
@@ -108,22 +108,22 @@ source ./setup/vscode.sh
 #   source ./setup/react-native.sh
 # fi
 
-# # -------------
-# # 9. CRON Tasks
-# # -------------
+# -------------
+# 9. CRON Tasks
+# -------------
 
-# botintro "\e[1mSTEP 9: Scheduling crontab tasks\e[0m"
-# source ./setup/cron.sh
+botintro "\e[1mSTEP 9: Scheduling crontab tasks\e[0m"
+source ./setup/cron.sh
 
-# # --------
-# # 10. Misc.
-# # --------
-# botintro "\e[1mSTEP 10: Final touches\e[0m"
-# source ./setup/misc.sh
+# --------
+# 10. Misc.
+# --------
+botintro "\e[1mSTEP 10: Final touches\e[0m"
+source ./setup/misc.sh
 
-# # Wrap-up.
+# Wrap-up.
 
-# botintro "\e[1mFINISHED\e[0m -- That's it for the automated process."
+botintro "\e[1mFINISHED\e[0m -- That's it for the automated process."
 
-# echo -e "\np.s. don't forget to sync your dropbox and get mackup running.\n"
-# # EOF
+echo -e "\np.s. don't forget to sync your dropbox and get mackup running.\n"
+# EOF

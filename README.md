@@ -321,15 +321,11 @@ Further details are in the `.zsh_prompt` file.
 - [ ] Refactor: Add common configurations to docs directory
 - [ ] https://firebase.google.com/docs/app-distribution/ios/distribute-fastlane
 - [ ] [Example multiple macOS github workflow](https://github.com/IronCoreLabs/recrypt-node-binding/blob/main/.github/workflows/publish.yaml)
-- [x] Make `lib.sh` as a curl file to include in initialize.sh
-- [x] Uncomment the `initialize.sh` setup
-- [x] Update github workflow to check the initialize script.
 - [ ] Auto-format shell files using `brew install shellcheck && brew install shfmt && shfmt -l -w script.sh`
-- [ ] Check precommit hook for <https://github.com/jumanjihouse/pre-commit-hooks#configure-pre-commit>
+- [ ] Check precommit hook for [linting](https://github.com/jumanjihouse/pre-commit-hooks#configure-pre-commit)
 - [ ] Dynamically add inputs to the buffer and check the initialize script
-- [ ] Add [custom workflow badges](https://github.com/Schneegans/dynamic-badges-action) for displaying the total runtime for the script execution.
-- [ ] Check dotfiles symlink error from the execution logs.
 - [ ] Run react-native setup as separate workflow.
+- [ ] Check on `dotfilesdir="${PWD##*/}"` and see if it really works on all files.
 
 ## License
 

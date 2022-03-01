@@ -214,9 +214,9 @@ process_symlinks() {
 
   # check if target exists
   if [ -e "$linktarget" ]; then
-    ask_for_confirmation "\n'$linktarget' already exists, do you want to overwrite it?"
+    is_not_ci && ask_for_confirmation "\n'$linktarget' already exists, do you want to overwrite it?"
 
-    if answer_is_yes; then
+    if answer_is_yes || is_ci; then
       if [ -L "$linktarget" ]; then
         # target is a link, unlink it.
         unlink "$linktarget"

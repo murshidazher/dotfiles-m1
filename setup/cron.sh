@@ -20,9 +20,6 @@ fi
 
 # setup up the crontasks
 crontab -l
-if is_ci; then
-  running "Checking the directory structure → "
-  ls -a ~
-  ls -a "$HOME"
-fi
-crontab "$HOME/.cron"
+
+action "Setting up cron tasks"
+crontab "$defaultdotfilesdir/cron/.cron"

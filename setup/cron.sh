@@ -19,7 +19,14 @@ if [ -z ${defaultdotfilesdir+x} ]; then
 fi
 
 # setup up the crontasks
+running "Checking if there are any pre-set cron tasks"
 crontab -l
 
+if is_ci; then
+  running "Checking the directory structure → "
+  ls -a ~
+  ls -a "$HOME"
+fi
+
 action "Setting up cron tasks"
-crontab "$defaultdotfilesdir/cron/.cron"
+crontab "$HOME/.cron"

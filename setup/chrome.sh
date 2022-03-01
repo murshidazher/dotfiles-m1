@@ -18,7 +18,7 @@ if [ -z ${defaultdotfilesdir+x} ]; then
   defaultdotfilesdir="$HOME/dotfiles"
 fi
 
-install_chrome_ext() {
+function install_chrome_ext() {
   # Set default extension URL base
   URL_CHROME="https://clients2.google.com/service/update2/crx"
 
@@ -43,14 +43,6 @@ install_chrome_ext() {
 
   success "Installed ${EXT_SLUG}.\n"
 }
-
-export -f install_chrome_ext
-
-if is_ci; then
-  running "Checking the directory structure → "
-  ls -a ~
-  ls -a "$HOME"
-fi
 
 action "Installing chrome extensions"
 cat "$defaultdotfilesdir"/chrome/extensions.list | xargs -I {} -P2 install_chrome_ext {}

@@ -81,9 +81,9 @@ if ! [[ $defaultdotfilesdir -ef "$(pwd)" ]]; then
   action "Symlinking dotfiles dir to $defaultdotfilesdir"
 
   if [ -e "$defaultdotfilesdir" ]; then
-    ask_for_confirmation "\n'$defaultdotfilesdir' already exists, do you want to overwrite it?"
+    is_not_ci && ask_for_confirmation "\n'$defaultdotfilesdir' already exists, do you want to overwrite it?"
 
-    if answer_is_yes; then
+    if answer_is_yes || is_ci; then
       if [ -L "$defaultdotfilesdir" ]; then
         # Target is a link, unlink it.
         unlink "$defaultdotfilesdir"
@@ -91,9 +91,9 @@ if ! [[ $defaultdotfilesdir -ef "$(pwd)" ]]; then
         # Mark to symlink to default dotfiles dir location.
         linkdotfilesdir=true
       else
-        ask_for_confirmation "\n'$defaultdotfilesdir' is a directory, unlinking will delete all files in this directory -- ARE YOU SURE?"
+        is_not_ci && ask_for_confirmation "\n'$defaultdotfilesdir' is a directory, unlinking will delete all files in this directory -- ARE YOU SURE?"
 
-        if answer_is_yes; then
+        if answer_is_yes || is_ci; then
           # Target is a dir or file, trash or rm it.
           if hash trash 2>/dev/null; then
             # Prefer trash if installed, means we can restore.

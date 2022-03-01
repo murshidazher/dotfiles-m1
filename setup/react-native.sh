@@ -1,18 +1,4 @@
 #!/usr/bin/env bash
-
-# TODO: Script under process
-# https://www.chrisjmendez.com/2021/05/12/how-to-install-flutter-on-mac-osx-using-homebrew/
-# https://reactnative.dev/docs/environment-setup
-# https://stackoverflow.com/questions/64907154/android-studio-emulator-on-macos-with-arm-cpu-m1
-# https://gist.github.com/bluenex/96a31acfebea4ad7b1b927b7125e4569
-# https://gist.github.com/patrickhammond/4ddbe49a67e5eb1b9c03
-# https://gist.github.com/ThePredators/064c46403290a6823e03be833a2a3c21
-# https://gist.github.com/mrk-han/66ac1a724456cadf1c93f4218c6060ae - install skins
-# https://www.py4u.net/discuss/626303
-# https://gist.github.com/badsyntax/ce848ab40b952d944c496575d40e5427 - run on azure pipelines (extract the config.ini) setup
-# TODO: Explore and add script to manage avd_skins to emulator programatically.
-# Needs for exploration on setting up ios development environment
-
 debug=${1:-false}
 
 # Load help lib if not already loaded.
@@ -25,6 +11,11 @@ fi
 if [ -z ${hbwloaded+x} ]; then
   # shellcheck source=zsh.d/homebrew
   source ./zsh.d/homebrew
+fi
+
+# Set dotfilesdir var if not declared.
+if [ -z ${dotfilesdir+x} ]; then
+  dotfilesdir="$HOME/${PWD##*/}"
 fi
 
 # Set defaultdotfilesdir var if not declared.

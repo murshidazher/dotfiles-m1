@@ -30,3 +30,6 @@ fi
 
 action "Setting up cron tasks"
 crontab "$HOME/.cron"
+
+running "Checking if cron tasks are set"
+crontab -l

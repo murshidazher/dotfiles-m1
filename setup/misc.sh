@@ -15,7 +15,7 @@ fi
 
 # Set dotfilesdir var if not declared.
 if [ -z ${dotfilesdir+x} ]; then
-  dotfilesdir="${PWD##*/}"
+  dotfilesdir="$HOME/${PWD##*/}"
 fi
 
 action "Setting up .nanorc"

@@ -325,7 +325,7 @@ Further details are in the `.zsh_prompt` file.
 - [ ] Check precommit hook for [linting](https://github.com/jumanjihouse/pre-commit-hooks#configure-pre-commit)
 - [ ] Dynamically add inputs to the buffer and check the initialize script
 - [ ] Run react-native setup as separate workflow.
-- [ ] Check on `dotfilesdir="${PWD##*/}"` and see if it really works on all files.
+- [ ] Check on `dotfilesdir="$HOME/${PWD##*/}"` and see if it really works on all files.
 - [ ] TODO: check out this github workflow for [m1 self-hosted runner](https://github.com/mas-cli/mas/blob/main/.github/workflows/build-test.yml) and [this](https://github.com/mas-cli/m1-github-actions-runner).
 
 ## License

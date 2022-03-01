@@ -44,5 +44,15 @@ function install_chrome_ext() {
   success "Installed ${EXT_SLUG}.\n"
 }
 
+function read_extension_file {
+  local file_path
+  file_path="${1}"
+
+  while read -r line; do
+    action "Installing chrome extension ${line}"
+    install_chrome_ext "${line}"
+  done <"${file_path}"
+}
+
 action "Installing chrome extensions"
-cat "$defaultdotfilesdir"/chrome/extensions.list | xargs -I {} -P2 install_chrome_ext {}
+read_extension_file "$defaultdotfilesdir/chrome/extensions.list"

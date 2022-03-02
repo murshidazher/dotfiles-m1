@@ -102,7 +102,7 @@ jobs:
         env:
           RUN_SETUP: true
           # RUN_SETUP_HOMEBREW: true
-          # RUN_MAC_UPDATES: true
+          RUN_MAC_UPDATES: true
           RUN_SETUP_RN: true
           HOMEBREW_NO_AUTO_UPDATE: 1
         run: |

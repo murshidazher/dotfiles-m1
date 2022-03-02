@@ -26,7 +26,8 @@ fi
 bot "OK, what we're going to do:\n"
 actioninfo "1. Install all dependencies for working with react native."
 actioninfo "2. Install android studio and setup the Andorid SDK v31."
-actioninfo "3. Configure xcode and cocoapods to work with flutter."
+actioninfo "3. Configure xcode and cocoapods."
+actioninfo "4. Install react native global package."
 
 ask_for_confirmation "Ready?"
 if answer_is_yes || is_ci; then
@@ -46,26 +47,11 @@ brew install watchman
 # ----------
 # 2. Android
 # ----------
-# brew install --cask android-platform-tools # for adb
 
 # Android studio
 brew install --cask android-studio
 
 touch ~/.android/repositories.cfg
-
-# setup the env to java 1.8 for sdkmanager
-# bash -c 'JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
-# bash -c 'INTEL_HAXM_HOME=/usr/local/Caskroom/intel-haxm'
-
-# If you have install android studio
-# https://stackoverflow.com/questions/17963508/how-to-install-android-sdk-build-tools-on-the-command-line#answer-22862021
-# The avdmanager command is present in both
-# Add this to path if you need sdkmanager and avdmanager, if you installed Android Studio
-# ~/Library/Android/sdk/tools/bin
-# ~/Library/Android/sdk/cmdline-tools/latest/bin
-# Note: To create devices with the latest devices configuration including Pixel 4 XL, you have to use the avdmanager tool present in cmdline-tools/bin folder
-# ./tools/android list sdk --all
-# ./tools/android list avd
 
 # Load android config.
 # shellcheck source=android/.androidrc
@@ -134,35 +120,25 @@ for file in ~/.android/avd/*avd; do
   fi
 done
 
-# ----------
-# 3. Flutter
-# ----------
+# ---------------------
+# 3. Configure Cocapods
+# ---------------------
 
-flutter precache
-flutter doctor --android-licenses
-
+if is_not_ci; then
 runnning "Install XCode from MacStore"
 read -r -p "Press [Enter] key when done..."
 
 mas install 497799835 # xcode
+fi
+
 sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 sudo xcodebuild -runFirstLaunch
 sudo xcodebuild -license
 open -a Simulator
+
 sudo gem install cocoapods
 sudo gem install ffi
 pod setup
-
-# skia
-# https://developer.android.com/studio/run/emulator-acceleration
-# Note: ARM based chipset (M1) can't use hardware acceleration
-
-sudo
-setprop debug.hwui.renderer skiagl
-stop
-start
-
-flutter doctor
 
 # ---------------
 # 4. React native
@@ -182,14 +158,3 @@ if hash asdf 2>/dev/null; then
 else
   echo "WARNING: asdf not found."
 fi
-
-# --------
-# 5. Misc.
-# --------
-
-# https://gist.github.com/ThePredators/a1d105b0794198cade4ef2b0e0836541
-# gem install bundler
-# brew install fastlane
-
-# bundle init
-# bundle update

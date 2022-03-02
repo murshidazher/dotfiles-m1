@@ -67,6 +67,10 @@ touch ~/.android/repositories.cfg
 # ./tools/android list sdk --all
 # ./tools/android list avd
 
+# Load android config.
+# shellcheck source=android/.androidrc
+source ./android/.androidrc
+
 sdkmanager --update
 sdkmanager "platform-tools" "platforms;android-31"
 sdkmanager "build-tools;31.0.0"

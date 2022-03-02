@@ -78,7 +78,6 @@ PATH="$PATH:$ANDROID_HOME/tools"
 PATH="$PATH:$ANDROID_HOME/tools/bin"
 PATH="$PATH:$ANDROID_HOME/platform-tools"
 PATH="$PATH:$ANDROID_HOME/build-tools/$(ls $ANDROID_HOME/build-tools | sort | tail -1)"
-
 export PATH
 
 echo $PATH

@@ -52,20 +52,20 @@ source ./setup/xcodecli.sh
 botintro "\e[1mSTEP 4: Rosetta\e[0m"
 source ./setup/rosetta.sh
 
-# # -----------
-# # 5. Homebrew
-# # -----------
+# -----------
+# 5. Homebrew
+# -----------
 
-# if is_not_ci || [[ -n ${RUN_SETUP_HOMEBREW} ]]; then
-#   botintro "\e[1mSTEP 5: HOMEBREW\e[0m"
-#   source ./setup/brew.sh
+if is_not_ci || [[ -n ${RUN_SETUP_HOMEBREW} ]]; then
+  botintro "\e[1mSTEP 5: HOMEBREW\e[0m"
+  source ./setup/brew.sh
 
-#   # brew is required to continue, exit out otherwise.
-#   if ! $brewinstall; then
-#     cancelled "\e[1mCannot proceed. Exit.\e[0m"
-#     exit 1
-#   fi
-# fi
+  # brew is required to continue, exit out otherwise.
+  if ! $brewinstall; then
+    cancelled "\e[1mCannot proceed. Exit.\e[0m"
+    exit 1
+  fi
+fi
 
 # -----------
 # 6. Symlinks

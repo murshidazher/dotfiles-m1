@@ -68,22 +68,22 @@ export PATH
 
 echo $PATH
 
-sdkmanager --update
-sdkmanager "platform-tools" "platforms;android-31"
-sdkmanager "build-tools;31.0.0"
-sdkmanager "sources;android-31"
-sdkmanager "extras;android;m2repository"
-sdkmanager "extras;google;m2repository"
-sdkmanager --install "ndk;20.1.5948994"
+yes | sdkmanager --update
+yes | sdkmanager "platform-tools" "platforms;android-31"
+yes | sdkmanager "build-tools;31.0.0"
+yes | sdkmanager "sources;android-31"
+yes | sdkmanager "extras;android;m2repository"
+yes | sdkmanager "extras;google;m2repository"
+yes | sdkmanager --install "ndk;20.1.5948994"
 
-sdkmanager --licenses
+yes | sdkmanager --licenses
 
 # -------------
 # 2.1. Emulator
 # -------------
 
 action "update sdk manager"
-sdkmanager --update
+yes | sdkmanager --update
 
 action "download system images for android emulator"
 # sdkmanager --list | grep "system-images.*playstore"
@@ -91,8 +91,8 @@ action "download system images for android emulator"
 # For m1 macbooks
 SYSTEM_IMAGE_ARM_VERSION="system-images;android-31;google_apis;arm64-v8a"
 SYSTEM_IMAGE_ARM_PLAY_VERSION="system-images;android-31;google_apis_playstore;arm64-v8a"
-sdkmanager ${SYSTEM_IMAGE_ARM_VERSION}
-sdkmanager ${SYSTEM_IMAGE_ARM_PLAY_VERSION}
+yes | sdkmanager ${SYSTEM_IMAGE_ARM_VERSION}
+yes | sdkmanager ${SYSTEM_IMAGE_ARM_PLAY_VERSION}
 
 action "create an AVD using Pixel 2"
 

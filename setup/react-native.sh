@@ -71,6 +71,18 @@ touch ~/.android/repositories.cfg
 # shellcheck source=android/.androidrc
 source ./android/.androidrc
 
+# add Andorid tools to commandline
+PATH="$PATH:$ANDROID_HOME/emulator"
+PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
+PATH="$PATH:$ANDROID_HOME/tools"
+PATH="$PATH:$ANDROID_HOME/tools/bin"
+PATH="$PATH:$ANDROID_HOME/platform-tools"
+PATH="$PATH:$ANDROID_HOME/build-tools/$(ls $ANDROID_HOME/build-tools | sort | tail -1)"
+
+export PATH
+
+echo $PATH
+
 sdkmanager --update
 sdkmanager "platform-tools" "platforms;android-31"
 sdkmanager "build-tools;31.0.0"

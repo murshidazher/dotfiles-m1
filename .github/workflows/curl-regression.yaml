@@ -132,7 +132,9 @@ jobs:
           START_TIME=${{needs.macos_build.outputs.script_start_time}}
           END_TIME=${{needs.macos_build.outputs.script_end_time}}
           ELAPSE=$(expr $END_TIME - $START_TIME)
-          echo "##[set-output name=data;]$(expr $ELAPSE / 60)m $(expr $ELAPSE % 60)s"
+          ELAPSE_HOURS=$(expr $ELAPSE / 3600)
+          ELAPSE_MINUTES=$(expr $ELAPSE / 60)
+          echo "##[set-output name=data;]$([[ "$ELAPSE_HOURS" -gt "0" ]] && echo "${ELAPSE_HOURS}h") $(expr $ELAPSE_MINUTES - ($ELAPSE_HOURS * 60))m $(expr $ELAPSE % 60)s"
 
       - id: disk_occupied
         run: |

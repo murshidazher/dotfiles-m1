@@ -134,7 +134,7 @@ jobs:
           ELAPSE=$(expr $END_TIME - $START_TIME)
           ELAPSE_HOURS=$(expr $ELAPSE / 3600)
           ELAPSE_MINUTES=$(expr $ELAPSE / 60)
-          echo "##[set-output name=data;]$([[ "$ELAPSE_HOURS" -gt "0" ]] && echo "${ELAPSE_HOURS}h") $(expr $ELAPSE_MINUTES - ($ELAPSE_HOURS * 60))m $(expr $ELAPSE % 60)s"
+          echo "##[set-output name=data;]${ELAPSE_HOURS}h $(($ELAPSE_MINUTES - ($ELAPSE_HOURS * 60)))m $(expr $ELAPSE % 60)s"
 
       - id: disk_occupied
         run: |

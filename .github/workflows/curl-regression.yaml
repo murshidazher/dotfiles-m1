@@ -35,29 +35,17 @@ jobs:
         run: |
           arch
 
+      - name: Checkout with submodules
+        uses: actions/checkout@v2
+        env:
+          REPO: ${{github.workspace}}
+          DOTFILES_REF: ${{github.sha}}
+          SKIP_SLOW_DEPENDENCIES: "1"
+
       - name: Check the CI environment variable
         shell: bash
         run: |
           [[ -z "${CI}" ]] && echo "Not running on CI" || echo "Running on CI"
-
-      - name: Cache Homebrew Packages
-        id: cache-homebrew-packages
-        uses: actions/cache@v2.1.7
-        env:
-          cache-name: homebrew-packages
-        with:
-          path: $(brew --prefix)
-          key: ${{ matrix.os }}-${{ env.cache-name }}-${{ hashFiles('./setup/brew.sh') }}
-
-      - name: Remove preinstalled brew packages
-        run: |
-          brew remove --force --ignore-dependencies $(brew list --formula)
-        if: steps.cache-homebrew-packages.outputs.cache-hit != 'true'
-
-      - name: Install brew packages
-        run: |
-          bash -c ./setup/brew.sh
-        if: steps.cache-homebrew-packages.outputs.cache-hit != 'true'
 
       # - name: Cache brew deps
       #   uses: actions/cache@v2
@@ -90,6 +78,25 @@ jobs:
         run: |
           DATE_TIMESTAMP=$(date -u +%s)
           echo "##[set-output name=start_time;]$DATE_TIMESTAMP"
+
+      - name: Cache Homebrew Packages
+        id: cache-homebrew-packages
+        uses: actions/cache@v2.1.7
+        env:
+          cache-name: homebrew-packages
+        with:
+          path: $(brew --prefix)
+          key: ${{ matrix.os }}-${{ env.cache-name }}-${{ hashFiles('./setup/brew.sh') }}
+
+      - name: Remove preinstalled brew packages
+        run: |
+          brew remove --force --ignore-dependencies $(brew list --formula)
+        if: steps.cache-homebrew-packages.outputs.cache-hit != 'true'
+
+      - name: Install brew packages
+        run: |
+          bash -c ./setup/brew.sh
+        if: steps.cache-homebrew-packages.outputs.cache-hit != 'true'
 
       - name: Run the script
         id: run-script

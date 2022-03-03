@@ -56,7 +56,7 @@ source ./setup/rosetta.sh
 # 5. Homebrew
 # -----------
 
-if is_not_ci || [[ -n ${RUN_SETUP_HOMEBREW} ]]; then
+if is_not_ci; then
   botintro "\e[1mSTEP 5: HOMEBREW\e[0m"
   source ./setup/brew.sh
 
@@ -65,6 +65,8 @@ if is_not_ci || [[ -n ${RUN_SETUP_HOMEBREW} ]]; then
     cancelled "\e[1mCannot proceed. Exit.\e[0m"
     exit 1
   fi
+else
+  cancelled "Skipping Homebrew Installation on CI ..."
 fi
 
 # -----------

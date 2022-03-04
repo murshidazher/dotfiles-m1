@@ -220,7 +220,6 @@ if $brewinstall; then
   brew install rbenv-gemset
   brew install hugo
   brew install jsonnet
-  brew install watchman # watch file changes
 
   brew install mkcert
   brew install nss # if you use Firefox

@@ -15,7 +15,7 @@ jobs:
   #       shell: bash
   #   steps:
   #     - name: Checkout with submodules
-  #       uses: actions/checkout@v2
+  #       uses: actions/checkout@v3
 
   #     - name: Run ShellCheck
   #       # brew install shellcheck
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout with submodules
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - id: size
         run: echo "##[set-output name=data;]$(tree --du -h . | tail -n 1 | awk '{print $1}')"
@@ -51,7 +51,7 @@ jobs:
         shell: bash
     steps:
       - name: Checkout with submodules
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up script test
         env:
@@ -93,7 +93,7 @@ jobs:
 
     steps:
       - name: Checkout with submodules
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         env:
           REPO: ${{github.workspace}}
           DOTFILES_REF: ${{github.sha}}

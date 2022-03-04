@@ -296,12 +296,10 @@ if $brewinstall; then
   brew install --cask notion
   brew install --cask simplenote
   brew install --cask appcleaner
-  # brew install --cask adobe-acrobat-reader
   brew install --cask zoom
   brew install --cask whatsapp
   brew install --cask maccy
   brew install --cask fliqlo
-  brew install --cask aerial
   brew install --cask openinterminal
   brew install --cask recordit
   brew install --cask keka

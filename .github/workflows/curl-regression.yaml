@@ -85,18 +85,19 @@ jobs:
         env:
           cache-name: homebrew-packages
         with:
-          path: $(brew --prefix)
+          path: |
+            /usr/local/Homebrew
+            /usr/local/Cellar
+            /usr/local/Frameworks
+            /usr/local/bin
+            /usr/local/opt
+            /opt/homebrew/
           key: ${{ matrix.os }}-${{ env.cache-name }}-${{ hashFiles('./setup/brew.sh') }}
 
-      - name: Remove preinstalled brew packages
-        run: |
-          brew remove --force --ignore-dependencies $(brew list --formula)
-        if: steps.cache-homebrew-packages.outputs.cache-hit != 'true'
-
-      - name: Install brew packages
-        run: |
-          bash -c ./setup/brew.sh
-        if: steps.cache-homebrew-packages.outputs.cache-hit != 'true'
+      # - name: Install brew packages
+      #   run: |
+      #     bash -c ./setup/brew.sh
+      #   if: steps.cache-homebrew-packages.outputs.cache-hit != 'true'
 
       - name: Run the script
         id: run-script

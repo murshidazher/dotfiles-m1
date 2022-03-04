@@ -57,7 +57,7 @@ else
   cancelled "Ok, let's continue".
 fi
 
-if is_not_ci || [[ -n ${RUN_MAC_UPDATES} ]]; then
+if is_not_ci || [[ ${RUN_MAC_UPDATES} = true ]]; then
   # Download all available macos updates.
   action "Download Mac updates:"
   sudo softwareupdate -d -a

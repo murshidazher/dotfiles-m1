@@ -291,7 +291,6 @@ if $brewinstall; then
   brew install --cask grammarly
   brew install --cask iterm2
   brew install --cask slack
-  # brew install --cask spectacle
   brew install --cask spotify
   brew install --cask vlc
   brew install --cask numi
@@ -305,7 +304,6 @@ if $brewinstall; then
   brew install --cask fliqlo
   brew install --cask aerial
   brew install --cask openinterminal
-  brew install --cask dozer
   brew install --cask recordit
   brew install --cask keka
   brew install --cask kekaexternalhelper

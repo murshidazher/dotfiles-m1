@@ -30,17 +30,27 @@ jobs:
         id: set-env
         run: echo "CI=true" >> $GITHUB_ENV
 
+      - name: Install Bash 4, asdf and GNU sed on Mac
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          brew update
+          brew install bash
+          brew install gnu-sed
+          brew install asdf
+          echo "/usr/local/bin" >> $GITHUB_PATH
+          echo "$(brew --prefix)/opt/gnu-sed/libexec/gnubin" >> $GITHUB_PATH
+      - name: Install chrome and vscode
+        run: |
+          brew install vim
+          brew tap homebrew/cask
+          brew tap homebrew/cask-versions
+          brew install --cask google-chrome
+          brew install --cask visual-studio-code
+
       - name: Display the architecture
         shell: bash
         run: |
           arch
-
-      - name: Checkout with submodules
-        uses: actions/checkout@v3
-        env:
-          REPO: ${{github.workspace}}
-          DOTFILES_REF: ${{github.sha}}
-          SKIP_SLOW_DEPENDENCIES: "1"
 
       - name: Check the CI environment variable
         shell: bash
@@ -79,25 +89,20 @@ jobs:
           DATE_TIMESTAMP=$(date -u +%s)
           echo "##[set-output name=start_time;]$DATE_TIMESTAMP"
 
-      - name: Cache Homebrew Packages
-        id: cache-homebrew-packages
-        uses: actions/cache@v2.1.7
-        env:
-          cache-name: homebrew-packages
-        with:
-          path: |
-            /usr/local/Homebrew
-            /usr/local/Cellar
-            /usr/local/Frameworks
-            /usr/local/bin
-            /usr/local/opt
-            /opt/homebrew/
-          key: ${{ matrix.os }}-${{ env.cache-name }}-${{ hashFiles('./setup/brew.sh') }}
-
-      # - name: Install brew packages
-      #   run: |
-      #     bash -c ./setup/brew.sh
-      #   if: steps.cache-homebrew-packages.outputs.cache-hit != 'true'
+      # - name: Cache Homebrew Packages
+      #   id: cache-homebrew-packages
+      #   uses: actions/cache@v2.1.7
+      #   env:
+      #     cache-name: homebrew-packages
+      #   with:
+      #     path: |
+      #       /usr/local/Homebrew
+      #       /usr/local/Cellar
+      #       /usr/local/Frameworks
+      #       /usr/local/bin
+      #       /usr/local/opt
+      #       /opt/homebrew/
+      #     key: ${{ matrix.os }}-${{ env.cache-name }}-${{ hashFiles('./setup/brew.sh') }}
 
       - name: Run the script
         id: run-script
@@ -105,7 +110,7 @@ jobs:
           RUN_SETUP: true
           # RUN_SETUP_HOMEBREW: true
           RUN_MAC_UPDATES: true
-          RUN_SETUP_RN: true
+          # RUN_SETUP_RN: true
           HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
           bash -c "`curl -L https://git.io/dotfiles-m1`"

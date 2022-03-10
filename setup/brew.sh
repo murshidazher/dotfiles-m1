@@ -407,10 +407,6 @@ if $brewinstall; then
     mas install 692867256  # Simplenote
     mas install 1284863847 # Unsplash Wallpapers
     mas install 937984704  # Amphetamine
-
-    ## Password management
-    # mas install 1191757556 # Obsidian Authenticator App
-
   else
     cancelled "App Store login not complete. Skipping installing App Store Apps"
   fi

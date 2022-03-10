@@ -326,7 +326,6 @@ if $brewinstall; then
   # DEVELOPMENT
   brew install --cask brave-browser
   brew install --cask firefox-developer-edition
-  brew install --cask dash
   brew install --cask imagealpha
   brew install --cask imageoptim
   brew install --cask ngrok

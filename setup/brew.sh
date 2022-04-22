@@ -407,6 +407,7 @@ if $brewinstall; then
     mas install 692867256  # Simplenote
     mas install 1284863847 # Unsplash Wallpapers
     mas install 937984704  # Amphetamine
+    mas install 1491764008 # Red 2
   else
     cancelled "App Store login not complete. Skipping installing App Store Apps"
   fi

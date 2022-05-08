@@ -18,7 +18,7 @@ alias sshots="cd $HOME/work/screenshots"
 alias dbs="cd $HOME/work/db_backup"
 alias iosarchives="cd $HOME/Library/Developer/Xcode/Archives"
 
-# docker
+# Docker
 
 ## database variables
 export DIFFERENT_MYSQL_DUMP_PATH=$HOME/work/db_backup/mysql/mysql.prod.different_v3.3.20211006.sql

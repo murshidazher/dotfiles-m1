@@ -33,7 +33,6 @@ This markdown lists all the default extensions installed by the script.
 - `YAML` by Red Hat
 - `Dash` by Budi Irawan
 - `HashiCorp Terraform` by HashiCorp
-- `Flow Language Support` by flowtype
 - `Todo Tree` by Gruntfuggly
 - `Wallaby.js` by Wallaby.js
 - `Quokka.js` by Wallaby.js

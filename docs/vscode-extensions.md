@@ -34,5 +34,3 @@ This markdown lists all the default extensions installed by the script.
 - `Dash` by Budi Irawan
 - `HashiCorp Terraform` by HashiCorp
 - `Todo Tree` by Gruntfuggly
-- `Wallaby.js` by Wallaby.js
-- `Quokka.js` by Wallaby.js

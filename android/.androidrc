@@ -5,6 +5,3 @@ export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export ANDROID_HOME=$ANDROID_SDK_ROOT
 export ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk/$(ls $ANDROID_SDK_ROOT/ndk | sort | tail -1)
 export ANDROID_SKINS_DIRECTORY=$ANDROID_SDK_ROOT/skins
-
-# Android path changes can be found here
-# $HOME/dotfiles/zsh/.path

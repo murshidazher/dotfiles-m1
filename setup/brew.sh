@@ -334,12 +334,10 @@ if $brewinstall; then
   brew install --cask visual-studio-code
   brew install --cask intellij-idea-ce
   brew install --cask fork
-  # brew install --cask proxyman
 
   # DEVOPS
   brew install --cask aws-vault
   brew install terraform
-  # brew install earthly/earthly/earthly
 
   # VM
   # brew install --cask virtualbox

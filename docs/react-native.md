@@ -2,6 +2,8 @@
 
 ## Build Error Flipper-Glog (0.3.6)
 
+> 💡 Seems like this issue is fixed with the latest version of react native. Archiving this for future references.
+
 > 🔗 Link to the [issue](https://github.com/facebook/react-native/pull/32486/files) and fixed stable [v68.0.0](https://github.com/facebook/react-native/tree/0.68-stable)
 
 If you run into the following error just follow the instructions,

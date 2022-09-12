@@ -53,6 +53,16 @@
 
 > The script creates a centrally managed `dotfiles` directory on the `~` of the file system.
 
+Make sure the developer tools are installed in mac,
+
+```sh
+# Download all available macos updates.
+$ sudo softwareupdate -d -a
+
+# Install all available macos updates.
+$ sudo softwareupdate -iaR
+```
+
 To setup simply open the terminal, then:
 
 ```sh

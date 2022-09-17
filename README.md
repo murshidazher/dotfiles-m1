@@ -56,11 +56,11 @@
 Make sure the developer tools are installed in mac,
 
 ```sh
-# Download all available macos updates.
-$ sudo softwareupdate -d -a
+# Download all xcode tools for macOS.
+$ sudo xcode-select --install
 
-# Install all available macos updates.
-$ sudo softwareupdate -iaR
+# Verify the installation, you should see the following -> /Library/Developer/CommandLineTools
+$ xcode-select -p
 ```
 
 To setup simply open the terminal, then:

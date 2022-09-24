@@ -280,7 +280,6 @@ Further details are in the `.zsh_prompt` file.
 - [ ] Dynamically add inputs to the buffer and check the initialize script
 - [ ] Run react-native setup as separate workflow.
 - [ ] Check on `dotfilesdir="$HOME/${PWD##*/}"` and see if it really works on all files.
-- [ ] TODO: check out this github workflow for [m1 self-hosted runner](https://github.com/mas-cli/mas/blob/main/.github/workflows/build-test.yml) and [this](https://github.com/mas-cli/m1-github-actions-runner).
 - [ ] Exploration: autocomplete and intellisense using [fig.io](https://fig.io/)
 
 ## License

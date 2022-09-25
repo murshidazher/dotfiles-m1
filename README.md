@@ -280,7 +280,6 @@ Further details are in the `.zsh_prompt` file.
 - [ ] Dynamically add inputs to the buffer and check the initialize script
 - [ ] Run react-native setup as separate workflow.
 - [ ] Check on `dotfilesdir="$HOME/${PWD##*/}"` and see if it really works on all files.
-- [ ] Exploration: autocomplete and intellisense using [fig.io](https://fig.io/)
 
 ## License
 

@@ -273,8 +273,6 @@ Further details are in the `.zsh_prompt` file.
 
 - [ ] Refactor: the initialize script
 - [ ] Refactor: Add common configurations to docs directory
-- [ ] https://firebase.google.com/docs/app-distribution/ios/distribute-fastlane
-- [ ] [Example multiple macOS github workflow](https://github.com/IronCoreLabs/recrypt-node-binding/blob/main/.github/workflows/publish.yaml)
 - [ ] Auto-format shell files using `brew install shellcheck && brew install shfmt && shfmt -l -w script.sh`
 - [ ] Check precommit hook for [linting](https://github.com/jumanjihouse/pre-commit-hooks#configure-pre-commit)
 - [ ] Dynamically add inputs to the buffer and check the initialize script

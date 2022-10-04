@@ -34,3 +34,26 @@ This markdown lists all the default extensions installed by the script.
 - `Dash` by Budi Irawan
 - `HashiCorp Terraform` by HashiCorp
 - `Todo Tree` by Gruntfuggly
+
+## Vscode Permission error when installing extensions
+
+Permission error encountered when updating vscode extensions,
+
+```sh
+sudo chown -R $(whoami):staff $HOME/Library/Application\ Support/CodeCachedExtensionVSIXs
+sudo chown -R $(whoami):staff $HOME/.vscode/extensions/*
+```
+
+## Vscode error for Python
+
+When attempting to launch vscode using the `code .` command you might get the following error,
+
+```sh
+/usr/local/bin/code: line 10: ./MacOS/Electron: No such file or directory
+```
+
+This most likely occurs because of error in python path, symlink the python path manually,
+
+```sh
+sudo ln -s -f $(which python2) $(which python)
+```

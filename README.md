@@ -30,9 +30,6 @@
     - [Sensible macOS defaults](#sensible-macos-defaults)
       - [GPG key with Keybase.io](#gpg-key-with-keybaseio)
     - [Homebrew](#homebrew)
-    - [Python](#python)
-    - [NodeJS](#nodejs)
-    - [ASDF Ruby](#asdf-ruby)
     - [Projects](#projects)
     - [Ant](#ant)
     - [Ndk Setup](#ndk-setup)
@@ -42,9 +39,7 @@
       - [Clean install pods](#clean-install-pods)
     - [Shell completion](#shell-completion)
     - [Compinit error](#compinit-error)
-  - [Vscode error](#vscode-error)
   - [QuickLook Plugin](#quicklook-plugin)
-  - [Vscode Permission error when installing extensions](#vscode-permission-error-when-installing-extensions)
   - [Custom bash prompt](#custom-bash-prompt)
   - [TODO](#todo)
   - [License](#license)
@@ -109,39 +104,6 @@ When setting up a new Mac, you may want to set some sensible macOS defaults:
 if [[ "$(uname -m)" == "arm64" ]]; then
   export PATH="/opt/homebrew/bin:${PATH}"
 fi
-```
-
-### Python
-
-```sh
-$ sudo ln -s -f $(which python3) $(which python)
-$ which python
-/Users/murshidazher/.asdf/shims/python
-```
-
-### NodeJS
-
-> 💡 Support for Apple silicon is `15.x` and above.
-
-Open rosetta terminal,
-
-```sh
-# to install older binaries of nodejs
-$ NODEJS_CONFIGURE_OPTIONS='--with-intl=full-icu --download=all' NODEJS_CHECK_SIGNATURES="no" asdf install nodejs ref:v12.16.1
-$ cd ~/.asdf/installs/nodejs
-$ ln -s ref-v12.16.1 12.16.1
-$ asdf reshim
-$ asdf global nodejs 12.16.1
-```
-
-### ASDF Ruby
-
-```sh
-$ asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
-$ asdf install ruby 2.7.4
-$ asdf global ruby 2.7.4
-$ gem install bundler:2.2.19 -n /usr/local/bin
-$ gem install --user-install ffi -- --enable-libffi-alloc
 ```
 
 ### Projects
@@ -264,20 +226,6 @@ $ ln -fsv /opt/homebrew/opt/asdf/etc/bash_completion.d/asdf.bash /opt/homebrew/c
 $ ln -fsv /opt/homebrew/completions/zsh/_asdf /usr/local/share/zsh/site-functions/_asdf
 ```
 
-## Vscode error
-
-When attempting to launch vscode using the `code .` command you might get the following error,
-
-```sh
-/usr/local/bin/code: line 10: ./MacOS/Electron: No such file or directory
-```
-
-This most likely occurs because of error in python path, symlink the python path manually,
-
-```sh
-$ sudo ln -s -f $(which python2) $(which python)
-```
-
 ## QuickLook Plugin
 
 > “QLStephen.qlgenerator” can’t be opened because Apple cannot check it for malicious software.
@@ -289,15 +237,6 @@ $ sudo xattr -cr ~/Library/QuickLook/*.qlgenerator
 # reset quicklookd
 $ qlmanage -r
 $ qlmanage -r cache
-```
-
-## Vscode Permission error when installing extensions
-
-Permission error encountered when updating vscode extensions,
-
-```sh
-$ sudo chown -R $(whoami):staff $HOME/Library/Application\ Support/CodeCachedExtensionVSIXs
-$ sudo chown -R $(whoami):staff $HOME/.vscode/extensions/*
 ```
 
 ## Custom bash prompt

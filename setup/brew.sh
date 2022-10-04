@@ -178,6 +178,7 @@ if $brewinstall; then
   brew install thefuck
   brew install cppunit
   brew install pidcat
+  brew install gitleaks # check secret leaks
 
   # PHP Dependencies
   brew install bison

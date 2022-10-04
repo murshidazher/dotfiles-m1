@@ -3,3 +3,4 @@ others
 *.gitconfig.local
 **/*.credentials
 .gmailctl
+delete.txt

@@ -41,6 +41,7 @@
     - [Compinit error](#compinit-error)
   - [QuickLook Plugin](#quicklook-plugin)
   - [Custom bash prompt](#custom-bash-prompt)
+  - [Notes](#notes)
   - [TODO](#todo)
   - [License](#license)
 
@@ -253,6 +254,10 @@ When your current working directory is a Git repository, the prompt will display
 Further details are in the `.zsh_prompt` file.
 
 <img src="https://raw.githubusercontent.com/murshidazher/dotfiles-m1/main/docs/images/terminal.png" width="600px">
+
+## Notes
+
+- Creating a [custom git hook](https://help.gitkraken.com/gitkraken-client/githooksexample/) 
 
 ## TODO
 

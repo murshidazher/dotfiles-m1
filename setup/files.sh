@@ -37,6 +37,7 @@ declare -a dotfilesfilearray=(
   "$dotfilesdir/curl"
   "$dotfilesdir/editor"
   "$dotfilesdir/git"
+  "$dotfilesdir/git-hooks"
   "$dotfilesdir/go"
   "$dotfilesdir/mackup"
   "$dotfilesdir/node"

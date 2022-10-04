@@ -36,6 +36,8 @@ sf = "!f() { git diff-tree --no-commit-id --name-only -r $1; }; f"
 # fetch with prune
 fp = fetch --prune
 
+leaks = !"gitleaks detect --source . -v"
+
 # Submodule sync
 subsync = !"git submodule sync; git submodule update --init"
 
@@ -171,6 +173,7 @@ whitespace = fix
 [core]
 # convert CRLF to LF on commit, but not the other way around
 autocrlf = input
+hooksPath = ~/git-hooks
 
 # Use custom `.gitignore` and `.gitattributes`
 excludesfile = ~/.gitignore

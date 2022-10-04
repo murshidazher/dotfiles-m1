@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+debug=${1:-false}                   # default debug param.
+source "$DOTFILES_DIR/setup/lib.sh" # load help lib.
+
+# Check for secret leaks
+repo_dir=$(git rev-parse --show-toplevel)
+bot "Checking for secrets in $repo_dir"
+
+if [[ ! -z "$(git leaks 2>/dev/null)" ]]; then
+  error "Gitleaks check failed, please check your codebase for secrets."
+  running "Running Gitleaks...."
+  command git leaks
+  ask_for_confirmation "Do you want to continue staging changes along secrets?"
+  if answer_is_yes; then
+    warn "Proceed to stage changes with secrets..."
+    exit 0
+  else
+    cancelled "Aborted the git commit request.".
+    exit 1
+  fi
+else
+  success "No leaks found."
+  exit 0
+fi

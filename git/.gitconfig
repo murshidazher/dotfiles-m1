@@ -307,9 +307,3 @@ clean = git-lfs clean -- %f
 smudge = git-lfs smudge -- %f
 process = git-lfs filter-process
 required = true
-[gpg]
-program = gpg
-[user]
-email = <your_email>
-signingkey = <signing_key>
-name = <name>

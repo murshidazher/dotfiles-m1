@@ -74,7 +74,7 @@ yes | sdkmanager "build-tools;31.0.0"
 yes | sdkmanager "sources;android-31"
 yes | sdkmanager "extras;android;m2repository"
 yes | sdkmanager "extras;google;m2repository"
-yes | sdkmanager --install "ndk;20.1.5948994"
+yes | sdkmanager --install "ndk;21.0.6113669"
 
 yes | sdkmanager --licenses
 
@@ -125,10 +125,10 @@ done
 # ---------------------
 
 if is_not_ci; then
-runnning "Install XCode from MacStore"
-read -r -p "Press [Enter] key when done..."
+  runnning "Install XCode from MacStore"
+  read -r -p "Press [Enter] key when done..."
 
-mas install 497799835 # xcode
+  mas install 497799835 # xcode
 fi
 
 sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer

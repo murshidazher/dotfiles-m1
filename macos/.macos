@@ -12,9 +12,9 @@ sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
 while true; do
-	sudo -n true
-	sleep 60
-	kill -0 "$$" || exit
+  sudo -n true
+  sleep 60
+  kill -0 "$$" || exit
 done 2>/dev/null &
 
 ###############################################################################
@@ -231,9 +231,9 @@ defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Make default screen saver as Fliqlo
-defaults -currentHost write com.apple.screensaver showClock -string "NO"
-defaults -currentHost write com.apple.screensaver moduleDict -dict moduleName Fliqlo path "${HOME}/Library/Screen Savers/Fliqlo.saver" type 0
-defaults -currentHost read com.apple.screensaver
+# defaults -currentHost write com.apple.screensaver showClock -string "NO"
+# defaults -currentHost write com.apple.screensaver moduleDict -dict moduleName Fliqlo path "${HOME}/Library/Screen Savers/Fliqlo.saver" type 0
+# defaults -currentHost read com.apple.screensaver
 
 # Save screenshots to the desktop
 defaults write com.apple.screencapture location -string "${HOME}/Desktop"
@@ -362,9 +362,9 @@ sudo chflags nohidden /Volumes
 # Expand the following File Info panes:
 # “General”, “Open with”, and “Sharing & Permissions”
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
-	General -bool true \
-	OpenWith -bool true \
-	Privileges -bool true
+  General -bool true \
+  OpenWith -bool true \
+  Privileges -bool true
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #

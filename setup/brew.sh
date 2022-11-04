@@ -230,9 +230,7 @@ if $brewinstall; then
   brew install shfmt      # for formatting shell scripts
 
   # DATABASES
-  brew install postgresql
   brew install mysql@5.7
-  brew install redis
 
   brew tap mongodb/brew
   brew install mongodb-community
@@ -294,31 +292,23 @@ if $brewinstall; then
   brew install --cask slack
   brew install --cask spotify
   brew install --cask vlc
-  brew install --cask numi
   brew install --cask notion
-  brew install --cask simplenote
   brew install --cask appcleaner
   brew install --cask zoom
   brew install --cask whatsapp
-  brew install --cask maccy
-  brew install --cask fliqlo
   brew install --cask openinterminal
   brew install --cask recordit
-  brew install --cask keka
-  brew install --cask kekaexternalhelper
 
   # SECURITY
   brew install --cask authy
   brew install --cask bitwarden
   brew install --cask keybase
-  brew install --cask tunnelblick
-  # brew install --cask openvpn-connect
 
   # DESIGN
   # brew install --cask abstract
   # brew install --cask sketch
   # brew install --cask zeplin
-  brew install --cask fontbase # font management
+  # brew install --cask fontbase # font management
   # brew install --cask iconjar
 
   # Cask outdated but versioned
@@ -327,8 +317,6 @@ if $brewinstall; then
   # DEVELOPMENT
   brew install --cask brave-browser
   brew install --cask firefox-developer-edition
-  brew install --cask imagealpha
-  brew install --cask imageoptim
   brew install --cask ngrok
   brew install --cask mongodb-compass
   brew install --cask tableplus
@@ -360,7 +348,7 @@ if $brewinstall; then
   brew install --cask krisp
   brew install --cask onyx
   brew install --cask rectangle
-  # brew install --cask the-unarchiver
+  brew install --cask the-unarchiver
 
   # DRIVERS
   running "Installing drivers"
@@ -401,7 +389,6 @@ if $brewinstall; then
     mas install 668208984  # GIPHY Capture. The GIF Maker (For recording my screen as gif)
     mas install 1351639930 # Gifski, convert videos to gifs
     # mas install 1474276998 # HP Smart for Desktop
-    mas install 490461369  # Bandwidth+
     mas install 1056643111 # Clocker
     mas install 692867256  # Simplenote
     mas install 1284863847 # Unsplash Wallpapers

@@ -88,7 +88,7 @@ source ./setup/asdf.sh
 # source ./setup/asdf-minimal.sh
 
 # Node setup
-source ./setup/node.sh
+# source ./setup/node.sh
 
 # vim setup
 source ./setup/vim.sh

@@ -64,7 +64,6 @@ if hash asdf 2>/dev/null; then
     remote-share-cli
     serve
     source-map-explorer
-    speed-test
     stylelint
     stylelint-config-standard
     surge

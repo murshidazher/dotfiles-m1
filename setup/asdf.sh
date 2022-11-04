@@ -30,7 +30,7 @@ if hash asdf 2>/dev/null; then
 
   # Install flutter
   # shellcheck source=setup/flutter.sh
-  source ./setup/flutter.sh
+  # source ./setup/flutter.sh
 
   # Install go
   # shellcheck source=setup/go.sh

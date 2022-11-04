@@ -24,8 +24,8 @@ if hash asdf 2>/dev/null; then
   # shellcheck source=setup/elixir.sh
   source ./setup/elixir.sh
 
-  # # Install dart
-  # # Note: flutter SDK includes dart, hence if you intend to install flutter comment this.
+  # Install dart
+  # Note: flutter SDK includes dart, hence if you intend to install flutter comment this.
   # source ./setup/dart.sh
 
   # Install flutter
@@ -48,9 +48,9 @@ if hash asdf 2>/dev/null; then
   # shellcheck source=setup/python.sh
   source ./setup/python.sh
 
-  # # Install ruby
-  # # shellcheck source=setup/ruby.sh
-  # source ./setup/ruby.sh
+  # Install ruby
+  # shellcheck source=setup/ruby.sh
+  source ./setup/ruby.sh
 
   # # Install ant
   # # shellcheck source=setup/ant.sh

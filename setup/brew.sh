@@ -283,7 +283,6 @@ if $brewinstall; then
 
   # GENERAL
   brew install --cask diskwave
-  brew install --cask dropbox
   brew install google-drive
   brew install --cask google-chrome
   brew install --cask grammarly

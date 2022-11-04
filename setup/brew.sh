@@ -240,7 +240,6 @@ if $brewinstall; then
   # brew install nginx
   brew install puma/puma/puma-dev
   # brew install k6
-  brew install caddy
 
   # docker
   brew install --cask docker

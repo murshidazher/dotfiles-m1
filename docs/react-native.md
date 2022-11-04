@@ -185,6 +185,8 @@ $ xcode-select -s /Library/Developer/CommandLineTools
 
 ## iOS Push notifications
 
+> 💡 Before testing, enable push notification for the app by going into settings > app (scroll down) > notifications > allow notifications
+
 Sending push notifications for app in iOS simulator,
 
 Create an example payload file,
@@ -193,10 +195,17 @@ Create an example payload file,
 {
   "aps": {
     "alert": {
-      "title": "Push On Simulator",
-      "body": "You have sent it on simulator"
+      "body": "test message",
+      "subtitle": "sub title",
+      "title": "title"
     },
-    "badge": 7
+    "badge": 0,
+    "mutable-content": 1,
+    "sound": "default"
+  },
+  "data": {
+    "type": "custom",
+    "custom": "data"
   },
   "Simulator Target Bundle": "com.example.app.qa"
 }

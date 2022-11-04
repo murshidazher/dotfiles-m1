@@ -182,3 +182,27 @@ $ sudo xcode-select --reset
 # or
 $ xcode-select -s /Library/Developer/CommandLineTools
 ```
+
+## iOS Push notifications
+
+Sending push notifications for app in iOS simulator,
+
+Create an example payload file,
+
+```js
+{
+  "aps": {
+    "alert": {
+      "title": "Push On Simulator",
+      "body": "You have sent it on simulator"
+    },
+    "badge": 7
+  },
+  "Simulator Target Bundle": "com.example.app.qa"
+}
+```
+
+```sh
+xcrun simctl list
+xcrun simctl push <device-id> ios/payload.apns
+```

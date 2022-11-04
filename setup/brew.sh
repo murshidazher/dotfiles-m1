@@ -295,6 +295,7 @@ if $brewinstall; then
   brew install --cask whatsapp
   brew install --cask openinterminal
   brew install --cask recordit
+  brew install --cask aerial
 
   # SECURITY
   brew install --cask authy

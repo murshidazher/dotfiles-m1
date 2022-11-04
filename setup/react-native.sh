@@ -146,8 +146,8 @@ pod setup
 
 if hash asdf 2>/dev/null; then
 
-  LATEST_NODEJS_14_VERSION=$(asdf list nodejs | grep '^  14\.' | tail -1 | sed 's: ::g')
-  asdf local nodejs "${LATEST_NODEJS_14_VERSION}"
+  LATEST_NODEJS_16_VERSION=$(asdf list nodejs | grep '^  16\.' | tail -1 | sed 's: ::g')
+  asdf local nodejs "${LATEST_NODEJS_16_VERSION}"
   asdf reshim nodejs # to have all the globally install packages in PATH
   npm install -g react-native-cli
 

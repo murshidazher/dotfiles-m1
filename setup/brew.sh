@@ -222,9 +222,9 @@ if $brewinstall; then
   brew install hugo
   brew install jsonnet
 
-  brew install mkcert
-  brew install nss # if you use Firefox
-  mkcert -install
+  # brew install mkcert
+  # brew install nss # if you use Firefox
+  # mkcert -install
 
   brew install shellcheck # shell script linter
   brew install shfmt      # for formatting shell scripts
@@ -238,7 +238,7 @@ if $brewinstall; then
   # DEVOPS
   brew install awscli
   # brew install nginx
-  brew install puma/puma/puma-dev
+  # brew install puma/puma/puma-dev
   # brew install k6
 
   # docker

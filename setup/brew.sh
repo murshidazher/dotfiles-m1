@@ -290,7 +290,6 @@ if $brewinstall; then
   brew install --cask slack
   brew install --cask spotify
   brew install --cask vlc
-  brew install --cask notion
   brew install --cask appcleaner
   brew install --cask zoom
   brew install --cask whatsapp
@@ -382,8 +381,6 @@ if $brewinstall; then
   if answer_is_yes && is_not_ci; then
 
     ## Utilites
-    mas install 668208984  # GIPHY Capture. The GIF Maker (For recording my screen as gif)
-    mas install 1351639930 # Gifski, convert videos to gifs
     # mas install 1474276998 # HP Smart for Desktop
     mas install 1056643111 # Clocker
     mas install 692867256  # Simplenote

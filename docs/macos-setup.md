@@ -59,7 +59,7 @@ Additionally, if you receive `zsh compinit: insecure directories` warnings when 
 chmod -R go-w "$(brew --prefix)/share"
 ```  
 
-### Compinit error
+## Compinit error
 
 - Refer to this [stackoverflow](https://stackoverflow.com/questions/65747286/zsh-problem-compinit503-no-such-file-or-directory-usr-local-share-zsh-site)
 

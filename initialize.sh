@@ -69,6 +69,18 @@ else
   cancelled "Skipping Mac updates on CI ..."
 fi
 
+if is_not_ci || [[ ${RUN_MAC_UPDATES} = true ]]; then
+  # Download all xcode tools for macOS.
+  action "Download xcode tools:"
+  sudo xcode-select --install
+
+  # Verify the installation, you should see the following -> /Library/Developer/CommandLineTools
+  action "Verify xcode tool installation:"
+  sudo xcode-select -p
+else
+  cancelled "Skipping xcode tool installation on CI ..."
+fi
+
 #-------------------------------------------
 # Prerequisite: Login to Github
 # Generate ssh keys & add to ssh-agent

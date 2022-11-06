@@ -50,16 +50,6 @@
 
 > The script creates a centrally managed `dotfiles` directory on the `~` of the file system.
 
-Make sure the developer tools are installed in mac,
-
-```sh
-# Download all xcode tools for macOS.
-$ sudo xcode-select --install
-
-# Verify the installation, you should see the following -> /Library/Developer/CommandLineTools
-$ xcode-select -p
-```
-
 To setup simply open the terminal, then:
 
 ```sh

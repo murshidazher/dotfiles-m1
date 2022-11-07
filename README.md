@@ -29,7 +29,6 @@
       - [Linting](#linting)
     - [Sensible macOS defaults](#sensible-macos-defaults)
       - [GPG key with Keybase.io](#gpg-key-with-keybaseio)
-    - [Homebrew](#homebrew)
     - [Projects](#projects)
     - [Ant](#ant)
     - [Ndk Setup](#ndk-setup)
@@ -91,18 +90,6 @@ When setting up a new Mac, you may want to set some sensible macOS defaults:
 #### GPG key with Keybase.io
 
 - Follow this gist to [setup gpgkey with keybase.io](https://github.com/pstadler/keybase-gpg-github).
-
-### Homebrew
-
-- `/usr/local` on macOS intel
-- `/opt/homebrew` on macOS ARM
-- `/home/linuxbrew` on Linux
-
-```sh
-if [[ "$(uname -m)" == "arm64" ]]; then
-  export PATH="/opt/homebrew/bin:${PATH}"
-fi
-```
 
 ### Projects
 

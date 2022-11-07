@@ -39,7 +39,6 @@ setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
 
-
 # Autocorrect typos in path names when using `cd`.
 unsetopt correct_all
 setopt short_loops
@@ -90,7 +89,7 @@ zpath="$(brew --prefix)/etc/profile.d/z.sh"
 [ -s $zpath ] && source $zpath
 
 # asdf
-source "$(brew --prefix asdf)/asdf.sh"
+source "$(brew --prefix asdf)/libexec/asdf.sh"
 source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
 
 # pyevnv

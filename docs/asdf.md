@@ -40,3 +40,14 @@ asdf global ruby 2.7.4
 gem install bundler:2.2.19 -n /usr/local/bin
 gem install --user-install ffi -- --enable-libffi-alloc
 ```
+
+## Shims are in older version after updating
+
+💡 Additional link to the issues
+
+- [https://github.com/asdf-vm/asdf/issues/1147](https://github.com/asdf-vm/asdf/issues/1147)
+- [https://github.com/asdf-vm/asdf/issues/1103#issuecomment-1093094933](https://github.com/asdf-vm/asdf/issues/1103#issuecomment-1093094933)
+
+```sh
+rm -f ~/.asdf/shims/* && asdf reshim
+```

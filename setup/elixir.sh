@@ -30,7 +30,7 @@ versions_dir="$defaultdotfilesdir/versions"
 # Read given file line by line
 function read_file() {
   local file_path
-  local -n version_arr
+  local version_arr
   file_path="${1}"
   version_arr="${2}"
   while read -r line; do

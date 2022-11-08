@@ -30,7 +30,7 @@ versions_dir="$defaultdotfilesdir/versions/ruby"
 # Read given file line by line
 function read_file {
   local file_path
-  local -n version_arr
+  local version_arr
   file_path="${versions_dir}"
   version_arr="${1}"
 

@@ -35,12 +35,15 @@ export NODE_REPL_MODE='sloppy'
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8'
 
-# Go path.
+# go.
 export GOPATH="$DEV_DIR/go"
+
+# Go modules.
+# https://stackoverflow.com/questions/67306638/go-test-results-in-go-cannot-find-main-module-but-found-git-config-in-users
+export GO111MODULE=auto
 
 # asdf
 export ASDF_PATH="$HOME/.asdf"
-export ASDF_PYTHON_PATCH_URL="https://github.com/python/cpython/commit/8ea6353.patch?full_index=1" # patch for macOS 11
 
 # miniconda path
 export MINICONDA_PATH="$DEV_DIR/miniconda"
@@ -142,9 +145,6 @@ fi
 # export CPPFLAGS="-I/opt/homebrew/opt/openjdk@8/include"
 # export CFLAGS="-O2 -g -fno-stack-check"
 # export KERL_CONFIGURE_OPTIONS="--disable-hipe --with-ssl=$(brew --prefix openssl)"
-
-# mkcert
-export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
 
 # php dependencies
 export PKG_CONFIG_PATH="$(brew --prefix icu4c)/lib/pkgconfig:$(brew --prefix krb5)/lib/pkgconfig:$(brew --prefix libedit)/lib/pkgconfig:$(brew --prefix libxml2)/lib/pkgconfig:$(brew --prefix openssl)/lib/pkgconfig"

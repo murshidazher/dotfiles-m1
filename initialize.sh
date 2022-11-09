@@ -106,10 +106,13 @@ if [[ -e ~/.ssh/config ]] || is_ci; then
 else
   success "Writing osx specific settings to ssh config... "
   cat <<EOT >>~/.ssh/config
-	Host *
-		AddKeysToAgent yes
-		UseKeychain yes
-		IdentityFile ~/.ssh/id_rsa
+Host *
+  IgnoreUnknown AddKeysToAgent
+  AddKeysToAgent yes
+  ForwardX11 no
+  ForwardAgent yes
+  IdentitiesOnly yes
+
 EOT
 fi
 
@@ -134,6 +137,16 @@ if is_not_ci; then
 
     if [[ $gh_status_code -eq 201 ]]; then
       success "GitHub ssh key added successfully!"
+      cat <<EOT >>~/.ssh/config
+# github
+Host github.com
+  User $ghusername
+  HostName github.com
+  IdentityFile ~/.ssh/id_rsa
+  PreferredAuthentications publickey
+  IdentitiesOnly yes
+
+EOT
       break
     else
       error "Something went wrong. Enter your credentials and try again..."

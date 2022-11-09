@@ -59,6 +59,21 @@ Additionally, if you receive `zsh compinit: insecure directories` warnings when 
 chmod -R go-w "$(brew --prefix)/share"
 ```  
 
+## compinit: insecure directories
+
+If you run across this error,
+
+```sh
+zsh compinit: insecure directories, run compaudit for list.
+Ignore insecure directories and continue [y] or abort compinit [n]?
+```
+
+Remove the group-write permissions with,
+
+```sh
+compaudit | xargs chmod g-w
+```
+
 ## Compinit error
 
 - Refer to this [stackoverflow](https://stackoverflow.com/questions/65747286/zsh-problem-compinit503-no-such-file-or-directory-usr-local-share-zsh-site)

@@ -28,6 +28,9 @@ actioninfo "8. Environment Setup for mobile development."
 actioninfo "9. Cron Task setup."
 actioninfo "10. Final touches."
 
+# Ask for the administrator password upfront.
+is_not_ci && ask_for_sudo
+
 # ---------
 # 1. Backup
 # ---------

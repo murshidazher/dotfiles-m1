@@ -299,7 +299,6 @@ if $brewinstall; then
 
   # SECURITY
   brew install --cask authy
-  brew install --cask bitwarden
   brew install --cask keybase
 
   # DESIGN
@@ -383,6 +382,7 @@ if $brewinstall; then
 
     ## Utilites
     # mas install 1474276998 # HP Smart for Desktop
+    mas install 1352778147 # Bitwarden
     mas install 1056643111 # Clocker
     mas install 692867256  # Simplenote
     mas install 1284863847 # Unsplash Wallpapers

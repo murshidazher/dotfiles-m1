@@ -50,7 +50,7 @@ if hash asdf 2>/dev/null; then
 
   # Install ruby
   # shellcheck source=setup/ruby.sh
-  source ./setup/ruby.sh
+  # source ./setup/ruby.sh
 
   # # Install ant
   # # shellcheck source=setup/ant.sh

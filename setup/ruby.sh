@@ -28,11 +28,9 @@ bash -c 'export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@
 versions_dir="$defaultdotfilesdir/versions/ruby"
 
 # Read given file line by line
-function read_file {
-  local file_path
-  local version_arr
-  file_path="${versions_dir}"
-  version_arr="${1}"
+function read_file() {
+  local file_path="${versions_dir}"
+  local -n version_arr=$1
 
   while read -r line; do
     running "${line}"
@@ -45,7 +43,7 @@ function install_versions {
   local versions_list
   read_file versions_list
 
-  for version in ${versions_list}; do
+  for version in ${versions_list[@]}; do
     running "asdf ruby: installing ${version}"
     asdf install ruby "${version}" >/dev/null 2>&1
     local status=$?
@@ -68,4 +66,4 @@ action "asdf ruby: installing versions"
 install_versions
 
 action "asdf ruby: installing neovim bindings"
-gem install neovim
+sudo gem install neovim

@@ -27,9 +27,8 @@ versions_dir="$defaultdotfilesdir/versions/go"
 # Read given file line by line
 function read_file {
   local file_path
-  local version_arr
+  local -n version_arr=$1
   file_path="${versions_dir}"
-  version_arr="${1}"
 
   while read -r line; do
     running "${line}"
@@ -42,7 +41,7 @@ function install_versions {
   local versions_list
   read_file versions_list
 
-  for version in ${versions_list}; do
+  for version in ${versions_list[@]}; do
     running "asdf: installing ${version} for golang"
     asdf install golang "${version}" >/dev/null 2>&1
     local status=$?

@@ -31,10 +31,9 @@ version_3=""
 
 # Read given file line by line
 function read_file() {
-  local file_path
-  local version_arr
-  file_path="${1}"
-  version_arr="${2}"
+  local file_path=$1
+  local -n version_arr=$2
+
   while read -r line; do
     action "${line}"
     version_arr+=("${line}")
@@ -47,7 +46,7 @@ function install_versions() {
   language="${1}"
   read_file "${versions_dir}/${language}" versions_list
 
-  for version in ${versions_list}; do
+  for version in ${versions_list[@]}; do
     running "asdf python: installing ${version} for ${language}"
     asdf install "${language}" "${version}" >/dev/null 2>&1
     if [[ ${version} == 2* ]]; then

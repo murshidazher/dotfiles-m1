@@ -20,7 +20,7 @@ if [ -z ${dotfilesdir+x} ]; then
 fi
 
 # Check if vim is installed.
-if vim n 2>/dev/null; then
+if type vim > /dev/null 2> /dev/null; then
   botintro "Setting up vim and packages."
 
   # Declare array of vim directories to create.
@@ -52,10 +52,10 @@ if vim n 2>/dev/null; then
 
   # Install bundle plugins (using pathogen)
   cd "$HOME/.vim/bundle" || exit
-  git clone git://github.com/altercation/vim-colors-solarized.git # solarized
-  git clone git://github.com/tpope/vim-sensible.git               # vim sensible
-  git clone git://github.com/scrooloose/nerdtree.git              # nerdtree
-  git clone git://github.com/ctrlpvim/ctrlp.vim.git               # ctrlp
+  git clone git@github.com:altercation/vim-colors-solarized.git # solarized
+  git clone git@github.com:tpope/vim-sensible.git               # vim sensible
+  git clone git@github.com:scrooloose/nerdtree.git              # nerdtree
+  git clone git@github.com:ctrlpvim/ctrlp.vim.git               # ctrlp
   cd "$dotfilesdir" || exit
 
   # fin.

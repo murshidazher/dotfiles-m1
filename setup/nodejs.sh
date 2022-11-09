@@ -20,17 +20,14 @@ fi
 
 action "asdf: setting up Nodejs"
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git >/dev/null 2>&1
-bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
 
 # Set the containing directory for later use
 versions_dir="$defaultdotfilesdir/versions/nodejs"
 
 # Read given file line by line
-function read_file {
-  local file_path
-  local version_arr
-  file_path="${versions_dir}"
-  version_arr="${1}"
+function read_file() {
+  local file_path="${versions_dir}"
+  local -n version_arr=$1
 
   while read -r line; do
     running "${line}"
@@ -45,7 +42,7 @@ function install_versions {
   read_file versions_list
   # if nodejs version is greater than or equal to v15.x (supported by Apple Silicon)
   silicon_support_version=15
-  for version in ${versions_list}; do
+  for version in ${versions_list[@]}; do
     if [ "$(echo "${version}" | cut -d. -f1)" -ge "$silicon_support_version" ]; then
       running "asdf: Installing ${version} for nodejs"
       asdf install nodejs "${version}" >/dev/null 2>&1

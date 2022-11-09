@@ -42,7 +42,7 @@ fi
 # --------
 
 # used by facebook to watch for file changes
-brew install watchman
+# brew install watchman
 
 # ----------
 # 2. Android
@@ -50,6 +50,15 @@ brew install watchman
 
 # Android studio
 brew install --cask android-studio
+
+# Setup Android studio
+is_not_ci && ask_for_confirmation "Did you run the Android Studio and installed the base SDK tools?"
+if answer_is_yes && is_not_ci; then
+  action "Lets continue"
+else
+  cancelled "Please, install the basic android SDK and re-run the script.".
+  exit 1
+fi
 
 touch ~/.android/repositories.cfg
 
@@ -136,7 +145,10 @@ sudo xcodebuild -runFirstLaunch
 sudo xcodebuild -license
 open -a Simulator
 
-sudo gem install cocoapods
+brew install cocoapods
+brew reinstall ruby
+
+# sudo gem install cocoapods
 sudo gem install ffi
 pod setup
 
@@ -144,17 +156,26 @@ pod setup
 # 4. React native
 # ---------------
 
-if hash asdf 2>/dev/null; then
+# Setup React native globally
+is_not_ci && ask_for_confirmation "Do you want to install react native globally?"
+if answer_is_yes && is_not_ci; then
+  runnning "Install react-native globally..."
+  if hash asdf 2>/dev/null; then
+    LATEST_NODEJS_16_VERSION=$(asdf list nodejs | grep '^  16\.' | tail -1 | sed 's: ::g')
+    asdf local nodejs "${LATEST_NODEJS_16_VERSION}"
+    asdf reshim nodejs # to have all the globally install packages in PATH
+    npm install -g react-native-cli
 
-  LATEST_NODEJS_16_VERSION=$(asdf list nodejs | grep '^  16\.' | tail -1 | sed 's: ::g')
-  asdf local nodejs "${LATEST_NODEJS_16_VERSION}"
-  asdf reshim nodejs # to have all the globally install packages in PATH
-  npm install -g react-native-cli
+    # to see connected android devices
+    # adb devices
 
-  # to see connected android devices
-  # adb devices
-
-  # fin.
+    # fin.
+  else
+    echo "WARNING: asdf not found."
+  fi
 else
-  echo "WARNING: asdf not found."
+  cancelled "Done setting up react-native.".
+  exit 0
 fi
+
+

@@ -26,7 +26,7 @@ asdf plugin-add dart https://github.com/patoconnor43/asdf-dart.git
 versions_dir="$defaultdotfilesdir/versions/dart"
 
 # Read given file line by line
-function read_file {
+function read_file() {
   local file_path
   local version_arr
   file_path="${versions_dir}"
@@ -43,7 +43,7 @@ function install_versions {
   local versions_list
   read_file versions_list
 
-  for version in ${versions_list}; do
+  for version in ${versions_list[@]}; do
     running "asdf: installing ${version} for dart"
     asdf install dart "${version}" >/dev/null 2>&1
     local status=$?

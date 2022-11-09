@@ -45,13 +45,9 @@ burkeholland.simple-react-snippets
 chakrounanas.turbo-console-log
 rbbit.typescript-hero
 jrebocho.vscode-random
-jpoissonnier.vscode-styled-components
-sdras.vue-vscode-snippets
 redhat.vscode-yaml
-deerawan.vscode-dash
 hashicorp.terraform
 ritwickdey.liveserver
-vsls-contrib.gistfs
 gruntfuggly.todo-tree
 qezhu.gitlink
 humao.rest-client
@@ -62,7 +58,6 @@ oderwat.indent-rainbow
 johnpapa.vscode-peacock
 mechatroner.rainbow-csv
 wayou.vscode-todo-highlight
-asciidoctor.asciidoctor-vscode
 d-koppenhagen.file-tree-to-text-generator
 ms-vscode.js-debug-nightly
 louiswt.regexp-preview

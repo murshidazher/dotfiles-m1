@@ -5,7 +5,6 @@ nucllear.vscode-extension-auto-import
 formulahendry.auto-rename-tag
 hookyqr.beautify
 bungcip.better-toml
-ms-vscode.cpptools
 formulahendry.code-runner
 streetsidesoftware.code-spell-checker
 naumovs.color-highlight
@@ -66,7 +65,6 @@ ms-vsliveshare.vsliveshare
 mikestead.dotenv
 pnp.polacode
 equinusocio.vsc-community-material-theme
-patbenatar.advanced-new-file
 alefragnani.bookmarks
 wraith13.zoombar-vscode
 amazonwebservices.aws-toolkit-vscode

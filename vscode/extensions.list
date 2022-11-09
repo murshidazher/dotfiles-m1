@@ -8,8 +8,6 @@ bungcip.better-toml
 formulahendry.code-runner
 streetsidesoftware.code-spell-checker
 naumovs.color-highlight
-bestvow.css-compressor
-jsonchou.css-compact
 ms-azuretools.vscode-docker
 editorconfig.editorconfig
 dbaeumer.vscode-eslint

@@ -312,7 +312,7 @@ if $brewinstall; then
   # brew install --cask sketch@3.x # use version 63.x
 
   # DEVELOPMENT
-  brew install --cask brave-browser
+  # brew install --cask brave-browser
   brew install --cask firefox-developer-edition
   brew install --cask ngrok
   brew install --cask mongodb-compass

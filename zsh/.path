@@ -14,14 +14,9 @@ PATH="$PATH:/sbin"
 PATH="$PATH:/usr/X11/b‌​in"
 
 # brew path
-# if [[ echo "$(arch)" == "arm64" ]]; then
-#   export PATH="/opt/homebrew/bin:${PATH}" # arm64
-# else
-#   export PATH="/usr/local/homebrew/bin:${PATH}" # x86_64
-# fi
-export PATH="/opt/homebrew/bin:${PATH}" # arm64
+PATH="/opt/homebrew/bin:${PATH}" # arm64
 
-# Node -- use project specific binaries before global ones.
+# node -- use project specific binaries before global ones.
 PATH="node_modules/.bin:vendor/bin:$HOME/.node-global-modules/bin:$PATH"
 
 # coreutils
@@ -32,7 +27,6 @@ PATH="$(brew --prefix findutils)/libexec/gnubin:$PATH"
 
 # gnu-sed
 PATH="$(brew --prefix gnu-sed)/libexec/gnubin:$PATH"
-
 
 # vim/vi
 PATH="/usr/local/bin/vim:$PATH"

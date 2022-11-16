@@ -53,6 +53,12 @@ function install_versions {
       fi
     else
       # install the nodejs from binaries to Rosetta
+      # note: if this doesn't work, download it manually.
+      # VERSION=14.18.0
+      # wget -c https://nodejs.org/dist/v$VERSION/node-v$VERSION-darwin-x64.tar.gz -O - | tar -xz
+      # mv node-v$VERSION-darwin-x64 ~/.asdf/installs/nodejs/$VERSION
+      # asdf reshim nodejs
+      # asdf list nodejs
       running "asdf: Installing ${version} for nodejs from binaries"
       NODEJS_CONFIGURE_OPTIONS='--with-intl=full-icu --download=all' NODEJS_CHECK_SIGNATURES="no" asdf install nodejs ref:v"${version}" >/dev/null 2>&1
       local status=$?

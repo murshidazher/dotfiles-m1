@@ -2,7 +2,7 @@
 
 # [dotfiles-m1](https://github.com/murshidazher/dotfiles-m1)
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/murshidazher/dotfiles-m1/MacOS%20Agent%20build?style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/murshidazher/dotfiles-m1/push.yaml?style=flat-square)
 ![Code Linter](https://img.shields.io/static/v1?label=lint&message=shellcheck&color=FFF1CE&style=flat-square)
 ![Code Style](https://img.shields.io/static/v1?label=style&message=shfmt&color=FFF2F9&style=flat-square)
 
@@ -94,17 +94,17 @@ When setting up a new Mac, you may want to set some sensible macOS defaults:
 ### Projects
 
 ```sh
-$ npm rebuild node-sass
+npm rebuild node-sass
 ```
 
 ### Ant
 
 ```sh
-$ asdf plugin add ant
-$ asdf list-all ant
-$ asdf install ant latest
-$ asdf global ant latest
-$ ant -version
+asdf plugin add ant
+asdf list-all ant
+asdf install ant latest
+asdf global ant latest
+ant -version
 ```
 
 ### Ndk Setup
@@ -157,8 +157,9 @@ $ npm run android:qa
 #### iOS setup
 
 Known issues;
-- https://github.com/facebook/react-native/pull/32486/files
-- https://github.com/facebook/react-native/tree/0.68-stable
+
+- <https://github.com/facebook/react-native/pull/32486/files>
+- <https://github.com/facebook/react-native/tree/0.68-stable>
 
 ```sh
 # clean previous installs of ffi and cocoapods
@@ -178,7 +179,7 @@ $ pod install
 #### Clean install pods
 
 ```sh
-$ cleanpod # will clean install pods
+cleanpod # will clean install pods
 ```
 
 ## Custom bash prompt
@@ -198,7 +199,7 @@ Further details are in the `.zsh_prompt` file.
 
 ## Notes
 
-- Creating a [custom git hook](https://help.gitkraken.com/gitkraken-client/githooksexample/) 
+- Creating a [custom git hook](https://help.gitkraken.com/gitkraken-client/githooksexample/)
 
 ## TODO
 

@@ -81,6 +81,9 @@
   "[typescriptreact]": {
     "editor.formatOnSave": true
   },
+  "[markdown]": {
+    "editor.defaultFormatter": "unifiedjs.vscode-remark"
+  },
   "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
   "emmet.includeLanguages": {
     "vue": "html",
@@ -133,9 +136,6 @@
   "files.associations": {
     "*int.js": "javascript"
   },
-  "[markdown]": {
-    "editor.defaultFormatter": "unifiedjs.vscode-remark"
-  },
   "blockhighlight.background": ["211", "211", "211", ".03"],
   "polacode.backgroundColor": "#ffffff",
   "polacode.transparentBackground": true,
@@ -170,5 +170,5 @@
     "!Select sequence",
     "!Split",
     "!Split sequence"
-  ],
+  ]
 }

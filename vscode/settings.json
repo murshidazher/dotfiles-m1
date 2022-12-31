@@ -133,6 +133,9 @@
   "files.associations": {
     "*int.js": "javascript"
   },
+  "[markdown]": {
+    "editor.defaultFormatter": "unifiedjs.vscode-remark"
+  },
   "blockhighlight.background": ["211", "211", "211", ".03"],
   "polacode.backgroundColor": "#ffffff",
   "polacode.transparentBackground": true,

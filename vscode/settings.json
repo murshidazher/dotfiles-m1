@@ -14,8 +14,6 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.colorTheme": "Default Dark+",
-  // "workbench.colorTheme": "Nord",
-  // "workbench.colorTheme": "Material Theme Palenight High Contrast",
   "editor.tokenColorCustomizations": {
     "[Nord]": {
       "textMateRules": [

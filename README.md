@@ -203,8 +203,6 @@ Further details are in the `.zsh_prompt` file.
 
 ## TODO
 
-- [ ] Refactor: the initialize script
-- [ ] Refactor: Add common configurations to docs directory
 - [ ] Auto-format shell files using `brew install shellcheck && brew install shfmt && shfmt -l -w script.sh`
 - [ ] Check precommit hook for [linting](https://github.com/jumanjihouse/pre-commit-hooks#configure-pre-commit)
 - [ ] Dynamically add inputs to the buffer and check the initialize script

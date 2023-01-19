@@ -353,7 +353,7 @@ if $brewinstall; then
   brew install --cask logitech-options
 
   # RESEARCH
-  # brew install --cask zotero
+  brew install --cask zotero
 
   # OTHERS
   brew install --cask cakebrew

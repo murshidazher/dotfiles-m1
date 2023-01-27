@@ -326,9 +326,15 @@ alias gmailcfg='
 f() {
   local first_arg="$1";
   shift 1;
-  if [ "$@" == "init" -a ! -f ${HOME}/.gmailctl/user/${first_arg}/credentials.json ]; then
-    cp ${HOME}/.gmailctl/credentials.json ${HOME}/.gmailctl/user/${first_arg}/;
+  if ! [ -f ${HOME}/.gmailctl/user/${first_arg}/credentials.json ]; then
+    echo "$@"
+    echo "$@ 2"
+    if [ "$@" = "init" ]; then
+      echo "${first_arg} -- $@"
+      cp ${HOME}/.gmailctl/credentials.example.json ${HOME}/.gmailctl/user/${first_arg}/credentials.json;
+    fi;
   fi;
+  echo "${first_arg} 22-- $@"
   gmailctl --config=${HOME}/.gmailctl/user/${first_arg} "$@";
   unset -f f;
 };

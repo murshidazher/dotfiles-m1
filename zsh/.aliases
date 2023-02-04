@@ -325,13 +325,26 @@ alias javav="java -version"
 alias gmailcfg='
 f() {
   local first_arg="$1";
+  local user_profile_path="${HOME}/.gmailctl/user/${first_arg}"
   shift 1;
-  if ! [ -f ${HOME}/.gmailctl/user/${first_arg}/credentials.json ]; then
-    if [ "$@" = "init" ]; then
-      cp ${HOME}/.gmailctl/credentials.example.json ${HOME}/.gmailctl/user/${first_arg}/credentials.json;
+
+  local additional_args="$@";
+
+  if ! [ -f ${user_profile_path}/credentials.json ]; then
+    if [ ${additional_args} = "init" ]; then
+      cp ${HOME}/.gmailctl/credentials.example.json ${user_profile_path}/credentials.json;
     fi;
   fi;
-  gmailctl --config=${HOME}/.gmailctl/user/${first_arg} "$@";
+
+  if [ ${additional_args} = "login" ]; then
+    additional_args="init";
+
+    if [ -f ${user_profile_path}/token.json ]; then
+      rm -rf ${user_profile_path}/token.json
+    fi;
+  fi;
+
+  gmailctl --config=${user_profile_path} ${additional_args};
   unset -f f;
 };
 f'

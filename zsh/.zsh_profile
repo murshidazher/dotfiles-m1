@@ -14,6 +14,9 @@ source "$HOME/.zsh_prompt"
 # plugins
 source "$HOME/.plugins"
 
+# rustup - cargo package manager
+[ -d "$HOME/.cargo" ] && source "$HOME/.cargo/env"
+
 # Generic colouriser.
 GRC=$(which grc)
 if [ "$TERM" != dumb ] && [ -n "$GRC" ]; then

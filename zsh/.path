@@ -85,6 +85,8 @@ PATH="$PATH:$HBP/opt"
 # libxml2
 PATH="/opt/homebrew/opt/libxml2/bin:$PATH"
 
+# rustup
+[ -d "$HOME/.cargo" ] && PATH="$PATH:$HOME/.cargo/env"
 
 # add Andorid tools to commandline
 if [ -e "$HOME/Library/Android" ]; then

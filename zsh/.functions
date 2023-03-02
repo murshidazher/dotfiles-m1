@@ -399,6 +399,11 @@ function beer() {
   # update app store downloaded files
   mas outdated
   mas upgrade
+  # update rust
+  if type rustup >/dev/null 2>&1; then
+    echo '🦀 Updating rust...'
+    rustup update
+  fi
   # update omyzsh
   echo '🦄 Update Oh my Zsh...'
   omz update

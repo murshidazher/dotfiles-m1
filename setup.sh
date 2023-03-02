@@ -93,6 +93,9 @@ source ./setup/asdf.sh
 # Node setup
 # source ./setup/node.sh
 
+# Rust setup
+# source ./setup/rust.sh
+
 # vim setup
 source ./setup/vim.sh
 

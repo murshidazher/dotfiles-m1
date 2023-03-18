@@ -8,7 +8,6 @@ bungcip.better-toml
 formulahendry.code-runner
 streetsidesoftware.code-spell-checker
 naumovs.color-highlight
-ms-azuretools.vscode-docker
 editorconfig.editorconfig
 dbaeumer.vscode-eslint
 file-icons.file-icons
@@ -39,15 +38,11 @@ xabikos.reactsnippets
 foxundermoon.shell-format
 burkeholland.simple-react-snippets
 chakrounanas.turbo-console-log
-rbbit.typescript-hero
 jrebocho.vscode-random
 redhat.vscode-yaml
 hashicorp.terraform
-ritwickdey.liveserver
 gruntfuggly.todo-tree
 qezhu.gitlink
-humao.rest-client
-mutantdino.resourcemonitor
 kisstkondoros.vscode-gutter-preview
 byi8220.indented-block-highlighting
 oderwat.indent-rainbow
@@ -58,7 +53,6 @@ d-koppenhagen.file-tree-to-text-generator
 ms-vscode.js-debug-nightly
 louiswt.regexp-preview
 knisterpeter.vscode-commitizen
-ms-vsliveshare.vsliveshare
 mikestead.dotenv
 pnp.polacode
 equinusocio.vsc-community-material-theme

@@ -271,6 +271,9 @@ command -v grunt >/dev/null && alias grunt="grunt --stack"
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
 alias mbrew='arch -arm64e /opt/homebrew/bin/brew'
 
+# shopt
+alias shopt="$HOME/bin/shopt"
+
 # tmux
 alias tls='tmux list-sessions'
 alias tn='tmux new -s'

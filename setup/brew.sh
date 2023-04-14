@@ -222,9 +222,9 @@ if $brewinstall; then
   brew install hugo
   brew install jsonnet
 
-  # brew install mkcert
+  brew install mkcert
   # brew install nss # if you use Firefox
-  # mkcert -install
+  mkcert -install
 
   brew install shellcheck # shell script linter
   brew install shfmt      # for formatting shell scripts

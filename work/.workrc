@@ -1,8 +1,6 @@
 alias devw="cd $HOME/work/src/github"
 
 # work specific projects aliases
-alias ops="cd $HOME/work/src/github/ops"
-alias schedule-jobs="cd $HOME/work/src/github/scheduled-jobs"
 alias sshots="cd $HOME/work/screenshots"
 alias dbs="cd $HOME/work/db_backup"
 alias iosarchives="cd $HOME/Library/Developer/Xcode/Archives"

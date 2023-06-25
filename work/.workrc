@@ -1,17 +1,6 @@
-alias devdif="cd $HOME/work/src/github"
+alias devw="cd $HOME/work/src/github"
 
-# :Different projects
-alias api="cd $HOME/work/src/github/api"
-alias andi="cd $HOME/work/src/github/andi"
-alias admin-portal="cd $HOME/work/src/github/admin-portal-frontend"
-alias yakka="cd $HOME/work/src/github/yakka"
-alias digitalreign="cd $HOME/work/src/github/digitalreign"
-alias admin-backend="cd $HOME/work/src/github/admin-portal-backend"
-alias owner-portal="cd $HOME/work/src/github/owner-portal-frontend"
-alias owner-app="cd $HOME/work/src/github/react-native-owner-app"
-alias tenant-app="cd $HOME/work/src/github/react-native-tenant-app"
-alias payment="cd $HOME/work/src/github/payment-processor"
-alias butter-repo="cd $HOME/work/src/github/butter-cli"
+# work specific projects aliases
 alias ops="cd $HOME/work/src/github/ops"
 alias schedule-jobs="cd $HOME/work/src/github/scheduled-jobs"
 alias sshots="cd $HOME/work/screenshots"
@@ -19,11 +8,6 @@ alias dbs="cd $HOME/work/db_backup"
 alias iosarchives="cd $HOME/Library/Developer/Xcode/Archives"
 
 # Docker
-
-## database variables
-export DIFFERENT_MYSQL_DUMP_PATH=$HOME/work/db_backup/mysql/mysql.prod.different_v3.3.20211006.sql
-export DIFFERENT_MONGO_DUMP_PATH=$HOME/work/db_backup/mongodb/mongodb-prod-different-20211008
-
 alias ddcdb="docker-compose -f=$HOME/work/src/github/api/docker-compose.yml up"
 
 # alias ddmr="mongorestore --uri=mongodb://localhost:27017/$1 ./"

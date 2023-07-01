@@ -311,6 +311,9 @@ if $brewinstall; then
   # Cask outdated but versioned
   # brew install --cask sketch@3.x # use version 63.x
 
+  # Digital Tablet Drivers (huion)
+  brew install --cask huiontablet
+
   # DEVELOPMENT
   # brew install --cask brave-browser
   brew install --cask firefox-developer-edition

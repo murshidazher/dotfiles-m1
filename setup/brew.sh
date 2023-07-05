@@ -353,7 +353,6 @@ if $brewinstall; then
   # DRIVERS
   running "Installing drivers"
   brew tap homebrew/cask-drivers
-  brew install --cask logitech-options
 
   # RESEARCH
   brew install --cask zotero

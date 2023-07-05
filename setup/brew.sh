@@ -292,10 +292,10 @@ if $brewinstall; then
   brew install --cask vlc
   brew install --cask appcleaner
   brew install --cask zoom
+  brew install --cask microsoft-teams
   brew install --cask whatsapp
   brew install --cask openinterminal
   brew install --cask recordit
-  brew install --cask aerial
 
   # SECURITY
   brew install --cask authy

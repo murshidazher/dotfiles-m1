@@ -64,6 +64,15 @@ git aliases # list all available aliases
 
 Local config is available using `~/.gitconfig.local`
 
+```txt
+[gpg]
+program = gpg
+[user]
+email = <email>
+signingkey = <key>
+name = <name>
+```
+
 ### Git CLI
 
 To use `gh` cli commands :fire:,

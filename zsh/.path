@@ -82,6 +82,8 @@ PATH="$PATH:$HBP/bin"
 PATH="$PATH:$HBP/sbin"
 PATH="$PATH:$HBP/opt"
 
+PATH="$HOME/.docker/bin:$PATH"
+
 # libxml2
 PATH="/opt/homebrew/opt/libxml2/bin:$PATH"
 

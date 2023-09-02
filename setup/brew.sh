@@ -316,7 +316,6 @@ if $brewinstall; then
 
   # DEVELOPMENT
   # brew install --cask brave-browser
-  brew install --cask firefox-developer-edition
   brew install --cask ngrok
   brew install --cask mongodb-compass
   brew install --cask tableplus

@@ -323,6 +323,7 @@ if $brewinstall; then
   brew install --cask visual-studio-code
   brew install --cask intellij-idea-ce
   brew install --cask fork
+  brew install --cask postman
 
   # DEVOPS
   brew install --cask aws-vault

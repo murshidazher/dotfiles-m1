@@ -5,5 +5,5 @@ golang 1.17.1
 nodejs 20.5.1
 maven 3.6.3
 gradle 6.8.3
-python 3.9.1 2.7.18
+python 3.10.0 2.7.18
 ant 1.10.10

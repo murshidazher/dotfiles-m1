@@ -61,7 +61,16 @@ done
 # import homebrew bash-completions
 source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
 source "$(brew --prefix)/etc/bash_completion.d/brew"
-source "$(brew --prefix)/etc/bash_completion.d/gibo-completion.bash"
+
+# check if gibo is installed
+if command -v gibo >/dev/null 2>&1; then
+    # path to the gibo-completion.bash file
+    GIBO_COMPLETION_PATH="$(brew --prefix)/etc/bash_completion.d/gibo-completion.bash"
+
+    # check if the completion file exists
+    [[ ! -f "$GIBO_COMPLETION_PATH" ]] && gibo completion zsh > "$GIBO_COMPLETION_PATH"
+    source "$GIBO_COMPLETION_PATH"
+fi
 
 # matches case insensitive for lowercase
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'

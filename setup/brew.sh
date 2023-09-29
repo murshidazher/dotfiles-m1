@@ -135,7 +135,7 @@ if $brewinstall; then
   brew install diff-so-fancy
   brew install fzf
   brew install gh
-  brew install gibo && gibo -l
+  brew install gibo && gibo list
   brew install git-delta
   brew install git-extras
   brew install git-lfs

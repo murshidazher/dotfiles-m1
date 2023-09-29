@@ -125,7 +125,7 @@ Bash 4 and auto-completion
 - `cloc`
 - `diff-so-fancy`
 - `fzf`
-- `gibo && gibo -l`
+- `gibo`
 - `git-extras`
 - `git-lfs`
 - `grc`

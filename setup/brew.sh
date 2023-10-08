@@ -35,7 +35,7 @@ if $brewinstall; then
   action "Installing Homebrew"
   # Check if brew installed, install if not.
   if ! hash brew 2>/dev/null; then
-    # note: if your /usr/local is locked down (like at Google), you can do this to place everything in ~/.homebrew
+    # Note: if your /usr/local is locked down (like at Google), you can do this to place everything in ~/.homebrew
     # mkdir "$HOME/.homebrew" && curl -L https://github.com/mxcl/homebrew/tarball/master | tar xz --strip 1 -C $HOME/.homebrew
     # then add this to your path: export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$PATH
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -223,11 +223,11 @@ if $brewinstall; then
   brew install jsonnet
 
   brew install mkcert
-  # brew install nss # if you use Firefox
+  # brew install nss        # if you use Firefox
   mkcert -install
 
-  brew install shellcheck # shell script linter
-  brew install shfmt      # for formatting shell scripts
+  brew install shellcheck   # shell script linter
+  brew install shfmt        # for formatting shell scripts
 
   # DATABASES
   brew install mysql@5.7
@@ -237,8 +237,6 @@ if $brewinstall; then
 
   # DEVOPS
   brew install awscli
-  # brew install nginx
-  # brew install puma/puma/puma-dev
   # brew install k6
 
   # docker

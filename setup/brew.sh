@@ -252,6 +252,9 @@ if $brewinstall; then
   brew install sfnt2woff-zopfli
   brew install woff2
 
+  # VPN
+  brew install --cask tunnelbear
+
   # FONTS
   running "Installing fonts"
 

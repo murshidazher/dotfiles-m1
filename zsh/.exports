@@ -45,6 +45,9 @@ export GO111MODULE=auto
 # asdf
 export ASDF_PATH="$HOME/.asdf"
 
+# flutter
+export FLUTTER_ROOT="$(asdf where flutter)"
+
 # miniconda path
 export MINICONDA_PATH="$DEV_DIR/miniconda"
 

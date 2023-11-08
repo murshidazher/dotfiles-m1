@@ -315,6 +315,9 @@ if $brewinstall; then
   # Digital Tablet Drivers (huion)
   brew install --cask huiontablet
 
+  # Figma Agent
+  brew install --cask figma-agent
+
   # DEVELOPMENT
   # brew install --cask brave-browser
   brew install --cask ngrok

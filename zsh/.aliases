@@ -307,6 +307,9 @@ alias chromekill='kill -9 $(ps aux | grep -i "Chrome\ Helper" | awk "{print $2}"
 # Kill all brave tabs
 alias bravekill="ps ux | grep '[B]rave Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 
+# Cpu info
+alias cpuinfo="sysctl -a | grep machdep.cpu"
+
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
 

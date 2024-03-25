@@ -418,6 +418,15 @@ function restart() {
   fi
 }
 
+# type a key automatically
+function autotype() {
+  local delay_amount="$1"
+  local key="$2"
+
+  echo '⏳ Running autotype...'
+  osascript -e "delay $delay_amount" -e "tell application \"System Events\"" -e "keystroke \"$key\"" -e "end tell"
+}
+
 # clean install Pods
 function cleanpod() {
   echo '🍺 Cleanup Pod Cache...'

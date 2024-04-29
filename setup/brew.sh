@@ -173,7 +173,7 @@ if $brewinstall; then
   brew install m-cli
   brew install carlocab/personal/unrar
   brew install vbindiff
-  brew install wifi-password
+  # brew install wifi-password
   brew install zopfli
   brew install thefuck
   brew install cppunit

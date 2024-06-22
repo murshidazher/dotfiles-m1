@@ -4,7 +4,9 @@ steoates.autoimport
 nucllear.vscode-extension-auto-import
 formulahendry.auto-rename-tag
 hookyqr.beautify
-bungcip.better-toml
+robocorp.robotframework-lsp
+robocorp.robocorp-code
+antfu.file-nesting
 formulahendry.code-runner
 streetsidesoftware.code-spell-checker
 naumovs.color-highlight

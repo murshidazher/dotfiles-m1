@@ -1,4 +1,6 @@
 alias devw="cd $HOME/work/src/github"
+alias devcrease="cd $HOME/dev/src/github/crease-tech"
+
 
 # work specific projects aliases
 alias sshots="cd $HOME/work/screenshots"

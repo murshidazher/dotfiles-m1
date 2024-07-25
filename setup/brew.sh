@@ -200,6 +200,7 @@ if $brewinstall; then
   # DEV ENV
   brew install autoenv
   brew install direnv
+  brew install infisical/get-cli/infisical
 
   # BUILD TOOLS
   brew install autoconf

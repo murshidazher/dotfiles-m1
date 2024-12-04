@@ -193,6 +193,9 @@ if $brewinstall; then
   brew install libpng
   brew install libxml2
   brew install libzip
+  brew install gmp
+  brew install libsodium
+  brew install imagemagick
   brew install pkg-config
   brew install re2c
   brew install zlib

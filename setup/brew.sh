@@ -329,6 +329,7 @@ if $brewinstall; then
   brew install --cask tableplus
   brew install --cask visual-studio-code
   brew install --cask intellij-idea-ce
+  brew install --cask cursor
   brew install --cask fork
   brew install --cask postman
 

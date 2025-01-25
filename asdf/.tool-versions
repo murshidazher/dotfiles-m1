@@ -2,7 +2,7 @@ java zulu-11.45.27
 elixir 1.9.4-otp-22
 java zulu-11.45.27
 golang 1.17.1
-nodejs 20.5.1
+nodejs 22.5.1
 maven 3.6.3
 gradle 6.8.3
 python 3.9.1

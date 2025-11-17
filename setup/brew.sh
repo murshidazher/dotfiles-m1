@@ -399,6 +399,7 @@ if $brewinstall; then
     mas install 1284863847 # Unsplash Wallpapers
     mas install 937984704  # Amphetamine
     mas install 1491764008 # Red 2
+    mas install 1502839586 # Hand mirror
   else
     cancelled "App Store login not complete. Skipping installing App Store Apps"
   fi

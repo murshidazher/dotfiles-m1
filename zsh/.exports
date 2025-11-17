@@ -38,6 +38,16 @@ export PYTHONIOENCODING='UTF-8'
 # go.
 export GOPATH="$DEV_DIR/go"
 
+# kubernetes
+export KUBECONFIG="$HOME/.kube/config"
+
+# pnpm
+export PNPM_HOME="/Users/murshidazher/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
 # Go modules.
 # https://stackoverflow.com/questions/67306638/go-test-results-in-go-cannot-find-main-module-but-found-git-config-in-users
 export GO111MODULE=auto

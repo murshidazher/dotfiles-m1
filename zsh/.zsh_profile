@@ -59,7 +59,6 @@ done
 [[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
 
 # import homebrew bash-completions
-source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
 source "$(brew --prefix)/etc/bash_completion.d/brew"
 
 # check if gibo is installed
@@ -102,7 +101,6 @@ zpath="$(brew --prefix)/etc/profile.d/z.sh"
 
 # asdf
 source "$(brew --prefix asdf)/libexec/asdf.sh"
-source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
 
 # pyevnv
 if hash pyenv 2>/dev/null; then

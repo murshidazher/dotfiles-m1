@@ -173,7 +173,6 @@ whitespace = fix
 [core]
 # convert CRLF to LF on commit, but not the other way around
 autocrlf = input
-hooksPath = ~/git-hooks
 
 # Use custom `.gitignore` and `.gitattributes`
 excludesfile = ~/.gitignore
@@ -305,3 +304,5 @@ insteadOf = "gist:"
 # Local modifications that shouldn't be stored in a repo.
 path = "./.gitconfig.local"
 
+[lefthook]
+	enabled = false

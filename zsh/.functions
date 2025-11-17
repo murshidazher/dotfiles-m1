@@ -232,13 +232,13 @@ function getcertnames() {
   fi
 }
 
-# `st` with no arguments opens the current directory in VSCode,
+# `st` with no arguments opens the current directory in Cursor,
 # otherwise opens the given location.
-function vs() {
+function code() {
   if [ $# -eq 0 ]; then
-    open -a "Visual Studio Code" .
+    open -a "Cursor" .
   else
-    open -a "Visual Studio Code" $@
+    open -a "Cursor" $@
   fi
 }
 
@@ -424,8 +424,24 @@ function beer() {
   # update omyzsh
   echo '🦄 Update Oh my Zsh...'
   omz update
-  echo '🔄 Reset bash complete path'
-  sudo ln -fsv /opt/homebrew/opt/asdf/etc/bash_completion.d/asdf.bash /opt/homebrew/completions/zsh/_asdf
+  fix-asdf-completions
+}
+
+# Fix asdf zsh completions immediately (standalone function)
+function fix-asdf-completions() {
+  echo '🔄 Fixing asdf zsh completions...'
+  # Fix the broken symlink at completions/zsh/_asdf
+  if [ -L /opt/homebrew/completions/zsh/_asdf ]; then
+    sudo rm -f /opt/homebrew/completions/zsh/_asdf
+  fi
+  sudo ln -fsv /opt/homebrew/opt/asdf/share/zsh/site-functions/_asdf /opt/homebrew/completions/zsh/_asdf
+  # Fix the symlink at share/zsh/site-functions/_asdf (where zsh expects it)
+  if [ -L /opt/homebrew/share/zsh/site-functions/_asdf ]; then
+    sudo rm -f /opt/homebrew/share/zsh/site-functions/_asdf
+  fi
+  sudo ln -fsv /opt/homebrew/opt/asdf/share/zsh/site-functions/_asdf /opt/homebrew/share/zsh/site-functions/_asdf
+  echo '✅ asdf zsh completions fixed'
+  echo '💡 You may need to restart your terminal or run: compinit'
 }
 
 function restart() {

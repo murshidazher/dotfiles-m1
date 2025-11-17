@@ -386,19 +386,18 @@ if $brewinstall; then
   is_not_ci && ask_for_confirmation "\nIs app store login complete. (y/n)?"
 
   # Flag install to go if user approves
-  # Make sure you have installed these app atleast once manually using your current account
+  # Make sure you have installed these app at least once manually using your current account
   # else app store wouldn't let you download them
   # mas search <AppName>
   if answer_is_yes && is_not_ci; then
 
-    ## Utilites
+    ## Utilities
     # mas install 1474276998 # HP Smart for Desktop
     mas install 1352778147 # Bitwarden
     mas install 1056643111 # Clocker
     mas install 692867256  # Simplenote
     mas install 1284863847 # Unsplash Wallpapers
     mas install 937984704  # Amphetamine
-    mas install 1491764008 # Red 2
     mas install 1502839586 # Hand mirror
   else
     cancelled "App Store login not complete. Skipping installing App Store Apps"

@@ -263,7 +263,7 @@ if $brewinstall; then
   running "Installing fonts"
 
   brew tap murshidazher/homebrew-murshid
-  brew tap homebrew/cask-fonts
+
   brew install svn
 
   brew install --cask font-domine
@@ -284,7 +284,6 @@ if $brewinstall; then
 
   # APPLICATIONS
   brew tap homebrew/cask
-  brew tap homebrew/cask-versions
 
   # GENERAL
   brew install --cask diskwave
@@ -368,6 +367,15 @@ if $brewinstall; then
 
   # OTHERS
   brew install --cask cakebrew
+
+  # WORK
+  running "Installing work apps"
+  ask_for_confirmation "\nInstall Windows App? (y/n)"
+  if answer_is_yes; then
+    brew install --cask windows-app
+  else
+    cancelled "Windows App not installed."
+  fi
 
   # Install Mac App Store Applications.
   # requires: brew install mas

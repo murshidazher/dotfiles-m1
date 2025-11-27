@@ -424,6 +424,11 @@ function beer() {
   # update omyzsh
   echo '🦄 Update Oh my Zsh...'
   omz update
+  # update cursor extensions
+  if type cursor >/dev/null 2>&1; then
+    echo '📦 Updating Cursor extensions...'
+    cursor --update-extensions
+  fi
   fix-asdf-completions
 }
 

@@ -17,16 +17,16 @@ fi
 # add permissions
 # xattr -dr com.apple.quarantine /Applications/Visual\ Studio\ Code.app
 
-botintro "Manage VSCode Extensions"
+botintro "Manage Cursor Extensions"
 
-# install vscode extensions
-code --list-extensions | comm -23 - "$defaultdotfilesdir"/vscode/extensions.list | xargs -I {} code --uninstall-extension {} # Removes old extensions
-code --list-extensions | comm -13 - "$defaultdotfilesdir"/vscode/extensions.list | xargs -I {} code --install-extension {}   # Adds new extensions
+# install cursor extensions
+cursor --list-extensions | comm -23 - "$defaultdotfilesdir"/vscode/extensions.list | xargs -I {} cursor --uninstall-extension {} # Removes old extensions
+cursor --list-extensions | comm -13 - "$defaultdotfilesdir"/vscode/extensions.list | xargs -I {} cursor --install-extension {}   # Adds new extensions
 
 # if ci check if all the extensions were installed
 if is_ci; then
-  botintro "Checking if all VSCode Extensions were installed"
-  code --list-extensions >curr-ext.list
+  botintro "Checking if all Cursor Extensions were installed"
+  cursor --list-extensions >curr-ext.list
   tr '[:upper:]' '[:lower:]' <curr-ext.list | sponge curr-ext.list # convert to lowercase
   comm -23 <(sort ./curr-ext.list) <(sort "$defaultdotfilesdir"/vscode/extensions.list) >ext-diff.list
   cat ext-diff.list # print the difference

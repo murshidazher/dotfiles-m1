@@ -102,8 +102,8 @@ source ./setup/vim.sh
 # miniconda setup
 source ./setup/miniconda.sh
 
-# vscode setup
-source ./setup/vscode.sh
+# cursor setup
+source ./setup/cursor.sh
 
 # chrome extensions setup
 source ./setup/chrome.sh

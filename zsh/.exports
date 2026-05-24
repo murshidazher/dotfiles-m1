@@ -55,8 +55,11 @@ export GO111MODULE=auto
 # asdf
 export ASDF_PATH="$HOME/.asdf"
 
-# flutter
-export FLUTTER_ROOT="$(asdf where flutter)"
+# If the asdf is breaking 
+#  $ brew reinstall asdf
+#  $ brew link --overwrite asdf
+# asdf 0.19+ (no asdf.sh — add shims to PATH; binary is already on PATH via Homebrew)
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # miniconda path
 export MINICONDA_PATH="$DEV_DIR/miniconda"

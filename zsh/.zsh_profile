@@ -99,9 +99,6 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTerm2 iTune
 zpath="$(brew --prefix)/etc/profile.d/z.sh"
 [ -s $zpath ] && source $zpath
 
-# asdf
-source "$(brew --prefix asdf)/libexec/asdf.sh"
-
 # pyevnv
 if hash pyenv 2>/dev/null; then
   eval "$(pyenv init -)"
